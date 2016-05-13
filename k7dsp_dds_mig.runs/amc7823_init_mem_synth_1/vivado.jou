@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Thu May 12 18:39:26 2016
+# Process ID: 6768
+# Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/amc7823_init_mem_synth_1/amc7823_init_mem.vds
+# Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/amc7823_init_mem_synth_1\vivado.jou
+#-----------------------------------------------------------
+source amc7823_init_mem.tcl

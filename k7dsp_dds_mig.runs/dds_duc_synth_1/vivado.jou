@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Thu Jan 21 17:31:22 2016
+# Process ID: 4732
+# Log file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/dds_duc_synth_1/dds_duc.vds
+# Journal file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/dds_duc_synth_1\vivado.jou
+#-----------------------------------------------------------
+source dds_duc.tcl

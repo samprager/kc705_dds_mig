@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="dac3283_init_mem_synth_1" LaunchDir="D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/dac3283_init_mem_synth_1" FlowId="Vivado Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+
