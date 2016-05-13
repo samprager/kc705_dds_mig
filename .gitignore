@@ -88,9 +88,10 @@
 #########
 #Sim Output Directory
 #########
-*.sim/*
+*.sim/sim_1/*
 
 #########
 #Synthesis and Implementation Output Directory
 #########
-*.runs/*
+*.runs/impl_1/*
+*.runs/synth_1/*
