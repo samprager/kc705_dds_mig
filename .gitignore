@@ -96,3 +96,13 @@
 #########
 *.runs/impl_1/*
 *.runs/synth_1/*
+
+#########
+#Cache Directory
+#########
+*.cache/*
+
+#########
+#.Xil directory
+#########
+*.Xil/*

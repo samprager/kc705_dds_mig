@@ -1,3 +1,9 @@
+Version Control and Managment Tips for Vivado: 
+
+http://www.fpgadeveloper.com/2014/08/version-control-for-vivado-projects.html
+
+
+
 
 Fix for Bitstream generation error:
 
