@@ -107,3 +107,8 @@
 #.Xil directory
 #########
 *.Xil/*
+
+#########
+#OSX System Files
+#########
+.DS_Store
