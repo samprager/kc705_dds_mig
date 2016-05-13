@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+    <DashboardHolder activeDashboard="ILA">
+        <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
+            <Settings/>
+            <GadgetContainer boxAxis="1" count="2" height="443"
+                layout="JideBoxLayout" vgap="6" width="100">
+                <Gadget height="137" key="Trigger Capture Status" width="100">
+                    <Ila capture_condition="AND" capture_mode="ALWAYS"
+                        data_depth="2048" trigger_condition="AND"
+                        trigger_mode="BASIC_ONLY" trigger_position="0"
+                        trigout_mode="DISABLED" tsm_file="" window_count="1"/>
+                </Gadget>
+                <Gadget height="293" key="Basic Trigger Setup" width="100">
+                    <Probe name="KC705_fmc150_inst/adc_data_out_i_sig[15:0]"/>
+                </Gadget>
+                <Settings/>
+            </GadgetContainer>
+        </Dashboard>
+    </DashboardHolder>
+</component>

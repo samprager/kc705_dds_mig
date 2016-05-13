@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2014.2 (64-bit)
+# SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
+# IP Build 924643 on Fri May 30 09:20:16 MDT 2014
+# Start of session at: Thu May 12 18:16:02 2016
+# Process ID: 6960
+# Log file: D:/UndergroundRadar/kc705_dds_mig/vivado.log
+# Journal file: D:/UndergroundRadar/kc705_dds_mig\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {D:\UndergroundRadar\kc705_dds_mig\k7dsp_dds_mig.xpr}
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+reset_run mig_7series_0_synth_1
+reset_run cdce72010_init_mem_ext_synth_1
+reset_run amc7823_init_mem_synth_1
+reset_run cdce72010_init_mem_int_synth_1
+reset_run ads62p49_init_mem_synth_1
+reset_run dac3283_init_mem_synth_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream
+wait_on_run impl_1
