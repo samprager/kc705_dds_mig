@@ -84,3 +84,13 @@
 !*.elf
 !*.bmm
 !*.xmp
+
+#########
+#Sim Output Directory
+#########
+*.sim/*
+
+#########
+#Synthesis and Implementation Output Directory
+#########
+*.runs/*
