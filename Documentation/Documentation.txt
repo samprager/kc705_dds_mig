@@ -1,0 +1,29 @@
+Version Control and Managment Tips for Vivado: 
+
+http://www.fpgadeveloper.com/2014/08/version-control-for-vivado-projects.html
+
+HLS Tutorial:
+http://www.xilinx.com/support/documentation/sw_manuals/xilinx2014_2/ug871-vivado-high-level-synthesis-tutorial.pdf
+
+
+Fix for Bitstream generation error:
+
+ERROR: [Drc 23-20] Rule violation (RTRES-1) Backbone resources - 1 net(s) have CLOCK_DEDICATED_ROUTE set to BACKBONE but do not use backbone resources. The problem net(s) are clk_in1.
+http://www.xilinx.com/support/answers/60480.html
+
+3/1/2015.
+
+Steps to get ILA Core to trigger (???)
+
+Fix error: 
+[Labtools 27-1395] Unable to arm ILA 'hw_ila_1'. The core clock is slow or no core clock connected for this ILA or the ILA core may not meet timing.
+
+***SOLVED:***
+MUST PROGRAM FPGA Initially with all DIP Switches DOWN
+
+
+Steps taken:
+1) Open original rtl tutorial design from 4dsp, re-upgrade IP, generate bit file, open new hardware target, program
+2) start fpga with all DIP switches DOWN -- then move up
+3) Remove added probe 7
+4) WTF??
