@@ -59,8 +59,7 @@ probe5,
 probe6,
 probe7,
 probe8,
-probe9,
-probe10
+probe9
 );
 
 input clk;
@@ -76,7 +75,6 @@ input [0 : 0] probe6;
 input [9 : 0] probe7;
 input [0 : 0] probe8;
 input [0 : 0] probe9;
-input [0 : 0] probe10;
 
 
 endmodule

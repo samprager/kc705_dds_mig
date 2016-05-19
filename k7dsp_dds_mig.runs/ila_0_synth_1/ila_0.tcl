@@ -12,15 +12,15 @@ set_property target_language Verilog [current_project]
 set_param project.compositeFile.enableAutoGeneration 0
 set_property default_lib xil_defaultlib [current_project]
 
-read_ip D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.xci
-set_property used_in_implementation false [get_files d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp]
-set_property used_in_implementation false [get_files -all d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp]
+read_ip D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.xci
+set_property used_in_implementation false [get_files d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp]
+set_property used_in_implementation false [get_files -all d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp]
 set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property is_locked true [get_files D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.xci]
+set_property is_locked true [get_files D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.xci]
 
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
-set_property parent.project_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig [current_project]
+set_property webtalk.parent_dir D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
+set_property parent.project_dir D:/UndergroundRadar/kc705_dds_mig [current_project]
 catch { write_hwdef -file ila_0.hwdef }
 synth_design -top ila_0 -part xc7k325tffg900-2 -mode out_of_context
 
@@ -28,11 +28,11 @@ rename_ref -prefix_all ila_0_
 write_checkpoint -noxdef ila_0.dcp
 report_utilization -file ila_0_utilization_synth.rpt -pb ila_0_utilization_synth.pb
 if { [catch {
-  file copy -force D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/ila_0_synth_1/ila_0.dcp D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp
-  write_verilog -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_stub.v
-  write_vhdl -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_stub.vhdl
-  write_verilog -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_funcsim.v
-  write_vhdl -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_funcsim.vhdl
+  file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/ila_0_synth_1/ila_0.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0.dcp
+  write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_stub.v
+  write_vhdl -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_stub.vhdl
+  write_verilog -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_funcsim.v
+  write_vhdl -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_0/ila_0_funcsim.vhdl
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
   return -code error

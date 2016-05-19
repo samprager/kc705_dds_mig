@@ -8,6 +8,31 @@ http://www.xilinx.com/support/documentation/application_notes/xapp1204-integrati
 HLS Tutorial:
 http://www.xilinx.com/support/documentation/sw_manuals/xilinx2014_2/ug871-vivado-high-level-synthesis-tutorial.pdf
 
+Startup Sequence for proper triggering (Chirp):
+1) Program with all DIP switches down
+2) Switch DIP 1 up
+3) Trigger ILA
+
+States:
+1) DIP 1 Down: Original DUC/DDC signal pipeline from example design
+2) DIP 1 Up: Chirp Signal Pipeline
+3) DIP 1 Up, DIP 3 Up: No output
+
+GPIO LEDs:
+gpio_led(0) <= digital_mode;
+gpio_led(1) <= adc_out_dac_in;
+gpio_led(2) <= external_clock;
+gpio_led(3) <= ddc_duc_bypass;
+gpio_led(4) <= pll_status;
+gpio_led(5) <= mmcm_adac_locked;
+gpio_led(6) <= mmcm_locked;
+gpio_led(7) <= ADC_calibration_good;
+
+GPIO Switches:
+digital_mode   <= gpio_dip_sw(0);
+adc_out_dac_in <= gpio_dip_sw(1);
+external_clock <= gpio_dip_sw(2);
+ddc_duc_bypass <= gpio_dip_sw(3);
 
 Fix for Bitstream generation error:
 
@@ -24,9 +49,7 @@ Fix error:
 ***SOLVED:***
 MUST PROGRAM FPGA Initially with all DIP Switches DOWN
 
+Additional Links:
+http://www.fpgadeveloper.com/2014/08/using-the-axi-dma-in-vivado.html
 
-Steps taken:
-1) Open original rtl tutorial design from 4dsp, re-upgrade IP, generate bit file, open new hardware target, program
-2) start fpga with all DIP switches DOWN -- then move up
-3) Remove added probe 7
-4) WTF??
+

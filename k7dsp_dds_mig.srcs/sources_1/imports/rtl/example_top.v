@@ -820,15 +820,24 @@ function integer clogb2 (input integer size);
 wire                                      tg_compare_error;
 wire                                    init_calib_complete;
 
-
+// Fifo Input ILA Probes
 (* keep = "true", mark_debug = "true" *) wire [63:0] adc_data_out_probe;              // 64 bits - data from DDS and FMC150 DAC/ADC
-(* keep = "true", mark_debug = "true" *) wire        adc_data_out_valid_probe;        // 1 bit - fifo write enable
-(* keep = "true", mark_debug = "true" *) wire        adc_fifo_wr_ack_probe;   
+(* keep = "true", mark_debug = "true" *) wire        adc_fifo_wr_ack_probe;  
+(* keep = "true", mark_debug = "true" *) wire        adc_fifo_wr_en_probe;   
            // 1 bit - fifo write acknowledge
 (* keep = "true", mark_debug = "true" *)  wire [9:0]              adc_fifo_wr_data_count_probe;     //10 bits
-(* keep = "true", mark_debug = "true" *) wire                       adc_fifo_valid_probe;           //1 bit
 (* keep = "true", mark_debug = "true" *) wire                       adc_fifo_almost_full_probe;     //1 bit
 (* keep = "true", mark_debug = "true" *) wire                     adc_fifo_full_probe;              //1 bit
+
+// Fifo Output ILA Probes
+(* keep = "true", mark_debug = "true" *) wire [63:0] axi_adc_data_out_probe;              // 64 bits - data from DDS and FMC150 DAC/ADC
+(* keep = "true", mark_debug = "true" *) wire        adc_fifo_valid_probe;        // 1 bit - fifo write enable
+(* keep = "true", mark_debug = "true" *) wire        adc_fifo_rd_en_probe;   
+           // 1 bit - fifo write acknowledge
+(* keep = "true", mark_debug = "true" *)  wire [9:0]              adc_fifo_rd_data_count_probe;     //10 bits
+(* keep = "true", mark_debug = "true" *) wire                       adc_fifo_almost_empty_probe;     //1 bit
+(* keep = "true", mark_debug = "true" *) wire                     adc_fifo_empty_probe;              //1 bit
+
 
 //(* keep = "true", mark_debug = "true" *) wire [511:0] axi_adc_fifo_data_out_probe;     // 512 bits - fifo output data from ADC/DAC
 //(* keep = "true", mark_debug = "true" *) wire [511:0] s_axi_wdata_probe;               // 512 - data from traffic generator
@@ -936,12 +945,28 @@ fifo_generator_adc u_fifo_generator_adc
 //assign adc_fifo_rd_en = (adc_fifo_rd_data_count!=7'b0000000)&&(!adc_fifo_empty)&&(s_axi_wready);
 assign adc_fifo_rd_en = 1'b1;
 
-KC705_fmc150  #
+fmc150_dac_adc  #
 (
+    .C_AXI_ID_WIDTH                   (C_S_AXI_ID_WIDTH),
+    .C_AXI_ADDR_WIDTH                 (C_S_AXI_ADDR_WIDTH),
+    .C_AXI_DATA_WIDTH                 (C_S_AXI_DATA_WIDTH),
+    .C_AXI_NBURST_SUPPORT             (C_AXI_NBURST_TEST),
+    .C_EN_WRAP_TRANS                  (C_EN_WRAP_TRANS),
+    .C_BEGIN_ADDRESS                  (BEGIN_ADDRESS),
+    .C_END_ADDRESS                    (END_ADDRESS),
+    .PRBS_EADDR_MASK_POS              (PRBS_EADDR_MASK_POS),
+    .DBG_WR_STS_WIDTH                 (DBG_WR_STS_WIDTH),
+    .DBG_RD_STS_WIDTH                 (DBG_RD_STS_WIDTH),
+    .ENFORCE_RD_WR                    (ENFORCE_RD_WR),
+    .ENFORCE_RD_WR_CMD                (ENFORCE_RD_WR_CMD),
+    .EN_UPSIZER                       (C_S_AXI_SUPPORTS_NARROW_BURST),
+    .ENFORCE_RD_WR_PATTERN            (ENFORCE_RD_WR_PATTERN),
     .ADC_BUFFER_WIDTH (C_ADC_BUFFER_WIDTH)
 )
- KC705_fmc150_inst
+fmc150_dac_adc_inst
 (
+    .aclk (clk),
+    .aresetn (aresetn),
      // --KC705 Resources - from fmc150 example design
      .adc_data_out (adc_data_out),
      .adc_data_out_valid (adc_data_out_valid),
@@ -1073,13 +1098,13 @@ KC705_fmc150  #
        .s_axi_awvalid                  (s_axi_awvalid),
        .s_axi_awready                  (s_axi_awready),
 // Slave Interface Write Data Ports
-//       .s_axi_wdata                    (s_axi_wdata),
-       .s_axi_wdata                    (axi_adc_fifo_data_out),
+       .s_axi_wdata                    (s_axi_wdata),
+//       .s_axi_wdata                    (axi_adc_fifo_data_out),
        
        .s_axi_wstrb                    (s_axi_wstrb),
        .s_axi_wlast                    (s_axi_wlast),
-//       .s_axi_wvalid                   (s_axi_wvalid),
-       .s_axi_wvalid                   (adc_fifo_valid),
+       .s_axi_wvalid                   (s_axi_wvalid),
+//       .s_axi_wvalid                   (adc_fifo_valid),
        .s_axi_wready                   (s_axi_wready),
 // Slave Interface Write Response Ports
        .s_axi_bid                      (s_axi_bid),
@@ -1128,7 +1153,7 @@ KC705_fmc150  #
      aresetn <= ~rst;
    end
 
-   mig_7series_v2_1_axi4_tg #(
+   fmc150_adc_axi4 #(
 
      .C_AXI_ID_WIDTH                   (C_S_AXI_ID_WIDTH),
      .C_AXI_ADDR_WIDTH                 (C_S_AXI_ADDR_WIDTH),
@@ -1145,11 +1170,12 @@ KC705_fmc150  #
      .EN_UPSIZER                       (C_S_AXI_SUPPORTS_NARROW_BURST),
      .ENFORCE_RD_WR_PATTERN            (ENFORCE_RD_WR_PATTERN)
 
-   ) u_axi4_tg_inst
+   ) u_adc_axi4_inst
    (
      .aclk                             (clk),
      .aresetn                          (aresetn),
-
+     
+     .adc_axi_data                      (axi_adc_fifo_data_out),        
 // Input control signals
      .init_cmptd                       (init_calib_complete),
      .init_test                        (1'b0),
@@ -1251,22 +1277,44 @@ ila_0 ila_mig_ADC_fifo_in
     .probe2 (adc_data_out_probe[47:32]),              // 16 bits - data from DDS and FMC150 DAC/ADC
     .probe3 (adc_data_out_probe[31:16]),              // 16 bits - data from DDS and FMC150 DAC/ADC
     .probe4 (adc_data_out_probe[15:0]),              //  16 bits - data from DDS and FMC150 DAC/ADC
-    .probe5 (adc_data_out_valid_probe),        // 1 bit - fifo write enable
+    .probe5 (adc_fifo_wr_en_probe),        // 1 bit - fifo write enable
     .probe6 (adc_fifo_wr_ack_probe),              // 1 bit - fifo write acknowledge
     .probe7 (adc_fifo_wr_data_count_probe),    //10 bits
-    .probe8 (adc_fifo_valid_probe),          //1 bit
-    .probe9 (adc_fifo_almost_full_probe),     //1 bit
-    .probe10 (adc_fifo_full_probe)              //1 bit
+    .probe8 (adc_fifo_almost_full_probe),     //1 bit
+    .probe9 (adc_fifo_full_probe)              //1 bit
 );
 assign adc_data_out_probe = adc_data_out[63:0];        // 64 bits - data from DDS and FMC150 DAC/ADC
-assign adc_data_out_valid_probe = adc_data_out_valid;    // 1 bit - fifo write enable
+assign adc_fifo_wr_en_probe = adc_data_out_valid;
 assign adc_fifo_wr_ack_probe = adc_fifo_wr_ack;
 
 assign adc_fifo_wr_data_count_probe = adc_fifo_wr_data_count;     //10 bits
-assign adc_fifo_valid_probe = adc_fifo_valid;           //1 bit
 assign adc_fifo_almost_full_probe = adc_fifo_almost_full;     //1 bit
 assign adc_fifo_full_probe = adc_fifo_full;              //1 bit
 
+ila_0 ila_mig_ADC_fifo_out
+(
+    .clk (clk),
+    .probe0 (axi_adc_data_out_probe),              // 64 bits - data from DDS and FMC150 DAC/ADC
+    .probe1 (axi_adc_data_out_probe[63:48]),              // 16 bits - data from DDS and FMC150 DAC/ADC
+    .probe2 (axi_adc_data_out_probe[47:32]),              // 16 bits - data from DDS and FMC150 DAC/ADC
+    .probe3 (axi_adc_data_out_probe[31:16]),              // 16 bits - data from DDS and FMC150 DAC/ADC
+    .probe4 (axi_adc_data_out_probe[15:0]),              //  16 bits - data from DDS and FMC150 DAC/ADC
+    .probe5 (adc_fifo_rd_en_probe),                 // 1 bit - fifo read enable
+    .probe6 (adc_fifo_valid_probe),              // 1 bit - fifo read acknowledge
+    .probe7 (adc_fifo_rd_data_count_probe),    //10 bits
+    .probe8 (adc_fifo_almost_empty_probe),     //1 bit
+    .probe9 (adc_fifo_empty_probe)              //1 bit
+);
+
+
+assign axi_adc_data_out_probe = axi_adc_fifo_data_out[63:0];        // 64 bits - data from DDS and FMC150 DAC/ADC
+assign adc_fifo_valid_probe = adc_fifo_valid;    // 1 bit - fifo read acknowledge
+assign adc_fifo_rd_en_probe = adc_fifo_rd_en;               // 1 bit - fifo read enable    
+
+assign adc_fifo_rd_data_count_probe = {3'b000,adc_fifo_rd_data_count};     //10 bits
+
+assign adc_fifo_almost_empty_probe = adc_fifo_almost_empty;     //1 bit
+assign adc_fifo_empty_probe = adc_fifo_empty;              //1 bit
 // ila for observing data coming out of fifo (reads by axi mig)
 /*
 ila_1 ila_mig_ADC_fifo_out      

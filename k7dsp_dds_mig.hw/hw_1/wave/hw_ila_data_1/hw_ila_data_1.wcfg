@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+      <db_ref path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
@@ -11,65 +11,61 @@
    <WVObjectSize size="9" />
    <wave_markers>
    </wave_markers>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/dac_din_i" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/dac_din_i[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/dac_din_i[15:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/I4" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/I4[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/I4[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/dac_din_q" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/dac_din_q[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/dac_din_q[15:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/adc_chb_re_mux_polarity_1" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_chb_re_mux_polarity_1</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_chb_re_mux_polarity_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_i_sig" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_i_sig[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_i_sig[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/adc_dout_i_245_76_MSPS" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/adc_dout_i_245_76_MSPS[13:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/adc_dout_i_245_76_MSPS[13:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_q_sig" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_q_sig[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_q_sig[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/adc_data_out_i_sig" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/adc_data_out_i_sig[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/adc_data_out_i_sig[15:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/adc_dout_i_245_76_MSPS" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_dout_i_245_76_MSPS[13:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/adc_dout_i_245_76_MSPS[13:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/adc_data_out_q_sig" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/adc_data_out_q_sig[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/adc_data_out_q_sig[15:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/baseband_out_valid_sig_dly1_1" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/baseband_out_valid_sig_dly1_1</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/baseband_out_valid_sig_dly1_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_i" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_i[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_i[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/out" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/out[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/out[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="AnalogYRangeMin">-19390.4</obj_property>
-      <obj_property name="AnalogYRRangeMax">24442.6</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/I4" type="array">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/I4[15:0]</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/I4[15:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_q" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_q[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_q[15:0]</obj_property>
       <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
       <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
       <obj_property name="CellHeight">100</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/baseband_out_valid_sig_dly1_1" type="logic">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/baseband_out_valid_sig_dly1_1</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/baseband_out_valid_sig_dly1_1</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="KC705_fmc150_inst/adc_chb_re_mux_polarity_1" type="logic">
-      <obj_property name="ElementShortName">KC705_fmc150_inst/adc_chb_re_mux_polarity_1</obj_property>
-      <obj_property name="ObjectShortName">KC705_fmc150_inst/adc_chb_re_mux_polarity_1</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/KC705_fmc150_inst/out" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/out[15:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/KC705_fmc150_inst/out[15:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
    </wvobject>
 </wave_config>
