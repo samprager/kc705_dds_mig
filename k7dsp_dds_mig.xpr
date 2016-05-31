@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright (c) 2001-2013 Xilinx Inc, All rights reserved -->
 
-<Project Version="7" Minor="1" Path="/media/sf_VMLinux/Projects/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.xpr">
+<Project Version="7" Minor="1" Path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="2e50a1d4017a4180bf55a282e2a78eaa"/>
@@ -540,6 +540,17 @@
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axis_interconnect_1_0/design_1_axis_interconnect_1_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axis_interconnect_0_0_0/design_1_axis_interconnect_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_axi_vfifo_ctrl_0_0/design_1_axi_vfifo_ctrl_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_mig_7series_0_0/design_1_mig_7series_0_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_m00_data_fifo_0/design_1_m00_data_fifo_0.xci"/>
+        <CompFileExtendedInfo CompFileName="design_1.bd" FileRelPathName="ip/design_1_m01_data_fifo_0/design_1_m01_data_fifo_0.xci"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/bd/design_1/ip/design_1_mig_7series_0_0/mig_a.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
         </FileInfo>
       </File>
       <Config>
@@ -1108,9 +1119,7 @@
     </Run>
     <Run Id="axi_vfifo_ctrl_0_synth_1" Type="Ft3:Synth" SrcSet="axi_vfifo_ctrl_0" Part="xc7k325tffg900-2" ConstrsSet="axi_vfifo_ctrl_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axi_vfifo_ctrl_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1453,9 +1462,7 @@
     </Run>
     <Run Id="axi_vfifo_ctrl_0_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="axi_vfifo_ctrl_0" Description="Vivado Implementation Defaults" SynthRun="axi_vfifo_ctrl_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
