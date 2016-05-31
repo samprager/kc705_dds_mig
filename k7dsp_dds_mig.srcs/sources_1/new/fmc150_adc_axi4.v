@@ -334,7 +334,7 @@ module fmc150_adc_axi4 #(
     .dbg_rd_sts                        (dbg_rd_sts)
   );
 
-  assign wrdata = adc_axi_data;
+  //assign wrdata = adc_axi_data;
   assign cmp_data_o = wrdata;
 
   always @(posedge aclk)

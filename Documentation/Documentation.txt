@@ -1,13 +1,3 @@
-Version Control and Managment Tips for Vivado: 
-
-http://www.fpgadeveloper.com/2014/08/version-control-for-vivado-projects.html
-
-HLS IP Integration:
-http://www.xilinx.com/support/documentation/application_notes/xapp1204-integrating-axi4-ip-using-ip-integrator.pdf
-
-HLS Tutorial:
-http://www.xilinx.com/support/documentation/sw_manuals/xilinx2014_2/ug871-vivado-high-level-synthesis-tutorial.pdf
-
 Startup Sequence for proper triggering (Chirp):
 1) Program with all DIP switches down
 2) Switch DIP 1 up
@@ -50,6 +40,17 @@ Fix error:
 MUST PROGRAM FPGA Initially with all DIP Switches DOWN
 
 Additional Links:
+
+Version Control and Managment Tips for Vivado: 
+
+http://www.fpgadeveloper.com/2014/08/version-control-for-vivado-projects.html
+
+HLS IP Integration:
+http://www.xilinx.com/support/documentation/application_notes/xapp1204-integrating-axi4-ip-using-ip-integrator.pdf
+
+HLS Tutorial:
+http://www.xilinx.com/support/documentation/sw_manuals/xilinx2014_2/ug871-vivado-high-level-synthesis-tutorial.pdf
+
 http://www.fpgadeveloper.com/2014/08/using-the-axi-dma-in-vivado.html
 
 

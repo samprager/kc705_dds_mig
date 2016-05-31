@@ -77,18 +77,9 @@ module example_top #
    //***************************************************************************
    // Traffic Gen related parameters
    //***************************************************************************
-//   parameter BL_WIDTH              = 10,
-//   parameter ADDR_MODE             = 4'b0011,
    parameter BEGIN_ADDRESS         = 32'h00000000,
    parameter END_ADDRESS           = 32'h00ffffff,
-//   parameter MEM_ADDR_ORDER        = "BANK_ROW_COLUMN",
-                                      //Possible Parameters
-                                      //1.BANK_ROW_COLUMN : Address mapping is
-                                      //                    in form of Bank Row Column.
-                                      //2.ROW_BANK_COLUMN : Address mapping is
-                                      //                    in the form of Row Bank Column.
-                                      //3.TG_TEST : Scrambles Address bits
-                                      //            for distributed Addressing.
+
    parameter PRBS_EADDR_MASK_POS   = 32'hff000000,
    parameter ENFORCE_RD_WR         = 0,
    parameter ENFORCE_RD_WR_CMD     = 8'h11,
@@ -111,10 +102,6 @@ module example_top #
                                      // # of unique CS outputs per rank for phy
    parameter CKE_WIDTH             = 1,
                                      // # of CKE outputs to memory.
-//   parameter DATA_BUF_ADDR_WIDTH   = 5,
-//   parameter DQ_CNT_WIDTH          = 6,
-                                     // = ceil(log2(DQ_WIDTH))
-//   parameter DQ_PER_DM             = 8,
    parameter DM_WIDTH              = 8,
                                      // # of DM (data mask)
    parameter DQ_WIDTH              = 64,
@@ -138,54 +125,12 @@ module example_top #
                                      //     + ROW_WIDTH + COL_WIDTH;
                                      // Chip Select is always tied to low for
                                      // single rank devices
-//   parameter USE_CS_PORT          = 1,
-                                     // # = 1, When Chip Select (CS#) output is enabled
-                                     //   = 0, When Chip Select (CS#) output is disabled
-                                     // If CS_N disabled, user must connect
-                                     // DRAM CS_N input(s) to ground
-//   parameter USE_DM_PORT           = 1,
-                                     // # = 1, When Data Mask option is enabled
-                                     //   = 0, When Data Mask option is disbaled
-                                     // When Data Mask option is disabled in
-                                     // MIG Controller Options page, the logic
-                                     // related to Data Mask should not get
-                                     // synthesized
-//   parameter USE_ODT_PORT          = 1,
-                                     // # = 1, When ODT output is enabled
-                                     //   = 0, When ODT output is disabled
-                                     // Parameter configuration for Dynamic ODT support:
-                                     // USE_ODT_PORT = 0, RTT_NOM = "DISABLED", RTT_WR = "60/120".
-                                     // This configuration allows to save ODT pin mapping from FPGA.
-                                     // The user can tie the ODT input of DRAM to HIGH.
-//   parameter IS_CLK_SHARED          = "FALSE",
-                                      // # = "true" when clock is shared
-                                      //   = "false" when clock is not shared 
 
-//   parameter PHY_CONTROL_MASTER_BANK = 1,
-                                     // The bank index where master PHY_CONTROL resides,
-                                     // equal to the PLL residing bank
-//   parameter MEM_DENSITY           = "1Gb",
-                                     // Indicates the density of the Memory part
-                                     // Added for the sake of Vivado simulations
-//   parameter MEM_SPEEDGRADE        = "125",
-                                     // Indicates the Speed grade of Memory Part
-                                     // Added for the sake of Vivado simulations
-//   parameter MEM_DEVICE_WIDTH      = 8,
-                                     // Indicates the device width of the Memory Part
-                                     // Added for the sake of Vivado simulations
 
    //***************************************************************************
    // The following parameters are mode register settings
    //***************************************************************************
-//   parameter AL                    = "0",
-                                     // DDR3 SDRAM:
-                                     // Additive Latency (Mode Register 1).
-                                     // # = "0", "CL-1", "CL-2".
-                                     // DDR2 SDRAM:
-                                     // Additive Latency (Extended Mode Register).
-//   parameter nAL                   = 0,
-                                     // # Additive Latency in number of clock
-                                     // cycles.
+
    parameter BURST_MODE            = "8",
                                      // DDR3 SDRAM:
                                      // Burst Length (Mode Register 0).
@@ -193,46 +138,7 @@ module example_top #
                                      // DDR2 SDRAM:
                                      // Burst Length (Mode Register).
                                      // # = "8", "4".
-//   parameter BURST_TYPE            = "SEQ",
-                                     // DDR3 SDRAM: Burst Type (Mode Register 0).
-                                     // DDR2 SDRAM: Burst Type (Mode Register).
-                                     // # = "SEQ" - (Sequential),
-                                     //   = "INT" - (Interleaved).
-//   parameter CL                    = 6,
-                                     // in number of clock cycles
-                                     // DDR3 SDRAM: CAS Latency (Mode Register 0).
-                                     // DDR2 SDRAM: CAS Latency (Mode Register).
-//   parameter CWL                   = 5,
-                                     // in number of clock cycles
-                                     // DDR3 SDRAM: CAS Write Latency (Mode Register 2).
-                                     // DDR2 SDRAM: Can be ignored
-//   parameter OUTPUT_DRV            = "HIGH",
-                                     // Output Driver Impedance Control (Mode Register 1).
-                                     // # = "HIGH" - RZQ/7,
-                                     //   = "LOW" - RZQ/6.
-//   parameter RTT_NOM               = "60",
-                                     // RTT_NOM (ODT) (Mode Register 1).
-                                     //   = "120" - RZQ/2,
-                                     //   = "60"  - RZQ/4,
-                                     //   = "40"  - RZQ/6.
-//   parameter RTT_WR                = "OFF",
-                                     // RTT_WR (ODT) (Mode Register 2).
-                                     // # = "OFF" - Dynamic ODT off,
-                                     //   = "120" - RZQ/2,
-                                     //   = "60"  - RZQ/4,
-//   parameter ADDR_CMD_MODE         = "1T" ,
-                                     // # = "1T", "2T".
-//   parameter REG_CTRL              = "OFF",
-                                     // # = "ON" - RDIMMs,
-                                     //   = "OFF" - Components, SODIMMs, UDIMMs.
-//   parameter CA_MIRROR             = "OFF",
-                                     // C/A mirror opt for DDR3 dual rank
 
-//   parameter VDD_OP_VOLT           = "150",
-                                     // # = "150" - 1.5V Vdd Memory part
-                                     //   = "135" - 1.35V Vdd Memory part
-
-   
    //***************************************************************************
    // The following parameters are multiplier and divisor factors for PLLE2.
    // Based on the selected design frequency these parameters vary.
@@ -255,185 +161,23 @@ module example_top #
    parameter CLKOUT3_DIVIDE        = 8,
                                      // VCO output divisor for PLL output clock (CLKOUT3)
 
-   //***************************************************************************
-   // Memory Timing Parameters. These parameters varies based on the selected
-   // memory part.
-   //***************************************************************************
-//   parameter tCKE                  = 5000,
-                                     // memory tCKE paramter in pS
-//   parameter tFAW                  = 30000,
-                                     // memory tRAW paramter in pS.
-//   parameter tRAS                  = 35000,
-                                     // memory tRAS paramter in pS.
-//   parameter tRCD                  = 13125,
-                                     // memory tRCD paramter in pS.
-//   parameter tREFI                 = 7800000,
-                                     // memory tREFI paramter in pS.
-//   parameter tRFC                  = 110000,
-                                     // memory tRFC paramter in pS.
-//   parameter tRP                   = 13125,
-                                     // memory tRP paramter in pS.
-//   parameter tRRD                  = 6000,
-                                     // memory tRRD paramter in pS.
-//   parameter tRTP                  = 7500,
-                                     // memory tRTP paramter in pS.
-//   parameter tWTR                  = 7500,
-                                     // memory tWTR paramter in pS.
-//   parameter tZQI                  = 128_000_000,
-                                     // memory tZQI paramter in nS.
-//   parameter tZQCS                 = 64,
-                                     // memory tZQCS paramter in clock cycles.
 
    //***************************************************************************
    // Simulation parameters
-   //***************************************************************************
-//   parameter SIM_BYPASS_INIT_CAL   = "OFF",
-                                     // # = "OFF" -  Complete memory init &
-                                     //              calibration sequence
-                                     // # = "SKIP" - Not supported
-                                     // # = "FAST" - Complete memory init & use
-                                     //              abbreviated calib sequence
+   //*********************************************************************
 
    parameter SIMULATION            = "FALSE",
                                      // Should be TRUE during design simulations and
                                      // FALSE during implementations
 
    //***************************************************************************
-   // The following parameters varies based on the pin out entered in MIG GUI.
-   // Do not change any of these parameters directly by editing the RTL.
-   // Any changes required should be done through GUI and the design regenerated.
-   //***************************************************************************
-//   parameter BYTE_LANES_B0         = 4'b1111,
-                                     // Byte lanes used in an IO column.
-//   parameter BYTE_LANES_B1         = 4'b0111,
-                                     // Byte lanes used in an IO column.
-//   parameter BYTE_LANES_B2         = 4'b1111,
-                                     // Byte lanes used in an IO column.
-//   parameter BYTE_LANES_B3         = 4'b0000,
-                                     // Byte lanes used in an IO column.
-//   parameter BYTE_LANES_B4         = 4'b0000,
-                                     // Byte lanes used in an IO column.
-//   parameter DATA_CTL_B0           = 4'b1111,
-                                     // Indicates Byte lane is data byte lane
-                                     // or control Byte lane. '1' in a bit
-                                     // position indicates a data byte lane and
-                                     // a '0' indicates a control byte lane
-//   parameter DATA_CTL_B1           = 4'b0000,
-                                     // Indicates Byte lane is data byte lane
-                                     // or control Byte lane. '1' in a bit
-                                     // position indicates a data byte lane and
-                                     // a '0' indicates a control byte lane
-//   parameter DATA_CTL_B2           = 4'b1111,
-                                     // Indicates Byte lane is data byte lane
-                                     // or control Byte lane. '1' in a bit
-                                     // position indicates a data byte lane and
-                                     // a '0' indicates a control byte lane
-//   parameter DATA_CTL_B3           = 4'b0000,
-                                     // Indicates Byte lane is data byte lane
-                                     // or control Byte lane. '1' in a bit
-                                     // position indicates a data byte lane and
-                                     // a '0' indicates a control byte lane
-//   parameter DATA_CTL_B4           = 4'b0000,
-                                     // Indicates Byte lane is data byte lane
-                                     // or control Byte lane. '1' in a bit
-                                     // position indicates a data byte lane and
-                                     // a '0' indicates a control byte lane
-//   parameter PHY_0_BITLANES        = 48'h3FE_3FE_3FE_2FF,
-//   parameter PHY_1_BITLANES        = 48'h000_CB0_473_FFF,
-//   parameter PHY_2_BITLANES        = 48'h3FE_3FE_3FE_2FF,
-
-   // control/address/data pin mapping parameters
-//   parameter CK_BYTE_MAP
-//     = 144'h00_00_00_00_00_00_00_00_00_00_00_00_00_00_00_00_00_11,
-//   parameter ADDR_MAP
-//     = 192'h000_000_111_110_109_108_107_106_10B_10A_105_104_103_102_101_100,
-//   parameter BANK_MAP   = 36'h11A_115_114,
-//   parameter CAS_MAP    = 12'h12A,
-//   parameter CKE_ODT_BYTE_MAP = 8'h00,
-//   parameter CKE_MAP    = 96'h000_000_000_000_000_000_000_116,
-//   parameter ODT_MAP    = 96'h000_000_000_000_000_000_000_127,
-//   parameter CS_MAP     = 120'h000_000_000_000_000_000_000_000_000_12B,
-//   parameter PARITY_MAP = 12'h000,
-//   parameter RAS_MAP    = 12'h125,
-//   parameter WE_MAP     = 12'h124,
-//   parameter DQS_BYTE_MAP
-//     = 144'h00_00_00_00_00_00_00_00_00_00_03_02_01_00_23_22_21_20,
-//   parameter DATA0_MAP  = 96'h200_209_206_203_204_205_202_207,
-//   parameter DATA1_MAP  = 96'h219_218_214_215_217_212_216_213,
-//   parameter DATA2_MAP  = 96'h225_224_229_226_223_222_228_227,
-//   parameter DATA3_MAP  = 96'h238_236_234_233_235_237_232_239,
-//   parameter DATA4_MAP  = 96'h005_003_000_009_007_006_004_002,
-//   parameter DATA5_MAP  = 96'h013_012_018_019_015_014_017_016,
-//   parameter DATA6_MAP  = 96'h023_027_022_029_024_025_028_026,
-//   parameter DATA7_MAP  = 96'h039_037_033_032_035_034_038_036,
-//   parameter DATA8_MAP  = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA9_MAP  = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA10_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA11_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA12_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA13_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA14_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA15_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA16_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter DATA17_MAP = 96'h000_000_000_000_000_000_000_000,
-//   parameter MASK0_MAP  = 108'h000_031_021_011_001_231_221_211_201,
-//   parameter MASK1_MAP  = 108'h000_000_000_000_000_000_000_000_000,
-
-//   parameter SLOT_0_CONFIG         = 8'b0000_0001,
-                                     // Mapping of Ranks.
-//   parameter SLOT_1_CONFIG         = 8'b0000_0000,
-                                     // Mapping of Ranks.
-
-   //***************************************************************************
    // IODELAY and PHY related parameters
    //***************************************************************************
-//   parameter IBUF_LPWR_MODE        = "OFF",
-                                     // to phy_top
-//   parameter DATA_IO_IDLE_PWRDWN   = "ON",
-                                     // # = "ON", "OFF"
-//   parameter BANK_TYPE             = "HP_IO",
-                                     // # = "HP_IO", "HPL_IO", "HR_IO", "HRL_IO"
-//   parameter DATA_IO_PRIM_TYPE     = "HP_LP",
-                                     // # = "HP_LP", "HR_LP", "DEFAULT"
-//   parameter CKE_ODT_AUX           = "FALSE",
-//   parameter USER_REFRESH          = "OFF",
-//   parameter WRLVL                 = "ON",
-                                     // # = "ON" - DDR3 SDRAM
-                                     //   = "OFF" - DDR2 SDRAM.
-//   parameter ORDERING              = "NORM",
-                                     // # = "NORM", "STRICT", "RELAXED".
-//   parameter CALIB_ROW_ADD         = 16'h0000,
-                                     // Calibration row address will be used for
-                                     // calibration read and write operations
-//   parameter CALIB_COL_ADD         = 12'h000,
-                                     // Calibration column address will be used for
-                                     // calibration read and write operations
-//   parameter CALIB_BA_ADD          = 3'h0,
-                                     // Calibration bank address will be used for
-                                     // calibration read and write operations
-   parameter TCQ                   = 100,//   parameter IODELAY_GRP0          = "MIG_7SERIES_0_IODELAY_MIG",
-                                     // It is associated to a set of IODELAYs with
-                                     // an IDELAYCTRL that have same IODELAY CONTROLLER
-                                     // clock frequency (200MHz).
-//   parameter IODELAY_GRP1          = "MIG_7SERIES_0_IODELAY_MIG",
-                                     // It is associated to a set of IODELAYs with
-                                     // an IDELAYCTRL that have same IODELAY CONTROLLER
-                                     // clock frequency (300MHz/400MHz).
-//   parameter SYSCLK_TYPE           = "DIFFERENTIAL",
-                                     // System clock type DIFFERENTIAL, SINGLE_ENDED,
-                                     // NO_BUFFER
-//   parameter REFCLK_TYPE           = "USE_SYSTEM_CLOCK",
-                                     // Reference clock type DIFFERENTIAL, SINGLE_ENDED,
-                                     // NO_BUFFER, USE_SYSTEM_CLOCK
-//   parameter SYS_RST_PORT          = "FALSE",
-                                     // "TRUE" - if pin is selected for sys_rst
-                                     //          and IBUF will be instantiated.
-                                     // "FALSE" - if pin is not selected for sys_rst
-      
+
+   parameter TCQ                   = 100,//   parameter IODELAY_GRP0
+
    parameter DRAM_TYPE             = "DDR3",
-//   parameter CAL_WIDTH             = "HALF",
-//   parameter STARVE_LIMIT          = 2,
-                                     // # = 2,3,4.
+
 
    //***************************************************************************
    // Referece clock frequency parameters
@@ -455,82 +199,18 @@ module example_top #
                                      // Differential Termination for System
                                      // clock input pins
 
-   
+
    //***************************************************************************
    // AXI4 Shim parameters
    //***************************************************************************
    parameter C_S_AXI_ID_WIDTH              = 4,
-                                             // Width of all master and slave ID signals.
-                                             // # = >= 1.
-//   parameter C_S_AXI_MEM_SIZE              = "1073741824",
-                                     // Address Space required for this component
-   parameter C_S_AXI_ADDR_WIDTH            = 30,
-                                             // Width of S_AXI_AWADDR, S_AXI_ARADDR, M_AXI_AWADDR and
-                                             // M_AXI_ARADDR for all SI/MI slots.
-                                             // # = 32.
-   parameter C_S_AXI_DATA_WIDTH            = 512,
-                                             // Width of WDATA and RDATA on SI slot.
-                                             // Must be <= APP_DATA_WIDTH.
-                                             // # = 32, 64, 128, 256.
-//   parameter C_MC_nCK_PER_CLK              = 4,
-                                             // Indicates whether to instatiate upsizer
-                                             // Range: 0, 1
-   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 0,
-                                             // Indicates whether to instatiate upsizer
-                                             // Range: 0, 1
-//   parameter C_RD_WR_ARB_ALGORITHM          = "RD_PRI_REG",
-                                             // Indicates the Arbitration
-                                             // Allowed values - "TDM", "ROUND_ROBIN",
-                                             // "RD_PRI_REG", "RD_PRI_REG_STARVE_LIMIT"
-                                             // "WRITE_PRIORITY", "WRITE_PRIORITY_REG"
-//   parameter C_S_AXI_REG_EN0               = 20'h00000,
-                                             // C_S_AXI_REG_EN0[00] = Reserved
-                                             // C_S_AXI_REG_EN0[04] = AW CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[05] =  W CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[06] =  B CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[07] =  R CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[08] = AW CHANNEL UPSIZER REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[09] =  W CHANNEL UPSIZER REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[10] = AR CHANNEL UPSIZER REGISTER SLICE
-                                             // C_S_AXI_REG_EN0[11] =  R CHANNEL UPSIZER REGISTER SLICE
-//   parameter C_S_AXI_REG_EN1               = 20'h00000,
-                                             // Instatiates register slices after the upsizer.
-                                             // The type of register is specified for each channel
-                                             // in a vector. 4 bits per channel are used.
-                                             // C_S_AXI_REG_EN1[03:00] = AW CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN1[07:04] =  W CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN1[11:08] =  B CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN1[15:12] = AR CHANNEL REGISTER SLICE
-                                             // C_S_AXI_REG_EN1[20:16] =  R CHANNEL REGISTER SLICE
-                                             // Possible values for each channel are:
-                                             //
-                                             //   0 => BYPASS    = The channel is just wired through the
-                                             //                    module.
-                                             //   1 => FWD       = The master VALID and payload signals
-                                             //                    are registrated.
-                                             //   2 => REV       = The slave ready signal is registrated
-                                             //   3 => FWD_REV   = Both FWD and REV
-                                             //   4 => SLAVE_FWD = All slave side signals and master
-                                             //                    VALID and payload are registrated.
-                                             //   5 => SLAVE_RDY = All slave side signals and master
-                                             //                    READY are registrated.
-                                             //   6 => INPUTS    = Slave and Master side inputs are
-                                             //                    registrated.
-                                             //   7 => ADDRESS   = Optimized for address channel
-//   parameter C_S_AXI_CTRL_ADDR_WIDTH       = 32,
-                                             // Width of AXI-4-Lite address bus
-//   parameter C_S_AXI_CTRL_DATA_WIDTH       = 32,
-                                             // Width of AXI-4-Lite data buses
-//   parameter C_S_AXI_BASEADDR              = 32'h0000_0000,
-                                             // Base address of AXI4 Memory Mapped bus.
-//   parameter C_ECC_ONOFF_RESET_VALUE       = 1,
-                                             // Controls ECC on/off value at startup/reset
-//   parameter C_ECC_CE_COUNTER_WIDTH        = 8,
-                                             // The external memory to controller clock ratio.
 
-   //***************************************************************************
-   // Debug parameters
-   //***************************************************************************
+   parameter C_S_AXI_ADDR_WIDTH            = 30,
+
+   parameter C_S_AXI_DATA_WIDTH            = 512,
+
+   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 0,
+
    parameter DEBUG_PORT            = "OFF",
                                      // # = "ON" Enable debug signals/controls.
                                      //   = "OFF" Disable debug signals/controls.
@@ -540,122 +220,172 @@ module example_top #
    //***************************************************************************
 //   parameter TEMP_MON_CONTROL      = "INTERNAL",
                                      // # = "INTERNAL", "EXTERNAL"
-      
+
    parameter RST_ACT_LOW           = 0,
                                      // =1 for active low reset,
                                      // =0 for active high.
-                                     
+
   parameter C_ADC_BUFFER_WIDTH = C_S_AXI_DATA_WIDTH/32
    )
   (
 
-   // Inouts
-   inout [63:0]                         ddr3_dq,
-   inout [7:0]                        ddr3_dqs_n,
-   inout [7:0]                        ddr3_dqs_p,
+    // Inouts
+    inout [63:0]                         ddr3_dq,
+    inout [7:0]                        ddr3_dqs_n,
+    inout [7:0]                        ddr3_dqs_p,
 
-   // Outputs
-   output [13:0]                       ddr3_addr,
-   output [2:0]                      ddr3_ba,
-   output                                       ddr3_ras_n,
-   output                                       ddr3_cas_n,
-   output                                       ddr3_we_n,
-   output                                       ddr3_reset_n,
-   output [0:0]                        ddr3_ck_p,
-   output [0:0]                        ddr3_ck_n,
-   output [0:0]                       ddr3_cke,
-   output [0:0]           ddr3_cs_n,
-   output [7:0]                        ddr3_dm,
-   output [0:0]                       ddr3_odt,
+    // Outputs
+    output [13:0]                       ddr3_addr,
+    output [2:0]                      ddr3_ba,
+    output                                       ddr3_ras_n,
+    output                                       ddr3_cas_n,
+    output                                       ddr3_we_n,
+    output                                       ddr3_reset_n,
+    output [0:0]                        ddr3_ck_p,
+    output [0:0]                        ddr3_ck_n,
+    output [0:0]                       ddr3_cke,
+    output [0:0]           ddr3_cs_n,
+    output [7:0]                        ddr3_dm,
+    output [0:0]                       ddr3_odt,
 
-   // Inputs
-   
-   // Differential system clocks
-   input                                        ddr3_clk1_p,
-   input                                        ddr3_clk1_n,
- //  output                                       tg_compare_error,
- // output                                       init_calib_complete,
-  
-//  input                                        cpu_reset,
-      
+    // Inputs
+
+    // Differential system clocks
+    input                                        ddr3_clk1_p,
+    input                                        ddr3_clk1_n,
+    //  output                                       tg_compare_error,
+    // output                                       init_calib_complete,
+
+    //  input                                        cpu_reset,
 
 
- // --KC705 Resources - from fmc150 example design
-  input cpu_reset,       // : in    std_logic; -- CPU RST button, SW7 on KC705
-  input sysclk_p,        // : in    std_logic;
-  input sysclk_n,        // : in    std_logic;
- output [7:0]  gpio_led,        // : out   std_logic_vector(7 downto 0);
- input [7:0]  gpio_dip_sw,   //   : in    std_logic_vector(7 downto 0);
-  output gpio_led_c,        //       : out   std_logic;
-  output gpio_led_e,        //       : out   std_logic;
-  output gpio_led_n,       //       : out   std_logic;
-  output gpio_led_s,        //       : out   std_logic;
-  output gpio_led_w,        //              : out   std_logic;
-  input gpio_sw_c,        //               : in    std_logic;
-  input gpio_sw_e,        //               : in    std_logic;
-  input gpio_sw_n,        //               : in    std_logic;
-  input gpio_sw_s,        //               : in    std_logic;
-  input gpio_sw_w,        //               : in    std_logic;
 
- // --Clock/Data connection to ADC on FMC150 (ADS62P49)
-  input clk_ab_p,        //                : in    std_logic;
-  input clk_ab_n,        //                : in    std_logic;
-  input[6:0] cha_p,        //                   : in    std_logic_vector(6 downto 0);
-  input[6:0] cha_n,        //                   : in    std_logic_vector(6 downto 0);
-  input[6:0] chb_p,        //                   : in    std_logic_vector(6 downto 0);
-  input[6:0] chb_n,        //                   : in    std_logic_vector(6 downto 0);
+    // --KC705 Resources - from fmc150 example design
+    input cpu_reset,       // : in    std_logic; -- CPU RST button, SW7 on KC705
+    input sysclk_p,        // : in    std_logic;
+    input sysclk_n,        // : in    std_logic;
+    output [7:0]  gpio_led,        // : out   std_logic_vector(7 downto 0);
+    input [7:0]  gpio_dip_sw,   //   : in    std_logic_vector(7 downto 0);
+    output gpio_led_c,        //       : out   std_logic;
+    output gpio_led_e,        //       : out   std_logic;
+    output gpio_led_n,       //       : out   std_logic;
+    output gpio_led_s,        //       : out   std_logic;
+    output gpio_led_w,        //              : out   std_logic;
+    input gpio_sw_c,        //               : in    std_logic;
+    input gpio_sw_e,        //               : in    std_logic;
+    input gpio_sw_n,        //               : in    std_logic;
+    input gpio_sw_s,        //               : in    std_logic;
+    input gpio_sw_w,        //               : in    std_logic;
 
-//  --Clock/Data connection to DAC on FMC150 (DAC3283)
-  output dac_dclk_p,        //              : out   std_logic;
-  output dac_dclk_n,        //              : out   std_logic;
-  output[7:0] dac_data_p,        //              : out   std_logic_vector(7 downto 0);
-  output[7:0] dac_data_n,        //              : out   std_logic_vector(7 downto 0);
-  output dac_frame_p,        //             : out   std_logic;
-  output dac_frame_n,        //             : out   std_logic;
-  output txenable,        //                : out   std_logic;
+    // --Clock/Data connection to ADC on FMC150 (ADS62P49)
+    input clk_ab_p,        //                : in    std_logic;
+    input clk_ab_n,        //                : in    std_logic;
+    input[6:0] cha_p,        //                   : in    std_logic_vector(6 downto 0);
+    input[6:0] cha_n,        //                   : in    std_logic_vector(6 downto 0);
+    input[6:0] chb_p,        //                   : in    std_logic_vector(6 downto 0);
+    input[6:0] chb_n,        //                   : in    std_logic_vector(6 downto 0);
 
- // --Clock/Trigger connection to FMC150
- // --clk_to_fpga_p    : in    std_logic;
- // --clk_to_fpga_n    : in    std_logic;
- // --ext_trigger_p    : in    std_logic;
- // --ext_trigger_n    : in    std_logic;
+    //  --Clock/Data connection to DAC on FMC150 (DAC3283)
+    output dac_dclk_p,        //              : out   std_logic;
+    output dac_dclk_n,        //              : out   std_logic;
+    output[7:0] dac_data_p,        //              : out   std_logic_vector(7 downto 0);
+    output[7:0] dac_data_n,        //              : out   std_logic_vector(7 downto 0);
+    output dac_frame_p,        //             : out   std_logic;
+    output dac_frame_n,        //             : out   std_logic;
+    output txenable,        //                : out   std_logic;
 
-//  --Serial Peripheral Interface (SPI)
-  output spi_sclk,        //                : out   std_logic; -- Shared SPI clock line
-  output spi_sdata,        //               : out   std_logic; -- Shared SPI sata line
+    // --Clock/Trigger connection to FMC150
+    // --clk_to_fpga_p    : in    std_logic;
+    // --clk_to_fpga_n    : in    std_logic;
+    // --ext_trigger_p    : in    std_logic;
+    // --ext_trigger_n    : in    std_logic;
 
-//  -- ADC specific signals
-  output adc_n_en,        //                : out   std_logic; -- SPI chip select
- input adc_sdo,        //                 : in    std_logic; -- SPI data out
-  output adc_reset,        //               : out   std_logic; -- SPI reset
+    //  --Serial Peripheral Interface (SPI)
+    output spi_sclk,        //                : out   std_logic; -- Shared SPI clock line
+    output spi_sdata,        //               : out   std_logic; -- Shared SPI sata line
 
- // -- CDCE specific signals
-  output cdce_n_en,        //               : out   std_logic; -- SPI chip select
-  input cdce_sdo,        //                : in    std_logic; -- SPI data out
-  output cdce_n_reset,        //            : out   std_logic;
-  output cdce_n_pd,        //               : out   std_logic;
-  output ref_en,        //                  : out   std_logic;
- input pll_status,        //             : in    std_logic;
+    //  -- ADC specific signals
+    output adc_n_en,        //                : out   std_logic; -- SPI chip select
+    input adc_sdo,        //                 : in    std_logic; -- SPI data out
+    output adc_reset,        //               : out   std_logic; -- SPI reset
 
-//  -- DAC specific signals
-  output dac_n_en,        //                : out   std_logic; -- SPI chip select
- input dac_sdo,        //                 : in    std_logic; -- SPI data out
+    // -- CDCE specific signals
+    output cdce_n_en,        //               : out   std_logic; -- SPI chip select
+    input cdce_sdo,        //                : in    std_logic; -- SPI data out
+    output cdce_n_reset,        //            : out   std_logic;
+    output cdce_n_pd,        //               : out   std_logic;
+    output ref_en,        //                  : out   std_logic;
+    input pll_status,        //             : in    std_logic;
 
-//  -- Monitoring specific signals
-  output mon_n_en,        //                : out   std_logic; -- SPI chip select
- input mon_sdo,        //                 : in    std_logic; -- SPI data out
-  output mon_n_reset,        //             : out   std_logic;
-  input mon_n_int,        //               : in    std_logic;
+    //  -- DAC specific signals
+    output dac_n_en,        //                : out   std_logic; -- SPI chip select
+    input dac_sdo,        //                 : in    std_logic; -- SPI data out
 
- // --FMC Present status
- input prsnt_m2c_l        //             : in    std_logic
-  
-  
-   // System reset - Default polarity of sys_rst pin is Active Low.
-   // System reset polarity will change based on the option 
-   // selected in GUI.
-   
-   );
+    //  -- Monitoring specific signals
+    output mon_n_en,        //                : out   std_logic; -- SPI chip select
+    input mon_sdo,        //                 : in    std_logic; -- SPI data out
+    output mon_n_reset,        //             : out   std_logic;
+    input mon_n_int,        //               : in    std_logic;
+
+    // --FMC Present status
+    input prsnt_m2c_l,        //             : in    std_logic
+
+
+    // System reset - Default polarity of sys_rst pin is Active Low.
+    // System reset polarity will change based on the option
+    // selected in GUI.
+
+    // Ethernet RGMII Interface I/)
+    // asynchronous reset
+  //  input         glbl_rst,
+
+    // 200MHz clock input from board
+  //  input         clk_in_p,
+  //  input         clk_in_n,
+    // 125 MHz clock from MMCM
+    output        gtx_clk_bufg_out,
+
+    output        phy_resetn,
+
+
+    // RGMII Interface
+    //----------------
+    output [3:0]  rgmii_txd,
+    output        rgmii_tx_ctl,
+    output        rgmii_txc,
+    input  [3:0]  rgmii_rxd,
+    input         rgmii_rx_ctl,
+    input         rgmii_rxc,
+
+    // MDIO Interface
+    //---------------
+    inout         mdio,
+    output        mdc,
+
+
+    // Serialised statistics vectors
+    //------------------------------
+    output        tx_statistics_s,
+    output        rx_statistics_s,
+
+    // Serialised Pause interface controls
+    //------------------------------------
+    input         pause_req_s,
+
+    // Main example design controls
+    //-----------------------------
+    //input  [1:0]  mac_speed,    // mac_speed[0] = dip switch[3]. mac_speed[1] = dip switch[2]
+    input         update_speed,
+    //input         serial_command, // tied to pause_req_s
+    input         config_board,
+    output        serial_response,
+    //input         gen_tx_data, // dip switch[1]
+    //input         chk_tx_data,   // dip switch[0]
+    input         reset_error,
+    output        frame_error,
+    output        activity_flashn
+
+    );
 
 function integer clogb2 (input integer size);
     begin
@@ -698,44 +428,17 @@ function integer clogb2 (input integer size);
   localparam MASK_SIZE             = DATA_WIDTH/8;
   localparam DBG_WR_STS_WIDTH      = 40;
   localparam DBG_RD_STS_WIDTH      = 40;
-      
 
-// rd_clk                    : IN  std_logic := '0';
-// wr_data_count             : OUT std_logic_vector(10-1 DOWNTO 0) := (OTHERS => '0');
-//rd_data_count             : OUT std_logic_vector(7-1 DOWNTO 0) := (OTHERS => '0');
-//wr_ack                    : OUT std_logic := '0';
-//valid                     : OUT std_logic := '0';
-//almost_full               : OUT std_logic := '0';
-//almost_empty              : OUT std_logic := '1';
-//rst                       : IN  std_logic := '0';
-//wr_en                     : IN  std_logic := '0';
-//rd_en                     : IN  std_logic := '0';
-//din                       : IN  std_logic_vector(64-1 DOWNTO 0) := (OTHERS => '0');
-//dout                      : OUT std_logic_vector(512-1 DOWNTO 0) := (OTHERS => '0');
-//full                      : OUT std_logic := '0';
-//empty                     : OUT std_logic := '1');
+  localparam ADC_AXI_DATA_WIDTH = 64;
+  localparam ADC_AXI_STREAM_ID = 1'b0;
+  localparam ADC_AXI_STREAM_DEST = 1'b0;
 
-  // Wire declarations
-  wire [63:0]                   adc_data_out; 
-  wire                          adc_data_out_valid;
-  
+
+
   wire                          clk_245_76MHz;
   wire                          clk_491_52MHz;
-  
- 
-  wire [9:0]              adc_fifo_wr_data_count;
-  wire [6:0]               adc_fifo_rd_data_count;
-  wire                       adc_fifo_wr_ack;
-  wire                       adc_fifo_valid;
-  wire                       adc_fifo_almost_full;
-  wire                       adc_fifo_almost_empty;
-  wire                      adc_fifo_wr_en;
-  wire                      adc_fifo_rd_en;
-  wire [511:0]             axi_adc_fifo_data_out;
-  wire                     adc_fifo_full;
-  wire                     adc_fifo_empty;
-  
-   
+
+
   wire                              clk;
   wire                              rst;
   wire                              mmcm_locked;
@@ -806,62 +509,41 @@ function integer clogb2 (input integer size);
   wire [DBG_WR_STS_WIDTH-1:0]       dbg_wr_sts;
   wire                              dbg_rd_sts_vld;
   wire [DBG_RD_STS_WIDTH-1:0]       dbg_rd_sts;
-  
-  
-//  wire                              clk_wiz_locked;
-//  wire                              refclk1;
-//  wire                              refclk1_p;
-//  wire                              refclk1_n;
-//  wire                              refclk2;
-//  wire                              refclk2_p;
-//  wire                              refclk2_n;
+
 
 
 wire                                      tg_compare_error;
 wire                                    init_calib_complete;
 
-// Fifo Input ILA Probes
-(* keep = "true", mark_debug = "true" *) wire [63:0] adc_data_out_probe;              // 64 bits - data from DDS and FMC150 DAC/ADC
-(* keep = "true", mark_debug = "true" *) wire        adc_fifo_wr_ack_probe;  
-(* keep = "true", mark_debug = "true" *) wire        adc_fifo_wr_en_probe;   
-           // 1 bit - fifo write acknowledge
-(* keep = "true", mark_debug = "true" *)  wire [9:0]              adc_fifo_wr_data_count_probe;     //10 bits
-(* keep = "true", mark_debug = "true" *) wire                       adc_fifo_almost_full_probe;     //1 bit
-(* keep = "true", mark_debug = "true" *) wire                     adc_fifo_full_probe;              //1 bit
 
-// Fifo Output ILA Probes
-(* keep = "true", mark_debug = "true" *) wire [63:0] axi_adc_data_out_probe;              // 64 bits - data from DDS and FMC150 DAC/ADC
-(* keep = "true", mark_debug = "true" *) wire        adc_fifo_valid_probe;        // 1 bit - fifo write enable
-(* keep = "true", mark_debug = "true" *) wire        adc_fifo_rd_en_probe;   
-           // 1 bit - fifo write acknowledge
-(* keep = "true", mark_debug = "true" *)  wire [9:0]              adc_fifo_rd_data_count_probe;     //10 bits
-(* keep = "true", mark_debug = "true" *) wire                       adc_fifo_almost_empty_probe;     //1 bit
-(* keep = "true", mark_debug = "true" *) wire                     adc_fifo_empty_probe;              //1 bit
+// Ethernet Controller wrapper signals
+wire                 gtx_clk_bufg;
+wire                 refclk_bufg;
+wire                 s_axi_aclk;
+wire                 dcm_locked;
+
+wire                  gen_tx_data;
+wire                  chk_tx_data;
+wire      [1:0]       mac_speed;
 
 
-//(* keep = "true", mark_debug = "true" *) wire [511:0] axi_adc_fifo_data_out_probe;     // 512 bits - fifo output data from ADC/DAC
-//(* keep = "true", mark_debug = "true" *) wire [511:0] s_axi_wdata_probe;               // 512 - data from traffic generator
-//(* keep = "true", mark_debug = "true" *) wire [63:0] s_axi_wstrb_probe;                 // 64 bits - mig write signal input, tg output
-//(* keep = "true", mark_debug = "true" *) wire [29:0] s_axi_awaddr_probe;              // 30 bits - DDR3 write address from tg
-//(* keep = "true", mark_debug = "true" *) wire [3:0] s_axi_bid_probe;                 // 4 bits - write response bid signal from MIG
-//(* keep = "true", mark_debug = "true" *) wire [1:0] s_axi_bresp_probe;               // 2 bits - write response bid signal from MIG
-//(* keep = "true", mark_debug = "true" *) wire       s_axi_bready_probe;               // 1 bit - write response bready signal from MIG
-//(* keep = "true", mark_debug = "true" *) wire       s_axi_bvalid_probe;               // 1 bit - write response bvalid signal from MIG
-//(* keep = "true", mark_debug = "true" *) wire [511:0] s_axi_rdata_probe;              //512 bit read data
-//(* keep = "true", mark_debug = "true" *) wire [29:0] s_axi_araddr_probe;              // 30 bits - DDR3 read address from tg
-//(* keep = "true", mark_debug = "true" *) wire [3:0] s_axi_rid_probe;               //4 bit
-//(* keep = "true", mark_debug = "true" *) wire [1:0] s_axi_rresp_probe;             //2 bit
-//(* keep = "true", mark_debug = "true" *) wire        s_axi_rready_probe;            // 1 bit
-//(* keep = "true", mark_debug = "true" *) wire        s_axi_rlast_probe;             // 1 bit
-//(* keep = "true", mark_debug = "true" *) wire        s_axi_rvalid_probe;             // 1 bit
-//(* keep = "true", mark_debug = "true" *) wire        adc_fifo_rd_en_probe;           // 1 bit - fifo read enable
-////*************************************************************************** 
 
-  assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
-      
+ // --ADC AXI-Stream Data Out Signals from fmc150_dac_adc module
+wire [ADC_AXI_DATA_WIDTH-1:0]   axis_adc_tdata;
+wire                            axis_adc_tvalid;
+wire                            axis_adc_tlast;
+wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tkeep;
+wire                            axis_adc_tid;
+wire                            axis_adc_tdest;
+wire                            axis_adc_tuser;
+wire                            axis_adc_tready;
 
 
-      
+assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
+
+
+
+
 // Start of User Design top instance
 //***************************************************************************
 // The User design is instantiated below. The memory interface ports are
@@ -870,80 +552,101 @@ wire                                    init_calib_complete;
 // for connecting the memory controller to system.
 //***************************************************************************
 
-//clk_wiz_0 u_clk_wiz_0
-//(
-//    .clk_in1_p (sysclk_p),
-//    .clk_in1_n (sysclk_n),
-//// Clock out ports
-//    .clk_out1_ce (1'b1),
-//    .clk_out1 (refclk1),
-//    .clk_out2_ce (1'b1),
-//    .clk_out2 (refclk2),
-//    .reset  (cpu_reset),
-//    .locked (clk_wiz_locked)
-//);
 
-//OBUFDS #(
-////.IOSTANDARD("DIFF_SSTL15")
-//.IOSTANDARD("LVDS")
-//) 
-//OBUFDS_inst1 
-//(
-//.O(refclk1_p),
-//.OB(refclk1_n),
-//.I(refclk1)
-//);
 
-//OBUFDS #(
-////.IOSTANDARD("DIFF_SSTL15")
-//.IOSTANDARD("LVDS")
-//) 
-//OBUFDS_inst2 
-//(
-//.O(refclk2_p),
-//.OB(refclk2_n),
-//.I(refclk2)
-//);
-
-fifo_generator_adc u_fifo_generator_adc 
+kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
 (
-//wr_clk                    : IN  std_logic := '0';
-// rd_clk                    : IN  std_logic := '0';
-// wr_data_count             : OUT std_logic_vector(10-1 DOWNTO 0) := (OTHERS => '0');
-//rd_data_count             : OUT std_logic_vector(7-1 DOWNTO 0) := (OTHERS => '0');
-//wr_ack                    : OUT std_logic := '0';
-//valid                     : OUT std_logic := '0';
-//almost_full               : OUT std_logic := '0';
-//almost_empty              : OUT std_logic := '1';
-//rst                       : IN  std_logic := '0';
-//wr_en                     : IN  std_logic := '0';
-//rd_en                     : IN  std_logic := '0';
-//din                       : IN  std_logic_vector(64-1 DOWNTO 0) := (OTHERS => '0');
-//dout                      : OUT std_logic_vector(512-1 DOWNTO 0) := (OTHERS => '0');
-//full                      : OUT std_logic := '0';
-//empty                     : OUT std_logic := '1');
-.wr_clk                    (clk_245_76MHz),
-.rd_clk                    (clk),
-.wr_data_count             (adc_fifo_wr_data_count),
-.rd_data_count             (adc_fifo_rd_data_count),
-.wr_ack                    (adc_fifo_wr_ack),
-.valid                     (adc_fifo_valid),
-.almost_full               (adc_fifo_almost_full),
-.almost_empty              (adc_fifo_almost_empty),
-.rst                       (cpu_reset),
-//.wr_en                     (adc_fifo_wr_en),
-.wr_en                     (adc_data_out_valid),
-//.rd_en                     (adc_fifo_rd_en),
-.rd_en                     (adc_fifo_rd_en),
-.din                       (adc_data_out),
-.dout                      (axi_adc_fifo_data_out),
-.full                      (adc_fifo_full),
-.empty                     (adc_fifo_empty)
+  // asynchronous reset
+  .glbl_rst         (cpu_reset),
 
+  // 200MHz clock input from board
+  //.clk_in_p         (ddr3_clk1_p),
+  //.clk_in_n         (ddr3_clk1_n),
+  // 125 MHz clock from MMCM
+  .gtx_clk_bufg     (gtx_clk_bufg),
+  .refclk_bufg      (refclk_bufg),
+  .s_axi_aclk       (s_axi_aclk),
+
+  .dcm_locked       (dcm_locked),
+
+  .phy_resetn        (phy_resetn),
+
+
+  // RGMII Interface
+  //----------------
+  .rgmii_txd        (rgmii_txd),    //[3:0]
+  .rgmii_tx_ctl        (rgmii_tx_ctl),
+  .rgmii_txc        (rgmii_txc),
+  .rgmii_rxd         (rgmii_rxd), //[3:0]
+  .rgmii_rx_ctl         (rgmii_rx_ctl),
+  .rgmii_rxc         (rgmii_rxc),
+
+  // MDIO Interface
+  //---------------
+  .mdio         (mdio),
+  .mdc        (mdc),
+
+
+  // Serialised statistics vectors
+  //------------------------------
+  .tx_statistics_s        (tx_statistics_s),
+  .rx_statistics_s        (rx_statistics_s),
+
+  // Serialised Pause interface controls
+  //------------------------------------
+  .pause_req_s         (pause_req_s),
+
+  // connections to adc data ports
+  .enable_adc_pkt            (enable_adc_pkt),
+  .adc_axis_tdata           (adc_axis_tdata),
+  .adc_axis_tvalid          (adc_axis_tvalid),
+  .adc_axis_tlast           (adc_axis_tlast),
+  .adc_axis_tuser           (adc_axis_tuser),
+  .adc_axis_tready          (adc_axis_tready),
+
+  // Main example design controls
+  //-----------------------------
+  .mac_speed             (mac_speed),       // [1:0]
+  .update_speed         (update_speed),
+  //input         serial_command, // tied to pause_req_s
+  .config_board         (config_board),
+  .serial_response        (serial_response),
+  .gen_tx_data         (gen_tx_data),
+  .chk_tx_data         (chk_tx_data),
+  .reset_error         (reset_error),
+  .frame_error        (frame_error),
+  .frame_errorn        (frame_errorn),
+  .activity_flash        (activity_flash),
+  .activity_flashn        (activity_flashn)
 );
 
-//assign adc_fifo_rd_en = (adc_fifo_rd_data_count!=7'b0000000)&&(!adc_fifo_empty)&&(s_axi_wready);
-assign adc_fifo_rd_en = 1'b1;
+assign gen_tx_data = gpio_dip_sw[1];
+assign chk_tx_data = gpio_dip_sw[0];
+assign mac_speed = {gpio_dip_sw[2],gpio_dip_sw[3]};
+assign enable_adc_pkt = 1'b1;
+
+//----------------------------------------------------------------------------
+// Clock logic to generate required clocks from the 200MHz on board
+// if 125MHz is available directly this can be removed
+//----------------------------------------------------------------------------
+kc705_ethernet_rgmii_example_design_clocks example_clocks
+ (
+    // differential clock inputs
+    .clk_in_p         (ddr3_clk1_p),
+    .clk_in_n         (ddr3_clk1_n),
+
+    // asynchronous control/resets
+    .glbl_rst         (glbl_rst),
+    .dcm_locked       (dcm_locked),
+
+    // clock outputs
+    .gtx_clk_bufg     (gtx_clk_bufg),
+    .refclk_bufg      (refclk_bufg),
+    .s_axi_aclk       (s_axi_aclk)
+ );
+
+ assign gtx_clk_bufg_out = gtx_clk_bufg;
+
 
 fmc150_dac_adc  #
 (
@@ -961,20 +664,31 @@ fmc150_dac_adc  #
     .ENFORCE_RD_WR_CMD                (ENFORCE_RD_WR_CMD),
     .EN_UPSIZER                       (C_S_AXI_SUPPORTS_NARROW_BURST),
     .ENFORCE_RD_WR_PATTERN            (ENFORCE_RD_WR_PATTERN),
-    .ADC_BUFFER_WIDTH (C_ADC_BUFFER_WIDTH)
+    .ADC_BUFFER_WIDTH (C_ADC_BUFFER_WIDTH),
+
+    .ADC_AXI_DATA_WIDTH(ADC_AXI_DATA_WIDTH),
+    .ADC_AXI_STREAM_ID(ADC_AXI_STREAM_ID),
+    .ADC_AXI_STREAM_DEST(ADC_AXI_STREAM_DEST)
 )
 fmc150_dac_adc_inst
 (
     .aclk (clk),
     .aresetn (aresetn),
      // --KC705 Resources - from fmc150 example design
-     .adc_data_out (adc_data_out),
-     .adc_data_out_valid (adc_data_out_valid),
-     
+     .axis_adc_tdata                      (axis_adc_tdata),
+     .axis_adc_tvalid                     (axis_adc_tvalid),
+     .axis_adc_tlast                      (axis_adc_tlast),
+     .axis_adc_tkeep                      (axis_adc_tkeep),
+     .axis_adc_tid                        (axis_adc_tid),
+     .axis_adc_tdest                      (axis_adc_tdest),
+     .axis_adc_tuser                      (axis_adc_tuser),
+     .axis_adc_tready                     (axis_adc_tready),
+
+
      .clk_out_245_76MHz                        (clk_245_76MHz),
      .clk_out_491_52MHz                       (clk_491_52MHz),
-       
-       
+
+
     .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
     .sysclk_p (sysclk_p),        // : in    std_logic;
     .sysclk_n (sysclk_n),        // : in    std_logic;
@@ -993,7 +707,7 @@ fmc150_dac_adc_inst
      .gpio_sw_n (gpio_sw_n),        //               : in    std_logic;
      .gpio_sw_s (gpio_sw_s),        //               : in    std_logic;
      .gpio_sw_w (gpio_sw_w),        //               : in    std_logic;
-    
+
     // --Clock/Data connection to ADC on FMC150 (ADS62P49)
      .clk_ab_p (clk_ab_p),        //                : in    std_logic;
      .clk_ab_n (clk_ab_n),        //                : in    std_logic;
@@ -1001,7 +715,7 @@ fmc150_dac_adc_inst
      .cha_n (cha_n),        //                   : in    std_logic_vector(6 downto 0);
      .chb_p (chb_p),        //                   : in    std_logic_vector(6 downto 0);
      .chb_n (chb_n),        //                   : in    std_logic_vector(6 downto 0);
-    
+
     //  --Clock/Data connection to DAC on FMC150 (DAC3283)
      .dac_dclk_p (dac_dclk_p),        //              : out   std_logic;
      .dac_dclk_n (dac_dclk_n),        //              : out   std_logic;
@@ -1010,22 +724,22 @@ fmc150_dac_adc_inst
      .dac_frame_p (dac_frame_p),        //             : out   std_logic;
      .dac_frame_n (dac_frame_n),        //             : out   std_logic;
      .txenable (txenable),        //                : out   std_logic;
-    
+
     // --Clock/Trigger connection to FMC150
     // --clk_to_fpga_p    : in    std_logic;
     // --clk_to_fpga_n    : in    std_logic;
     // --ext_trigger_p    : in    std_logic;
     // --ext_trigger_n    : in    std_logic;
-    
+
     //  --Serial Peripheral Interface (SPI)
      .spi_sclk (spi_sclk),        //                : out   std_logic; -- Shared SPI clock line
      .spi_sdata (spi_sdata),        //               : out   std_logic; -- Shared SPI sata line
-    
+
     //  -- ADC specific signals
      .adc_n_en (adc_n_en),        //                : out   std_logic; -- SPI chip select
      .adc_sdo (adc_sdo),        //                 : in    std_logic; -- SPI data out
      .adc_reset (adc_reset),        //               : out   std_logic; -- SPI reset
-    
+
     // -- CDCE specific signals
      .cdce_n_en (cdce_n_en),        //               : out   std_logic; -- SPI chip select
      .cdce_sdo (cdce_sdo),        //                : in    std_logic; -- SPI data out
@@ -1033,115 +747,307 @@ fmc150_dac_adc_inst
      .cdce_n_pd (cdce_n_pd),        //               : out   std_logic;
      .ref_en (ref_en),        //                  : out   std_logic;
      .pll_status (pll_status),        //             : in    std_logic;
-    
+
     //  -- DAC specific signals
      .dac_n_en (dac_n_en),        //                : out   std_logic; -- SPI chip select
      .dac_sdo (dac_sdo),        //                 : in    std_logic; -- SPI data out
-    
+
     //  -- Monitoring specific signals
       .mon_n_en (mon_n_en),        //                : out   std_logic; -- SPI chip select
       .mon_sdo (mon_sdo),        //                 : in    std_logic; -- SPI data out
       .mon_n_reset (mon_n_reset),        //             : out   std_logic;
       .mon_n_int (mon_n_int),        //               : in    std_logic;
-    
+
     // --FMC Present status
      .prsnt_m2c_l (prsnt_m2c_l)        //             : in    std_logic
-     
+
 );
 
 
-  mig_7series_0 u_mig_7series_0
-      (
-       
-       
-// Memory interface ports
-       .ddr3_addr                      (ddr3_addr),
-       .ddr3_ba                        (ddr3_ba),
-       .ddr3_cas_n                     (ddr3_cas_n),
-       .ddr3_ck_n                      (ddr3_ck_n),
-       .ddr3_ck_p                      (ddr3_ck_p),
-       .ddr3_cke                       (ddr3_cke),
-       .ddr3_ras_n                     (ddr3_ras_n),
-       .ddr3_reset_n                   (ddr3_reset_n),
-       .ddr3_we_n                      (ddr3_we_n),
-       .ddr3_dq                        (ddr3_dq),
-       .ddr3_dqs_n                     (ddr3_dqs_n),
-       .ddr3_dqs_p                     (ddr3_dqs_p),
-       .init_calib_complete            (init_calib_complete),
-      
-       .ddr3_cs_n                      (ddr3_cs_n),
-       .ddr3_dm                        (ddr3_dm),
-       .ddr3_odt                       (ddr3_odt),
-// Application interface ports
-       .ui_clk                         (clk),
-       .ui_clk_sync_rst                (rst),
 
-       .mmcm_locked                    (mmcm_locked),
-       .aresetn                        (aresetn),
-       .app_sr_req                     (1'b0),
-       .app_ref_req                    (1'b0),
-       .app_zq_req                     (1'b0),
-       .app_sr_active                  (app_sr_active),
-       .app_ref_ack                    (app_ref_ack),
-       .app_zq_ack                     (app_zq_ack),
+axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
+// aclk : IN STD_LOGIC;
+// aresetn : IN STD_LOGIC;
+// s_axis_tvalid : IN STD_LOGIC;
+// s_axis_tready : OUT STD_LOGIC;
+// s_axis_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+// s_axis_tstrb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+// s_axis_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+// s_axis_tlast : IN STD_LOGIC;
+// s_axis_tid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// s_axis_tdest : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axis_tvalid : OUT STD_LOGIC;
+// m_axis_tready : IN STD_LOGIC;
+// m_axis_tdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+// m_axis_tstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+// m_axis_tkeep : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+// m_axis_tlast : OUT STD_LOGIC;
+// m_axis_tid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axis_tdest : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_awid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_awaddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+// m_axi_awlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+// m_axi_awsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+// m_axi_awburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+// m_axi_awlock : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_awprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+// m_axi_awqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_awregion : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_awuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_awvalid : OUT STD_LOGIC;
+// m_axi_awready : IN STD_LOGIC;
+// m_axi_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
+// m_axi_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+// m_axi_wlast : OUT STD_LOGIC;
+// m_axi_wuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_wvalid : OUT STD_LOGIC;
+// m_axi_wready : IN STD_LOGIC;
+// m_axi_bid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_bresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+// m_axi_buser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_bvalid : IN STD_LOGIC;
+// m_axi_bready : OUT STD_LOGIC;
+// m_axi_arid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_araddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+// m_axi_arlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+// m_axi_arsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+// m_axi_arburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+// m_axi_arlock : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_arprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+// m_axi_arqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_arregion : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+// m_axi_aruser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_arvalid : OUT STD_LOGIC;
+// m_axi_arready : IN STD_LOGIC;
+// m_axi_rid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_rdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
+// m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+// m_axi_rlast : IN STD_LOGIC;
+// m_axi_ruser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+// m_axi_rvalid : IN STD_LOGIC;
+// m_axi_rready : OUT STD_LOGIC;
+// vfifo_mm2s_channel_full : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+// vfifo_s2mm_channel_full : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+// vfifo_mm2s_channel_empty : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+// vfifo_idle : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+);
 
-// Slave Interface Write Address Ports
-       .s_axi_awid                     (s_axi_awid),
-       .s_axi_awaddr                   (s_axi_awaddr),
-       .s_axi_awlen                    (s_axi_awlen),
-       .s_axi_awsize                   (s_axi_awsize),
-       .s_axi_awburst                  (s_axi_awburst),
-       .s_axi_awlock                   (s_axi_awlock),
-       .s_axi_awcache                  (s_axi_awcache),
-       .s_axi_awprot                   (s_axi_awprot),
-       .s_axi_awqos                    (4'h0),
-       .s_axi_awvalid                  (s_axi_awvalid),
-       .s_axi_awready                  (s_axi_awready),
-// Slave Interface Write Data Ports
-       .s_axi_wdata                    (s_axi_wdata),
-//       .s_axi_wdata                    (axi_adc_fifo_data_out),
-       
-       .s_axi_wstrb                    (s_axi_wstrb),
-       .s_axi_wlast                    (s_axi_wlast),
-       .s_axi_wvalid                   (s_axi_wvalid),
-//       .s_axi_wvalid                   (adc_fifo_valid),
-       .s_axi_wready                   (s_axi_wready),
-// Slave Interface Write Response Ports
-       .s_axi_bid                      (s_axi_bid),
-       .s_axi_bresp                    (s_axi_bresp),
-       .s_axi_bvalid                   (s_axi_bvalid),
-       .s_axi_bready                   (s_axi_bready),
-// Slave Interface Read Address Ports
-       .s_axi_arid                     (s_axi_arid),
-       .s_axi_araddr                   (s_axi_araddr),
-       .s_axi_arlen                    (s_axi_arlen),
-       .s_axi_arsize                   (s_axi_arsize),
-       .s_axi_arburst                  (s_axi_arburst),
-       .s_axi_arlock                   (s_axi_arlock),
-       .s_axi_arcache                  (s_axi_arcache),
-       .s_axi_arprot                   (s_axi_arprot),
-       .s_axi_arqos                    (4'h0),
-       .s_axi_arvalid                  (s_axi_arvalid),
-       .s_axi_arready                  (s_axi_arready),
-// Slave Interface Read Data Ports
-       .s_axi_rid                      (s_axi_rid),
-       .s_axi_rdata                    (s_axi_rdata),
-       .s_axi_rresp                    (s_axi_rresp),
-       .s_axi_rlast                    (s_axi_rlast),
-       .s_axi_rvalid                   (s_axi_rvalid),
-       .s_axi_rready                   (s_axi_rready),
+axis_interconnect_0 u_axis_interconnect_0(
+//   ACLK,
+// ARESETN,
+// S00_AXIS_ACLK,
+// S01_AXIS_ACLK,
+// S00_AXIS_ARESETN,
+// S01_AXIS_ARESETN,
+// S00_AXIS_TVALID,
+// S01_AXIS_TVALID,
+// S00_AXIS_TREADY,
+// S01_AXIS_TREADY,
+// S00_AXIS_TDATA,
+// S01_AXIS_TDATA,
+// S00_AXIS_TSTRB,
+// S01_AXIS_TSTRB,
+// S00_AXIS_TKEEP,
+// S01_AXIS_TKEEP,
+// S00_AXIS_TLAST,
+// S01_AXIS_TLAST,
+// S00_AXIS_TID,
+// S01_AXIS_TID,
+// S00_AXIS_TDEST,
+// S01_AXIS_TDEST,
+// S00_AXIS_TUSER,
+// S01_AXIS_TUSER,
+// M00_AXIS_ACLK,
+// M00_AXIS_ARESETN,
+// M00_AXIS_TVALID,
+// M00_AXIS_TREADY,
+// M00_AXIS_TDATA,
+// M00_AXIS_TSTRB,
+// M00_AXIS_TKEEP,
+// M00_AXIS_TLAST,
+// M00_AXIS_TID,
+// M00_AXIS_TDEST,
+// M00_AXIS_TUSER,
+// S00_ARB_REQ_SUPPRESS,
+// S01_ARB_REQ_SUPPRESS,
+// S00_DECODE_ERR,
+// S01_DECODE_ERR,
+// S00_FIFO_DATA_COUNT,
+// S01_FIFO_DATA_COUNT
+// );
+//
+// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *)
+// input wire ACLK;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *)
+// input wire ARESETN;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_CLKIF CLK" *)
+// input wire S00_AXIS_ACLK;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S01_CLKIF CLK" *)
+// input wire S01_AXIS_ACLK;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_RSTIF RST" *)
+// input wire S00_AXIS_ARESETN;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S01_RSTIF RST" *)
+// input wire S01_AXIS_ARESETN;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID" *)
+// input wire S00_AXIS_TVALID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TVALID" *)
+// input wire S01_AXIS_TVALID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY" *)
+// output wire S00_AXIS_TREADY;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TREADY" *)
+// output wire S01_AXIS_TREADY;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA" *)
+// input wire [511 : 0] S00_AXIS_TDATA;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TDATA" *)
+// input wire [63 : 0] S01_AXIS_TDATA;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TSTRB" *)
+// input wire [63 : 0] S00_AXIS_TSTRB;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TSTRB" *)
+// input wire [7 : 0] S01_AXIS_TSTRB;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TKEEP" *)
+// input wire [63 : 0] S00_AXIS_TKEEP;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TKEEP" *)
+// input wire [7 : 0] S01_AXIS_TKEEP;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST" *)
+// input wire S00_AXIS_TLAST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TLAST" *)
+// input wire S01_AXIS_TLAST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TID" *)
+// input wire [0 : 0] S00_AXIS_TID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TID" *)
+// input wire [0 : 0] S01_AXIS_TID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDEST" *)
+// input wire [0 : 0] S00_AXIS_TDEST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TDEST" *)
+// input wire [0 : 0] S01_AXIS_TDEST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TUSER" *)
+// input wire [63 : 0] S00_AXIS_TUSER;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TUSER" *)
+// input wire [7 : 0] S01_AXIS_TUSER;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M00_CLKIF CLK" *)
+// input wire M00_AXIS_ACLK;
+// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 M00_RSTIF RST" *)
+// input wire M00_AXIS_ARESETN;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID" *)
+// output wire M00_AXIS_TVALID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *)
+// input wire M00_AXIS_TREADY;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *)
+// output wire [2047 : 0] M00_AXIS_TDATA;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TSTRB" *)
+// output wire [255 : 0] M00_AXIS_TSTRB;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP" *)
+// output wire [255 : 0] M00_AXIS_TKEEP;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST" *)
+// output wire M00_AXIS_TLAST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID" *)
+// output wire [0 : 0] M00_AXIS_TID;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDEST" *)
+// output wire [0 : 0] M00_AXIS_TDEST;
+// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TUSER" *)
+// output wire [255 : 0] M00_AXIS_TUSER;
+// input wire S00_ARB_REQ_SUPPRESS;
+// input wire S01_ARB_REQ_SUPPRESS;
+// output wire S00_DECODE_ERR;
+// output wire S01_DECODE_ERR;
+// output wire [31 : 0] S00_FIFO_DATA_COUNT;
+// output wire [31 : 0] S01_FIFO_DATA_COUNT;
+  );
 
-      
-       
-// System Clock Ports
-       .sys_clk_p                       (ddr3_clk1_p),
-       .sys_clk_n                       (ddr3_clk1_n),
-//        .sys_clk_p                       (refclk1_p),
-//        .sys_clk_n                       (refclk1_n),
-      
-       .sys_rst                        (cpu_reset)
-       );
-// End of User Design top instance
+//   mig_7series_0 u_mig_7series_0
+//       (
+//
+//
+// // Memory interface ports
+//        .ddr3_addr                      (ddr3_addr),
+//        .ddr3_ba                        (ddr3_ba),
+//        .ddr3_cas_n                     (ddr3_cas_n),
+//        .ddr3_ck_n                      (ddr3_ck_n),
+//        .ddr3_ck_p                      (ddr3_ck_p),
+//        .ddr3_cke                       (ddr3_cke),
+//        .ddr3_ras_n                     (ddr3_ras_n),
+//        .ddr3_reset_n                   (ddr3_reset_n),
+//        .ddr3_we_n                      (ddr3_we_n),
+//        .ddr3_dq                        (ddr3_dq),
+//        .ddr3_dqs_n                     (ddr3_dqs_n),
+//        .ddr3_dqs_p                     (ddr3_dqs_p),
+//        .init_calib_complete            (init_calib_complete),
+//
+//        .ddr3_cs_n                      (ddr3_cs_n),
+//        .ddr3_dm                        (ddr3_dm),
+//        .ddr3_odt                       (ddr3_odt),
+// // Application interface ports
+//        .ui_clk                         (clk),
+//        .ui_clk_sync_rst                (rst),
+//
+//        .mmcm_locked                    (mmcm_locked),
+//        .aresetn                        (aresetn),
+//        .app_sr_req                     (1'b0),
+//        .app_ref_req                    (1'b0),
+//        .app_zq_req                     (1'b0),
+//        .app_sr_active                  (app_sr_active),
+//        .app_ref_ack                    (app_ref_ack),
+//        .app_zq_ack                     (app_zq_ack),
+//
+// // Slave Interface Write Address Ports
+//        .s_axi_awid                     (s_axi_awid),
+//        .s_axi_awaddr                   (s_axi_awaddr),
+//        .s_axi_awlen                    (s_axi_awlen),
+//        .s_axi_awsize                   (s_axi_awsize),
+//        .s_axi_awburst                  (s_axi_awburst),
+//        .s_axi_awlock                   (s_axi_awlock),
+//        .s_axi_awcache                  (s_axi_awcache),
+//        .s_axi_awprot                   (s_axi_awprot),
+//        .s_axi_awqos                    (4'h0),
+//        .s_axi_awvalid                  (s_axi_awvalid),
+//        .s_axi_awready                  (s_axi_awready),
+// // Slave Interface Write Data Ports
+//        .s_axi_wdata                    (s_axi_wdata),
+// //       .s_axi_wdata                    (axi_adc_fifo_data_out),
+//
+//        .s_axi_wstrb                    (s_axi_wstrb),
+//        .s_axi_wlast                    (s_axi_wlast),
+//        .s_axi_wvalid                   (s_axi_wvalid),
+// //       .s_axi_wvalid                   (adc_fifo_valid),
+//        .s_axi_wready                   (s_axi_wready),
+// // Slave Interface Write Response Ports
+//        .s_axi_bid                      (s_axi_bid),
+//        .s_axi_bresp                    (s_axi_bresp),
+//        .s_axi_bvalid                   (s_axi_bvalid),
+//        .s_axi_bready                   (s_axi_bready),
+// // Slave Interface Read Address Ports
+//        .s_axi_arid                     (s_axi_arid),
+//        .s_axi_araddr                   (s_axi_araddr),
+//        .s_axi_arlen                    (s_axi_arlen),
+//        .s_axi_arsize                   (s_axi_arsize),
+//        .s_axi_arburst                  (s_axi_arburst),
+//        .s_axi_arlock                   (s_axi_arlock),
+//        .s_axi_arcache                  (s_axi_arcache),
+//        .s_axi_arprot                   (s_axi_arprot),
+//        .s_axi_arqos                    (4'h0),
+//        .s_axi_arvalid                  (s_axi_arvalid),
+//        .s_axi_arready                  (s_axi_arready),
+// // Slave Interface Read Data Ports
+//        .s_axi_rid                      (s_axi_rid),
+//        .s_axi_rdata                    (s_axi_rdata),
+//        .s_axi_rresp                    (s_axi_rresp),
+//        .s_axi_rlast                    (s_axi_rlast),
+//        .s_axi_rvalid                   (s_axi_rvalid),
+//        .s_axi_rready                   (s_axi_rready),
+//
+//
+//
+// // System Clock Ports
+//        .sys_clk_p                       (ddr3_clk1_p),
+//        .sys_clk_n                       (ddr3_clk1_n),
+// //        .sys_clk_p                       (refclk1_p),
+// //        .sys_clk_n                       (refclk1_n),
+//
+//        .sys_rst                        (cpu_reset)
+//        );
+// // End of User Design top instance
 
 
 //***************************************************************************
@@ -1153,216 +1059,9 @@ fmc150_dac_adc_inst
      aresetn <= ~rst;
    end
 
-   fmc150_adc_axi4 #(
 
-     .C_AXI_ID_WIDTH                   (C_S_AXI_ID_WIDTH),
-     .C_AXI_ADDR_WIDTH                 (C_S_AXI_ADDR_WIDTH),
-     .C_AXI_DATA_WIDTH                 (C_S_AXI_DATA_WIDTH),
-     .C_AXI_NBURST_SUPPORT             (C_AXI_NBURST_TEST),
-     .C_EN_WRAP_TRANS                  (C_EN_WRAP_TRANS),
-     .C_BEGIN_ADDRESS                  (BEGIN_ADDRESS),
-     .C_END_ADDRESS                    (END_ADDRESS),
-     .PRBS_EADDR_MASK_POS              (PRBS_EADDR_MASK_POS),
-     .DBG_WR_STS_WIDTH                 (DBG_WR_STS_WIDTH),
-     .DBG_RD_STS_WIDTH                 (DBG_RD_STS_WIDTH),
-     .ENFORCE_RD_WR                    (ENFORCE_RD_WR),
-     .ENFORCE_RD_WR_CMD                (ENFORCE_RD_WR_CMD),
-     .EN_UPSIZER                       (C_S_AXI_SUPPORTS_NARROW_BURST),
-     .ENFORCE_RD_WR_PATTERN            (ENFORCE_RD_WR_PATTERN)
-
-   ) u_adc_axi4_inst
-   (
-     .aclk                             (clk),
-     .aresetn                          (aresetn),
-     
-     .adc_axi_data                      (axi_adc_fifo_data_out),        
-// Input control signals
-     .init_cmptd                       (init_calib_complete),
-     .init_test                        (1'b0),
-     .wdog_mask                        (~init_calib_complete),
-     .wrap_en                          (1'b0),
-
-// AXI write address channel signals
-     .axi_wready                       (s_axi_awready),
-     .axi_wid                          (s_axi_awid),
-     .axi_waddr                        (s_axi_awaddr),
-     .axi_wlen                         (s_axi_awlen),
-     .axi_wsize                        (s_axi_awsize),
-     .axi_wburst                       (s_axi_awburst),
-     .axi_wlock                        (s_axi_awlock),
-     .axi_wcache                       (s_axi_awcache),
-     .axi_wprot                        (s_axi_awprot),
-     .axi_wvalid                       (s_axi_awvalid),
-
-// AXI write data channel signals
-     .axi_wd_wready                    (s_axi_wready),
-     .axi_wd_wid                       (s_axi_wid),
-     .axi_wd_data                      (s_axi_wdata),
-     .axi_wd_strb                      (s_axi_wstrb),
-     .axi_wd_last                      (s_axi_wlast),
-     .axi_wd_valid                     (s_axi_wvalid),
-
-// AXI write response channel signals
-     .axi_wd_bid                       (s_axi_bid),
-     .axi_wd_bresp                     (s_axi_bresp),
-     .axi_wd_bvalid                    (s_axi_bvalid),
-     .axi_wd_bready                    (s_axi_bready),
-
-// AXI read address channel signals
-     .axi_rready                       (s_axi_arready),
-     .axi_rid                          (s_axi_arid),
-     .axi_raddr                        (s_axi_araddr),
-     .axi_rlen                         (s_axi_arlen),
-     .axi_rsize                        (s_axi_arsize),
-     .axi_rburst                       (s_axi_arburst),
-     .axi_rlock                        (s_axi_arlock),
-     .axi_rcache                       (s_axi_arcache),
-     .axi_rprot                        (s_axi_arprot),
-     .axi_rvalid                       (s_axi_arvalid),
-
-// AXI read data channel signals
-     .axi_rd_bid                       (s_axi_rid),
-     .axi_rd_rresp                     (s_axi_rresp),
-     .axi_rd_rvalid                    (s_axi_rvalid),
-     .axi_rd_data                      (s_axi_rdata),
-     .axi_rd_last                      (s_axi_rlast),
-     .axi_rd_rready                    (s_axi_rready),
-
-// Error status signals
-     .cmd_err                          (cmd_err),
-     .data_msmatch_err                 (data_msmatch_err),
-     .write_err                        (write_err),
-     .read_err                         (read_err),
-     .test_cmptd                       (test_cmptd),
-     .write_cmptd                      (write_cmptd),
-     .read_cmptd                       (read_cmptd),
-     .cmptd_one_wr_rd                  (cmptd_one_wr_rd),
-
-// Debug status signals
-     .cmp_data_en                      (cmp_data_valid),
-     .cmp_data_o                       (cmp_data),
-     .rdata_cmp                        (rdata_cmp),
-     .dbg_wr_sts_vld                   (dbg_wr_sts_vld),
-     .dbg_wr_sts                       (dbg_wr_sts),
-     .dbg_rd_sts_vld                   (dbg_rd_sts_vld),
-     .dbg_rd_sts                       (dbg_rd_sts)
-);
-
-      
-
-
-   //*****************************************************************
-   // Default values are assigned to the debug inputs
-   //*****************************************************************
-   assign dbg_sel_pi_incdec       = 'b0;
-   assign dbg_sel_po_incdec       = 'b0;
-   assign dbg_pi_f_inc            = 'b0;
-   assign dbg_pi_f_dec            = 'b0;
-   assign dbg_po_f_inc            = 'b0;
-   assign dbg_po_f_dec            = 'b0;
-   assign dbg_po_f_stg23_sel      = 'b0;
-   assign po_win_tg_rst           = 'b0;
-   assign vio_tg_rst              = 'b0;
-
-
-
-
-
-// ila for observing data coming into fifo (writes from ADC/DAC)
-ila_0 ila_mig_ADC_fifo_in
-(
-    .clk (clk_245_76MHz),
-    .probe0 (adc_data_out_probe),              // 64 bits - data from DDS and FMC150 DAC/ADC
-    .probe1 (adc_data_out_probe[63:48]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe2 (adc_data_out_probe[47:32]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe3 (adc_data_out_probe[31:16]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe4 (adc_data_out_probe[15:0]),              //  16 bits - data from DDS and FMC150 DAC/ADC
-    .probe5 (adc_fifo_wr_en_probe),        // 1 bit - fifo write enable
-    .probe6 (adc_fifo_wr_ack_probe),              // 1 bit - fifo write acknowledge
-    .probe7 (adc_fifo_wr_data_count_probe),    //10 bits
-    .probe8 (adc_fifo_almost_full_probe),     //1 bit
-    .probe9 (adc_fifo_full_probe)              //1 bit
-);
-assign adc_data_out_probe = adc_data_out[63:0];        // 64 bits - data from DDS and FMC150 DAC/ADC
-assign adc_fifo_wr_en_probe = adc_data_out_valid;
-assign adc_fifo_wr_ack_probe = adc_fifo_wr_ack;
-
-assign adc_fifo_wr_data_count_probe = adc_fifo_wr_data_count;     //10 bits
-assign adc_fifo_almost_full_probe = adc_fifo_almost_full;     //1 bit
-assign adc_fifo_full_probe = adc_fifo_full;              //1 bit
-
-ila_0 ila_mig_ADC_fifo_out
-(
-    .clk (clk),
-    .probe0 (axi_adc_data_out_probe),              // 64 bits - data from DDS and FMC150 DAC/ADC
-    .probe1 (axi_adc_data_out_probe[63:48]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe2 (axi_adc_data_out_probe[47:32]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe3 (axi_adc_data_out_probe[31:16]),              // 16 bits - data from DDS and FMC150 DAC/ADC
-    .probe4 (axi_adc_data_out_probe[15:0]),              //  16 bits - data from DDS and FMC150 DAC/ADC
-    .probe5 (adc_fifo_rd_en_probe),                 // 1 bit - fifo read enable
-    .probe6 (adc_fifo_valid_probe),              // 1 bit - fifo read acknowledge
-    .probe7 (adc_fifo_rd_data_count_probe),    //10 bits
-    .probe8 (adc_fifo_almost_empty_probe),     //1 bit
-    .probe9 (adc_fifo_empty_probe)              //1 bit
-);
-
-
-assign axi_adc_data_out_probe = axi_adc_fifo_data_out[63:0];        // 64 bits - data from DDS and FMC150 DAC/ADC
-assign adc_fifo_valid_probe = adc_fifo_valid;    // 1 bit - fifo read acknowledge
-assign adc_fifo_rd_en_probe = adc_fifo_rd_en;               // 1 bit - fifo read enable    
-
-assign adc_fifo_rd_data_count_probe = {3'b000,adc_fifo_rd_data_count};     //10 bits
-
-assign adc_fifo_almost_empty_probe = adc_fifo_almost_empty;     //1 bit
-assign adc_fifo_empty_probe = adc_fifo_empty;              //1 bit
-// ila for observing data coming out of fifo (reads by axi mig)
-/*
-ila_1 ila_mig_ADC_fifo_out      
-(
-    .clk (clk),
-    .probe0 (axi_adc_fifo_data_out_probe),     // 512 bits - fifo output data from ADC/DAC
-    .probe1 (s_axi_wdata_probe),               // 512 - data from traffic generator
-    .probe2 (s_axi_wstrb_probe),               // 64 bits - mig write signal input, tg output
-    
-    .probe3 (s_axi_awaddr_probe),              // 30 bits - DDR3 write address from tg
-    .probe4 (s_axi_bid_probe),                 // 4 bits - write response bid signal from MIG
-    .probe5 (s_axi_bresp_probe),               // 2 bits - write response bid signal from MIG
-    .probe6 (s_axi_bready_probe),               // 1 bit - write response bready signal from MIG
-    .probe7 (s_axi_bvalid_probe),               // 1 bit - write response bvalid signal from MIG
-    
-    .probe8 (s_axi_rdata_probe),              //512 bit read data
-    .probe9 (s_axi_araddr_probe),              // 30 bits - DDR3 read address from tg
-    .probe10 (s_axi_rid_probe),               //4 bit
-    .probe11 (s_axi_rresp_probe),             //2 bit
-    .probe12 (s_axi_rready_probe),            // 1 bit
-    .probe13 (s_axi_rlast_probe),             // 1 bit
-    .probe14 (s_axi_rvalid_probe),             // 1 bit
-    
-    .probe15 (adc_fifo_rd_en_probe)           // 1 bit - fifo read enable
-);
-assign axi_adc_fifo_data_out_probe = axi_adc_fifo_data_out[511:0];     // 512 bits - fifo output data from ADC/DAC
-assign s_axi_wdata_probe = s_axi_wdata[511:0];               // 512 - data from traffic generator
-assign s_axi_wstrb_probe = s_axi_wstrb[63:0];               // 64 bits - mig write signal input, tg output
-
-assign s_axi_awaddr_probe = s_axi_awaddr[29:0];              // 30 bits - DDR3 write address from tg
-assign s_axi_bid_probe = s_axi_bid[3:0];                 // 4 bits - write response bid signal from MIG
-assign s_axi_bresp_probe = s_axi_bresp[1:0];               // 2 bits - write response bid signal from MIG
-assign s_axi_bready_probe = s_axi_bready;               // 1 bit - write response bready signal from MIG
-assign s_axi_bvalid_probe = s_axi_bvalid;               // 1 bit - write response bvalid signal from MIG
-
-assign s_axi_rdata_probe = s_axi_rdata[511:0];              //512 bit read data
-assign s_axi_araddr_probe = s_axi_araddr[29:0];             // 30 bits - DDR3 read address from tg
-assign s_axi_rid_probe = s_axi_rid[3:0];              //4 bit
-assign s_axi_rresp_probe =  s_axi_rresp[1:0];            //2 bit
-assign s_axi_rready_probe = s_axi_rready;            // 1 bit
-assign s_axi_rlast_probe = s_axi_rlast;             // 1 bit
-assign s_axi_rvalid_probe = s_axi_rvalid;             // 1 bit
-
-assign adc_fifo_rd_en_probe = adc_fifo_rd_en;           // 1 bit - fifo read enable
-*/
 
 
 
 
 endmodule
-

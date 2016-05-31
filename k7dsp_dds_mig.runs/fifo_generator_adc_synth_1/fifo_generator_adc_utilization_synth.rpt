@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Wed Jan 20 16:22:40 2016
-| Host         : radar-PC running 64-bit Service Pack 1  (build 7601)
+| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
+| Date         : Fri May 27 14:15:10 2016
+| Host         : localhost.localdomain running 64-bit Scientific Linux release 7.0 (Nitrogen)
 | Command      : report_utilization -file fifo_generator_adc_utilization_synth.rpt -pb fifo_generator_adc_utilization_synth.pb
 | Design       : fifo_generator_adc
 | Device       : xc7k325t
@@ -29,13 +29,13 @@ Table of Contents
 +-------------------------+------+-------+-----------+-------+
 |        Site Type        | Used | Fixed | Available | Util% |
 +-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   74 |     0 |    203800 |  0.03 |
-|   LUT as Logic          |   74 |     0 |    203800 |  0.03 |
+| Slice LUTs*             |  243 |     0 |    203800 |  0.11 |
+|   LUT as Logic          |  243 |     0 |    203800 |  0.11 |
 |   LUT as Memory         |    0 |     0 |     64000 |  0.00 |
-| Slice Registers         |  157 |     0 |    407600 |  0.03 |
-|   Register as Flip Flop |  157 |     0 |    407600 |  0.03 |
+| Slice Registers         |  269 |     0 |    407600 |  0.06 |
+|   Register as Flip Flop |  269 |     0 |    407600 |  0.06 |
 |   Register as Latch     |    0 |     0 |    407600 |  0.00 |
-| F7 Muxes                |    0 |     0 |    101900 |  0.00 |
+| F7 Muxes                |   54 |     0 |    101900 |  0.05 |
 | F8 Muxes                |    0 |     0 |     50950 |  0.00 |
 +-------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -47,9 +47,9 @@ Table of Contents
 +-------------------+------+-------+-----------+-------+
 |     Site Type     | Used | Fixed | Available | Util% |
 +-------------------+------+-------+-----------+-------+
-| Block RAM Tile    |   16 |     0 |       445 |  3.59 |
-|   RAMB36/FIFO*    |   16 |     0 |       445 |  3.59 |
-|     RAMB36E1 only |   16 |       |           |       |
+| Block RAM Tile    |   29 |     0 |       445 |  6.51 |
+|   RAMB36/FIFO*    |   29 |     0 |       445 |  6.51 |
+|     RAMB36E1 only |   29 |       |           |       |
 |   RAMB18          |    0 |     0 |       890 |  0.00 |
 +-------------------+------+-------+-----------+-------+
 * Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
@@ -131,16 +131,17 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |  131 |        Flop & Latch |
-| LUT2     |   39 |                 LUT |
-| LUT4     |   23 |                 LUT |
+| FDCE     |  240 |        Flop & Latch |
+| LUT6     |  121 |                 LUT |
+| LUT2     |   69 |                 LUT |
+| LUT4     |   59 |                 LUT |
+| MUXF7    |   54 |               MuxFx |
+| RAMB36E1 |   29 |        Block Memory |
+| CARRY4   |   28 |          CarryLogic |
 | FDPE     |   22 |        Flop & Latch |
-| RAMB36E1 |   16 |        Block Memory |
-| LUT6     |   14 |                 LUT |
+| LUT5     |   17 |                 LUT |
 | LUT3     |   10 |                 LUT |
-| CARRY4   |   10 |          CarryLogic |
-| LUT5     |    8 |                 LUT |
-| FDRE     |    4 |        Flop & Latch |
+| FDRE     |    7 |        Flop & Latch |
 | LUT1     |    2 |                 LUT |
 +----------+------+---------------------+
 

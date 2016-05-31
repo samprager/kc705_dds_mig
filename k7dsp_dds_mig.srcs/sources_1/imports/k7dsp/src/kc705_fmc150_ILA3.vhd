@@ -5,13 +5,13 @@
 -- / \===\   \==/
 --/___\===\___\/  AVNET
 --     \======/
---      \====/    
+--      \====/
 --
 ----------------------------------------------------------------------------------
 -- This design is the property of Avnet.  Publication of this
 -- design is not authorized without written consent from Avnet.
--- 
--- Any modifications that are made to the Source Code are 
+--
+-- Any modifications that are made to the Source Code are
 -- done at the user's sole risk and will be unsupported.
 --
 -- Disclaimer:
@@ -24,8 +24,8 @@
 --                             All rights reserved.
 --
 --
--- This copyright and support notice must be retained as part 
--- of this text at all times. 
+-- This copyright and support notice must be retained as part
+-- of this text at all times.
 --
 -- Xilinx products are not intended for use in life support
 -- appliances, devices, or systems. Use in such applications is
@@ -68,13 +68,13 @@
 -------------------------------------------------------------------------------------
 -- Revisions
 -- Luc Langlois \ Avnet
--- August 2011 : 
+-- August 2011 :
 --		- Update to ISE 13.2
 --		- Increased DUC output sampling rate to 245.76 MSPS to DAC3283 with 2X interpolation
 --		- Increased ADC input sampling rate to 245.76 MSPS
 --
--- Nov 4, 2011: 
---		- Update to ISE 13.3 build O.76 
+-- Nov 4, 2011:
+--		- Update to ISE 13.3 build O.76
 --		- DUC_DDC module as user design
 -- Nov 29, 2011:
 --    - added trig1 to 'ila_baseband_out' connected to 'baseband_out_valid' for storage qualifier in Chipscope
@@ -103,11 +103,11 @@
 --         - user may verify by asserting pushbutton 'CPU_RST' on KC705
 --
 -- Nov 29 2012:
---		-Updated to Vivado 2012.4  
+--		-Updated to Vivado 2012.4
 --		-Changed debug to Vivado Analayzer ILA2.0
 --
 ---- June 4 2013:
---		-Updated to Vivado 2013.2  
+--		-Updated to Vivado 2013.2
 --		-Changed debug to Vivado Analayzer ILA2.1 and VIO to Vivado v2.0
 --      -upgraded FIR and complex multiplier IP
 --      -Commented out black box in complex_mixer VHDL
@@ -142,12 +142,14 @@ generic (
 );
 port (
 
-  adc_data_out : out std_logic_vector(63 downto 0);
+-- ADC data re-mux'd to 245.76 MSPS in fabric, extended to 16-bit
+  adc_data_out_i : out std_logic_vector(15 downto 0);
+  adc_data_out_q : out std_logic_vector(15 downto 0);
   adc_data_out_valid : out std_logic;
-  
+
   clk_out_245_76MHz     :out std_logic;
   clk_out_491_52MHz     :out std_logic;
-  
+
  -- adc_data_out : out std_logic_vector(511 downto 0);
   --KC705 Resources
   cpu_reset        : in    std_logic; -- CPU RST button, SW7 on KC705
@@ -347,9 +349,9 @@ port (
   ads62p49_valid   : in    std_logic;
   dac3283_valid    : in    std_logic;
   amc7823_valid    : in    std_logic;
-  
+
   busy             : out   std_logic;
-  
+
   external_clock   : in    std_logic;
 
   -- Global signals
@@ -489,6 +491,7 @@ signal adc_dout_q_245_76_MSPS      : std_logic_vector(13 downto 0);
 signal adc_dout_245_76_MSPS_valid  : std_logic;
 signal clk_245_76MHz_count         : std_logic;
 signal adc_dout_i, adc_dout_q      : std_logic_vector(15 downto 0);	-- ADC data re-mux'd to 245.76 MSPS in fabric, extended to 16-bit
+signal adc_dout_valid              : std_logic;
 
 signal iDelay_INC_cha    : std_logic;
 signal iDelay_INC_cha_r  : std_logic;
@@ -723,7 +726,7 @@ begin
 --    sync_out  => vio_sync_out
 --);
 
-    Busy_signal_1(0) <= Busy_signal;  
+    Busy_signal_1(0) <= Busy_signal;
    vio_inst : vio
      PORT MAP (
        clk => clk_100Mhz,
@@ -833,7 +836,7 @@ begin
         ADC_cha_calibration_done_rr <= ADC_cha_calibration_done_r;
 		if not ADC_chb_ready then
 			if not ADC_chb_calibration_done_rr then
-				if not ADC_chb_calibration_test_pattern_mode_command_sent then 
+				if not ADC_chb_calibration_test_pattern_mode_command_sent then
 					if (fmc150_spi_ctrl_done = '1' and fmc150_spi_ctrl_done_r = '0') then	-- rising edge of 'fmc150_spi_ctrl_done' indicates reset-time
 																													-- initialization of FMC150 SPI devices has completed
 						addr <= x"0075";
@@ -843,7 +846,7 @@ begin
 						ADC_chb_calibration_test_pattern_mode_command_sent <= TRUE;
 					else
 						ads62p49_valid <= ads62p49_valid;
-						ADC_chb_calibration_test_pattern_mode_command_sent <= FALSE;					
+						ADC_chb_calibration_test_pattern_mode_command_sent <= FALSE;
 					end if;
 				else
 					if (busy = '0' and busy_reg = '1') then	-- wait for falling edge of 'busy' indicating SPI port has sent command to ADS62P49 for test-mode
@@ -869,7 +872,7 @@ begin
 			end if;
         elsif not ADC_cha_ready then
 			if not ADC_cha_calibration_done_rr then
-				if not ADC_cha_calibration_test_pattern_mode_command_sent then 
+				if not ADC_cha_calibration_test_pattern_mode_command_sent then
                addr <= x"0062";
 					idata <= x"00000004";																-- send SPI command to ads62p49 for test-mode / ramp pattern on Ch A
 					rd_n_wr <= '0';
@@ -954,7 +957,7 @@ begin
         clk_cntvaluein_update_122_88MHz_r <= conv_std_logic_vector(CLK_IDELAY, 5);
         cha_cntvaluein_update_122_88MHz_r <= conv_std_logic_vector(CLK_IDELAY, 5);
         chb_cntvaluein_update_122_88MHz_r <= conv_std_logic_vector(CLK_IDELAY, 5);
-    
+
     elsif (rising_edge(clk_122_88MHz)) then
         cha_cntvaluein_update_122_88MHz <= cha_cntvaluein_update;              -- re-clock from 100 Mhz clock domain to 122.88 MHz, synchronous with iDelays and iSerdes
         cha_cntvaluein_update_122_88MHz_r <= cha_cntvaluein_update_122_88MHz;
@@ -962,7 +965,7 @@ begin
         chb_cntvaluein_update_122_88MHz_r <= chb_cntvaluein_update_122_88MHz;
         clk_cntvaluein_update_122_88MHz <= clk_cntvaluein_update;
         clk_cntvaluein_update_122_88MHz_r <= clk_cntvaluein_update_122_88MHz;
-    
+
         -- Generate an delay_update pulse when one of the cntvaluein values has been changed from VIO or Simulink GUI
         if (cha_cntvaluein /= cha_cntvaluein_update_122_88MHz_r) then
             delay_update_cha   <= '1';
@@ -993,13 +996,13 @@ begin
             chb_cntvaluein <= chb_cntvaluein;
             cha_cntvaluein <= cha_cntvaluein;
         end if;
-    
+
         idelay_LD_cha   <= io_rst OR delay_update_cha;             -- LD pulse to iDelay from either system reset, or from VIO, or GUI
         idelay_LD_chb   <= io_rst OR delay_update_chb;
-        
+
         iDelay_INC_cha_r <= iDelay_INC_cha;
         iDelay_INC_chb_r <= iDelay_INC_chb;
-        
+
         iserdes_rst_cha <= iDelay_INC_cha OR delay_update_cha;     -- assert reset pulse to iSerdes from either ADC calibration sequence, or from VIO, or GUI
         iserdes_rst_chb <= iDelay_INC_chb OR delay_update_chb;
 
@@ -1099,21 +1102,21 @@ begin
   if (mmcm_adac_locked = '0') then
     cnt := 0;
     rst <= '1';
-	 
+
   elsif (rising_edge(clk_245_76MHz)) then
     -- DDC and DUC are kept in reset state for a while...
     if (cnt < 1023) then
       cnt := cnt + 1;
       rst <= '1';
-		
+
     else
       cnt := cnt;
       rst <= '0';
-		
+
     end if;
   end if;
-end process;	
-	 
+end process;
+
 process (mmcm_adac_locked, clk_122_88MHz)
   variable cnt : integer range 0 to 1023 := 0;
 begin
@@ -1130,7 +1133,7 @@ begin
     else
       cnt := cnt;
     end if;
-	 
+
     -- The iSERDES and OSERDES blocks are synchronously reset for 1 CLKDIV cycle @ 122.88 MHz ...
     if (cnt = 255) then
       io_rst <= '1';
@@ -1197,7 +1200,7 @@ adc_data_a: for i in 0 to 6 generate
         LDPIPEEN => '0',					-- 1-bit input: Enable PIPELINE register to load data input
         REGRST => '0'						-- 1-bit input: Active-high reset tap-delay input
     );
-	
+
     ISERDESE2_adc_cha : ISERDESE2
     generic map (
         DATA_RATE => "DDR",           		-- DDR, SDR
@@ -1218,7 +1221,7 @@ adc_data_a: for i in 0 to 6 generate
         SRVAL_Q1 => '0',
         SRVAL_Q2 => '0'
         --      SRVAL_Q3 => '0',
-        --      SRVAL_Q4 => '0' 
+        --      SRVAL_Q4 => '0'
     )
     port map (
         --      O => O,                       	-- 1-bit output: Combinatorial output
@@ -1238,7 +1241,7 @@ adc_data_a: for i in 0 to 6 generate
                                     -- CLKDIV when asserted (active High). Subsequently, the data seen on the
                                     -- Q1 to Q8 output ports will shift, as in a barrel-shifter operation, one
                                     -- position every time Bitslip is invoked (DDR operation is different from SDR).
-        
+
         -- CE1, CE2: 1-bit (each) input: Data register clock enable inputs
         CE1 => '1',
         CE2 => '0',
@@ -1247,7 +1250,7 @@ adc_data_a: for i in 0 to 6 generate
         CLK => clk_245_76MHz,		    -- 1-bit input: High-speed clock
         CLKB => clk_245_76MHz_1,--not clk_245_76MHz,		-- 1-bit input: High-speed secondary clock
         CLKDIV => clk_122_88MHz,		-- 1-bit input: Divided clock
-        OCLK => '0',                 	-- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY" 
+        OCLK => '0',                 	-- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY"
         -- Dynamic Clock Inversions: 1-bit (each) input: Dynamic clock inversion pins to switch clock polarity
         DYNCLKDIVSEL => '0',			-- 1-bit input: Dynamic CLKDIV inversion
         DYNCLKSEL => '0',				-- 1-bit input: Dynamic CLK/CLKB inversion
@@ -1259,7 +1262,7 @@ adc_data_a: for i in 0 to 6 generate
         RST => iserdes_rst_cha,         -- The iSERDES is synchronously reset for 1 CLKDIV cycle @ 122.88 MHz ...
         -- SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
         SHIFTIN1 => '0',
-        SHIFTIN2 => '0' 
+        SHIFTIN2 => '0'
     );
 	clk_245_76MHz_1 <= not clk_245_76MHz;
 end generate;
@@ -1329,7 +1332,7 @@ adc_data_b: for i in 0 to 6 generate
         SRVAL_Q1 => '0',
         SRVAL_Q2 => '0'
 --      SRVAL_Q3 => '0',
---      SRVAL_Q4 => '0' 
+--      SRVAL_Q4 => '0'
     )
     port map (
 --      O => O,                       		-- 1-bit output: Combinatorial output
@@ -1359,7 +1362,7 @@ adc_data_b: for i in 0 to 6 generate
         CLK => clk_245_76MHz,		    -- 1-bit input: High-speed clock
         CLKB => clk_245_76MHz_2,-- not clk_245_76MHz,	    -- 1-bit input: High-speed secondary clock
         CLKDIV => clk_122_88MHz,		-- 1-bit input: Divided clock
-        OCLK => '0',                 	-- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY" 
+        OCLK => '0',                 	-- 1-bit input: High speed output clock used when INTERFACE_TYPE="MEMORY"
         -- Dynamic Clock Inversions: 1-bit (each) input: Dynamic clock inversion pins to switch clock polarity
         DYNCLKDIVSEL => '0',			-- 1-bit input: Dynamic CLKDIV inversion
         DYNCLKSEL => '0',				-- 1-bit input: Dynamic CLK/CLKB inversion
@@ -1371,7 +1374,7 @@ adc_data_b: for i in 0 to 6 generate
         RST => iserdes_rst_chb,         -- The iSERDES is synchronously reset for 1 CLKDIV cycle @ 122.88 MHz ...
         -- SHIFTIN1-SHIFTIN2: 1-bit (each) input: Data width expansion input ports
         SHIFTIN1 => '0',
-        SHIFTIN2 => '0' 
+        SHIFTIN2 => '0'
    );
    clk_245_76MHz_2 <= not clk_245_76MHz;
 end generate;
@@ -1389,7 +1392,7 @@ end generate;
 			end if;
 		end if;
 	end process;
-	
+
 	process (clk_245_76MHz)
 	begin
 		if rising_edge(clk_245_76MHz) then
@@ -1444,17 +1447,21 @@ begin
             clk_245_76MHz_count <= '0';
             adc_dout_245_76_MSPS_valid <= '0';  -- make valid pulse to accompany re-mux'd 245.76 MSPS ADC samples
         end if;
-        
-        if (adc_dout_245_76_MSPS_valid = '1') then		
+
+        if (adc_dout_245_76_MSPS_valid = '1') then
             adc_dout_i <= adc_dout_i_245_76_MSPS & "00";
             adc_dout_q <= adc_dout_q_245_76_MSPS & "00";
         else
             adc_dout_i <= adc_dout_i;
             adc_dout_q <= adc_dout_q;
         end if;
+        adc_dout_valid <= adc_dout_245_76_MSPS_valid;
     end if;
 end process;
 
+adc_data_out_i <= adc_dout_i;
+adc_data_out_q <= adc_dout_q;
+adc_data_out_valid <= adc_dout_valid;
 ------------------------------------------------------------------------------------
 ---- ILA for monitor of ADC calibration
 ------------------------------------------------------------------------------------
@@ -1463,7 +1470,7 @@ end process;
 --  port map (
 --   CONTROL => ila_adc_cali_control,
 --    CLK => clk_245_76Mhz,
---    DATA => ILA_ADC_cali_data,  
+--    DATA => ILA_ADC_cali_data,
 --    TRIG0 => ILA_ADC_cali_inst_trig0,
 --    TRIG1 => ILA_ADC_cali_inst_trig1,
 --    TRIG2 => ILA_ADC_cali_inst_trig2,
@@ -1473,7 +1480,7 @@ end process;
     ILA_ADC_cali_inst_trig1(0) <= ADC_cha_calibration_state(1);
     ILA_ADC_cali_inst_trig2(0) <= ADC_cha_calibration_state(2);
     ILA_ADC_cali_inst_trig3(0) <= iDelay_INC_cha;
-	 
+
 --	ILA_ADC_cali_data <= adc_dout_i_245_76_MSPS & ADC_cha_calibration_state & cha_cntvalueout(0) & iDelay_INC_cha & adc_cha_re_mux_polarity;
 
 ----------------------------------------------------------------------------------
@@ -1808,7 +1815,7 @@ port map(
 duc_dcc_route_ctrl_sig(0) 	<= digital_mode;
 duc_dcc_route_ctrl_sig(1) 	<= adc_out_dac_in;
 duc_dcc_route_ctrl_sig(2) 	<= ddc_duc_bypass;
-  
+
 ----------------------------------------------------------------------------------------------------
 -- ICON
 ----------------------------------------------------------------------------------------------------
@@ -1829,11 +1836,11 @@ duc_dcc_route_ctrl_sig(2) 	<= ddc_duc_bypass;
 --  port map (
 --    CONTROL => ila_adc_cali_control,
 --    CLK => clk_245_76Mhz,
---    DATA => ILA_ADC_cali_data,  
+--    DATA => ILA_ADC_cali_data,
 --    TRIG0 => adc_dout_q_245_76_MSPS,
 --    TRIG1 => ILA_ADC_cali_inst_trig1,
 --    TRIG2 => ILA_ADC_cali_inst_trig2);
---	 
+--
 --	 ILA_ADC_cali_inst_trig1(0) <= ADC_chb_trace_edge;
 --	 ILA_ADC_cali_inst_trig2(0) <= delay_update;
 --	 ILA_ADC_cali_data <= adc_dout_q_245_76_MSPS & ADC_chb_calibration_state & chb_cntvaluein & delay_update & adc_chb_re_mux_polarity;
@@ -1890,10 +1897,8 @@ begin
     end if;
 end process register_ADC_out;
 
-adc_data_out <= adc_data_out_sig;
 adc_data_out_i_sig <= adc_data_out_sig(31 downto 16);
 adc_data_out_q_sig <= adc_data_out_sig(15 downto 0);
-adc_data_out_valid <= adc_data_out_valid_sig;
 ----------------------------------------------------------------------------------------------------
 -- ILA DAC to monitor digital data driven to DAC3283
 ----------------------------------------------------------------------------------------------------
