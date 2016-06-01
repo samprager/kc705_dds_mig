@@ -59,8 +59,8 @@
 // CLK_OUT1   125.000      0.000      50.0       91.364     85.928
 // CLK_OUT2   100.000      0.000      50.0       70.716     85.928
   
-// CLK_OUT2   200.000      0.000      50.0            
-            
+// CLK_OUT3   200.000      0.000      50.0            
+// CLK_OUT4   200.000      0.000      50.0              
 //
 //----------------------------------------------------------------------------
 // Input Clock   Input Freq (MHz)   Input Jitter (UI)
@@ -76,6 +76,7 @@ module kc705_ethernet_rgmii_clk_wiz
   output        CLK_OUT1,
   output        CLK_OUT2,
   output        CLK_OUT3,
+  output        CLK_OUT4,
   // Status and control signals
   input         RESET,
   output        LOCKED
@@ -94,7 +95,6 @@ module kc705_ethernet_rgmii_clk_wiz
   wire        clkout0b_unused;
   wire        clkout1b_unused;
   wire        clkout2b_unused;
-  wire        clkout3_unused;
   wire        clkout3b_unused;
   wire        clkout4_unused;
   wire        clkout5_unused;
@@ -115,12 +115,13 @@ module kc705_ethernet_rgmii_clk_wiz
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT1_DIVIDE       (10),
     .CLKOUT1_PHASE        (0.000),
-    .CLKOUT1_DUTY_CYCLE   (0.500),
-  
+    .CLKOUT1_DUTY_CYCLE   (0.500), 
     .CLKOUT2_DIVIDE       (5),
-  
     .CLKOUT2_PHASE        (0.000),
     .CLKOUT2_DUTY_CYCLE   (0.500),
+    .CLKOUT3_DIVIDE       (5),
+    .CLKOUT3_PHASE        (0.000),
+    .CLKOUT3_DUTY_CYCLE   (0.500),
     .CLKIN1_PERIOD        (5.000),
     .REF_JITTER1          (0.010))
   mmcm_adv_inst
@@ -133,7 +134,7 @@ module kc705_ethernet_rgmii_clk_wiz
     .CLKOUT1B            (clkout1b_unused),
     .CLKOUT2             (clkout2),
     .CLKOUT2B            (clkout2b_unused),
-    .CLKOUT3             (clkout3_unused),
+    .CLKOUT3             (clkout3),
     .CLKOUT3B            (clkout3b_unused),
     .CLKOUT4             (clkout4_unused),
     .CLKOUT5             (clkout5_unused),
@@ -182,5 +183,10 @@ module kc705_ethernet_rgmii_clk_wiz
    (.O   (CLK_OUT3),
     .CE  (1'b1),
     .I   (clkout2));
+    
+  BUFGCE clkout4_buf
+   (.O   (CLK_OUT4),
+    .CE  (1'b1),
+    .I   (clkout3));  
 
 endmodule

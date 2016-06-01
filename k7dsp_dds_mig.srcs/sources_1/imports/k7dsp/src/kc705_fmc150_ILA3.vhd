@@ -153,9 +153,9 @@ port (
  -- adc_data_out : out std_logic_vector(511 downto 0);
   --KC705 Resources
   cpu_reset        : in    std_logic; -- CPU RST button, SW7 on KC705
-  sysclk_p         : in    std_logic;
-  sysclk_n         : in    std_logic;
---  sysclk_buf         : in    std_logic;
+--  sysclk_p         : in    std_logic;
+--  sysclk_n         : in    std_logic;
+  sysclk_buf         : in    std_logic;
   gpio_led         : out   std_logic_vector(7 downto 0);
   gpio_dip_sw      : in    std_logic_vector(7 downto 0);
   gpio_led_c       : out   std_logic;
@@ -691,7 +691,7 @@ signal ILA_ADC_cali_inst_trig1         : std_logic_vector(0 downto 0);
 signal ILA_ADC_cali_inst_trig2         : std_logic_vector(0 downto 0);
 signal ILA_ADC_cali_inst_trig3         : std_logic_vector(0 downto 0);
 
-signal sysclk_buf                      : std_logic;
+--signal sysclk_buf                      : std_logic;
 
 ------------
 attribute keep of ila_dac_trig0: signal is "TRUE";
@@ -1009,13 +1009,13 @@ begin
     end if;
 end process iDelay_update;
 
--- Differential input buffer
-ibufds_inst_sysclk : ibufds
-port map (
-    i  => sysclk_p,
-    ib => sysclk_n,
-    o  => sysclk_buf
-);
+---- Differential input buffer
+--ibufds_inst_sysclk : ibufds
+--port map (
+--    i  => sysclk_p,
+--    ib => sysclk_n,
+--    o  => sysclk_buf
+--);
 
 ----------------------------------------------------------------------------------------------------
 -- MMCM System Clock

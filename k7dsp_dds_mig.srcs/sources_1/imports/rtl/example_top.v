@@ -85,150 +85,11 @@ module example_top #
    parameter ENFORCE_RD_WR_CMD     = 8'h11,
    parameter ENFORCE_RD_WR_PATTERN = 3'b000,
    parameter C_EN_WRAP_TRANS       = 0,
-   parameter C_AXI_NBURST_TEST     = 0,
+   parameter C_AXI_NBURST_TEST     = 0
 
-   //***************************************************************************
-   // The following parameters refer to width of various ports
-   //***************************************************************************
-   parameter BANK_WIDTH            = 3,
-                                     // # of memory Bank Address bits.
-   parameter CK_WIDTH              = 1,
-                                     // # of CK/CK# outputs to memory.
-   parameter COL_WIDTH             = 10,
-                                     // # of memory Column Address bits.
-   parameter CS_WIDTH              = 1,
-                                     // # of unique CS outputs to memory.
-   parameter nCS_PER_RANK          = 1,
-                                     // # of unique CS outputs per rank for phy
-   parameter CKE_WIDTH             = 1,
-                                     // # of CKE outputs to memory.
-   parameter DM_WIDTH              = 8,
-                                     // # of DM (data mask)
-   parameter DQ_WIDTH              = 64,
-                                     // # of DQ (data)
-   parameter DQS_WIDTH             = 8,
-   parameter DQS_CNT_WIDTH         = 3,
-                                     // = ceil(log2(DQS_WIDTH))
-   parameter DRAM_WIDTH            = 8,
-                                     // # of DQ per DQS
-   parameter ECC                   = "OFF",
-   parameter ECC_TEST              = "OFF",
-   parameter nBANK_MACHS           = 4,
-   parameter RANKS                 = 1,
-                                     // # of Ranks.
-   parameter ODT_WIDTH             = 1,
-                                     // # of ODT outputs to memory.
-   parameter ROW_WIDTH             = 14,
-                                     // # of memory Row Address bits.
-   parameter ADDR_WIDTH            = 28,
-                                     // # = RANK_WIDTH + BANK_WIDTH
-                                     //     + ROW_WIDTH + COL_WIDTH;
-                                     // Chip Select is always tied to low for
-                                     // single rank devices
-
-
-   //***************************************************************************
-   // The following parameters are mode register settings
-   //***************************************************************************
-
-   parameter BURST_MODE            = "8",
-                                     // DDR3 SDRAM:
-                                     // Burst Length (Mode Register 0).
-                                     // # = "8", "4", "OTF".
-                                     // DDR2 SDRAM:
-                                     // Burst Length (Mode Register).
-                                     // # = "8", "4".
-
-   //***************************************************************************
-   // The following parameters are multiplier and divisor factors for PLLE2.
-   // Based on the selected design frequency these parameters vary.
-   //***************************************************************************
-   parameter CLKIN_PERIOD          = 5000,
-//   parameter CLKIN_PERIOD          = 4069,
-                                     // Input Clock Period
-   parameter CLKFBOUT_MULT         = 4,
-                                     // write PLL VCO multiplier
-   parameter DIVCLK_DIVIDE         = 1,
-                                     // write PLL VCO divisor
-   parameter CLKOUT0_PHASE         = 337.5,
-                                     // Phase for PLL output clock (CLKOUT0)
-   parameter CLKOUT0_DIVIDE        = 2,
-                                     // VCO output divisor for PLL output clock (CLKOUT0)
-   parameter CLKOUT1_DIVIDE        = 2,
-                                     // VCO output divisor for PLL output clock (CLKOUT1)
-   parameter CLKOUT2_DIVIDE        = 32,
-                                     // VCO output divisor for PLL output clock (CLKOUT2)
-   parameter CLKOUT3_DIVIDE        = 8,
-                                     // VCO output divisor for PLL output clock (CLKOUT3)
-
-
-   //***************************************************************************
-   // Simulation parameters
-   //*********************************************************************
-
-   parameter SIMULATION            = "FALSE",
-                                     // Should be TRUE during design simulations and
-                                     // FALSE during implementations
-
-   //***************************************************************************
-   // IODELAY and PHY related parameters
-   //***************************************************************************
-
-   parameter TCQ                   = 100,//   parameter IODELAY_GRP0
-
-   parameter DRAM_TYPE             = "DDR3",
-
-
-   //***************************************************************************
-   // Referece clock frequency parameters
-   //***************************************************************************
-//   parameter REFCLK_FREQ           = 200.0,
-                                     // IODELAYCTRL reference clock frequency
-//   parameter DIFF_TERM_REFCLK      = "TRUE",
-                                     // Differential Termination for idelay
-                                     // reference clock input pins
-   //***************************************************************************
-   // System clock frequency parameters
-   //***************************************************************************
-//   parameter tCK                   = 2500,
-                                     // memory tCK paramter.
-                                     // # = Clock Period in pS.
-   parameter nCK_PER_CLK           = 4,
-                                     // # of memory CKs per fabric CLK
-//   parameter DIFF_TERM_SYSCLK      = "FALSE",
-                                     // Differential Termination for System
-                                     // clock input pins
-
-
-   //***************************************************************************
-   // AXI4 Shim parameters
-   //***************************************************************************
-   parameter C_S_AXI_ID_WIDTH              = 4,
-
-   parameter C_S_AXI_ADDR_WIDTH            = 30,
-
-   parameter C_S_AXI_DATA_WIDTH            = 512,
-
-   parameter C_S_AXI_SUPPORTS_NARROW_BURST = 0,
-
-   parameter DEBUG_PORT            = "OFF",
-                                     // # = "ON" Enable debug signals/controls.
-                                     //   = "OFF" Disable debug signals/controls.
-
-   //***************************************************************************
-   // Temparature monitor parameter
-   //***************************************************************************
-//   parameter TEMP_MON_CONTROL      = "INTERNAL",
-                                     // # = "INTERNAL", "EXTERNAL"
-
-   parameter RST_ACT_LOW           = 0,
-                                     // =1 for active low reset,
-                                     // =0 for active high.
-
-  parameter C_ADC_BUFFER_WIDTH = C_S_AXI_DATA_WIDTH/32
    )
   (
-
+// Memory interface ports
     // Inouts
     inout [63:0]                         ddr3_dq,
     inout [7:0]                        ddr3_dqs_n,
@@ -236,7 +97,7 @@ module example_top #
 
     // Outputs
     output [13:0]                       ddr3_addr,
-    output [2:0]                      ddr3_ba,
+    output [2:0]                        ddr3_ba,
     output                                       ddr3_ras_n,
     output                                       ddr3_cas_n,
     output                                       ddr3_we_n,
@@ -244,7 +105,7 @@ module example_top #
     output [0:0]                        ddr3_ck_p,
     output [0:0]                        ddr3_ck_n,
     output [0:0]                       ddr3_cke,
-    output [0:0]           ddr3_cs_n,
+    output [0:0]                        ddr3_cs_n,
     output [7:0]                        ddr3_dm,
     output [0:0]                       ddr3_odt,
 
@@ -435,96 +296,67 @@ function integer clogb2 (input integer size);
 
 
 
-  wire                          clk_245_76MHz;
-  wire                          clk_491_52MHz;
+wire                          clk_245_76MHz;
+wire                          clk_491_52MHz;
 
+// DDR3 MIG Wires
+// full bid and rid outputs from mig -- concatinated for input to vfifo
+wire [3:0] s_axi_mig_bid;
+wire [3:0] s_axi_mig_rid;
 
-  wire                              clk;
-  wire                              rst;
-  wire                              mmcm_locked;
-  reg                               aresetn;
-  wire                              app_sr_active;
-  wire                              app_ref_ack;
-  wire                              app_zq_ack;
-  wire                              app_rd_data_valid;
-  wire [APP_DATA_WIDTH-1:0]         app_rd_data;
-
-  wire                              mem_pattern_init_done;
-
-  wire                              cmd_err;
-  wire                              data_msmatch_err;
-  wire                              write_err;
-  wire                              read_err;
-  wire                              test_cmptd;
-  wire                              write_cmptd;
-  wire                              read_cmptd;
-  wire                              cmptd_one_wr_rd;
-
-  // Slave Interface Write Address Ports
-  wire [C_S_AXI_ID_WIDTH-1:0]       s_axi_awid;
-  wire [C_S_AXI_ADDR_WIDTH-1:0]     s_axi_awaddr;
-  wire [7:0]                        s_axi_awlen;
-  wire [2:0]                        s_axi_awsize;
-  wire [1:0]                        s_axi_awburst;
-  wire [0:0]                        s_axi_awlock;
-  wire [3:0]                        s_axi_awcache;
-  wire [2:0]                        s_axi_awprot;
-  wire                              s_axi_awvalid;
-  wire                              s_axi_awready;
-   // Slave Interface Write Data Ports
-  wire [C_S_AXI_DATA_WIDTH-1:0]     s_axi_wdata;
-  wire [(C_S_AXI_DATA_WIDTH/8)-1:0]   s_axi_wstrb;
-  wire                              s_axi_wlast;
-  wire                              s_axi_wvalid;
-  wire                              s_axi_wready;
-   // Slave Interface Write Response Ports
-  wire                              s_axi_bready;
-  wire [C_S_AXI_ID_WIDTH-1:0]       s_axi_bid;
-  wire [1:0]                        s_axi_bresp;
-  wire                              s_axi_bvalid;
-   // Slave Interface Read Address Ports
-  wire [C_S_AXI_ID_WIDTH-1:0]       s_axi_arid;
-  wire [C_S_AXI_ADDR_WIDTH-1:0]     s_axi_araddr;
-  wire [7:0]                        s_axi_arlen;
-  wire [2:0]                        s_axi_arsize;
-  wire [1:0]                        s_axi_arburst;
-  wire [0:0]                        s_axi_arlock;
-  wire [3:0]                        s_axi_arcache;
-  wire [2:0]                        s_axi_arprot;
-  wire                              s_axi_arvalid;
-  wire                              s_axi_arready;
-   // Slave Interface Read Data Ports
-  wire                              s_axi_rready;
-  wire [C_S_AXI_ID_WIDTH-1:0]       s_axi_rid;
-  wire [C_S_AXI_DATA_WIDTH-1:0]     s_axi_rdata;
-  wire [1:0]                        s_axi_rresp;
-  wire                              s_axi_rlast;
-  wire                              s_axi_rvalid;
-
-  wire                              cmp_data_valid;
-  wire [C_S_AXI_DATA_WIDTH-1:0]      cmp_data;     // Compare data
-  wire [C_S_AXI_DATA_WIDTH-1:0]      rdata_cmp;      // Read data
-
-  wire                              dbg_wr_sts_vld;
-  wire [DBG_WR_STS_WIDTH-1:0]       dbg_wr_sts;
-  wire                              dbg_rd_sts_vld;
-  wire [DBG_RD_STS_WIDTH-1:0]       dbg_rd_sts;
-
-
+// MIG Application interface ports
+wire ui_clk;
+wire ui_clk_sync_rst;
+wire                              mmcm_locked; 
+reg                               aresetn;
+wire                              app_sr_req;
+wire                              app_ref_req;
+wire                              app_zq_req;
+wire                              app_sr_active;
+wire                              app_ref_ack;
+wire                              app_zq_ack;
 
 wire                                      tg_compare_error;
 wire                                    init_calib_complete;
+
+// DDR3 Debug Ports
+wire [119:0]                            ddr3_ila_basic_w;
+reg  [119:0]                            ddr3_ila_basic;
+wire [390:0]                            ddr3_ila_wrpath_w;
+reg  [390:0]                            ddr3_ila_wrpath;
+wire [1023:0]                           ddr3_ila_rdpath_w;
+reg  [1023:0]                           ddr3_ila_rdpath;
+wire [13:0]                             ddr3_vio_sync_out;
+wire [5:0]    dbg_pi_counter_read_val;
+wire          dbg_sel_pi_incdec;
+wire [8:0]    dbg_po_counter_read_val;
+wire          dbg_sel_po_incdec;
+wire [3:0]    dbg_byte_sel;
+wire          dbg_pi_f_inc;
+wire          dbg_pi_f_dec;
+wire          dbg_po_f_inc;
+wire          dbg_po_f_stg23_sel;
+wire          dbg_po_f_dec;
+(* mark_debug = "TRUE" *) wire [4:0]    dbg_dqs;
+(* mark_debug = "TRUE" *) wire [8:0]    dbg_bit;
 
 
 // Ethernet Controller wrapper signals
 wire                 gtx_clk_bufg;
 wire                 refclk_bufg;
+wire                 sysclk_bufg;
 wire                 s_axi_aclk;
 wire                 dcm_locked;
 
 wire                  gen_tx_data;
 wire                  chk_tx_data;
 wire      [1:0]       mac_speed;
+
+wire [8:0]          adc_pkt_axis_tdata;
+wire                adc_pkt_axis_tvalid;
+wire                adc_pkt_axis_tlast;
+wire                adc_pkt_axis_tuser;
+wire                adc_pkt_axis_tready;
 
 
 
@@ -537,6 +369,74 @@ wire                            axis_adc_tid;
 wire                            axis_adc_tdest;
 wire                            axis_adc_tuser;
 wire                            axis_adc_tready;
+wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+
+
+// Virtual Fifo AXI-Stream wires 
+wire s_axis_vfifo_tvalid;
+wire s_axis_vfifo_tready;
+wire [511 : 0] s_axis_vfifo_tdata;
+wire [63 : 0] s_axis_vfifo_tstrb;
+wire [63 : 0] s_axis_vfifo_tkeep;
+wire s_axis_vfifo_tlast;
+wire [0 : 0] s_axis_vfifo_tid;
+wire [0 : 0] s_axis_vfifo_tdest;
+   
+wire m_axis_vfifo_tvalid;
+wire m_axis_vfifo_tready;
+wire [511 : 0] m_axis_vfifo_tdata;
+wire [63 : 0] m_axis_vfifo_tstrb;
+wire [63 : 0] m_axis_vfifo_tkeep;
+wire m_axis_vfifo_tlast;
+wire [0 : 0] m_axis_vfifo_tid;
+wire [0 : 0] m_axis_vfifo_tdest;
+
+//Virtual Fifo AXI-4 Memory Mapped Wires
+wire [0 : 0] m_axi_vfifo_awid;
+wire [31 : 0] m_axi_vfifo_awaddr;
+wire [7 : 0] m_axi_vfifo_awlen;
+wire [2 : 0] m_axi_vfifo_awsize;
+wire [1 : 0] m_axi_vfifo_awburst;
+wire [0 : 0] m_axi_vfifo_awlock;
+wire [3 : 0] m_axi_vfifo_awcache;
+wire [2 : 0] m_axi_vfifo_awprot;
+wire [3 : 0] m_axi_vfifo_awqos;
+wire [3 : 0] m_axi_vfifo_awregion;
+wire [0 : 0] m_axi_vfifo_awuser;
+wire m_axi_vfifo_awvalid;
+wire m_axi_vfifo_awready;
+wire [511 : 0] m_axi_vfifo_wdata;
+wire [63 : 0] m_axi_vfifo_wstrb;
+wire m_axi_vfifo_wlast;
+wire [0 : 0] m_axi_vfifo_wuser;
+wire m_axi_vfifo_wvalid;
+wire m_axi_vfifo_wready;
+wire [0 : 0] m_axi_vfifo_bid;
+wire [1 : 0] m_axi_vfifo_bresp;
+wire [0 : 0] m_axi_vfifo_buser;
+wire m_axi_vfifo_bvalid;
+wire m_axi_vfifo_bready;
+wire [0 : 0] m_axi_vfifo_arid;
+wire [31 : 0] m_axi_vfifo_araddr;
+wire [7 : 0] m_axi_vfifo_arlen;
+wire [2 : 0] m_axi_vfifo_arsize;
+wire [1 : 0] m_axi_vfifo_arburst;
+wire [0 : 0] m_axi_vfifo_arlock;
+wire [3 : 0] m_axi_vfifo_arcache;
+wire [2 : 0] m_axi_vfifo_arprot;
+wire [3 : 0] m_axi_vfifo_arqos;
+wire [3 : 0] m_axi_vfifo_arregion;
+wire [0 : 0] m_axi_vfifo_aruser;
+wire m_axi_vfifo_arvalid;
+wire m_axi_vfifo_arready;
+wire [0 : 0] m_axi_vfifo_rid;
+wire [511 : 0] m_axi_vfifo_rdata;
+wire [1 : 0] m_axi_vfifo_rresp;
+wire m_axi_vfifo_rlast;
+wire [0 : 0] m_axi_vfifo_ruser;
+wire m_axi_vfifo_rvalid;
+wire m_axi_vfifo_rready;
+
 
 
 assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
@@ -563,7 +463,7 @@ kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
   //.clk_in_p         (ddr3_clk1_p),
   //.clk_in_n         (ddr3_clk1_n),
   // 125 MHz clock from MMCM
-  .gtx_clk_bufg     (gtx_clk_bufg),
+  .gtx_clk_bufg     (gtx_clk_bufg),         
   .refclk_bufg      (refclk_bufg),
   .s_axi_aclk       (s_axi_aclk),
 
@@ -598,11 +498,11 @@ kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
 
   // connections to adc data ports
   .enable_adc_pkt            (enable_adc_pkt),
-  .adc_axis_tdata           (adc_axis_tdata),
-  .adc_axis_tvalid          (adc_axis_tvalid),
-  .adc_axis_tlast           (adc_axis_tlast),
-  .adc_axis_tuser           (adc_axis_tuser),
-  .adc_axis_tready          (adc_axis_tready),
+  .adc_axis_tdata           (adc_pkt_axis_tdata),
+  .adc_axis_tvalid          (adc_pkt_axis_tvalid),
+  .adc_axis_tlast           (adc_pkt_axis_tlast),
+  .adc_axis_tuser           (adc_pkt_axis_tuser),
+  .adc_axis_tready          (adc_pkt_axis_tready),
 
   // Main example design controls
   //-----------------------------
@@ -631,18 +531,19 @@ assign enable_adc_pkt = 1'b1;
 //----------------------------------------------------------------------------
 kc705_ethernet_rgmii_example_design_clocks example_clocks
  (
-    // differential clock inputs
-    .clk_in_p         (ddr3_clk1_p),
-    .clk_in_n         (ddr3_clk1_n),
+    // differential clock inputs - 200 MHz
+    .clk_in_p         (sysclk_p),        
+    .clk_in_n         (sysclk_n),
 
     // asynchronous control/resets
     .glbl_rst         (glbl_rst),
     .dcm_locked       (dcm_locked),
 
     // clock outputs
-    .gtx_clk_bufg     (gtx_clk_bufg),
-    .refclk_bufg      (refclk_bufg),
-    .s_axi_aclk       (s_axi_aclk)
+    .gtx_clk_bufg     (gtx_clk_bufg),       // 125 MHz (5*clk_in_p/8)
+    .refclk_bufg      (refclk_bufg),        // 200 MHz (clk_in_p/2)
+    .sysclk_bufg      (sysclk_bufg),        // 200 MHz (clk_in_p/2)
+    .s_axi_aclk       (s_axi_aclk)          // 100 MHz (clk_in_p/2)
  );
 
  assign gtx_clk_bufg_out = gtx_clk_bufg;
@@ -672,7 +573,7 @@ fmc150_dac_adc  #
 )
 fmc150_dac_adc_inst
 (
-    .aclk (clk),
+    .aclk (ui_clk),
     .aresetn (aresetn),
      // --KC705 Resources - from fmc150 example design
      .axis_adc_tdata                      (axis_adc_tdata),
@@ -683,6 +584,7 @@ fmc150_dac_adc_inst
      .axis_adc_tdest                      (axis_adc_tdest),
      .axis_adc_tuser                      (axis_adc_tuser),
      .axis_adc_tready                     (axis_adc_tready),
+     .axis_adc_tstrb                      (axis_adc_tstrb),
 
 
      .clk_out_245_76MHz                        (clk_245_76MHz),
@@ -690,11 +592,9 @@ fmc150_dac_adc_inst
 
 
     .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
-    .sysclk_p (sysclk_p),        // : in    std_logic;
-    .sysclk_n (sysclk_n),        // : in    std_logic;
-//    .sysclk_p (refclk2_p),        // : in    std_logic;
-//    .sysclk_n (refclk2_n),        // : in    std_logic;
-//    .sysclk_buf (refclk2),
+//    .sysclk_p (sysclk_p),        // : in    std_logic;
+//    .sysclk_n (sysclk_n),        // : in    std_logic;
+    .sysclk_buf (sysclk_bufg),
     .gpio_led (gpio_led),        // : out   std_logic_vector(7 downto 0);
     .gpio_dip_sw (gpio_dip_sw),   //   : in    std_logic_vector(7 downto 0);
     .gpio_led_c (gpio_led_c),        //       : out   std_logic;
@@ -766,302 +666,286 @@ fmc150_dac_adc_inst
 
 
 axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
-// aclk : IN STD_LOGIC;
-// aresetn : IN STD_LOGIC;
-// s_axis_tvalid : IN STD_LOGIC;
-// s_axis_tready : OUT STD_LOGIC;
-// s_axis_tdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
-// s_axis_tstrb : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-// s_axis_tkeep : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-// s_axis_tlast : IN STD_LOGIC;
-// s_axis_tid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// s_axis_tdest : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axis_tvalid : OUT STD_LOGIC;
-// m_axis_tready : IN STD_LOGIC;
-// m_axis_tdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
-// m_axis_tstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-// m_axis_tkeep : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-// m_axis_tlast : OUT STD_LOGIC;
-// m_axis_tid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axis_tdest : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_awid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_awaddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-// m_axi_awlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-// m_axi_awsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-// m_axi_awburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-// m_axi_awlock : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_awcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_awprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-// m_axi_awqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_awregion : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_awuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_awvalid : OUT STD_LOGIC;
-// m_axi_awready : IN STD_LOGIC;
-// m_axi_wdata : OUT STD_LOGIC_VECTOR(255 DOWNTO 0);
-// m_axi_wstrb : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-// m_axi_wlast : OUT STD_LOGIC;
-// m_axi_wuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_wvalid : OUT STD_LOGIC;
-// m_axi_wready : IN STD_LOGIC;
-// m_axi_bid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_bresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-// m_axi_buser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_bvalid : IN STD_LOGIC;
-// m_axi_bready : OUT STD_LOGIC;
-// m_axi_arid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_araddr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-// m_axi_arlen : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-// m_axi_arsize : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-// m_axi_arburst : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-// m_axi_arlock : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_arcache : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_arprot : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-// m_axi_arqos : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_arregion : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-// m_axi_aruser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_arvalid : OUT STD_LOGIC;
-// m_axi_arready : IN STD_LOGIC;
-// m_axi_rid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_rdata : IN STD_LOGIC_VECTOR(255 DOWNTO 0);
-// m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-// m_axi_rlast : IN STD_LOGIC;
-// m_axi_ruser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-// m_axi_rvalid : IN STD_LOGIC;
-// m_axi_rready : OUT STD_LOGIC;
-// vfifo_mm2s_channel_full : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-// vfifo_s2mm_channel_full : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-// vfifo_mm2s_channel_empty : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-// vfifo_idle : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+    .aclk(ui_clk),                                          // input wire aclk
+    .aresetn(aresetn),                                    // input wire aresetn
+    
+    .s_axis_tvalid(s_axis_vfifo_tvalid),                        // input wire s_axis_tvalid
+    .s_axis_tready(s_axis_vfifo_tready),                        // output wire s_axis_tready
+    .s_axis_tdata(s_axis_vfifo_tdata),                          // input wire [511 : 0] s_axis_tdata
+    .s_axis_tstrb(s_axis_vfifo_tstrb),                          // input wire [63 : 0] s_axis_tstrb
+    .s_axis_tkeep(s_axis_vfifo_tkeep),                          // input wire [63 : 0] s_axis_tkeep
+    .s_axis_tlast(s_axis_vfifo_tlast),                          // input wire s_axis_tlast
+    .s_axis_tid(s_axis_vfifo_tid),                              // input wire [0 : 0] s_axis_tid
+    .s_axis_tdest(s_axis_vfifo_tdest),                          // input wire [0 : 0] s_axis_tdest
+    
+    .m_axis_tvalid(m_axis_vfifo_tvalid),                        // output wire m_axis_tvalid
+    .m_axis_tready(m_axis_vfifo_tready),                        // input wire m_axis_tready
+    .m_axis_tdata(m_axis_vfifo_tdata),                          // output wire [511 : 0] m_axis_tdata
+    .m_axis_tstrb(m_axis_vfifo_tstrb),                          // output wire [63 : 0] m_axis_tstrb
+    .m_axis_tkeep(m_axis_vfifo_tkeep),                          // output wire [63 : 0] m_axis_tkeep
+    .m_axis_tlast(m_axis_vfifo_tlast),                          // output wire m_axis_tlast
+    .m_axis_tid(m_axis_vfifo_tid),                              // output wire [0 : 0] m_axis_tid
+    .m_axis_tdest(m_axis_vfifo_tdest),                          // output wire [0 : 0] m_axis_tdest
+    
+    .m_axi_awid(m_axi_vfifo_awid),                              // output wire [0 : 0] m_axi_awid
+    .m_axi_awaddr(m_axi_vfifo_awaddr),                          // output wire [31 : 0] m_axi_awaddr
+    .m_axi_awlen(m_axi_vfifo_awlen),                            // output wire [7 : 0] m_axi_awlen
+    .m_axi_awsize(m_axi_vfifo_awsize),                          // output wire [2 : 0] m_axi_awsize
+    .m_axi_awburst(m_axi_vfifo_awburst),                        // output wire [1 : 0] m_axi_awburst
+    .m_axi_awlock(m_axi_vfifo_awlock),                          // output wire [0 : 0] m_axi_awlock
+    .m_axi_awcache(m_axi_vfifo_awcache),                        // output wire [3 : 0] m_axi_awcache
+    .m_axi_awprot(m_axi_vfifo_awprot),                          // output wire [2 : 0] m_axi_awprot
+    .m_axi_awqos(m_axi_vfifo_awqos),                            // output wire [3 : 0] m_axi_awqos
+    .m_axi_awregion(m_axi_vfifo_awregion),                      // output wire [3 : 0] m_axi_awregion
+    .m_axi_awuser(m_axi_vfifo_awuser),                          // output wire [0 : 0] m_axi_awuser
+    .m_axi_awvalid(m_axi_vfifo_awvalid),                        // output wire m_axi_awvalid
+    .m_axi_awready(m_axi_vfifo_awready),                        // input wire m_axi_awready
+    .m_axi_wdata(m_axi_vfifo_wdata),                            // output wire [511 : 0] m_axi_wdata
+    .m_axi_wstrb(m_axi_vfifo_wstrb),                            // output wire [63 : 0] m_axi_wstrb
+    .m_axi_wlast(m_axi_vfifo_wlast),                            // output wire m_axi_wlast
+    .m_axi_wuser(m_axi_vfifo_wuser),                            // output wire [0 : 0] m_axi_wuser
+    .m_axi_wvalid(m_axi_vfifo_wvalid),                          // output wire m_axi_wvalid
+    .m_axi_wready(m_axi_vfifo_wready),                          // input wire m_axi_wready
+    .m_axi_bid(m_axi_vfifo_bid),                                // input wire [0 : 0] m_axi_bid
+    .m_axi_bresp(m_axi_vfifo_bresp),                            // input wire [1 : 0] m_axi_bresp
+    .m_axi_buser(m_axi_vfifo_buser),                            // input wire [0 : 0] m_axi_buser
+    .m_axi_bvalid(m_axi_vfifo_bvalid),                          // input wire m_axi_bvalid
+    .m_axi_bready(m_axi_vfifo_bready),                          // output wire m_axi_bready
+    .m_axi_arid(m_axi_vfifo_arid),                              // output wire [0 : 0] m_axi_arid
+    .m_axi_araddr(m_axi_vfifo_araddr),                          // output wire [31 : 0] m_axi_araddr
+    .m_axi_arlen(m_axi_vfifo_arlen),                            // output wire [7 : 0] m_axi_arlen
+    .m_axi_arsize(m_axi_vfifo_arsize),                          // output wire [2 : 0] m_axi_arsize
+    .m_axi_arburst(m_axi_vfifo_arburst),                        // output wire [1 : 0] m_axi_arburst
+    .m_axi_arlock(m_axi_vfifo_arlock),                          // output wire [0 : 0] m_axi_arlock
+    .m_axi_arcache(m_axi_vfifo_arcache),                        // output wire [3 : 0] m_axi_arcache
+    .m_axi_arprot(m_axi_vfifo_arprot),                          // output wire [2 : 0] m_axi_arprot
+    .m_axi_arqos(m_axi_vfifo_arqos),                            // output wire [3 : 0] m_axi_arqos
+    .m_axi_arregion(m_axi_vfifo_arregion),                      // output wire [3 : 0] m_axi_arregion
+    .m_axi_aruser(m_axi_vfifo_aruser),                          // output wire [0 : 0] m_axi_aruser
+    .m_axi_arvalid(m_axi_vfifo_arvalid),                        // output wire m_axi_arvalid
+    .m_axi_arready(m_axi_vfifo_arready),                        // input wire m_axi_arready
+    .m_axi_rid(m_axi_vfifo_rid),                                // input wire [0 : 0] m_axi_rid
+    .m_axi_rdata(m_axi_vfifo_rdata),                            // input wire [511 : 0] m_axi_rdata
+    .m_axi_rresp(m_axi_vfifo_rresp),                            // input wire [1 : 0] m_axi_rresp
+    .m_axi_rlast(m_axi_vfifo_rlast),                            // input wire m_axi_rlast
+    .m_axi_ruser(m_axi_vfifo_ruser),                            // input wire [0 : 0] m_axi_ruser
+    .m_axi_rvalid(m_axi_vfifo_rvalid),                          // input wire m_axi_rvalid
+    .m_axi_rready(m_axi_vfifo_rready),                          // output wire m_axi_rready
+    .vfifo_mm2s_channel_full(vfifo_mm2s_channel_full),    // input wire [1 : 0] vfifo_mm2s_channel_full
+    .vfifo_s2mm_channel_full(vfifo_s2mm_channel_full),    // output wire [1 : 0] vfifo_s2mm_channel_full
+    .vfifo_mm2s_channel_empty(vfifo_mm2s_channel_empty),  // output wire [1 : 0] vfifo_mm2s_channel_empty
+    .vfifo_idle(vfifo_idle)                              // output wire [1 : 0] vfifo_idle
 );
 
-axis_interconnect_0 u_axis_interconnect_0(
-//   ACLK,
-// ARESETN,
-// S00_AXIS_ACLK,
-// S01_AXIS_ACLK,
-// S00_AXIS_ARESETN,
-// S01_AXIS_ARESETN,
-// S00_AXIS_TVALID,
-// S01_AXIS_TVALID,
-// S00_AXIS_TREADY,
-// S01_AXIS_TREADY,
-// S00_AXIS_TDATA,
-// S01_AXIS_TDATA,
-// S00_AXIS_TSTRB,
-// S01_AXIS_TSTRB,
-// S00_AXIS_TKEEP,
-// S01_AXIS_TKEEP,
-// S00_AXIS_TLAST,
-// S01_AXIS_TLAST,
-// S00_AXIS_TID,
-// S01_AXIS_TID,
-// S00_AXIS_TDEST,
-// S01_AXIS_TDEST,
-// S00_AXIS_TUSER,
-// S01_AXIS_TUSER,
-// M00_AXIS_ACLK,
-// M00_AXIS_ARESETN,
-// M00_AXIS_TVALID,
-// M00_AXIS_TREADY,
-// M00_AXIS_TDATA,
-// M00_AXIS_TSTRB,
-// M00_AXIS_TKEEP,
-// M00_AXIS_TLAST,
-// M00_AXIS_TID,
-// M00_AXIS_TDEST,
-// M00_AXIS_TUSER,
-// S00_ARB_REQ_SUPPRESS,
-// S01_ARB_REQ_SUPPRESS,
-// S00_DECODE_ERR,
-// S01_DECODE_ERR,
-// S00_FIFO_DATA_COUNT,
-// S01_FIFO_DATA_COUNT
-// );
-//
-// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *)
-// input wire ACLK;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RSTIF RST" *)
-// input wire ARESETN;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S00_CLKIF CLK" *)
-// input wire S00_AXIS_ACLK;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 S01_CLKIF CLK" *)
-// input wire S01_AXIS_ACLK;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S00_RSTIF RST" *)
-// input wire S00_AXIS_ARESETN;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 S01_RSTIF RST" *)
-// input wire S01_AXIS_ARESETN;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TVALID" *)
-// input wire S00_AXIS_TVALID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TVALID" *)
-// input wire S01_AXIS_TVALID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TREADY" *)
-// output wire S00_AXIS_TREADY;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TREADY" *)
-// output wire S01_AXIS_TREADY;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA" *)
-// input wire [511 : 0] S00_AXIS_TDATA;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TDATA" *)
-// input wire [63 : 0] S01_AXIS_TDATA;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TSTRB" *)
-// input wire [63 : 0] S00_AXIS_TSTRB;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TSTRB" *)
-// input wire [7 : 0] S01_AXIS_TSTRB;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TKEEP" *)
-// input wire [63 : 0] S00_AXIS_TKEEP;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TKEEP" *)
-// input wire [7 : 0] S01_AXIS_TKEEP;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST" *)
-// input wire S00_AXIS_TLAST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TLAST" *)
-// input wire S01_AXIS_TLAST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TID" *)
-// input wire [0 : 0] S00_AXIS_TID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TID" *)
-// input wire [0 : 0] S01_AXIS_TID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDEST" *)
-// input wire [0 : 0] S00_AXIS_TDEST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TDEST" *)
-// input wire [0 : 0] S01_AXIS_TDEST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TUSER" *)
-// input wire [63 : 0] S00_AXIS_TUSER;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TUSER" *)
-// input wire [7 : 0] S01_AXIS_TUSER;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 M00_CLKIF CLK" *)
-// input wire M00_AXIS_ACLK;
-// (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 M00_RSTIF RST" *)
-// input wire M00_AXIS_ARESETN;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TVALID" *)
-// output wire M00_AXIS_TVALID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *)
-// input wire M00_AXIS_TREADY;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *)
-// output wire [2047 : 0] M00_AXIS_TDATA;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TSTRB" *)
-// output wire [255 : 0] M00_AXIS_TSTRB;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP" *)
-// output wire [255 : 0] M00_AXIS_TKEEP;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST" *)
-// output wire M00_AXIS_TLAST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID" *)
-// output wire [0 : 0] M00_AXIS_TID;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDEST" *)
-// output wire [0 : 0] M00_AXIS_TDEST;
-// (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TUSER" *)
-// output wire [255 : 0] M00_AXIS_TUSER;
-// input wire S00_ARB_REQ_SUPPRESS;
-// input wire S01_ARB_REQ_SUPPRESS;
-// output wire S00_DECODE_ERR;
-// output wire S01_DECODE_ERR;
-// output wire [31 : 0] S00_FIFO_DATA_COUNT;
-// output wire [31 : 0] S01_FIFO_DATA_COUNT;
+// Master - 512 bits
+// Slave0 - 64 bits
+// Slave1 - 8 bits
+axis_interconnect_1m2s u_axis_interconnect_1m2s(
+    .ACLK(ui_clk),                                  // input wire ACLK
+    .ARESETN(aresetn),                            // input wire ARESETN
+    
+// S00 AXIS Connection to ADC Module
+    .S00_AXIS_ACLK(S00_AXIS_ACLK),                // input wire S00_AXIS_ACLK
+    .S00_AXIS_ARESETN(S00_AXIS_ARESETN),          // input wire S00_AXIS_ARESETN
+    .S00_AXIS_TVALID(axis_adc_tvalid),            // input wire S00_AXIS_TVALID
+    .S00_AXIS_TREADY(axis_adc_tready),            // output wire S00_AXIS_TREADY
+    .S00_AXIS_TDATA(axis_adc_tdata),              // input wire [63 : 0] S00_AXIS_TDATA
+    .S00_AXIS_TSTRB(axis_adc_tstrb),              // input wire [7 : 0] S00_AXIS_TSTRB
+    .S00_AXIS_TKEEP(axis_adc_tkeep),              // input wire [7 : 0] S00_AXIS_TKEEP
+    .S00_AXIS_TLAST(axis_adc_tlast),              // input wire S00_AXIS_TLAST
+    .S00_AXIS_TID(axis_adc_tid),                  // input wire [0 : 0] S00_AXIS_TID
+    .S00_AXIS_TDEST(axis_adc_tdest),              // input wire [0 : 0] S00_AXIS_TDEST
+
+// S01 AXIS Connection to RGMII Ethernet RX Module
+    .S01_AXIS_ACLK(S01_AXIS_ACLK),                // input wire S01_AXIS_ACLK
+    .S01_AXIS_ARESETN(S01_AXIS_ARESETN),          // input wire S01_AXIS_ARESETN
+    .S01_AXIS_TVALID(S01_AXIS_TVALID),            // input wire S01_AXIS_TVALID
+    .S01_AXIS_TREADY(S01_AXIS_TREADY),            // output wire S01_AXIS_TREADY
+    .S01_AXIS_TDATA(S01_AXIS_TDATA),              // input wire [7 : 0] S01_AXIS_TDATA
+    .S01_AXIS_TSTRB(S01_AXIS_TSTRB),              // input wire [0 : 0] S01_AXIS_TSTRB
+    .S01_AXIS_TKEEP(S01_AXIS_TKEEP),              // input wire [0 : 0] S01_AXIS_TKEEP
+    .S01_AXIS_TLAST(S01_AXIS_TLAST),              // input wire S01_AXIS_TLAST
+    .S01_AXIS_TID(S01_AXIS_TID),                  // input wire [0 : 0] S01_AXIS_TID
+    .S01_AXIS_TDEST(S01_AXIS_TDEST),              // input wire [0 : 0] S01_AXIS_TDEST
+
+// M00 AXIS Connection to input (axis slave) of Virtual FIFO        
+    .M00_AXIS_ACLK(M00_AXIS_ACLK),                // input wire M00_AXIS_ACLK
+    .M00_AXIS_ARESETN(M00_AXIS_ARESETN),          // input wire M00_AXIS_ARESETN
+    .M00_AXIS_TVALID(s_axis_vfifo_tvalid),            // output wire M00_AXIS_TVALID
+    .M00_AXIS_TREADY(s_axis_vfifo_tready),            // input wire M00_AXIS_TREADY
+    .M00_AXIS_TDATA(s_axis_vfifo_tdata),              // output wire [511 : 0] M00_AXIS_TDATA
+    .M00_AXIS_TSTRB(s_axis_vfifo_tstrb),              // output wire [63 : 0] M00_AXIS_TSTRB
+    .M00_AXIS_TKEEP(s_axis_vfifo_tkeep),              // output wire [63 : 0] M00_AXIS_TKEEP
+    .M00_AXIS_TLAST(s_axis_vfifo_tlast),              // output wire M00_AXIS_TLAST
+    .M00_AXIS_TID(s_axis_vfifo_tid),                  // output wire [0 : 0] M00_AXIS_TID
+    .M00_AXIS_TDEST(s_axis_vfifo_tdest),              // output wire [0 : 0] M00_AXIS_TDEST
+
+// Non-AXIS Signals        
+    .S00_ARB_REQ_SUPPRESS(S00_ARB_REQ_SUPPRESS),  // input wire S00_ARB_REQ_SUPPRESS
+    .S01_ARB_REQ_SUPPRESS(S01_ARB_REQ_SUPPRESS),  // input wire S01_ARB_REQ_SUPPRESS
+    .S00_DECODE_ERR(S00_DECODE_ERR),              // output wire S00_DECODE_ERR
+    .S01_DECODE_ERR(S01_DECODE_ERR),              // output wire S01_DECODE_ERR
+    .S00_FIFO_DATA_COUNT(S00_FIFO_DATA_COUNT),    // output wire [31 : 0] S00_FIFO_DATA_COUNT    
+    .S01_FIFO_DATA_COUNT(S01_FIFO_DATA_COUNT)    // output wire [31 : 0] S01_FIFO_DATA_COUNT
+
   );
+  
+  // Master0 - 64 bits
+  // Master1 - 8 bits
+  // Slave - 512 bits
+  axis_interconnect_1s2m u_axis_interconnect_1s2m(
+      .ACLK(ui_clk),                                // input wire ACLK
+      .ARESETN(aresetn),                          // input wire ARESETN
+      
+// S00 AXIS Connection to output (axis master) of Virtual FIFO
+      .S00_AXIS_ACLK(S00_AXIS_ACLK),              // input wire S00_AXIS_ACLK
+      .S00_AXIS_ARESETN(S00_AXIS_ARESETN),        // input wire S00_AXIS_ARESETN
+      .S00_AXIS_TVALID(m_axis_vfifo_tvalid),          // input wire S00_AXIS_TVALID
+      .S00_AXIS_TREADY(m_axis_vfifo_tready),          // output wire S00_AXIS_TREADY
+      .S00_AXIS_TDATA(m_axis_vfifo_tdata),            // input wire [511 : 0] S00_AXIS_TDATA
+      .S00_AXIS_TSTRB(m_axis_vfifo_tstrb),            // input wire [63 : 0] S00_AXIS_TSTRB
+      .S00_AXIS_TKEEP(m_axis_vfifo_tkeep),            // input wire [63 : 0] S00_AXIS_TKEEP
+      .S00_AXIS_TLAST(m_axis_vfifo_tlast),            // input wire S00_AXIS_TLAST
+      .S00_AXIS_TID(m_axis_vfifo_tid),                // input wire [0 : 0] S00_AXIS_TID
+      .S00_AXIS_TDEST(m_axis_vfifo_tdest),            // input wire [0 : 0] S00_AXIS_TDEST
 
-//   mig_7series_0 u_mig_7series_0
-//       (
-//
-//
-// // Memory interface ports
-//        .ddr3_addr                      (ddr3_addr),
-//        .ddr3_ba                        (ddr3_ba),
-//        .ddr3_cas_n                     (ddr3_cas_n),
-//        .ddr3_ck_n                      (ddr3_ck_n),
-//        .ddr3_ck_p                      (ddr3_ck_p),
-//        .ddr3_cke                       (ddr3_cke),
-//        .ddr3_ras_n                     (ddr3_ras_n),
-//        .ddr3_reset_n                   (ddr3_reset_n),
-//        .ddr3_we_n                      (ddr3_we_n),
-//        .ddr3_dq                        (ddr3_dq),
-//        .ddr3_dqs_n                     (ddr3_dqs_n),
-//        .ddr3_dqs_p                     (ddr3_dqs_p),
-//        .init_calib_complete            (init_calib_complete),
-//
-//        .ddr3_cs_n                      (ddr3_cs_n),
-//        .ddr3_dm                        (ddr3_dm),
-//        .ddr3_odt                       (ddr3_odt),
-// // Application interface ports
-//        .ui_clk                         (clk),
-//        .ui_clk_sync_rst                (rst),
-//
-//        .mmcm_locked                    (mmcm_locked),
-//        .aresetn                        (aresetn),
-//        .app_sr_req                     (1'b0),
-//        .app_ref_req                    (1'b0),
-//        .app_zq_req                     (1'b0),
-//        .app_sr_active                  (app_sr_active),
-//        .app_ref_ack                    (app_ref_ack),
-//        .app_zq_ack                     (app_zq_ack),
-//
-// // Slave Interface Write Address Ports
-//        .s_axi_awid                     (s_axi_awid),
-//        .s_axi_awaddr                   (s_axi_awaddr),
-//        .s_axi_awlen                    (s_axi_awlen),
-//        .s_axi_awsize                   (s_axi_awsize),
-//        .s_axi_awburst                  (s_axi_awburst),
-//        .s_axi_awlock                   (s_axi_awlock),
-//        .s_axi_awcache                  (s_axi_awcache),
-//        .s_axi_awprot                   (s_axi_awprot),
-//        .s_axi_awqos                    (4'h0),
-//        .s_axi_awvalid                  (s_axi_awvalid),
-//        .s_axi_awready                  (s_axi_awready),
-// // Slave Interface Write Data Ports
-//        .s_axi_wdata                    (s_axi_wdata),
-// //       .s_axi_wdata                    (axi_adc_fifo_data_out),
-//
-//        .s_axi_wstrb                    (s_axi_wstrb),
-//        .s_axi_wlast                    (s_axi_wlast),
-//        .s_axi_wvalid                   (s_axi_wvalid),
-// //       .s_axi_wvalid                   (adc_fifo_valid),
-//        .s_axi_wready                   (s_axi_wready),
-// // Slave Interface Write Response Ports
-//        .s_axi_bid                      (s_axi_bid),
-//        .s_axi_bresp                    (s_axi_bresp),
-//        .s_axi_bvalid                   (s_axi_bvalid),
-//        .s_axi_bready                   (s_axi_bready),
-// // Slave Interface Read Address Ports
-//        .s_axi_arid                     (s_axi_arid),
-//        .s_axi_araddr                   (s_axi_araddr),
-//        .s_axi_arlen                    (s_axi_arlen),
-//        .s_axi_arsize                   (s_axi_arsize),
-//        .s_axi_arburst                  (s_axi_arburst),
-//        .s_axi_arlock                   (s_axi_arlock),
-//        .s_axi_arcache                  (s_axi_arcache),
-//        .s_axi_arprot                   (s_axi_arprot),
-//        .s_axi_arqos                    (4'h0),
-//        .s_axi_arvalid                  (s_axi_arvalid),
-//        .s_axi_arready                  (s_axi_arready),
-// // Slave Interface Read Data Ports
-//        .s_axi_rid                      (s_axi_rid),
-//        .s_axi_rdata                    (s_axi_rdata),
-//        .s_axi_rresp                    (s_axi_rresp),
-//        .s_axi_rlast                    (s_axi_rlast),
-//        .s_axi_rvalid                   (s_axi_rvalid),
-//        .s_axi_rready                   (s_axi_rready),
-//
-//
-//
-// // System Clock Ports
-//        .sys_clk_p                       (ddr3_clk1_p),
-//        .sys_clk_n                       (ddr3_clk1_n),
-// //        .sys_clk_p                       (refclk1_p),
-// //        .sys_clk_n                       (refclk1_n),
-//
-//        .sys_rst                        (cpu_reset)
-//        );
-// // End of User Design top instance
+// M00 AXIS Connection to DAC Module
+      .M00_AXIS_ACLK(M00_AXIS_ACLK),              // input wire M00_AXIS_ACLK
+      .M00_AXIS_ARESETN(M00_AXIS_ARESETN),        // input wire M00_AXIS_ARESETN
+      .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
+      .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
+      .M00_AXIS_TDATA(M00_AXIS_TDATA),            // output wire [63 : 0] M00_AXIS_TDATA
+      .M00_AXIS_TSTRB(M00_AXIS_TSTRB),            // output wire [7 : 0] M00_AXIS_TSTRB
+      .M00_AXIS_TKEEP(M00_AXIS_TKEEP),            // output wire [7 : 0] M00_AXIS_TKEEP
+      .M00_AXIS_TLAST(M00_AXIS_TLAST),            // output wire M00_AXIS_TLAST
+      .M00_AXIS_TID(M00_AXIS_TID),                // output wire [0 : 0] M00_AXIS_TID
+      .M00_AXIS_TDEST(M00_AXIS_TDEST),            // output wire [0 : 0] M00_AXIS_TDEST
+      .M00_FIFO_DATA_COUNT(M00_FIFO_DATA_COUNT),  // output wire [31 : 0] M00_FIFO_DATA_COUNT
+      
+// M01 AXIS Connection to RGMII Ethernet TX Module
+      .M01_AXIS_ACLK(M01_AXIS_ACLK),              // input wire M01_AXIS_ACLK
+      .M01_AXIS_ARESETN(M01_AXIS_ARESETN),        // input wire M01_AXIS_ARESETN
+      .M01_AXIS_TVALID(M01_AXIS_TVALID),          // output wire M01_AXIS_TVALID
+      .M01_AXIS_TREADY(M01_AXIS_TREADY),          // input wire M01_AXIS_TREADY
+      .M01_AXIS_TDATA(M01_AXIS_TDATA),            // output wire [7 : 0] M01_AXIS_TDATA
+      .M01_AXIS_TSTRB(M01_AXIS_TSTRB),            // output wire [0 : 0] M01_AXIS_TSTRB
+      .M01_AXIS_TKEEP(M01_AXIS_TKEEP),            // output wire [0 : 0] M01_AXIS_TKEEP
+      .M01_AXIS_TLAST(M01_AXIS_TLAST),            // output wire M01_AXIS_TLAST
+      .M01_AXIS_TID(M01_AXIS_TID),                // output wire [0 : 0] M01_AXIS_TID
+      .M01_AXIS_TDEST(M01_AXIS_TDEST),            // output wire [0 : 0] M01_AXIS_TDEST
+      .M01_FIFO_DATA_COUNT(M01_FIFO_DATA_COUNT),  // output wire [31 : 0] M01_FIFO_DATA_COUNT
+      
+//Non-AXIS Signals
+      .S00_DECODE_ERR(S00_DECODE_ERR)            // output wire S00_DECODE_ERR
+);
 
 
-//***************************************************************************
-// The traffic generation module instantiated below drives traffic (patterns)
-// on the application interface of the memory controller
-//***************************************************************************
+mig_7series_1 u_mig_7series_1 (
+// Memory interface ports
+    .ddr3_addr                      (ddr3_addr),  // output [13:0]		ddr3_addr
+    .ddr3_ba                        (ddr3_ba),  // output [2:0]		ddr3_ba
+    .ddr3_cas_n                     (ddr3_cas_n),  // output			ddr3_cas_n
+    .ddr3_ck_n                      (ddr3_ck_n),  // output [0:0]		ddr3_ck_n
+    .ddr3_ck_p                      (ddr3_ck_p),  // output [0:0]		ddr3_ck_p
+    .ddr3_cke                       (ddr3_cke),  // output [0:0]		ddr3_cke
+    .ddr3_ras_n                     (ddr3_ras_n),  // output			ddr3_ras_n
+    .ddr3_reset_n                   (ddr3_reset_n),  // output			ddr3_reset_n
+    .ddr3_we_n                      (ddr3_we_n),  // output			ddr3_we_n
+    .ddr3_dq                        (ddr3_dq),  // inout [63:0]		ddr3_dq
+    .ddr3_dqs_n                     (ddr3_dqs_n),  // inout [7:0]		ddr3_dqs_n
+    .ddr3_dqs_p                     (ddr3_dqs_p),  // inout [7:0]		ddr3_dqs_p
+    .init_calib_complete            (init_calib_complete),  // output			init_calib_complete
+      
+	.ddr3_cs_n                      (ddr3_cs_n),  // output [0:0]		ddr3_cs_n
+    .ddr3_dm                        (ddr3_dm),  // output [7:0]		ddr3_dm
+    .ddr3_odt                       (ddr3_odt),  // output [0:0]		ddr3_odt
+    
+    // Application interface ports
+    .ui_clk                         (ui_clk),  // output			ui_clk
+    .ui_clk_sync_rst                (ui_clk_sync_rst),  // output			ui_clk_sync_rst
+    .mmcm_locked                    (mmcm_locked),  // output			mmcm_locked
+    .aresetn                        (aresetn),  // input			aresetn
+    .app_sr_req                     (app_sr_req),  // input			app_sr_req
+    .app_ref_req                    (app_ref_req),  // input			app_ref_req
+    .app_zq_req                     (app_zq_req),  // input			app_zq_req
+    .app_sr_active                  (app_sr_active),  // output			app_sr_active
+    .app_ref_ack                    (app_ref_ack),  // output			app_ref_ack
+    .app_zq_ack                     (app_zq_ack),  // output			app_zq_ack
+    
+    // Slave Interface Write Address Ports
+    .s_axi_awid                     ({3'b0,m_axi_vfifo_awid[0]}),  // input [3:0]			s_axi_awid
+    .s_axi_awaddr                   (m_axi_vfifo_awaddr[31:2]),  // input [29:0]			s_axi_awaddr
+    .s_axi_awlen                    (m_axi_vfifo_awlen),  // input [7:0]			s_axi_awlen
+    .s_axi_awsize                   (m_axi_vfifo_awsize),  // input [2:0]			s_axi_awsize
+    .s_axi_awburst                  (m_axi_vfifo_awburst),  // input [1:0]			s_axi_awburst
+    .s_axi_awlock                   (m_axi_vfifo_awlock),  // input [0:0]			s_axi_awlock
+    .s_axi_awcache                  (m_axi_vfifo_awcache),  // input [3:0]			s_axi_awcache
+    .s_axi_awprot                   (m_axi_vfifo_awprot),  // input [2:0]			s_axi_awprot
+    .s_axi_awqos                    (m_axi_vfifo_awqos),  // input [3:0]			s_axi_awqos
+    .s_axi_awvalid                  (m_axi_vfifo_awvalid),  // input			s_axi_awvalid
+    .s_axi_awready                  (m_axi_vfifo_awready),  // output			s_axi_awready
+    
+    // Slave Interface Write Data Ports
+    .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [511:0]			s_axi_wdata
+    .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [63:0]			s_axi_wstrb
+    .s_axi_wlast                    (m_axi_vfifo_wlast),  // input			s_axi_wlast
+    .s_axi_wvalid                   (m_axi_vfifo_wvalid),  // input			s_axi_wvalid
+    .s_axi_wready                   (m_axi_vfifo_wready),  // output			s_axi_wready
+    
+    // Slave Interface Write Response Ports
+    .s_axi_bid                      (s_axi_mig_bid),  // output [3:0]			s_axi_bid
+    .s_axi_bresp                    (m_axi_vfifo_bresp),  // output [1:0]			s_axi_bresp
+    .s_axi_bvalid                   (m_axi_vfifo_bvalid),  // output			s_axi_bvalid
+    .s_axi_bready                   (m_axi_vfifo_bready),  // input			s_axi_bready
+    
+    // Slave Interface Read Address Ports
+    .s_axi_arid                     ({3'b0,m_axi_vfifo_arid[0]}),  // input [3:0]			s_axi_arid
+    .s_axi_araddr                   (m_axi_vfifo_araddr[31:2]),  // input [29:0]			s_axi_araddr
+    .s_axi_arlen                    (m_axi_vfifo_arlen),  // input [7:0]			s_axi_arlen
+    .s_axi_arsize                   (m_axi_vfifo_arsize),  // input [2:0]			s_axi_arsize
+    .s_axi_arburst                  (m_axi_vfifo_arburst),  // input [1:0]			s_axi_arburst
+    .s_axi_arlock                   (m_axi_vfifo_arlock),  // input [0:0]			s_axi_arlock
+    .s_axi_arcache                  (m_axi_vfifo_arcache),  // input [3:0]			s_axi_arcache
+    .s_axi_arprot                   (m_axi_vfifo_arprot),  // input [2:0]			s_axi_arprot
+    .s_axi_arqos                    (m_axi_vfifo_arqos),  // input [3:0]			s_axi_arqos
+    .s_axi_arvalid                  (m_axi_vfifo_arvalid),  // input			s_axi_arvalid
+    .s_axi_arready                  (m_axi_vfifo_arready),  // output			s_axi_arready
+          
+    // Slave Interface Read Data Ports
+    .s_axi_rid                      (s_axi_mig_rid),  // output [3:0]			s_axi_rid
+    .s_axi_rdata                    (m_axi_vfifo_rdata),  // output [511:0]			s_axi_rdata
+    .s_axi_rresp                    (m_axi_vfifo_rresp),  // output [1:0]			s_axi_rresp
+    .s_axi_rlast                    (m_axi_vfifo_rlast),  // output			s_axi_rlast
+    .s_axi_rvalid                   (m_axi_vfifo_rvalid),  // output			s_axi_rvalid
+    .s_axi_rready                   (m_axi_vfifo_rready),  // input			s_axi_rready
+    
+    // Debug Ports
+    .ddr3_ila_basic                 (ddr3_ila_basic_w),  // output [119:0]                               ddr3_ila_basic
+    .ddr3_ila_wrpath                (ddr3_ila_wrpath_w),  // output [390:0]                               ddr3_ila_wrpath
+    .ddr3_ila_rdpath                (ddr3_ila_rdpath_w),  // output [1023:0]                              ddr3_ila_rdpath
+    .ddr3_vio_sync_out              (ddr3_vio_sync_out),  // input [13:0]                                 ddr3_vio_sync_out
+    .dbg_pi_counter_read_val        (dbg_pi_counter_read_val),  // output [5:0]			dbg_pi_counter_read_val
+    .dbg_sel_pi_incdec              (dbg_sel_pi_incdec),        // input			dbg_sel_pi_incdec
+    .dbg_po_counter_read_val        (dbg_po_counter_read_val),  // output [8:0]			dbg_po_counter_read_val
+    .dbg_sel_po_incdec              (dbg_sel_po_incdec),        // input			dbg_sel_po_incdec
+    .dbg_byte_sel                   (dbg_byte_sel),             // input [3:0]			dbg_byte_sel
+    .dbg_pi_f_inc                   (dbg_pi_f_inc),             // input			dbg_pi_f_inc
+    .dbg_pi_f_dec                   (dbg_pi_f_dec),             // input			dbg_pi_f_dec
+    .dbg_po_f_inc                   (dbg_po_f_inc),             // input			dbg_po_f_inc
+    .dbg_po_f_stg23_sel             (dbg_po_f_stg23_sel),       // input			dbg_po_f_stg23_sel
+    .dbg_po_f_dec                   (dbg_po_f_dec),             // input			dbg_po_f_dec
+    // System Clock Ports
+    .sys_clk_p                       (sys_clk_p),  // input				sys_clk_p
+    .sys_clk_n                       (sys_clk_n),  // input				sys_clk_n
+    .sys_rst                        (sys_rst) // input sys_rst
+);
+assign m_axi_vfifo_bid = s_axi_mig_bid[0];
+assign m_axi_vfifo_rid = s_axi_mig_rid[0];
 
-   always @(posedge clk) begin
-     aresetn <= ~rst;
+assign ddr3_vio_sync_out={dbg_dqs,dbg_bit};
+
+   always @(posedge ui_clk) begin
+     aresetn <= ~ui_clk_sync_rst;
    end
-
-
-
-
-
 
 endmodule

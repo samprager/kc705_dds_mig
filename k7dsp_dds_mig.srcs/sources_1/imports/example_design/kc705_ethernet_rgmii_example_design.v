@@ -139,9 +139,9 @@ module kc705_ethernet_rgmii_example_design
     //  input         clk_in_p,
     //  input         clk_in_n,
       // 125 MHz clock from MMCM
-      input        gtx_clk_bufg,
-      input        refclk_bufg,
-      input         s_axi_aclk,
+      input        gtx_clk_bufg,        // 125 MHz
+      input        refclk_bufg,         // 200 MHz
+      input         s_axi_aclk,         // 100 MHz
       input         dcm_locked,
 
       output        phy_resetn,

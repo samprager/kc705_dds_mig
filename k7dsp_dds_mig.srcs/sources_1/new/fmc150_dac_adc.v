@@ -48,14 +48,15 @@ module fmc150_dac_adc #
  // --KC705 Resources - from fmc150 example design
 
   input cpu_reset,       // : in    std_logic; -- CPU RST button, SW7 on KC705
-  input sysclk_p,        // : in    std_logic;
-  input sysclk_n,        // : in    std_logic;
-
+ // input sysclk_p,        // : in    std_logic;
+ // input sysclk_n,        // : in    std_logic;
+  input sysclk_buf,
    // --ADC Data Out Signals
   output [ADC_AXI_DATA_WIDTH-1:0]     axis_adc_tdata,
   output axis_adc_tvalid,
   output axis_adc_tlast,
   output [ADC_AXI_DATA_WIDTH/8-1:0]   axis_adc_tkeep,
+  output [ADC_AXI_DATA_WIDTH/8-1:0]   axis_adc_tstrb,
   output axis_adc_tid,
   output axis_adc_tdest,
   output axis_adc_tuser,
@@ -176,11 +177,10 @@ module fmc150_dac_adc #
 
 
        .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
-       .sysclk_p (sysclk_p),        // : in    std_logic;
-       .sysclk_n (sysclk_n),        // : in    std_logic;
-   //    .sysclk_p (refclk2_p),        // : in    std_logic;
-   //    .sysclk_n (refclk2_n),        // : in    std_logic;
-   //    .sysclk_buf (refclk2),
+  //     .sysclk_p (sysclk_p),        // : in    std_logic;
+ //      .sysclk_n (sysclk_n),        // : in    std_logic;
+
+       .sysclk_buf (sysclk_buf),
        .gpio_led (gpio_led),        // : out   std_logic_vector(7 downto 0);
        .gpio_dip_sw (gpio_dip_sw),   //   : in    std_logic_vector(7 downto 0);
        .gpio_led_c (gpio_led_c),        //       : out   std_logic;

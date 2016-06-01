@@ -56,7 +56,7 @@
 module kc705_ethernet_rgmii_example_design_clocks
    (
    // differential clock inputs
-   input          clk_in_p,
+   input          clk_in_p,         //200 MHz
    input          clk_in_n,
 
    // asynchronous control/resets
@@ -64,9 +64,11 @@ module kc705_ethernet_rgmii_example_design_clocks
    output         dcm_locked,
 
    // clock outputs
-   output         gtx_clk_bufg,
-   output         refclk_bufg,
-   output         s_axi_aclk
+   output         gtx_clk_bufg,     //125 MHz
+   output         refclk_bufg,      //200 MHz
+   output         s_axi_aclk,       //100 MHz
+   output         sysclk_bufg       //200 MHz
+   
    );
 
 
@@ -125,6 +127,7 @@ module kc705_ethernet_rgmii_example_design_clocks
       .CLK_OUT1      (gtx_clk_bufg),
       .CLK_OUT2      (s_axi_aclk),
       .CLK_OUT3      (refclk_bufg),
+      .CLK_OUT4      (sysclk_bufg),
       // Status and control signals
       .RESET         (mmcm_rst),
       .LOCKED        (dcm_locked_int)
