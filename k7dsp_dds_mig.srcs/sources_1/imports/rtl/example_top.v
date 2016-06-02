@@ -373,13 +373,13 @@ wire [0:0]          adc_pkt_axis_tkeep;
 wire [0:0]          adc_pkt_axis_tid;
 wire [0:0]          adc_pkt_axis_tdest;
 
-wire        rx_reset,
-wire        tx_reset,
+wire        rx_reset;
+wire        tx_reset;
 
-wire glbl_rst_intn,
-wire gtx_resetn,
-wire s_axi_resetn,
-wire chk_resetn,
+wire glbl_rst_intn;
+wire gtx_resetn;
+wire s_axi_resetn;
+wire chk_resetn;
 
  // --ADC AXI-Stream Data Out Signals from fmc150_dac_adc module
 wire [ADC_AXI_DATA_WIDTH-1:0]   axis_adc_tdata;
@@ -416,18 +416,18 @@ wire [31 : 0] S01_FIFO_DATA_COUNT;
 // 1s2m AXIS Interconnect Unconnected wires
 //////////////////////////////////////////
 // M00 AXIS Connection to DAC Module
-wire M00_AXIS_TVALID
-wire M00_AXIS_TREADY
-wire [63 : 0] M00_AXIS_TDATA
-wire [7 : 0] M00_AXIS_TSTRB
-wire [7 : 0] M00_AXIS_TKEEP
-wire M00_AXIS_TLAST
-wire [0 : 0] M00_AXIS_TID
-wire [0 : 0] M00_AXIS_TDEST
+wire M00_AXIS_TVALID;
+wire M00_AXIS_TREADY;
+wire [63 : 0] M00_AXIS_TDATA;
+wire [7 : 0] M00_AXIS_TSTRB;
+wire [7 : 0] M00_AXIS_TKEEP;
+wire M00_AXIS_TLAST;
+wire [0 : 0] M00_AXIS_TID;
+wire [0 : 0] M00_AXIS_TDEST;
 //Non-AXIS Signals
-wire [31 : 0] M00_FIFO_DATA_COUNT
-wire [31 : 0] M01_FIFO_DATA_COUNT
-wire S00_DECODE_ERR
+wire [31 : 0] M00_FIFO_DATA_COUNT;
+wire [31 : 0] M01_FIFO_DATA_COUNT;
+wire S00_DECODE_ERR;
 
 //////////////////////////////////////////
 // Virtual Fifo Connected AXI-Stream wires
