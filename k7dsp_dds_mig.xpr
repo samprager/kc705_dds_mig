@@ -555,6 +555,11 @@
           <Attr Name="UsedIn" Val="synthesis"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/ip/mig_7series_1/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="example_top"/>
@@ -576,8 +581,30 @@
       <File Path="$PIOPLANDIR/constrs_1/usercols.xml">
         <FileInfo SFType="UserColsDb"/>
       </File>
+      <File Path="$PSRCDIR/constrs_1/new/k7dsp_dds_mig.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/constrs_1/imports/example_design/kc705_ethernet_rgmii_example_design.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Prager/KC705_Tutorials/Tutorials/Vivado-2014-2/kc705_ethernet/kc705_ethernet_rgmii_example/kc705_ethernet_rgmii_example.srcs/constrs_1/imports/example_design/kc705_ethernet_rgmii_example_design.xdc"/>
+          <Attr Name="ImportTime" Val="1451932522"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/constrs_1/imports/example_design/kc705_ethernet_rgmii_user_phytiming.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../Prager/KC705_Tutorials/Tutorials/Vivado-2014-2/kc705_ethernet/kc705_ethernet_rgmii_example/kc705_ethernet_rgmii_example.srcs/constrs_1/imports/example_design/kc705_ethernet_rgmii_user_phytiming.xdc"/>
+          <Attr Name="ImportTime" Val="1451932522"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
-        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/k7_TRD/k7dsp_rtl_tutorial.xdc"/>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/k7dsp_dds_mig.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
@@ -945,6 +972,133 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_data_fifo.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_arb_rr.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_decoder.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_transfer_mux.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_arb_responder.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/clk_x_pntrs_builtin.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/shft_wrapper.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/fifo_generator_v12_0_builtin.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/reset_builtin.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_top.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_top_v6.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_prim_v6.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_extdepth_v6.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_extdepth_low_latency.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/logic_builtin.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_switch.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/reset_blk_ramfifo.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_clock_converter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/rd_pe_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/wr_pf_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/rd_pe_ss.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/delay.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_extdepth.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/bin_cntr.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/builtin_prim.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_v12_0_top.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/bram_sync_reg.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/bram_fifo_rstlogic.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/wr_pf_ss.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_switch_arbiter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_subset_converter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_dynamic_priority_encoder.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_mux_enc.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/output_blk.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/axi_reg_slice.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_util_aclken_converter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_util_aclken_converter_wrapper.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_interconnect.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_util_axis2vector.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_util_vector2axis.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_register_slice.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_register_slice.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/builtin/fifo_generator_v12_0_comps_builtin.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/fifo_generator_ramfifo.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_logic.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/async_fifo.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/logic_sshft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_pe_sshft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_pf_sshft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_status_flags_sshft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_status_flags_sshft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_logic_pkt_fifo.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_logic.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/dc_ss.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_dc_fwft_ext_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_dc_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_handshaking_flags.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s.xml"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_downsizer.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_v12_0_pkg.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_upsizer.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_dwidth_converter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_top_bi_sim.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_v12_0_synth.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_sync_clock_converter.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axisc_sample_cycle_ratio.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_dynamic_datapath.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_interconnect_16x16_top.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_infrastructure.vh"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="sim/axis_interconnect_1m2s.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/input_blk.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_funcsim.vhdl"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_stub.vhdl"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_funcsim.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_stub.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s.dcp"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="doc/axis_interconnect_v1_1_changelog.txt"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s.veo"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/simulation/fifo_generator_vlog_beh.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_synth_comp.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/shft_ram.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_defaults.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_getinit_pkg.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_pkg.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_min_area_pkg.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_bindec.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_axi_regs_fwd.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_axi_write_wrapper.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper_init.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_ecc_encoder.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_axi_read_fsm.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_axi_read_wrapper.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_output_block.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_input_block.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_ecc_decoder.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_axi_write_fsm.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_top.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_status_flags_ss.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_synth.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_status_flags_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_v12_0_defaults.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/common/synchronizer_ff.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_status_flags_ss.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/clk_x_pntrs.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/dmem.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/memory.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/compare.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/wr_bin_cntr.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_bin_cntr.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/updn_cntr.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_status_flags_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_handshaking_flags.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_dc_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_dc_fwft_ext_as.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/dc_ss_fwft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_fwft.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/ramfifo/rd_logic_pkt_fifo.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="synth/axis_interconnect_1m2s.v"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_clocks.xdc"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="axis_interconnect_1m2s_ooc.xdc"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_v12_0.vhd"/>
+        <CompFileExtendedInfo CompFileName="axis_interconnect_1m2s.xci" FileRelPathName="fifo_generator_v12_0/hdl/fifo_generator_top.vhd"/>
       </File>
       <Config>
         <Option Name="TopModule" Val="axis_interconnect_1m2s"/>
@@ -1141,36 +1295,28 @@
     </Run>
     <Run Id="axis_interconnect_1s2m_synth_1" Type="Ft3:Synth" SrcSet="axis_interconnect_1s2m" Part="xc7k325tffg900-2" ConstrsSet="axis_interconnect_1s2m" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axis_interconnect_1s2m_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="axis_interconnect_1m2s_synth_1" Type="Ft3:Synth" SrcSet="axis_interconnect_1m2s" Part="xc7k325tffg900-2" ConstrsSet="axis_interconnect_1m2s" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axis_interconnect_1m2s_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="axi_vfifo_ctrl_0_synth_1" Type="Ft3:Synth" SrcSet="axi_vfifo_ctrl_0" Part="xc7k325tffg900-2" ConstrsSet="axi_vfifo_ctrl_0" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/axi_vfifo_ctrl_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="mig_7series_1_synth_1" Type="Ft3:Synth" SrcSet="mig_7series_1" Part="xc7k325tffg900-2" ConstrsSet="mig_7series_1" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/mig_7series_1_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1499,9 +1645,7 @@
     </Run>
     <Run Id="axis_interconnect_1s2m_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="axis_interconnect_1s2m" Description="Vivado Implementation Defaults" SynthRun="axis_interconnect_1s2m_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1515,9 +1659,7 @@
     </Run>
     <Run Id="axis_interconnect_1m2s_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="axis_interconnect_1m2s" Description="Vivado Implementation Defaults" SynthRun="axis_interconnect_1m2s_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1531,9 +1673,7 @@
     </Run>
     <Run Id="axi_vfifo_ctrl_0_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="axi_vfifo_ctrl_0" Description="Vivado Implementation Defaults" SynthRun="axi_vfifo_ctrl_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1547,9 +1687,7 @@
     </Run>
     <Run Id="mig_7series_1_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="mig_7series_1" Description="Vivado Implementation Defaults" SynthRun="mig_7series_1_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="axi_vfifo_ctrl_0_synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1464745889">
+<GenRun Id="axi_vfifo_ctrl_0_synth_1" LaunchPart="xc7k325tffg900-2" LaunchTime="1464901376">
   <File Type="RDS-UTIL-PB" Name="axi_vfifo_ctrl_0_utilization_synth.pb"/>
   <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/axi_vfifo_ctrl_0_synth_1/constrs_in.xml"/>
   <File Type="RDS-UTIL" Name="axi_vfifo_ctrl_0_utilization_synth.rpt"/>
@@ -40,9 +40,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

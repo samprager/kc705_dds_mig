@@ -268,27 +268,7 @@ function integer clogb2 (input integer size);
     end
   endfunction
 
-
-//  localparam CMD_PIPE_PLUS1        = "ON";
-                                     // add pipeline stage between MC and PHY
-  localparam DATA_WIDTH            = 64;
-//  localparam ECC_TEST              = "OFF";
-  localparam RANK_WIDTH = clogb2(RANKS);
-//  localparam tPRDI                 = 1_000_000;
-                                     // memory tPRDI paramter in pS.
-  localparam PAYLOAD_WIDTH         = (ECC_TEST == "OFF") ? DATA_WIDTH : DQ_WIDTH;
-  localparam BURST_LENGTH          = STR_TO_INT(BURST_MODE);
-  localparam APP_DATA_WIDTH        = 2 * nCK_PER_CLK * PAYLOAD_WIDTH;
-  localparam APP_MASK_WIDTH        = APP_DATA_WIDTH / 8;
-
-  //***************************************************************************
-  // Traffic Gen related parameters (derived)
-  //***************************************************************************
-  localparam  TG_ADDR_WIDTH = ((CS_WIDTH == 1) ? 0 : RANK_WIDTH)
-                                 + BANK_WIDTH + ROW_WIDTH + COL_WIDTH;
-  localparam MASK_SIZE             = DATA_WIDTH/8;
-  localparam DBG_WR_STS_WIDTH      = 40;
-  localparam DBG_RD_STS_WIDTH      = 40;
+  localparam MIG_AXI_DATA_WIDTH = 64;
 
   localparam ADC_AXI_DATA_WIDTH = 64;
   localparam ADC_AXI_TID_WIDTH = 1;
@@ -396,7 +376,7 @@ wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
 // 1m2s AXIS Interconnect Unconnected wires
 //////////////////////////////////////////
 // S01 AXIS Connection to Ethernet RX Module
-wire S01_AXIS_TVALID;
+wire S01_AXIS_TVALID=   1'b0;
 wire S01_AXIS_TREADY;
 wire [7 : 0] S01_AXIS_TDATA;
 wire [0 : 0] S01_AXIS_TSTRB;
@@ -408,6 +388,8 @@ wire [0 : 0] S01_AXIS_TDEST;
 //Non-AXIS Signals
 wire S00_ARB_REQ_SUPPRESS;
 wire S01_ARB_REQ_SUPPRESS;
+reg S00_ARB_REQ_SUPPRESS_Reg = 1'b0;
+reg S01_ARB_REQ_SUPPRESS_Reg = 1'b0;
 wire S00_DECODE_ERR;
 wire S01_DECODE_ERR;
 wire [31 : 0] S00_FIFO_DATA_COUNT;
@@ -417,7 +399,7 @@ wire [31 : 0] S01_FIFO_DATA_COUNT;
 //////////////////////////////////////////
 // M00 AXIS Connection to DAC Module
 wire M00_AXIS_TVALID;
-wire M00_AXIS_TREADY;
+wire M00_AXIS_TREADY = 1'b0;
 wire [63 : 0] M00_AXIS_TDATA;
 wire [7 : 0] M00_AXIS_TSTRB;
 wire [7 : 0] M00_AXIS_TKEEP;
@@ -427,25 +409,25 @@ wire [0 : 0] M00_AXIS_TDEST;
 //Non-AXIS Signals
 wire [31 : 0] M00_FIFO_DATA_COUNT;
 wire [31 : 0] M01_FIFO_DATA_COUNT;
-wire S00_DECODE_ERR;
+wire vfifo_S00_DECODE_ERR;
 
 //////////////////////////////////////////
 // Virtual Fifo Connected AXI-Stream wires
 //////////////////////////////////////////
 wire s_axis_vfifo_tvalid;
 wire s_axis_vfifo_tready;
-wire [511 : 0] s_axis_vfifo_tdata;
-wire [63 : 0] s_axis_vfifo_tstrb;
-wire [63 : 0] s_axis_vfifo_tkeep;
+wire [MIG_AXI_DATA_WIDTH-1 : 0] s_axis_vfifo_tdata;
+wire [MIG_AXI_DATA_WIDTH/8-1 : 0] s_axis_vfifo_tstrb;
+wire [MIG_AXI_DATA_WIDTH/8-1 : 0] s_axis_vfifo_tkeep;
 wire s_axis_vfifo_tlast;
 wire [0 : 0] s_axis_vfifo_tid;
 wire [0 : 0] s_axis_vfifo_tdest;
 
 wire m_axis_vfifo_tvalid;
 wire m_axis_vfifo_tready;
-wire [511 : 0] m_axis_vfifo_tdata;
-wire [63 : 0] m_axis_vfifo_tstrb;
-wire [63 : 0] m_axis_vfifo_tkeep;
+wire [MIG_AXI_DATA_WIDTH-1 : 0] m_axis_vfifo_tdata;
+wire [MIG_AXI_DATA_WIDTH/8-1 : 0] m_axis_vfifo_tstrb;
+wire [MIG_AXI_DATA_WIDTH/8-1 : 0] m_axis_vfifo_tkeep;
 wire m_axis_vfifo_tlast;
 wire [0 : 0] m_axis_vfifo_tid;
 wire [0 : 0] m_axis_vfifo_tdest;
@@ -464,8 +446,8 @@ wire [3 : 0] m_axi_vfifo_awregion;
 wire [0 : 0] m_axi_vfifo_awuser;
 wire m_axi_vfifo_awvalid;
 wire m_axi_vfifo_awready;
-wire [511 : 0] m_axi_vfifo_wdata;
-wire [63 : 0] m_axi_vfifo_wstrb;
+wire [MIG_AXI_DATA_WIDTH-1: 0] m_axi_vfifo_wdata;
+wire [MIG_AXI_DATA_WIDTH/8-1: 0] m_axi_vfifo_wstrb;
 wire m_axi_vfifo_wlast;
 wire [0 : 0] m_axi_vfifo_wuser;
 wire m_axi_vfifo_wvalid;
@@ -489,7 +471,7 @@ wire [0 : 0] m_axi_vfifo_aruser;
 wire m_axi_vfifo_arvalid;
 wire m_axi_vfifo_arready;
 wire [0 : 0] m_axi_vfifo_rid;
-wire [511 : 0] m_axi_vfifo_rdata;
+wire [MIG_AXI_DATA_WIDTH-1 : 0] m_axi_vfifo_rdata;
 wire [1 : 0] m_axi_vfifo_rresp;
 wire m_axi_vfifo_rlast;
 wire [0 : 0] m_axi_vfifo_ruser;
@@ -894,6 +876,8 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .S01_FIFO_DATA_COUNT(S01_FIFO_DATA_COUNT)    // output wire [31 : 0] S01_FIFO_DATA_COUNT
 
   );
+  assign S00_ARB_REQ_SUPPRESS = S00_ARB_REQ_SUPPRESS_Reg;
+  assign S01_ARB_REQ_SUPPRESS = S01_ARB_REQ_SUPPRESS_Reg;
 
   // Master0 - 64 bits
   // Master1 - 8 bits
@@ -942,7 +926,7 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
 
 
 //Non-AXIS Signals
-      .S00_DECODE_ERR(S00_DECODE_ERR)            // output wire S00_DECODE_ERR
+      .S00_DECODE_ERR(vfifo_S00_DECODE_ERR)            // output wire S00_DECODE_ERR
 );
 
 // Need .SYSCLK_TYPE("NO_BUFFER") for input from top level mmcm and bufgce
@@ -992,8 +976,8 @@ mig_7series_1 u_mig_7series_1 (
     .s_axi_awready                  (m_axi_vfifo_awready),  // output			s_axi_awready
 
     // Slave Interface Write Data Ports
-    .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [511:0]			s_axi_wdata
-    .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [63:0]			s_axi_wstrb
+    .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [63:0]			s_axi_wdata
+    .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [7:0]			s_axi_wstrb
     .s_axi_wlast                    (m_axi_vfifo_wlast),  // input			s_axi_wlast
     .s_axi_wvalid                   (m_axi_vfifo_wvalid),  // input			s_axi_wvalid
     .s_axi_wready                   (m_axi_vfifo_wready),  // output			s_axi_wready
@@ -1019,7 +1003,7 @@ mig_7series_1 u_mig_7series_1 (
 
     // Slave Interface Read Data Ports
     .s_axi_rid                      (s_axi_mig_rid),  // output [3:0]			s_axi_rid
-    .s_axi_rdata                    (m_axi_vfifo_rdata),  // output [511:0]			s_axi_rdata
+    .s_axi_rdata                    (m_axi_vfifo_rdata),  // output [63:0]			s_axi_rdata
     .s_axi_rresp                    (m_axi_vfifo_rresp),  // output [1:0]			s_axi_rresp
     .s_axi_rlast                    (m_axi_vfifo_rlast),  // output			s_axi_rlast
     .s_axi_rvalid                   (m_axi_vfifo_rvalid),  // output			s_axi_rvalid
@@ -1041,8 +1025,6 @@ mig_7series_1 u_mig_7series_1 (
     .dbg_po_f_stg23_sel             (dbg_po_f_stg23_sel),       // input			dbg_po_f_stg23_sel
     .dbg_po_f_dec                   (dbg_po_f_dec),             // input			dbg_po_f_dec
     // System Clock Ports
-  //  .sys_clk_p                       (sys_clk_p),  // input				sys_clk_p
-  //  .sys_clk_n                       (sys_clk_n),  // input				sys_clk_n
   // Need .SYSCLK_TYPE("NO_BUFFER") for input from top level mmcm and bufgce
     .sys_clk_i                      (sysclk_bufg),
 
