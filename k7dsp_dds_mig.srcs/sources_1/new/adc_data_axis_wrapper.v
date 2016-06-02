@@ -22,6 +22,9 @@
 
 module adc_data_axis_wrapper #(
   parameter ADC_AXI_DATA_WIDTH = 64,
+  parameter ADC_AXI_TID_WIDTH = 1,
+  parameter ADC_AXI_TDEST_WIDTH = 1,
+  parameter ADC_AXI_TUSER_WIDTH = 1,
   parameter ADC_AXI_STREAM_ID = 1'b0,
   parameter ADC_AXI_STREAM_DEST = 1'b0
 )(
@@ -38,9 +41,10 @@ module adc_data_axis_wrapper #(
   output                                    tvalid,
   output reg                                tlast,
   output reg [ADC_AXI_DATA_WIDTH/8-1:0]     tkeep,
-  output reg                                tid,
-  output reg                                tdest,
-  output reg                                tuser,
+  output reg [ADC_AXI_DATA_WIDTH/8-1:0]     tstrb,
+  output reg [ADC_AXI_TID_WIDTH-1:0]        tid,
+  output reg [ADC_AXI_TDEST_WIDTH-1:0]      tdest,
+  output reg [ADC_AXI_TUSER_WIDTH-1:0]      tuser,
 
   input                                   tready
  );
@@ -62,9 +66,11 @@ assign adc_fifo_rd_en = tready;
 
 always @(posedge axi_tclk)
 begin
-  tid <= ADC_AXI_STREAM_ID[0];
-  tdest <= ADC_AXI_STREAM_DEST[0];
-  tkeep <= {{ADC_AXI_DATA_WIDTH/8}{1'b1}};
+  tid <= ADC_AXI_STREAM_ID[ADC_AXI_TID_WIDTH-1:0];
+  tdest <= ADC_AXI_STREAM_DEST[ADC_AXI_TDEST_WIDTH-1:0];
+  tkeep <= {ADC_AXI_DATA_WIDTH/8{1'b1}};
+  tuser <= {ADC_AXI_TUSER_WIDTH{1'b0}};
+  tstrb <= {ADC_AXI_DATA_WIDTH/8{1'b1}};
 end
 
 // need a packet counter - max size limited to 11 bits

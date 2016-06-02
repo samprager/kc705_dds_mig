@@ -45,7 +45,7 @@
 // regulations governing limitations on product liability.
 //
 // THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
-// PART OF THIS FILE AT ALL TIMES. 
+// PART OF THIS FILE AT ALL TIMES.
 // -----------------------------------------------------------------------------
 //----------------------------------------------------------------------------
 // User entered comments
@@ -58,9 +58,10 @@
 //----------------------------------------------------------------------------
 // CLK_OUT1   125.000      0.000      50.0       91.364     85.928
 // CLK_OUT2   100.000      0.000      50.0       70.716     85.928
-  
-// CLK_OUT3   200.000      0.000      50.0            
-// CLK_OUT4   200.000      0.000      50.0              
+
+// CLK_OUT3   200.000      0.000      50.0
+// CLK_OUT4   200.000      0.000      50.0
+// CLK_OUT5   250.000      0.000      50.0
 //
 //----------------------------------------------------------------------------
 // Input Clock   Input Freq (MHz)   Input Jitter (UI)
@@ -77,6 +78,7 @@ module kc705_ethernet_rgmii_clk_wiz
   output        CLK_OUT2,
   output        CLK_OUT3,
   output        CLK_OUT4,
+  output        CLK_OUT5,
   // Status and control signals
   input         RESET,
   output        LOCKED
@@ -96,17 +98,16 @@ module kc705_ethernet_rgmii_clk_wiz
   wire        clkout1b_unused;
   wire        clkout2b_unused;
   wire        clkout3b_unused;
-  wire        clkout4_unused;
   wire        clkout5_unused;
   wire        clkout6_unused;
   wire        clkfbstopped_unused;
   wire        clkinstopped_unused;
-  
+
     MMCME2_ADV
-  
+
   #(.BANDWIDTH            ("OPTIMIZED"),
     .COMPENSATION         ("ZHOLD"),
-    
+
     .DIVCLK_DIVIDE        (1),
     .CLKFBOUT_MULT_F      (5.000),
     .CLKFBOUT_PHASE       (0.000),
@@ -115,13 +116,16 @@ module kc705_ethernet_rgmii_clk_wiz
     .CLKOUT0_DUTY_CYCLE   (0.500),
     .CLKOUT1_DIVIDE       (10),
     .CLKOUT1_PHASE        (0.000),
-    .CLKOUT1_DUTY_CYCLE   (0.500), 
+    .CLKOUT1_DUTY_CYCLE   (0.500),
     .CLKOUT2_DIVIDE       (5),
     .CLKOUT2_PHASE        (0.000),
     .CLKOUT2_DUTY_CYCLE   (0.500),
     .CLKOUT3_DIVIDE       (5),
     .CLKOUT3_PHASE        (0.000),
     .CLKOUT3_DUTY_CYCLE   (0.500),
+    .CLKOUT4_DIVIDE       (4),
+    .CLKOUT4_PHASE        (0.000),
+    .CLKOUT4_DUTY_CYCLE   (0.500),
     .CLKIN1_PERIOD        (5.000),
     .REF_JITTER1          (0.010))
   mmcm_adv_inst
@@ -136,7 +140,7 @@ module kc705_ethernet_rgmii_clk_wiz
     .CLKOUT2B            (clkout2b_unused),
     .CLKOUT3             (clkout3),
     .CLKOUT3B            (clkout3b_unused),
-    .CLKOUT4             (clkout4_unused),
+    .CLKOUT4             (clkout4),
     .CLKOUT5             (clkout5_unused),
     .CLKOUT6             (clkout6_unused),
      // Input clock control
@@ -158,7 +162,7 @@ module kc705_ethernet_rgmii_clk_wiz
     .PSEN                (1'b0),
     .PSINCDEC            (1'b0),
     .PSDONE              (psdone_unused),
- 
+
     // Other control and status signals
     .LOCKED              (LOCKED),
     .CLKINSTOPPED        (clkinstopped_unused),
@@ -183,10 +187,15 @@ module kc705_ethernet_rgmii_clk_wiz
    (.O   (CLK_OUT3),
     .CE  (1'b1),
     .I   (clkout2));
-    
+
   BUFGCE clkout4_buf
    (.O   (CLK_OUT4),
     .CE  (1'b1),
-    .I   (clkout3));  
+    .I   (clkout3));
 
+  BUFGCE clkout5_buf
+   (.O   (CLK_OUT5),
+    .CE  (1'b1),
+    .I   (clkout4));
+    
 endmodule

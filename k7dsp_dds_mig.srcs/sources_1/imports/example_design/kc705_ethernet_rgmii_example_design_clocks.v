@@ -46,7 +46,7 @@
 // regulations governing limitations on product liability.
 //
 // THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
-// PART OF THIS FILE AT ALL TIMES. 
+// PART OF THIS FILE AT ALL TIMES.
 // -----------------------------------------------------------------------------
 // Description:  This block generates the clocking logic required for the
 //               example design.
@@ -67,8 +67,9 @@ module kc705_ethernet_rgmii_example_design_clocks
    output         gtx_clk_bufg,     //125 MHz
    output         refclk_bufg,      //200 MHz
    output         s_axi_aclk,       //100 MHz
-   output         sysclk_bufg       //200 MHz
-   
+   output         sysclk_bufg,       //200 MHz
+   output         clk250_bufg       //250 MHz
+
    );
 
 
@@ -128,6 +129,7 @@ module kc705_ethernet_rgmii_example_design_clocks
       .CLK_OUT2      (s_axi_aclk),
       .CLK_OUT3      (refclk_bufg),
       .CLK_OUT4      (sysclk_bufg),
+      .CLK_OUT5      (clk250_bufg),
       // Status and control signals
       .RESET         (mmcm_rst),
       .LOCKED        (dcm_locked_int)

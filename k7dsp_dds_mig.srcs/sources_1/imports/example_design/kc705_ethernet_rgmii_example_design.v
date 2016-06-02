@@ -133,7 +133,8 @@
 module kc705_ethernet_rgmii_example_design
    (
       // asynchronous reset
-      input         glbl_rst,
+//      input         glbl_rst,
+      input glbl_rst_intn,
 
       // 200MHz clock input from board
     //  input         clk_in_p,
@@ -144,7 +145,15 @@ module kc705_ethernet_rgmii_example_design
       input         s_axi_aclk,         // 100 MHz
       input         dcm_locked,
 
-      output        phy_resetn,
+    //  output        phy_resetn,
+
+      output        rx_reset,
+      output        tx_reset,
+
+
+      input gtx_resetn,
+      input s_axi_resetn,
+      input chk_resetn,
 
 
       // RGMII Interface
@@ -188,7 +197,7 @@ module kc705_ethernet_rgmii_example_design
       output        serial_response,
       input         gen_tx_data,
       input         chk_tx_data,
-      input         reset_error,
+      //input         reset_error,
       output        frame_error,
       output        frame_errorn,
       output        activity_flash,
@@ -204,13 +213,13 @@ module kc705_ethernet_rgmii_example_design
    wire                 rx_mac_aclk;
    wire                 tx_mac_aclk;
    // resets (and reset generation)
-   wire                 s_axi_resetn;
-   wire                 chk_resetn;
-   wire                 gtx_resetn;
-   wire                 rx_reset;
-   wire                 tx_reset;
+   //wire                 s_axi_resetn;
+   //wire                 chk_resetn;
+   //wire                 gtx_resetn;
+   //wire                 rx_reset;
+   //wire                 tx_reset;
 
-   wire                 glbl_rst_intn;
+  // wire                 glbl_rst_intn;
 
 
    // USER side RX AXI-S interface
@@ -304,14 +313,6 @@ module kc705_ethernet_rgmii_example_design
      end
   end
 
-  //----------------------------------------------------------------------------
-  // Clock logic to generate required clocks from the 200MHz on board
-  // if 125MHz is available directly this can be removed
-  //----------------------------------------------------------------------------
-
-
-    // Pass the GTX clock to the Test Bench
-   assign gtx_clk_bufg_out = gtx_clk_bufg;
 
 
   //----------------------------------------------------------------------------
@@ -325,27 +326,27 @@ module kc705_ethernet_rgmii_example_design
   // Generate resets required for the fifo side signals etc
   //----------------------------------------------------------------------------
 
-   kc705_ethernet_rgmii_example_design_resets example_resets
-   (
-      // clocks
-      .s_axi_aclk       (s_axi_aclk),
-      .gtx_clk          (gtx_clk_bufg),
-
-      // asynchronous resets
-      .glbl_rst         (glbl_rst),
-      .reset_error      (reset_error),
-      .rx_reset         (rx_reset),
-      .tx_reset         (tx_reset),
-
-      .dcm_locked       (dcm_locked),
-
-      // synchronous reset outputs
-      .glbl_rst_intn    (glbl_rst_intn),
-      .gtx_resetn       (gtx_resetn),
-      .s_axi_resetn     (s_axi_resetn),
-      .phy_resetn       (phy_resetn),
-      .chk_resetn       (chk_resetn)
-   );
+  //  kc705_ethernet_rgmii_example_design_resets example_resets
+  //  (
+  //     // clocks
+  //     .s_axi_aclk       (s_axi_aclk),
+  //     .gtx_clk          (gtx_clk_bufg),
+   //
+  //     // asynchronous resets
+  //     .glbl_rst         (glbl_rst),
+  //     .reset_error      (reset_error),
+  //     .rx_reset         (rx_reset),
+  //     .tx_reset         (tx_reset),
+   //
+  //     .dcm_locked       (dcm_locked),
+   //
+  //     // synchronous reset outputs
+  //     .glbl_rst_intn    (glbl_rst_intn),
+  //     .gtx_resetn       (gtx_resetn),
+  //     .s_axi_resetn     (s_axi_resetn),
+  //     .phy_resetn       (phy_resetn),
+  //     .chk_resetn       (chk_resetn)
+  //  );
 
 
    // generate the user side resets for the axi fifos

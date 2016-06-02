@@ -112,8 +112,8 @@ module example_top #
     // Inputs
 
     // Differential system clocks
-    input                                        ddr3_clk1_p,
-    input                                        ddr3_clk1_n,
+  //  input                                        ddr3_clk1_p,
+  //  input                                        ddr3_clk1_n,
     //  output                                       tg_compare_error,
     // output                                       init_calib_complete,
 
@@ -291,15 +291,18 @@ function integer clogb2 (input integer size);
   localparam DBG_RD_STS_WIDTH      = 40;
 
   localparam ADC_AXI_DATA_WIDTH = 64;
+  localparam ADC_AXI_TID_WIDTH = 1;
+  localparam ADC_AXI_TDEST_WIDTH = 1;
+  localparam ADC_AXI_TUSER_WIDTH = 1;
   localparam ADC_AXI_STREAM_ID = 1'b0;
   localparam ADC_AXI_STREAM_DEST = 1'b0;
 
+//wire                          clk_245_76MHz;
+//wire                          clk_491_52MHz;
 
-
-wire                          clk_245_76MHz;
-wire                          clk_491_52MHz;
-
+//////////////////////////////////////////
 // DDR3 MIG Wires
+//////////////////////////////////////////
 // full bid and rid outputs from mig -- concatinated for input to vfifo
 wire [3:0] s_axi_mig_bid;
 wire [3:0] s_axi_mig_rid;
@@ -307,7 +310,7 @@ wire [3:0] s_axi_mig_rid;
 // MIG Application interface ports
 wire ui_clk;
 wire ui_clk_sync_rst;
-wire                              mmcm_locked; 
+wire                              mmcm_locked;
 reg                               aresetn;
 wire                              app_sr_req;
 wire                              app_ref_req;
@@ -340,13 +343,21 @@ wire          dbg_po_f_dec;
 (* mark_debug = "TRUE" *) wire [4:0]    dbg_dqs;
 (* mark_debug = "TRUE" *) wire [8:0]    dbg_bit;
 
-
+//////////////////////////////////////////
 // Ethernet Controller wrapper signals
+//////////////////////////////////////////
 wire                 gtx_clk_bufg;
 wire                 refclk_bufg;
 wire                 sysclk_bufg;
+wire                 clk250_bufg;
 wire                 s_axi_aclk;
 wire                 dcm_locked;
+
+wire                 refclk_resetn;
+wire                 sysclk_resetn;
+wire                 clk250_resetn;
+
+reg                  sysclk_reset;
 
 wire                  gen_tx_data;
 wire                  chk_tx_data;
@@ -357,22 +368,70 @@ wire                adc_pkt_axis_tvalid;
 wire                adc_pkt_axis_tlast;
 wire                adc_pkt_axis_tuser;
 wire                adc_pkt_axis_tready;
+wire [0:0]          adc_pkt_axis_tstrb;
+wire [0:0]          adc_pkt_axis_tkeep;
+wire [0:0]          adc_pkt_axis_tid;
+wire [0:0]          adc_pkt_axis_tdest;
 
+wire        rx_reset,
+wire        tx_reset,
 
+wire glbl_rst_intn,
+wire gtx_resetn,
+wire s_axi_resetn,
+wire chk_resetn,
 
  // --ADC AXI-Stream Data Out Signals from fmc150_dac_adc module
 wire [ADC_AXI_DATA_WIDTH-1:0]   axis_adc_tdata;
 wire                            axis_adc_tvalid;
 wire                            axis_adc_tlast;
 wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tkeep;
-wire                            axis_adc_tid;
-wire                            axis_adc_tdest;
-wire                            axis_adc_tuser;
+wire [ADC_AXI_TID_WIDTH-1:0]    axis_adc_tid;
+wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
+wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
 wire                            axis_adc_tready;
 wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
 
+//////////////////////////////////////////
+// 1m2s AXIS Interconnect Unconnected wires
+//////////////////////////////////////////
+// S01 AXIS Connection to Ethernet RX Module
+wire S01_AXIS_TVALID;
+wire S01_AXIS_TREADY;
+wire [7 : 0] S01_AXIS_TDATA;
+wire [0 : 0] S01_AXIS_TSTRB;
+wire [0 : 0] S01_AXIS_TKEEP;
+wire S01_AXIS_TLAST;
+wire [0 : 0] S01_AXIS_TID;
+wire [0 : 0] S01_AXIS_TDEST;
 
-// Virtual Fifo AXI-Stream wires 
+//Non-AXIS Signals
+wire S00_ARB_REQ_SUPPRESS;
+wire S01_ARB_REQ_SUPPRESS;
+wire S00_DECODE_ERR;
+wire S01_DECODE_ERR;
+wire [31 : 0] S00_FIFO_DATA_COUNT;
+wire [31 : 0] S01_FIFO_DATA_COUNT;
+
+// 1s2m AXIS Interconnect Unconnected wires
+//////////////////////////////////////////
+// M00 AXIS Connection to DAC Module
+wire M00_AXIS_TVALID
+wire M00_AXIS_TREADY
+wire [63 : 0] M00_AXIS_TDATA
+wire [7 : 0] M00_AXIS_TSTRB
+wire [7 : 0] M00_AXIS_TKEEP
+wire M00_AXIS_TLAST
+wire [0 : 0] M00_AXIS_TID
+wire [0 : 0] M00_AXIS_TDEST
+//Non-AXIS Signals
+wire [31 : 0] M00_FIFO_DATA_COUNT
+wire [31 : 0] M01_FIFO_DATA_COUNT
+wire S00_DECODE_ERR
+
+//////////////////////////////////////////
+// Virtual Fifo Connected AXI-Stream wires
+//////////////////////////////////////////
 wire s_axis_vfifo_tvalid;
 wire s_axis_vfifo_tready;
 wire [511 : 0] s_axis_vfifo_tdata;
@@ -381,7 +440,7 @@ wire [63 : 0] s_axis_vfifo_tkeep;
 wire s_axis_vfifo_tlast;
 wire [0 : 0] s_axis_vfifo_tid;
 wire [0 : 0] s_axis_vfifo_tdest;
-   
+
 wire m_axis_vfifo_tvalid;
 wire m_axis_vfifo_tready;
 wire [511 : 0] m_axis_vfifo_tdata;
@@ -457,19 +516,27 @@ assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
 kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
 (
   // asynchronous reset
-  .glbl_rst         (cpu_reset),
+  .glbl_rst         (glbl_rst_intn),
 
   // 200MHz clock input from board
   //.clk_in_p         (ddr3_clk1_p),
   //.clk_in_n         (ddr3_clk1_n),
   // 125 MHz clock from MMCM
-  .gtx_clk_bufg     (gtx_clk_bufg),         
+  .gtx_clk_bufg     (gtx_clk_bufg),
   .refclk_bufg      (refclk_bufg),
   .s_axi_aclk       (s_axi_aclk),
 
   .dcm_locked       (dcm_locked),
 
-  .phy_resetn        (phy_resetn),
+
+  // reset outputs
+  .rx_reset (rx_reset),
+  .tx_reset (tx_reset),
+
+  // synchronous reset inputs
+  .gtx_resetn       (gtx_resetn),
+  .s_axi_resetn     (s_axi_resetn),
+  .chk_resetn       (chk_resetn),
 
 
   // RGMII Interface
@@ -532,22 +599,56 @@ assign enable_adc_pkt = 1'b1;
 kc705_ethernet_rgmii_example_design_clocks example_clocks
  (
     // differential clock inputs - 200 MHz
-    .clk_in_p         (sysclk_p),        
+    .clk_in_p         (sysclk_p),
     .clk_in_n         (sysclk_n),
 
     // asynchronous control/resets
-    .glbl_rst         (glbl_rst),
+    .glbl_rst         (cpu_reset),
     .dcm_locked       (dcm_locked),
 
     // clock outputs
     .gtx_clk_bufg     (gtx_clk_bufg),       // 125 MHz (5*clk_in_p/8)
-    .refclk_bufg      (refclk_bufg),        // 200 MHz (clk_in_p/2)
-    .sysclk_bufg      (sysclk_bufg),        // 200 MHz (clk_in_p/2)
+    .refclk_bufg      (refclk_bufg),        // 200 MHz (clk_in_p)
+    .sysclk_bufg      (sysclk_bufg),        // 200 MHz (clk_in_p)
+    .clk250_bufg      (clk250_bufg),        // 250 MHz (5*clk_in_p/4)
     .s_axi_aclk       (s_axi_aclk)          // 100 MHz (clk_in_p/2)
  );
 
+ //----------------------------------------------------------------------------
+ // Clock logic to generate required clocks from the 200MHz on board
+ // if 125MHz is available directly this can be removed
+ //----------------------------------------------------------------------------
+
+   // Pass the GTX clock to the Test Bench
  assign gtx_clk_bufg_out = gtx_clk_bufg;
 
+ kc705_ethernet_rgmii_example_design_resets example_resets
+ (
+    // clocks
+    .s_axi_aclk       (s_axi_aclk),
+    .gtx_clk          (gtx_clk_bufg),
+    .refclk           (refclk_bufg),
+    .sysclk           (sysclk_bufg),
+    .clk250           (clk250_bufg),
+
+    // asynchronous resets
+    .glbl_rst         (cpu_reset),
+    .reset_error      (reset_error),
+    .rx_reset         (rx_reset),
+    .tx_reset         (tx_reset),
+
+    .dcm_locked       (dcm_locked),
+
+    // synchronous reset outputs
+    .glbl_rst_intn    (glbl_rst_intn),
+    .gtx_resetn       (gtx_resetn),
+    .s_axi_resetn     (s_axi_resetn),
+    .refclk_resetn    (refclk_resetn),
+    .sysclk_resetn    (sysclk_resetn),
+    .clk250_resetn    (clk250_resetn),
+    .phy_resetn       (phy_resetn),
+    .chk_resetn       (chk_resetn)
+ );
 
 fmc150_dac_adc  #
 (
@@ -568,6 +669,9 @@ fmc150_dac_adc  #
     .ADC_BUFFER_WIDTH (C_ADC_BUFFER_WIDTH),
 
     .ADC_AXI_DATA_WIDTH(ADC_AXI_DATA_WIDTH),
+    .ADC_AXI_TID_WIDTH(ADC_AXI_TID_WIDTH),
+    .ADC_AXI_TDEST_WIDTH(ADC_AXI_TDEST_WIDTH),
+    .ADC_AXI_TUSER_WIDTH(ADC_AXI_TUSER_WIDTH),
     .ADC_AXI_STREAM_ID(ADC_AXI_STREAM_ID),
     .ADC_AXI_STREAM_DEST(ADC_AXI_STREAM_DEST)
 )
@@ -587,14 +691,15 @@ fmc150_dac_adc_inst
      .axis_adc_tstrb                      (axis_adc_tstrb),
 
 
-     .clk_out_245_76MHz                        (clk_245_76MHz),
-     .clk_out_491_52MHz                       (clk_491_52MHz),
+  //   .clk_out_245_76MHz                        (clk_245_76MHz),
+  //   .clk_out_491_52MHz                       (clk_491_52MHz),
 
 
-    .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
+//    .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
 //    .sysclk_p (sysclk_p),        // : in    std_logic;
 //    .sysclk_n (sysclk_n),        // : in    std_logic;
-    .sysclk_buf (sysclk_bufg),
+    .cpu_reset (sysclk_reset),
+    .sysclk_bufg (sysclk_bufg),
     .gpio_led (gpio_led),        // : out   std_logic_vector(7 downto 0);
     .gpio_dip_sw (gpio_dip_sw),   //   : in    std_logic_vector(7 downto 0);
     .gpio_led_c (gpio_led_c),        //       : out   std_logic;
@@ -668,7 +773,7 @@ fmc150_dac_adc_inst
 axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .aclk(ui_clk),                                          // input wire aclk
     .aresetn(aresetn),                                    // input wire aresetn
-    
+
     .s_axis_tvalid(s_axis_vfifo_tvalid),                        // input wire s_axis_tvalid
     .s_axis_tready(s_axis_vfifo_tready),                        // output wire s_axis_tready
     .s_axis_tdata(s_axis_vfifo_tdata),                          // input wire [511 : 0] s_axis_tdata
@@ -677,7 +782,7 @@ axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .s_axis_tlast(s_axis_vfifo_tlast),                          // input wire s_axis_tlast
     .s_axis_tid(s_axis_vfifo_tid),                              // input wire [0 : 0] s_axis_tid
     .s_axis_tdest(s_axis_vfifo_tdest),                          // input wire [0 : 0] s_axis_tdest
-    
+
     .m_axis_tvalid(m_axis_vfifo_tvalid),                        // output wire m_axis_tvalid
     .m_axis_tready(m_axis_vfifo_tready),                        // input wire m_axis_tready
     .m_axis_tdata(m_axis_vfifo_tdata),                          // output wire [511 : 0] m_axis_tdata
@@ -686,7 +791,7 @@ axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .m_axis_tlast(m_axis_vfifo_tlast),                          // output wire m_axis_tlast
     .m_axis_tid(m_axis_vfifo_tid),                              // output wire [0 : 0] m_axis_tid
     .m_axis_tdest(m_axis_vfifo_tdest),                          // output wire [0 : 0] m_axis_tdest
-    
+
     .m_axi_awid(m_axi_vfifo_awid),                              // output wire [0 : 0] m_axi_awid
     .m_axi_awaddr(m_axi_vfifo_awaddr),                          // output wire [31 : 0] m_axi_awaddr
     .m_axi_awlen(m_axi_vfifo_awlen),                            // output wire [7 : 0] m_axi_awlen
@@ -743,10 +848,10 @@ axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
 axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .ACLK(ui_clk),                                  // input wire ACLK
     .ARESETN(aresetn),                            // input wire ARESETN
-    
+
 // S00 AXIS Connection to ADC Module
-    .S00_AXIS_ACLK(S00_AXIS_ACLK),                // input wire S00_AXIS_ACLK
-    .S00_AXIS_ARESETN(S00_AXIS_ARESETN),          // input wire S00_AXIS_ARESETN
+    .S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
+    .S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN
     .S00_AXIS_TVALID(axis_adc_tvalid),            // input wire S00_AXIS_TVALID
     .S00_AXIS_TREADY(axis_adc_tready),            // output wire S00_AXIS_TREADY
     .S00_AXIS_TDATA(axis_adc_tdata),              // input wire [63 : 0] S00_AXIS_TDATA
@@ -757,8 +862,8 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .S00_AXIS_TDEST(axis_adc_tdest),              // input wire [0 : 0] S00_AXIS_TDEST
 
 // S01 AXIS Connection to RGMII Ethernet RX Module
-    .S01_AXIS_ACLK(S01_AXIS_ACLK),                // input wire S01_AXIS_ACLK
-    .S01_AXIS_ARESETN(S01_AXIS_ARESETN),          // input wire S01_AXIS_ARESETN
+    .S01_AXIS_ACLK(gtx_clk_bufg),                // input wire S01_AXIS_ACLK
+    .S01_AXIS_ARESETN(gtx_resetn),          // input wire S01_AXIS_ARESETN
     .S01_AXIS_TVALID(S01_AXIS_TVALID),            // input wire S01_AXIS_TVALID
     .S01_AXIS_TREADY(S01_AXIS_TREADY),            // output wire S01_AXIS_TREADY
     .S01_AXIS_TDATA(S01_AXIS_TDATA),              // input wire [7 : 0] S01_AXIS_TDATA
@@ -768,9 +873,9 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .S01_AXIS_TID(S01_AXIS_TID),                  // input wire [0 : 0] S01_AXIS_TID
     .S01_AXIS_TDEST(S01_AXIS_TDEST),              // input wire [0 : 0] S01_AXIS_TDEST
 
-// M00 AXIS Connection to input (axis slave) of Virtual FIFO        
-    .M00_AXIS_ACLK(M00_AXIS_ACLK),                // input wire M00_AXIS_ACLK
-    .M00_AXIS_ARESETN(M00_AXIS_ARESETN),          // input wire M00_AXIS_ARESETN
+// M00 AXIS Connection to input (axis slave) of Virtual FIFO
+    .M00_AXIS_ACLK(ui_clk),                // input wire M00_AXIS_ACLK
+    .M00_AXIS_ARESETN(aresetn),          // input wire M00_AXIS_ARESETN
     .M00_AXIS_TVALID(s_axis_vfifo_tvalid),            // output wire M00_AXIS_TVALID
     .M00_AXIS_TREADY(s_axis_vfifo_tready),            // input wire M00_AXIS_TREADY
     .M00_AXIS_TDATA(s_axis_vfifo_tdata),              // output wire [511 : 0] M00_AXIS_TDATA
@@ -780,26 +885,26 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .M00_AXIS_TID(s_axis_vfifo_tid),                  // output wire [0 : 0] M00_AXIS_TID
     .M00_AXIS_TDEST(s_axis_vfifo_tdest),              // output wire [0 : 0] M00_AXIS_TDEST
 
-// Non-AXIS Signals        
+// Non-AXIS Signals
     .S00_ARB_REQ_SUPPRESS(S00_ARB_REQ_SUPPRESS),  // input wire S00_ARB_REQ_SUPPRESS
     .S01_ARB_REQ_SUPPRESS(S01_ARB_REQ_SUPPRESS),  // input wire S01_ARB_REQ_SUPPRESS
     .S00_DECODE_ERR(S00_DECODE_ERR),              // output wire S00_DECODE_ERR
     .S01_DECODE_ERR(S01_DECODE_ERR),              // output wire S01_DECODE_ERR
-    .S00_FIFO_DATA_COUNT(S00_FIFO_DATA_COUNT),    // output wire [31 : 0] S00_FIFO_DATA_COUNT    
+    .S00_FIFO_DATA_COUNT(S00_FIFO_DATA_COUNT),    // output wire [31 : 0] S00_FIFO_DATA_COUNT
     .S01_FIFO_DATA_COUNT(S01_FIFO_DATA_COUNT)    // output wire [31 : 0] S01_FIFO_DATA_COUNT
 
   );
-  
+
   // Master0 - 64 bits
   // Master1 - 8 bits
   // Slave - 512 bits
   axis_interconnect_1s2m u_axis_interconnect_1s2m(
       .ACLK(ui_clk),                                // input wire ACLK
       .ARESETN(aresetn),                          // input wire ARESETN
-      
+
 // S00 AXIS Connection to output (axis master) of Virtual FIFO
-      .S00_AXIS_ACLK(S00_AXIS_ACLK),              // input wire S00_AXIS_ACLK
-      .S00_AXIS_ARESETN(S00_AXIS_ARESETN),        // input wire S00_AXIS_ARESETN
+      .S00_AXIS_ACLK(ui_clk),              // input wire S00_AXIS_ACLK
+      .S00_AXIS_ARESETN(aresetn),        // input wire S00_AXIS_ARESETN
       .S00_AXIS_TVALID(m_axis_vfifo_tvalid),          // input wire S00_AXIS_TVALID
       .S00_AXIS_TREADY(m_axis_vfifo_tready),          // output wire S00_AXIS_TREADY
       .S00_AXIS_TDATA(m_axis_vfifo_tdata),            // input wire [511 : 0] S00_AXIS_TDATA
@@ -810,8 +915,8 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .S00_AXIS_TDEST(m_axis_vfifo_tdest),            // input wire [0 : 0] S00_AXIS_TDEST
 
 // M00 AXIS Connection to DAC Module
-      .M00_AXIS_ACLK(M00_AXIS_ACLK),              // input wire M00_AXIS_ACLK
-      .M00_AXIS_ARESETN(M00_AXIS_ARESETN),        // input wire M00_AXIS_ARESETN
+      .M00_AXIS_ACLK(ui_clk),              // input wire M00_AXIS_ACLK
+      .M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
       .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
       .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
       .M00_AXIS_TDATA(M00_AXIS_TDATA),            // output wire [63 : 0] M00_AXIS_TDATA
@@ -821,25 +926,26 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .M00_AXIS_TID(M00_AXIS_TID),                // output wire [0 : 0] M00_AXIS_TID
       .M00_AXIS_TDEST(M00_AXIS_TDEST),            // output wire [0 : 0] M00_AXIS_TDEST
       .M00_FIFO_DATA_COUNT(M00_FIFO_DATA_COUNT),  // output wire [31 : 0] M00_FIFO_DATA_COUNT
-      
+
 // M01 AXIS Connection to RGMII Ethernet TX Module
-      .M01_AXIS_ACLK(M01_AXIS_ACLK),              // input wire M01_AXIS_ACLK
-      .M01_AXIS_ARESETN(M01_AXIS_ARESETN),        // input wire M01_AXIS_ARESETN
-      .M01_AXIS_TVALID(M01_AXIS_TVALID),          // output wire M01_AXIS_TVALID
-      .M01_AXIS_TREADY(M01_AXIS_TREADY),          // input wire M01_AXIS_TREADY
-      .M01_AXIS_TDATA(M01_AXIS_TDATA),            // output wire [7 : 0] M01_AXIS_TDATA
-      .M01_AXIS_TSTRB(M01_AXIS_TSTRB),            // output wire [0 : 0] M01_AXIS_TSTRB
-      .M01_AXIS_TKEEP(M01_AXIS_TKEEP),            // output wire [0 : 0] M01_AXIS_TKEEP
-      .M01_AXIS_TLAST(M01_AXIS_TLAST),            // output wire M01_AXIS_TLAST
-      .M01_AXIS_TID(M01_AXIS_TID),                // output wire [0 : 0] M01_AXIS_TID
-      .M01_AXIS_TDEST(M01_AXIS_TDEST),            // output wire [0 : 0] M01_AXIS_TDEST
+      .M01_AXIS_ACLK(gtx_clk_bufg),              // input wire M01_AXIS_ACLK
+      .M01_AXIS_ARESETN(gtx_resetn),        // input wire M01_AXIS_ARESETN
+      .M01_AXIS_TVALID(adc_pkt_axis_tvalid),          // output wire M01_AXIS_TVALID
+      .M01_AXIS_TREADY(adc_pkt_axis_tready),          // input wire M01_AXIS_TREADY
+      .M01_AXIS_TDATA(adc_pkt_axis_tdata),            // output wire [7 : 0] M01_AXIS_TDATA
+      .M01_AXIS_TSTRB(adc_pkt_axis_tstrb),            // output wire [0 : 0] M01_AXIS_TSTRB
+      .M01_AXIS_TKEEP(adc_pkt_axis_tkeep),            // output wire [0 : 0] M01_AXIS_TKEEP
+      .M01_AXIS_TLAST(adc_pkt_axis_tlast),            // output wire M01_AXIS_TLAST
+      .M01_AXIS_TID(adc_pkt_axis_tid),                // output wire [0 : 0] M01_AXIS_TID
+      .M01_AXIS_TDEST(adc_pkt_axis_tdest),            // output wire [0 : 0] M01_AXIS_TDEST
       .M01_FIFO_DATA_COUNT(M01_FIFO_DATA_COUNT),  // output wire [31 : 0] M01_FIFO_DATA_COUNT
-      
+
+
 //Non-AXIS Signals
       .S00_DECODE_ERR(S00_DECODE_ERR)            // output wire S00_DECODE_ERR
 );
 
-
+// Need .SYSCLK_TYPE("NO_BUFFER") for input from top level mmcm and bufgce
 mig_7series_1 u_mig_7series_1 (
 // Memory interface ports
     .ddr3_addr                      (ddr3_addr),  // output [13:0]		ddr3_addr
@@ -855,11 +961,11 @@ mig_7series_1 u_mig_7series_1 (
     .ddr3_dqs_n                     (ddr3_dqs_n),  // inout [7:0]		ddr3_dqs_n
     .ddr3_dqs_p                     (ddr3_dqs_p),  // inout [7:0]		ddr3_dqs_p
     .init_calib_complete            (init_calib_complete),  // output			init_calib_complete
-      
+
 	.ddr3_cs_n                      (ddr3_cs_n),  // output [0:0]		ddr3_cs_n
     .ddr3_dm                        (ddr3_dm),  // output [7:0]		ddr3_dm
     .ddr3_odt                       (ddr3_odt),  // output [0:0]		ddr3_odt
-    
+
     // Application interface ports
     .ui_clk                         (ui_clk),  // output			ui_clk
     .ui_clk_sync_rst                (ui_clk_sync_rst),  // output			ui_clk_sync_rst
@@ -871,7 +977,7 @@ mig_7series_1 u_mig_7series_1 (
     .app_sr_active                  (app_sr_active),  // output			app_sr_active
     .app_ref_ack                    (app_ref_ack),  // output			app_ref_ack
     .app_zq_ack                     (app_zq_ack),  // output			app_zq_ack
-    
+
     // Slave Interface Write Address Ports
     .s_axi_awid                     ({3'b0,m_axi_vfifo_awid[0]}),  // input [3:0]			s_axi_awid
     .s_axi_awaddr                   (m_axi_vfifo_awaddr[31:2]),  // input [29:0]			s_axi_awaddr
@@ -884,20 +990,20 @@ mig_7series_1 u_mig_7series_1 (
     .s_axi_awqos                    (m_axi_vfifo_awqos),  // input [3:0]			s_axi_awqos
     .s_axi_awvalid                  (m_axi_vfifo_awvalid),  // input			s_axi_awvalid
     .s_axi_awready                  (m_axi_vfifo_awready),  // output			s_axi_awready
-    
+
     // Slave Interface Write Data Ports
     .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [511:0]			s_axi_wdata
     .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [63:0]			s_axi_wstrb
     .s_axi_wlast                    (m_axi_vfifo_wlast),  // input			s_axi_wlast
     .s_axi_wvalid                   (m_axi_vfifo_wvalid),  // input			s_axi_wvalid
     .s_axi_wready                   (m_axi_vfifo_wready),  // output			s_axi_wready
-    
+
     // Slave Interface Write Response Ports
     .s_axi_bid                      (s_axi_mig_bid),  // output [3:0]			s_axi_bid
     .s_axi_bresp                    (m_axi_vfifo_bresp),  // output [1:0]			s_axi_bresp
     .s_axi_bvalid                   (m_axi_vfifo_bvalid),  // output			s_axi_bvalid
     .s_axi_bready                   (m_axi_vfifo_bready),  // input			s_axi_bready
-    
+
     // Slave Interface Read Address Ports
     .s_axi_arid                     ({3'b0,m_axi_vfifo_arid[0]}),  // input [3:0]			s_axi_arid
     .s_axi_araddr                   (m_axi_vfifo_araddr[31:2]),  // input [29:0]			s_axi_araddr
@@ -910,7 +1016,7 @@ mig_7series_1 u_mig_7series_1 (
     .s_axi_arqos                    (m_axi_vfifo_arqos),  // input [3:0]			s_axi_arqos
     .s_axi_arvalid                  (m_axi_vfifo_arvalid),  // input			s_axi_arvalid
     .s_axi_arready                  (m_axi_vfifo_arready),  // output			s_axi_arready
-          
+
     // Slave Interface Read Data Ports
     .s_axi_rid                      (s_axi_mig_rid),  // output [3:0]			s_axi_rid
     .s_axi_rdata                    (m_axi_vfifo_rdata),  // output [511:0]			s_axi_rdata
@@ -918,7 +1024,7 @@ mig_7series_1 u_mig_7series_1 (
     .s_axi_rlast                    (m_axi_vfifo_rlast),  // output			s_axi_rlast
     .s_axi_rvalid                   (m_axi_vfifo_rvalid),  // output			s_axi_rvalid
     .s_axi_rready                   (m_axi_vfifo_rready),  // input			s_axi_rready
-    
+
     // Debug Ports
     .ddr3_ila_basic                 (ddr3_ila_basic_w),  // output [119:0]                               ddr3_ila_basic
     .ddr3_ila_wrpath                (ddr3_ila_wrpath_w),  // output [390:0]                               ddr3_ila_wrpath
@@ -935,9 +1041,13 @@ mig_7series_1 u_mig_7series_1 (
     .dbg_po_f_stg23_sel             (dbg_po_f_stg23_sel),       // input			dbg_po_f_stg23_sel
     .dbg_po_f_dec                   (dbg_po_f_dec),             // input			dbg_po_f_dec
     // System Clock Ports
-    .sys_clk_p                       (sys_clk_p),  // input				sys_clk_p
-    .sys_clk_n                       (sys_clk_n),  // input				sys_clk_n
-    .sys_rst                        (sys_rst) // input sys_rst
+  //  .sys_clk_p                       (sys_clk_p),  // input				sys_clk_p
+  //  .sys_clk_n                       (sys_clk_n),  // input				sys_clk_n
+  // Need .SYSCLK_TYPE("NO_BUFFER") for input from top level mmcm and bufgce
+    .sys_clk_i                      (sysclk_bufg),
+
+  //  .sys_rst                        (sys_rst) // input sys_rst
+    .sys_rst                        (sysclk_reset)
 );
 assign m_axi_vfifo_bid = s_axi_mig_bid[0];
 assign m_axi_vfifo_rid = s_axi_mig_rid[0];
@@ -946,6 +1056,10 @@ assign ddr3_vio_sync_out={dbg_dqs,dbg_bit};
 
    always @(posedge ui_clk) begin
      aresetn <= ~ui_clk_sync_rst;
+   end
+
+   always @(posedge sysclk_bufg) begin
+     sysclk_reset <= ~sysclk_resetn;
    end
 
 endmodule

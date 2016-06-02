@@ -155,7 +155,7 @@ port (
   cpu_reset        : in    std_logic; -- CPU RST button, SW7 on KC705
 --  sysclk_p         : in    std_logic;
 --  sysclk_n         : in    std_logic;
-  sysclk_buf         : in    std_logic;
+  sysclk_bufg         : in    std_logic;
   gpio_led         : out   std_logic_vector(7 downto 0);
   gpio_dip_sw      : in    std_logic_vector(7 downto 0);
   gpio_led_c       : out   std_logic;
@@ -1022,7 +1022,7 @@ end process iDelay_update;
 ----------------------------------------------------------------------------------------------------
 mmcm_inst : mmcm
 port map (
-    clk_in1 	=> sysclk_buf,
+    clk_in1 	=> sysclk_bufg,
     clk_out1  => clk_100Mhz,
     clk_out2  => clk_200Mhz,
     reset     => cpu_reset,

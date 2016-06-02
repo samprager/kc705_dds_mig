@@ -36,6 +36,9 @@ module fmc150_dac_adc #
      parameter ADC_BUFFER_WIDTH = 1,
 
      parameter ADC_AXI_DATA_WIDTH = 64,
+     parameter ADC_AXI_TID_WIDTH = 1,
+     parameter ADC_AXI_TDEST_WIDTH = 1,
+     parameter ADC_AXI_TUSER_WIDTH = 1,
      parameter ADC_AXI_STREAM_ID = 1'b0,
      parameter ADC_AXI_STREAM_DEST = 1'b0
 
@@ -50,20 +53,20 @@ module fmc150_dac_adc #
   input cpu_reset,       // : in    std_logic; -- CPU RST button, SW7 on KC705
  // input sysclk_p,        // : in    std_logic;
  // input sysclk_n,        // : in    std_logic;
-  input sysclk_buf,
+  input sysclk_bufg,
    // --ADC Data Out Signals
   output [ADC_AXI_DATA_WIDTH-1:0]     axis_adc_tdata,
   output axis_adc_tvalid,
   output axis_adc_tlast,
   output [ADC_AXI_DATA_WIDTH/8-1:0]   axis_adc_tkeep,
   output [ADC_AXI_DATA_WIDTH/8-1:0]   axis_adc_tstrb,
-  output axis_adc_tid,
-  output axis_adc_tdest,
-  output axis_adc_tuser,
+  output [ADC_AXI_TID_WIDTH-1:0] axis_adc_tid,
+  output [ADC_AXI_TDEST_WIDTH-1:0] axis_adc_tdest,
+  output [ADC_AXI_TUSER_WIDTH-1:0] axis_adc_tuser,
   input axis_adc_tready,
 
-  output clk_out_245_76MHz,
-  output clk_out_491_52MHz,
+//  output clk_out_245_76MHz,
+//  output clk_out_491_52MHz,
 
   output [7:0]  gpio_led,        // : out   std_logic_vector(7 downto 0);
  input [7:0]  gpio_dip_sw,   //   : in    std_logic_vector(7 downto 0);
@@ -180,7 +183,7 @@ module fmc150_dac_adc #
   //     .sysclk_p (sysclk_p),        // : in    std_logic;
  //      .sysclk_n (sysclk_n),        // : in    std_logic;
 
-       .sysclk_buf (sysclk_buf),
+       .sysclk_bufg (sysclk_bufg),
        .gpio_led (gpio_led),        // : out   std_logic_vector(7 downto 0);
        .gpio_dip_sw (gpio_dip_sw),   //   : in    std_logic_vector(7 downto 0);
        .gpio_led_c (gpio_led_c),        //       : out   std_logic;
@@ -275,9 +278,12 @@ module fmc150_dac_adc #
    );
 
    adc_data_axis_wrapper #(
-      .ADC_AXI_DATA_WIDTH(ADC_AXI_DATA_WIDTH),
-      .ADC_AXI_STREAM_ID(ADC_AXI_STREAM_ID),
-      .ADC_AXI_STREAM_DEST(ADC_AXI_STREAM_DEST)
+     .ADC_AXI_DATA_WIDTH(ADC_AXI_DATA_WIDTH),
+     .ADC_AXI_TID_WIDTH(ADC_AXI_TID_WIDTH),
+     .ADC_AXI_TDEST_WIDTH(ADC_AXI_TDEST_WIDTH),
+     .ADC_AXI_TUSER_WIDTH(ADC_AXI_TUSER_WIDTH),
+     .ADC_AXI_STREAM_ID(ADC_AXI_STREAM_ID),
+     .ADC_AXI_STREAM_DEST(ADC_AXI_STREAM_DEST)
     )
     adc_data_axis_wrapper_inst (
       .axi_tclk                   (aclk),
@@ -292,6 +298,7 @@ module fmc150_dac_adc #
       .tvalid                     (axis_adc_tvalid),
       .tlast                      (axis_adc_tlast),
       .tkeep                      (axis_adc_tkeep),
+      .tstrb                      (axis_adc_tstrb),
       .tid                        (axis_adc_tid),
       .tdest                      (axis_adc_tdest),
       .tuser                      (axis_adc_tuser),
@@ -307,7 +314,8 @@ module fmc150_dac_adc #
    assign adc_fifo_wr_en = adc_data_valid & collect_adc_samples;
 
 assign rd_fifo_clk = aclk;
-assign clk_out_245_76MHz = clk_245_76MHz;
-assign clk_out_491_52MHz = clk_491_52MHz;
+
+//assign clk_out_245_76MHz = clk_245_76MHz;
+//assign clk_out_491_52MHz = clk_491_52MHz;
 
    endmodule
