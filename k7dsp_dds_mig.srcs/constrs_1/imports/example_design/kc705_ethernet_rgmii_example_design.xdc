@@ -34,13 +34,13 @@ set_property IOSTANDARD  LVCMOS15 [get_ports activity_flash]
 set_property IOSTANDARD  LVCMOS15 [get_ports activity_flashn]
 
 #### Module Push_Buttons_4Bit constraints
-set_property PACKAGE_PIN G12      [get_ports update_speed]
+set_property PACKAGE_PIN G12      [get_ports update_speed] #sw c
 # Rev B board
 #set_property PACKAGE_PIN AD7      [get_ports config_board]
 # Rev C or later
-set_property PACKAGE_PIN AC6      [get_ports config_board]
-set_property PACKAGE_PIN AB12     [get_ports pause_req_s]
-set_property PACKAGE_PIN AA12     [get_ports reset_error]
+set_property PACKAGE_PIN AC6      [get_ports config_board] #sw w
+set_property PACKAGE_PIN AB12     [get_ports pause_req_s] #sw s
+set_property PACKAGE_PIN AA12     [get_ports reset_error] #sw n
 set_property IOSTANDARD  LVCMOS15 [get_ports update_speed]
 set_property IOSTANDARD  LVCMOS15 [get_ports config_board]
 set_property IOSTANDARD  LVCMOS15 [get_ports pause_req_s]
@@ -71,7 +71,7 @@ set_property IOSTANDARD  LVCMOS25 [get_ports rx_statistics_s]
 
 # Map the TB clock pin gtx_clk_bufg_out to and un-used pin so that its not trimmed off
 set_property PACKAGE_PIN AC17      [get_ports gtx_clk_bufg_out]
-set_property IOSTANDARD  SSTL15    [get_ports gtx_clk_bufg_out] 
+set_property IOSTANDARD  SSTL15    [get_ports gtx_clk_bufg_out]
 
 
 #

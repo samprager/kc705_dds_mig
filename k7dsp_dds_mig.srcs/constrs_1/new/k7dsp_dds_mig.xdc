@@ -7,10 +7,13 @@ create_clock -period 4.069 -name clk_ab_p [get_ports clk_ab_p]
 create_clock -period 5.000 -name sysclk_p [get_ports sysclk_p]
 set_input_jitter sysclk_p 0.050
 
-create_clock -period 5.000 -name ddr3_clk1_p [get_ports ddr3_clk1_p]
-#create_clock -period 4.0690 -name ddr3_clk1_p [get_ports ddr3_clk1_p]
-set_input_jitter ddr3_clk1_p 0.050
-#set_input_jitter ddr3_clk1_p 0.04069
+#set to use clock backbone - this uses a long route to allow the MMCM to be placed in the other half of the device
+set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets -of [get_pins example_clocks/clkin1_buf/O]]
+
+############################################################
+# Get auto-generated clock names                           #
+############################################################
+set axi_clk_name [get_clocks -of [get_pins example_clocks/clock_generator/mmcm_adv_inst/CLKOUT1]]
 
 set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets fmc150_dac_adc_inst/KC705_fmc150_inst/clk_in1]
 
@@ -21,8 +24,8 @@ set_input_jitter [get_clocks -of [get_pins fmc150_dac_adc_inst/KC705_fmc150_inst
 set_clock_groups -physically_exclusive \
                  -group [get_clocks -include_generated_clocks -of [get_pins fmc150_dac_adc_inst/KC705_fmc150_inst/mmcm_adac_inst/inst/mmcm_adv_inst/CLKIN1]] \
                  -group [get_clocks -include_generated_clocks -of [get_pins fmc150_dac_adc_inst/KC705_fmc150_inst/mmcm_inst/inst/mmcm_adv_inst/CLKIN1]]
- 
- 
+
+
 
 #IO Constraints
 
@@ -71,16 +74,17 @@ set_property IOSTANDARD LVCMOS25 [get_ports txenable]
 #
 set_property IOSTANDARD LVCMOS15 [get_ports cpu_reset]
 set_property SLEW SLOW [get_ports cpu_reset]
+set_false_path -from [get_ports cpu_reset]
 
 #
+set_property PACKAGE_PIN AD12 [get_ports sysclk_p]
+set_property PACKAGE_PIN AD11 [get_ports sysclk_n]
+
 set_property IOSTANDARD DIFF_SSTL15 [get_ports sysclk_p]
 set_property IOSTANDARD DIFF_SSTL15 [get_ports sysclk_n]
 #set_property IOSTANDARD LVDS [get_ports sysclk_p]
 #set_property IOSTANDARD LVDS [get_ports sysclk_n]
 
-set_property IOSTANDARD DIFF_SSTL15  [get_ports ddr3_clk1_p]
-set_property IOSTANDARD DIFF_SSTL15  [get_ports ddr3_clk1_n]
-#
 
 #
 ## 1 on SW1 DIP switch (active-high)
@@ -122,6 +126,7 @@ set_property IOSTANDARD LVCMOS15 [get_ports gpio_sw_n]
 set_property IOSTANDARD LVCMOS15 [get_ports gpio_sw_s]
 ## 2 on SW8 pushbutton (active-high)
 set_property IOSTANDARD LVCMOS15 [get_ports gpio_sw_w]
+
 
 set_property LOC ILOGIC_X0Y10 [get_cells {fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_a[4].ISERDESE2_adc_cha}]
 set_property LOC IDELAY_X0Y10 [get_cells {fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_a[4].IDELAYE2_inst_ADC_ch_A}]
@@ -255,16 +260,83 @@ set_property PACKAGE_PIN J22 [get_ports prsnt_m2c_l]
 set_property PACKAGE_PIN AC29 [get_ports ref_en]
 set_property PACKAGE_PIN AE28 [get_ports spi_sclk]
 set_property PACKAGE_PIN AF28 [get_ports spi_sdata]
-set_property PACKAGE_PIN AD12 [get_ports sysclk_p]
-set_property PACKAGE_PIN AD11 [get_ports sysclk_n]
 set_property PACKAGE_PIN AD22 [get_ports txenable]
 
-set_property PACKAGE_PIN AF11 [get_ports ddr3_clk1_n]
-set_property PACKAGE_PIN AE11 [get_ports ddr3_clk1_p]
+
+############################################################
+######### Ethernet Constraints #############
+############################################################
+set_property PACKAGE_PIN L20      [get_ports phy_resetn]
+set_property IOSTANDARD  LVCMOS25 [get_ports phy_resetn]
+
+# Map the TB clock pin gtx_clk_bufg_out to and un-used pin so that its not trimmed off
+set_property PACKAGE_PIN AC17      [get_ports gtx_clk_bufg_out]
+set_property IOSTANDARD  SSTL15    [get_ports gtx_clk_bufg_out]
+
+############################################################
+# Associate the IDELAYCTRL in the support level to the I/Os
+# in the core using IODELAYs
+############################################################
+set_property IODELAY_GROUP tri_mode_ethernet_mac_iodelay_grp [get_cells  {ethernet_rgmii_wrapper/trimac_fifo_block/trimac_sup_block/tri_mode_ethernet_mac_idelayctrl_common_i}]
+
+
+############################################################
+# Input Delay constraints
+############################################################
+# these inputs are alll from either dip switchs or push buttons
+# and therefore have no timing associated with them
+set_false_path -from [get_ports {gpio_dip_sw[0]}]
+set_false_path -from [get_ports {gpio_dip_sw[1]}]
+set_false_path -from [get_ports {gpio_dip_sw[2]}]
+set_false_path -from [get_ports {gpio_dip_sw[3]}]
+# set_false_path -from [get_ports gpio_sw_c]
+set_false_path -from [get_ports gpio_sw_e]
+set_false_path -from [get_ports gpio_sw_n]
+set_false_path -from [get_ports gpio_sw_s]
+set_false_path -from [get_ports gpio_sw_w]
+
+# no timing requirements but want the capture flops close to the IO
+set_max_delay -from [get_ports gpio_sw_c] 4 -datapath_only
+# mdio has timing implications but slow interface so relaxed
+set_input_delay -clock $axi_clk_name 5 [get_ports mdio]
+
+# Ignore pause deserialiser as only present to prevent logic stripping
+set_false_path -from [get_ports ethernet_rgmii_wrapper/pause_req*]
+set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_req* -filter {IS_SEQUENTIAL}]
+set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_val* -filter {IS_SEQUENTIAL}]
+
+############################################################
+# Output Delay constraints
+############################################################
+set_output_delay -clock $axi_clk_name 1 [get_ports mdc]
+
+# no timing associated with output
+set_false_path -from [get_cells -hier -filter {name =~ *phy_resetn_int_reg}] -to [get_ports phy_resetn]
+
+############################################################
+# Example design Clock Crossing Constraints                          #
+############################################################
+set_false_path -from [get_cells -hier -filter {name =~ *phy_resetn_int_reg}] -to [get_cells -hier -filter {name =~ *axi_lite_reset_gen/reset_sync*}]
+
+
+# control signal is synched over clock boundary separately
+set_false_path -from [get_cells -hier -filter {name =~ tx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ tx_stats_shift_reg[*]}]
+set_false_path -from [get_cells -hier -filter {name =~ rx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ rx_stats_shift_reg[*]}]
+
+
+############################################################
+# Ignore paths to resync flops
+############################################################
+set_false_path -to [get_pins -hier -filter {NAME =~ */reset_sync*/PRE}]
+set_max_delay -from [get_cells ethernet_rgmii_wrapper/tx_stats_toggle_reg] -to [get_cells ethernet_rgmii_wrapper/tx_stats_sync/data_sync_reg0] 6 -datapath_only
+set_max_delay -from [get_cells ethernet_rgmii_wrapper/rx_stats_toggle_reg] -to [get_cells ethernet_rgmii_wrapper/rx_stats_sync/data_sync_reg0] 6 -datapath_only
+
+
+
 
 set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
 
-set_property FIXED_ROUTE {{ IOB_IBUF0 RIOI_I0 RIOI_ILOGIC0_D IOI_ILOGIC0_O RIOI_I2GCLK_TOP0 HCLK_CMT_MUX_OUT_FREQ_REF0 HCLK_CMT_FREQ_REF_NS0 PLL_CLK_FREQ_BB_BUFOUT_NS0 MMCM_CLK_FREQ_BB_NS0 CMT_L_LOWER_B_CLK_FREQ_BB3 CMT_LR_LOWER_B_MMCM_CLKIN1 }} [get_nets fmc150_dac_adc_inst/KC705_fmc150_inst/clk_in1] 
+set_property FIXED_ROUTE {{ IOB_IBUF0 RIOI_I0 RIOI_ILOGIC0_D IOI_ILOGIC0_O RIOI_I2GCLK_TOP0 HCLK_CMT_MUX_OUT_FREQ_REF0 HCLK_CMT_FREQ_REF_NS0 PLL_CLK_FREQ_BB_BUFOUT_NS0 MMCM_CLK_FREQ_BB_NS0 CMT_L_LOWER_B_CLK_FREQ_BB3 CMT_LR_LOWER_B_MMCM_CLKIN1 }} [get_nets fmc150_dac_adc_inst/KC705_fmc150_inst/clk_in1]
 
 
 #set_property LOC BSCAN_X0Y0 [get_cells dbg_hub/inst/bscan_inst/SERIES7_BSCAN.bscan_inst]
