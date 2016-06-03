@@ -2,42 +2,42 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Thu Jan 21 17:23:46 2016
-# Process ID: 6524
-# Log file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/complex_multiplier_DUC.vds
-# Journal file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1\vivado.jou
+# Start of session at: Thu Jun 02 16:04:58 2016
+# Process ID: 4452
+# Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/complex_multiplier_DUC.vds
+# Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1\vivado.jou
 #-----------------------------------------------------------
 source complex_multiplier_DUC.tcl
 # set_param gui.test TreeTableDev
-# set_param project.hsv.suppressChildGraphs 0
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
 # create_project -in_memory -part xc7k325tffg900-2
 # set_property target_language Verilog [current_project]
+# set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
 # set_param project.compositeFile.enableAutoGeneration 0
 # set_property default_lib xil_defaultlib [current_project]
-# read_ip D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.xci
+# read_ip D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.xci
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2014.2/data/ip'.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_lin64.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_lin.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_nt.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_nt64.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.vhdl'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.vhdl'. Please regenerate to continue.
-# set_property used_in_implementation false [get_files d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp]
-# set_property used_in_implementation false [get_files -all d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp]
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_lin64.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_lin.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_nt.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmodel/cmpy_v6_0_bitacc_cmodel_nt64.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'complex_multiplier_DUC' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.vhdl'. Please regenerate to continue.
+# set_property used_in_implementation false [get_files d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp]
+# set_property used_in_implementation false [get_files -all d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp]
 # set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
-# set_property is_locked true [get_files D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.xci]
+# set_property is_locked true [get_files D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.xci]
 # read_xdc dont_touch.xdc
 # set_property used_in_implementation false [get_files dont_touch.xdc]
 # set_param synth.vivado.isSynthRun true
-# set_property webtalk.parent_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
-# set_property parent.project_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig [current_project]
+# set_property webtalk.parent_dir D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
+# set_property parent.project_dir D:/UndergroundRadar/kc705_dds_mig [current_project]
 # catch { write_hwdef -file complex_multiplier_DUC.hwdef }
 INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
 # synth_design -top complex_multiplier_DUC -part xc7k325tffg900-2 -mode out_of_context
@@ -48,55 +48,55 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 237.066 ; gain = 103.766
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 236.828 ; gain = 103.523
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'complex_multiplier_DUC' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:74]
-INFO: [Synth 8-3491] module 'cmpy_v6_0' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:109' bound to instance 'U0' of component 'cmpy_v6_0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:156]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:173]
-INFO: [Synth 8-3491] module 'cmpy_v6_0_viv' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:181' bound to instance 'i_synth' of component 'cmpy_v6_0_viv' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:180]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_viv__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:256]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-4472] Detected and applied attribute keep = true [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:301]
-INFO: [Synth 8-4472] Detected and applied attribute shreg_extract = yes [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:328]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line' (1#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-638] synthesizing module 'axi_slave_2to1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:168]
-INFO: [Synth 8-256] done synthesizing module 'axi_slave_2to1' (2#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:168]
-INFO: [Synth 8-638] synthesizing module 'glb_ifx_master' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:159]
-INFO: [Synth 8-3491] module 'glb_srl_fifo' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:196' bound to instance 'fifo0' of component 'glb_srl_fifo' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:195]
-INFO: [Synth 8-638] synthesizing module 'glb_srl_fifo__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
-INFO: [Synth 8-256] done synthesizing module 'glb_srl_fifo__parameterized0' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
-INFO: [Synth 8-256] done synthesizing module 'glb_ifx_master' (4#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_synth' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_synth.vhd:151]
-INFO: [Synth 8-638] synthesizing module 'cmpy_4_dsp48' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48.vhd:158]
-INFO: [Synth 8-638] synthesizing module 'cmpy_4_dsp48_mult' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:166]
-INFO: [Synth 8-638] synthesizing module 'op_resize' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/mult_gen_v12_0/hdl/op_resize.vhd:130]
-INFO: [Synth 8-256] done synthesizing module 'op_resize' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/mult_gen_v12_0/hdl/op_resize.vhd:130]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized0' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2927]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2930]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2927]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2930]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized1' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3037]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3039]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3037]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3039]
-INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
-INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
-INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized2' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized2' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
-INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
-INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_4_dsp48_mult' (6#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:166]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_4_dsp48' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48.vhd:158]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_synth' (8#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_synth.vhd:151]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_viv__parameterized0' (9#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:256]
-INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0__parameterized0' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:173]
-INFO: [Synth 8-256] done synthesizing module 'complex_multiplier_DUC' (11#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'complex_multiplier_DUC' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:74]
+INFO: [Synth 8-3491] module 'cmpy_v6_0' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:109' bound to instance 'U0' of component 'cmpy_v6_0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:156]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:173]
+INFO: [Synth 8-3491] module 'cmpy_v6_0_viv' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:181' bound to instance 'i_synth' of component 'cmpy_v6_0_viv' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:180]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_viv__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:256]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-4472] Detected and applied attribute keep = true [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:301]
+INFO: [Synth 8-4472] Detected and applied attribute shreg_extract = yes [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:328]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line' (1#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-638] synthesizing module 'axi_slave_2to1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:168]
+INFO: [Synth 8-256] done synthesizing module 'axi_slave_2to1' (2#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:168]
+INFO: [Synth 8-638] synthesizing module 'glb_ifx_master' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:159]
+INFO: [Synth 8-3491] module 'glb_srl_fifo' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:196' bound to instance 'fifo0' of component 'glb_srl_fifo' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:195]
+INFO: [Synth 8-638] synthesizing module 'glb_srl_fifo__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
+INFO: [Synth 8-256] done synthesizing module 'glb_srl_fifo__parameterized0' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
+INFO: [Synth 8-256] done synthesizing module 'glb_ifx_master' (4#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/glb_ifx_master.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_synth' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_synth.vhd:151]
+INFO: [Synth 8-638] synthesizing module 'cmpy_4_dsp48' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'cmpy_4_dsp48_mult' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:166]
+INFO: [Synth 8-638] synthesizing module 'op_resize' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/mult_gen_v12_0/hdl/op_resize.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 'op_resize' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/mult_gen_v12_0/hdl/op_resize.vhd:130]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized0' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2927]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2930]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2927]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:2930]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized1' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3037]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3039]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3037]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3039]
+INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
+INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
+INFO: [Synth 8-638] synthesizing module 'cmpy_v6_0_delay_line__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_delay_line__parameterized2' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/delay_line.vhd:133]
+INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
+INFO: [Synth 8-113] binding component instance 'dsp' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:3284]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_4_dsp48_mult' (6#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48_mult.vhd:166]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_4_dsp48' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_4_dsp48.vhd:158]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_synth' (8#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_synth.vhd:151]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0_viv__parameterized0' (9#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0_viv.vhd:256]
+INFO: [Synth 8-256] done synthesizing module 'cmpy_v6_0__parameterized0' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/cmpy_v6_0/hdl/cmpy_v6_0.vhd:173]
+INFO: [Synth 8-256] done synthesizing module 'complex_multiplier_DUC' (11#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/synth/complex_multiplier_DUC.vhd:74]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 287.078 ; gain = 153.777
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 287.703 ; gain = 154.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -119,10 +119,10 @@ Loading io standards from C:/Xilinx/Vivado/2014.2/data\./parts/xilinx/kintex7/IO
 Loading device configuration modes from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/ConfigModes.xml
 
 Processing XDC Constraints
-Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
-Parsing XDC File [D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc]
+Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
+Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -136,17 +136,17 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.781 ; gain = 390.480
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.316 ; gain = 390.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.781 ; gain = 390.480
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.316 ; gain = 390.012
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.781 ; gain = 390.480
+Finished RTL Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 523.316 ; gain = 390.012
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -175,26 +175,26 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 524.086 ; gain = 390.785
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 523.379 ; gain = 390.074
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg2_a_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:327]
-INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg1_a_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:281]
-INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg2_b_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:338]
-INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg1_b_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:286]
+INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg2_a_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:327]
+INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg1_a_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:281]
+INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg2_b_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:338]
+INFO: [Synth 8-3936] Found unconnected internal register 'i_with_throttle.i_has_2to1.i_2to1/gen_has_z_tready.reg1_b_tdata_reg' and it is trimmed from '48' to '42' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/axi_utils_v2_0/hdl/axi_slave_2to1.vhd:286]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 524.086 ; gain = 390.785
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 523.379 ; gain = 390.074
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 524.086 ; gain = 390.785
+Finished Parallel Reinfer  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 523.379 ; gain = 390.074
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.859 ; gain = 418.559
+Finished Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.121 ; gain = 417.816
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.859 ; gain = 418.559
-Finished Parallel Section  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.859 ; gain = 418.559
+Finished Parallel Area Opt  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.121 ; gain = 417.816
+Finished Parallel Section  : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 551.121 ; gain = 417.816
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -202,10 +202,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 631.680 ; gain = 498.379
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 631.160 ; gain = 497.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 632.637 ; gain = 499.336
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 632.086 ; gain = 498.781
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -226,7 +226,7 @@ INFO: [Synth 8-3332] Sequential element (\fifo0/full_1_reg ) is unused and will 
 INFO: [Synth 8-3332] Sequential element (\fifo0/not_full_1_reg ) is unused and will be removed from module glb_ifx_master.
 INFO: [Synth 8-3332] Sequential element (\fifo0/afull_1_reg ) is unused and will be removed from module glb_ifx_master.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 643.535 ; gain = 510.230
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -244,7 +244,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 510.230
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -257,13 +257,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 510.230
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 510.230
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -291,14 +291,14 @@ Report Cell Usage:
 |10    |FDSE      |     3|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 510.230
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 510.836
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 510.230
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
+Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_ooc.xdc] for cell 'U0'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
@@ -306,20 +306,20 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 73 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 644.137 ; gain = 454.137
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 643.535 ; gain = 453.551
 # rename_ref -prefix_all complex_multiplier_DUC_
 INFO: [Coretcl 2-1174] Renamed 19 cell refs.
 # write_checkpoint -noxdef complex_multiplier_DUC.dcp
 # report_utilization -file complex_multiplier_DUC_utilization_synth.rpt -pb complex_multiplier_DUC_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 644.137 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 643.535 ; gain = 0.000
 # if { [catch {
-#   file copy -force D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/complex_multiplier_DUC.dcp D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp
-#   write_verilog -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v
-#   write_vhdl -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.vhdl
-#   write_verilog -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.v
-#   write_vhdl -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.vhdl
+#   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/complex_multiplier_DUC_synth_1/complex_multiplier_DUC.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC.dcp
+#   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v
+#   write_vhdl -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.vhdl
+#   write_verilog -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.v
+#   write_vhdl -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_funcsim.vhdl
 # } _RESULT ] } { 
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-INFO: [Common 17-206] Exiting Vivado at Thu Jan 21 17:24:23 2016...
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 02 16:05:35 2016...

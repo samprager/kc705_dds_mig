@@ -2,8 +2,8 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Thu May 12 18:40:28 2016
-# Process ID: 8048
+# Start of session at: Thu Jun 02 16:06:39 2016
+# Process ID: 2052
 # Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/cdce72010_init_mem_int_synth_1/cdce72010_init_mem_int.vds
 # Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/cdce72010_init_mem_int_synth_1\vivado.jou
 #-----------------------------------------------------------
@@ -13,6 +13,7 @@ source cdce72010_init_mem_int.tcl
 # set_msg_config -id {HDL 9-1654} -limit 100000
 # create_project -in_memory -part xc7k325tffg900-2
 # set_property target_language Verilog [current_project]
+# set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
 # set_param project.compositeFile.enableAutoGeneration 0
 # set_property default_lib xil_defaultlib [current_project]
 # read_ip D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/cdce72010_init_mem_int.xci
@@ -42,7 +43,7 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 236.996 ; gain = 103.051
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 237.098 ; gain = 103.375
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'cdce72010_init_mem_int' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/synth/cdce72010_init_mem_int.vhd:67]
 	Parameter C_FAMILY bound to: kintex7 - type: string 
@@ -648,7 +649,7 @@ INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2_synth' (7#1) [d:/
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_v8_2__parameterized0' (8#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd:257]
 INFO: [Synth 8-256] done synthesizing module 'cdce72010_init_mem_int' (9#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/synth/cdce72010_init_mem_int.vhd:67]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 400.273 ; gain = 266.328
+Finished RTL Elaboration : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 399.863 ; gain = 266.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -694,16 +695,16 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.520 ; gain = 392.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.520 ; gain = 392.797
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:00:50 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished RTL Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.520 ; gain = 392.797
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -752,14 +753,14 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished Parallel Reinfer  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -770,10 +771,10 @@ Finished RAM, DSP and Shift Register Reporting
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
-Finished Parallel Section  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.289 ; gain = 392.344
+Finished Parallel Area Opt  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
+Finished Parallel Section  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:52 . Memory (MB): peak = 526.637 ; gain = 392.914
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -781,16 +782,16 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 580.328 ; gain = 446.383
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 580.570 ; gain = 446.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 580.328 ; gain = 446.383
+Finished Timing Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 580.570 ; gain = 446.848
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -808,7 +809,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Finished IO Insertion : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -821,13 +822,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -865,10 +866,10 @@ Report Instance Areas:
 |7     |            \prim_init.ram            |blk_mem_gen_prim_wrapper_init    |     1|
 +------+--------------------------------------+---------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 589.402 ; gain = 455.457
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 589.516 ; gain = 455.793
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/cdce72010_init_mem_int_ooc.xdc]
@@ -880,12 +881,12 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 38 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 603.445 ; gain = 412.367
+synth_design: Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 603.672 ; gain = 413.305
 # rename_ref -prefix_all cdce72010_init_mem_int_
 INFO: [Coretcl 2-1174] Renamed 6 cell refs.
 # write_checkpoint -noxdef cdce72010_init_mem_int.dcp
 # report_utilization -file cdce72010_init_mem_int_utilization_synth.rpt -pb cdce72010_init_mem_int_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 603.445 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 603.672 ; gain = 0.000
 # if { [catch {
 #   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/cdce72010_init_mem_int_synth_1/cdce72010_init_mem_int.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/cdce72010_init_mem_int.dcp
 #   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/cdce72010_init_mem_int/cdce72010_init_mem_int_stub.v
@@ -896,4 +897,4 @@ report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-INFO: [Common 17-206] Exiting Vivado at Thu May 12 18:41:29 2016...
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 02 16:07:41 2016...

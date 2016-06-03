@@ -26,6 +26,7 @@ set_clock_groups -physically_exclusive \
                  -group [get_clocks -include_generated_clocks -of [get_pins fmc150_dac_adc_inst/KC705_fmc150_inst/mmcm_inst/inst/mmcm_adv_inst/CLKIN1]]
 
 
+set rx_clk_var [get_clocks -of [get_ports rgmii_rxc]]
 
 #IO Constraints
 
@@ -269,6 +270,14 @@ set_property PACKAGE_PIN AD22 [get_ports txenable]
 set_property PACKAGE_PIN L20      [get_ports phy_resetn]
 set_property IOSTANDARD  LVCMOS25 [get_ports phy_resetn]
 
+# lock to unused header - ensure this is unused
+set_property PACKAGE_PIN D29     [get_ports serial_response]
+set_property PACKAGE_PIN C30     [get_ports tx_statistics_s]
+set_property PACKAGE_PIN G27     [get_ports rx_statistics_s]
+set_property IOSTANDARD  LVCMOS25 [get_ports serial_response]
+set_property IOSTANDARD  LVCMOS25 [get_ports tx_statistics_s]
+set_property IOSTANDARD  LVCMOS25 [get_ports rx_statistics_s]
+
 # Map the TB clock pin gtx_clk_bufg_out to and un-used pin so that its not trimmed off
 set_property PACKAGE_PIN AC17      [get_ports gtx_clk_bufg_out]
 set_property IOSTANDARD  SSTL15    [get_ports gtx_clk_bufg_out]
@@ -300,10 +309,10 @@ set_max_delay -from [get_ports gpio_sw_c] 4 -datapath_only
 # mdio has timing implications but slow interface so relaxed
 set_input_delay -clock $axi_clk_name 5 [get_ports mdio]
 
-# Ignore pause deserialiser as only present to prevent logic stripping
-set_false_path -from [get_ports ethernet_rgmii_wrapper/pause_req*]
-set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_req* -filter {IS_SEQUENTIAL}]
-set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_val* -filter {IS_SEQUENTIAL}]
+## Ignore pause deserialiser as only present to prevent logic stripping
+#set_false_path -from [get_ports ethernet_rgmii_wrapper/pause_req*]
+#set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_req* -filter {IS_SEQUENTIAL}]
+#set_false_path -from [get_cells ethernet_rgmii_wrapper/pause_val* -filter {IS_SEQUENTIAL}]
 
 ############################################################
 # Output Delay constraints
@@ -319,14 +328,14 @@ set_false_path -from [get_cells -hier -filter {name =~ *phy_resetn_int_reg}] -to
 set_false_path -from [get_cells -hier -filter {name =~ *phy_resetn_int_reg}] -to [get_cells -hier -filter {name =~ *axi_lite_reset_gen/reset_sync*}]
 
 
-# control signal is synched over clock boundary separately
+## control signal is synched over clock boundary separately
 set_false_path -from [get_cells -hier -filter {name =~ tx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ tx_stats_shift_reg[*]}]
 set_false_path -from [get_cells -hier -filter {name =~ rx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ rx_stats_shift_reg[*]}]
 
 
-############################################################
-# Ignore paths to resync flops
-############################################################
+#############################################################
+## Ignore paths to resync flops
+#############################################################
 set_false_path -to [get_pins -hier -filter {NAME =~ */reset_sync*/PRE}]
 set_max_delay -from [get_cells ethernet_rgmii_wrapper/tx_stats_toggle_reg] -to [get_cells ethernet_rgmii_wrapper/tx_stats_sync/data_sync_reg0] 6 -datapath_only
 set_max_delay -from [get_cells ethernet_rgmii_wrapper/rx_stats_toggle_reg] -to [get_cells ethernet_rgmii_wrapper/rx_stats_sync/data_sync_reg0] 6 -datapath_only
@@ -340,4 +349,4 @@ set_property FIXED_ROUTE {{ IOB_IBUF0 RIOI_I0 RIOI_ILOGIC0_D IOI_ILOGIC0_O RIOI_
 
 
 #set_property LOC BSCAN_X0Y0 [get_cells dbg_hub/inst/bscan_inst/SERIES7_BSCAN.bscan_inst]
-set_property LOC XADC_X0Y0 [get_cells u_mig_7series_0/u_mig_7series_0_mig/temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst]
+set_property LOC XADC_X0Y0 [get_cells u_mig_7series_1/u_mig_7series_1_mig/temp_mon_enabled.u_tempmon/xadc_supplied_temperature.XADC_inst]

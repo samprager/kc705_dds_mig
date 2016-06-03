@@ -111,7 +111,7 @@ module kc705_ethernet_rgmii_example_design_resets
   //----------------------------------------------------------------------------
   // Synchronise the async dcm_locked into the refclk clock domain
   //----------------------------------------------------------------------------
-  kc705_ethernet_rgmii_sync_block dcm_sync (
+  kc705_ethernet_rgmii_sync_block dcm_refclk_sync (
      .clk              (refclk),
      .data_in          (dcm_locked),
      .data_out         (dcm_locked_refclk_sync)
@@ -120,7 +120,7 @@ module kc705_ethernet_rgmii_example_design_resets
   //----------------------------------------------------------------------------
   // Synchronise the async dcm_locked into the sysclk clock domain
   //----------------------------------------------------------------------------
-  kc705_ethernet_rgmii_sync_block dcm_sync (
+  kc705_ethernet_rgmii_sync_block dcm_sysclk_sync (
      .clk              (sysclk),
      .data_in          (dcm_locked),
      .data_out         (dcm_locked_sysclk_sync)
@@ -129,7 +129,7 @@ module kc705_ethernet_rgmii_example_design_resets
   //----------------------------------------------------------------------------
   // Synchronise the async dcm_locked into the clk250 clock domain
   //----------------------------------------------------------------------------
-  kc705_ethernet_rgmii_sync_block dcm_sync (
+  kc705_ethernet_rgmii_sync_block dcm_clk250_sync (
      .clk              (clk250),
      .data_in          (dcm_locked),
      .data_out         (dcm_locked_clk250_sync)
@@ -219,6 +219,7 @@ module kc705_ethernet_rgmii_example_design_resets
         refclk_resetn      <= refclk_pre_resetn;
       end
     end
+    
 
     //---------------
     // sysclk reset

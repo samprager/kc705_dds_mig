@@ -52,7 +52,7 @@
 # commented constraints can be used in the top level xdc 
 #----------------------------------------------------------------
 #create_clock -period 4.069 [get_ports CLK_IN1]
-#set_input_jitter [get_clocks -of_objects [get_ports CLK_IN1]] 0.040689999999999997
+#set_input_jitter [get_clocks -of_objects [get_ports CLK_IN1]] 0.04069
 
 
 

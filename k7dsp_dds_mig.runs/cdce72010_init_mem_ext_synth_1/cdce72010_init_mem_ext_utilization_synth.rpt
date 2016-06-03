@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-| Date         : Thu May 12 18:39:24 2016
+| Date         : Thu Jun 02 16:03:33 2016
 | Host         : radar-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file cdce72010_init_mem_ext_utilization_synth.rpt -pb cdce72010_init_mem_ext_utilization_synth.pb
 | Design       : cdce72010_init_mem_ext

@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
-| Date         : Fri May 27 14:15:10 2016
-| Host         : localhost.localdomain running 64-bit Scientific Linux release 7.0 (Nitrogen)
+| Tool Version : Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
+| Date         : Thu Jun 02 16:15:52 2016
+| Host         : radar-PC running 64-bit Service Pack 1  (build 7601)
 | Command      : report_utilization -file fifo_generator_adc_utilization_synth.rpt -pb fifo_generator_adc_utilization_synth.pb
 | Design       : fifo_generator_adc
 | Device       : xc7k325t

@@ -1,3 +1,48 @@
+Clock Generation Error Output:
+
+[Place 30-575] Sub-optimal placement for a clock-capable IO pin and MMCM pair. If this sub optimal condition is acceptable for this design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .xdc file to demote this message to a WARNING. However, the use of this override is highly discouraged. These examples can be used directly in the .xdc file to override this clock rule.
+	< set_property CLOCK_DEDICATED_ROUTE BACKBONE [get_nets example_clocks/clkin1] >
+
+	example_clocks/clkin1_buf (IBUFDS.O) is locked to IOB_X1Y76
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKIN1) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+
+	The above error could possibly be related to other connected instances. Following is a list of 
+	all the related clock rules and their respective instances.
+
+	Clock Rule: rule_mmcm_bufg
+	Status: PASS 
+	Rule Description: An MMCM driving a BUFG must be placed on the same half side (top/bottom) of the device
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKOUT0) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+	 example_clocks/clock_generator/clkout1_buf (BUFGCTRL.I0) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
+
+	Clock Rule: rule_mmcm_bufg
+	Status: PASS 
+	Rule Description: An MMCM driving a BUFG must be placed on the same half side (top/bottom) of the device
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKOUT1) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+	 example_clocks/clock_generator/clkout2_buf (BUFGCTRL.I0) is provisionally placed by clockplacer on BUFGCTRL_X0Y2
+
+	Clock Rule: rule_mmcm_bufg
+	Status: PASS 
+	Rule Description: An MMCM driving a BUFG must be placed on the same half side (top/bottom) of the device
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKOUT2) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+	 example_clocks/clock_generator/clkout3_buf (BUFGCTRL.I0) is provisionally placed by clockplacer on BUFGCTRL_X0Y3
+
+	Clock Rule: rule_mmcm_bufg
+	Status: PASS 
+	Rule Description: An MMCM driving a BUFG must be placed on the same half side (top/bottom) of the device
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKOUT3) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+	 example_clocks/clock_generator/clkout4_buf (BUFGCTRL.I0) is provisionally placed by clockplacer on BUFGCTRL_X0Y4
+
+	Clock Rule: rule_mmcm_mmcm
+	Status: PASS 
+	Rule Description: An MMCM driving an MMCM must be in the same CMT column, and they are adjacent to
+	each other (vertically), if the  CLOCK_DEDICATED_ROUTE=BACKBONE constraint is NOT set
+	 example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKFBOUT) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+	 and example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKFBIN) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
+
+
+
+
 Startup Sequence for proper triggering (Chirp):
 1) Program with all DIP switches down
 2) Switch DIP 1 up
@@ -40,6 +85,10 @@ Fix error:
 MUST PROGRAM FPGA Initially with all DIP Switches DOWN
 
 Additional Links:
+
+DDR3 Clocking 
+
+http://www.xilinx.com/support/answers/40603.html
 
 Version Control and Managment Tips for Vivado: 
 

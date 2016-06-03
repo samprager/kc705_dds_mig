@@ -2,39 +2,6 @@
 
 module fmc150_dac_adc #
   (
-
-     parameter C_AXI_ID_WIDTH           = 4, // The AXI id width used for read and write
-                                             // This is an integer between 1-16
-     parameter C_AXI_ADDR_WIDTH         = 32, // This is AXI address width for all
-                                              // SI and MI slots
-     parameter C_AXI_DATA_WIDTH         = 32, // Width of the AXI write and read data
-
-     parameter C_AXI_NBURST_SUPPORT     = 0, // Support for narrow burst transfers
-                                             // 1-supported, 0-not supported
-     parameter C_EN_WRAP_TRANS          = 0, // Set 1 to enable wrap transactions
-
-     parameter C_BEGIN_ADDRESS          = 0, // Start address of the address map
-
-     parameter C_END_ADDRESS            = 32'hFFFF_FFFF, // End address of the address map
-
-     parameter PRBS_EADDR_MASK_POS      = 32'hFFFFD000,
-
-     parameter PRBS_SADDR_MASK_POS      = 32'h00002000,
-
-     parameter DBG_WR_STS_WIDTH         = 40,
-
-     parameter DBG_RD_STS_WIDTH         = 40,
-
-     parameter ENFORCE_RD_WR            = 0,
-
-     parameter ENFORCE_RD_WR_CMD        = 8'h11,
-
-     parameter EN_UPSIZER               = 0,
-
-     parameter ENFORCE_RD_WR_PATTERN    = 3'b000,
-
-     parameter ADC_BUFFER_WIDTH = 1,
-
      parameter ADC_AXI_DATA_WIDTH = 64,
      parameter ADC_AXI_TID_WIDTH = 1,
      parameter ADC_AXI_TDEST_WIDTH = 1,
@@ -164,11 +131,7 @@ module fmc150_dac_adc #
 
 
 
-   KC705_fmc150  #
-   (
-       .ADC_BUFFER_WIDTH (ADC_BUFFER_WIDTH)
-   )
-    KC705_fmc150_inst
+   KC705_fmc150 KC705_fmc150_inst
    (
         // --KC705 Resources - from fmc150 example design
         .adc_data_out_i (adc_data_i),

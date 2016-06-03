@@ -7,6 +7,7 @@ set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 create_project -in_memory -part xc7k325tffg900-2
 set_property target_language Verilog [current_project]
+set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
 set_param project.compositeFile.enableAutoGeneration 0
 set_property default_lib xil_defaultlib [current_project]
 

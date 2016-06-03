@@ -5326,7 +5326,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f5cb9e34</spirit:value>
+            <spirit:value>a5acc546</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5334,7 +5334,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:39 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:13 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5359,7 +5359,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f5cb9e34</spirit:value>
+            <spirit:value>a5acc546</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5367,7 +5367,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:40 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:13 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5386,7 +5386,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f5cb9e34</spirit:value>
+            <spirit:value>a5acc546</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5394,7 +5394,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:40 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:13 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5416,7 +5416,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f3333437</spirit:value>
+            <spirit:value>712fe352</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5424,7 +5424,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:40 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:14 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5443,7 +5443,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f3333437</spirit:value>
+            <spirit:value>712fe352</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5451,7 +5451,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:40 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:14 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5469,7 +5469,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f5cb9e34</spirit:value>
+            <spirit:value>a5acc546</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5477,7 +5477,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Jun 02 21:05:40 UTC 2016</spirit:value>
+            <spirit:value>Fri Jun 03 01:23:14 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5495,7 +5495,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>f5cb9e34</spirit:value>
+            <spirit:value>a5acc546</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -19362,7 +19362,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_FIFO_MODE</spirit:name>
         <spirit:displayName>C M01 Axis Fifo Mode</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M01_AXIS_FIFO_MODE">2</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M01_AXIS_FIFO_MODE">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M02_AXIS_FIFO_MODE</spirit:name>
@@ -21916,7 +21916,7 @@
     <spirit:parameter>
       <spirit:name>M01_AXIS_FIFO_MODE</spirit:name>
       <spirit:displayName>M01_AXIS_FIFO_MODE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.M01_AXIS_FIFO_MODE" spirit:choiceRef="choices_16" spirit:order="136">2_(Packet)</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.M01_AXIS_FIFO_MODE" spirit:choiceRef="choices_16" spirit:order="136">1_(Normal)</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M01_AXIS_FIFO_DEPTH</spirit:name>

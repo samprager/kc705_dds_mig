@@ -207,6 +207,13 @@ module example_top #
     output        gtx_clk_bufg_out,
 
     output        phy_resetn,
+    
+    // Serialised statistics vectors
+    //------------------------------
+    output        tx_statistics_s,  // output conflicts with adc serial pin ak25 - moved to hpc c30
+    output        rx_statistics_s,  // output conflicts with adc serial pin ae25 - moved to hp g27
+    output        serial_response,  // output conflicts with adc serial pin aj24 - moded to hpc d29
+
 
 
     // RGMII Interface
@@ -221,30 +228,7 @@ module example_top #
     // MDIO Interface
     //---------------
     inout         mdio,
-    output        mdc,
-
-
-    // Serialised statistics vectors
-    //------------------------------
-    output        tx_statistics_s,
-    output        rx_statistics_s,
-
-    // Serialised Pause interface controls
-    //------------------------------------
-    input         pause_req_s,
-
-    // Main example design controls
-    //-----------------------------
-    //input  [1:0]  mac_speed,    // mac_speed[0] = dip switch[3]. mac_speed[1] = dip switch[2]
-    input         update_speed,
-    //input         serial_command, // tied to pause_req_s
-    input         config_board,
-    output        serial_response,
-    //input         gen_tx_data, // dip switch[1]
-    //input         chk_tx_data,   // dip switch[0]
-    input         reset_error,
-    output        frame_error,
-    output        activity_flashn
+    output        mdc
 
     );
 
@@ -269,13 +253,28 @@ function integer clogb2 (input integer size);
   endfunction
 
   localparam MIG_AXI_DATA_WIDTH = 64;
-
+ 
+  localparam FIFO_M00_DEPTH = 2048;                     //data words    
+  localparam FIFO_M01_DEPTH = 8192;                     //data words     
+  localparam FIFO_M00_WIDTH = 8;                        // bytes     
+  localparam FIFO_M01_WIDTH = 1;                        // bytes 
+  localparam VFIFO_CH0_AR_WEIGHT = 4;    
+  localparam VFIFO_CH1_AR_WEIGHT = 2;          
+  localparam VFIFO_BURST_SIZE = 1024;                   // bytes
+  localparam VFIFO_CH0_AR_BURST = VFIFO_CH0_AR_WEIGHT*VFIFO_BURST_SIZE;
+  localparam VFIFO_CH1_AR_BURST = VFIFO_CH1_AR_WEIGHT*VFIFO_BURST_SIZE;
+  
+  // Space available in FIFO must be at least 2*AR_Burst before Programmable Full is deasserted
+  localparam FIFO_M00_THRESHOLD = FIFO_M00_DEPTH - (2*VFIFO_CH0_AR_BURST)/FIFO_M00_WIDTH;
+  localparam FIFO_M01_THRESHOLD = FIFO_M01_DEPTH - (2*VFIFO_CH1_AR_BURST)/FIFO_M01_WIDTH;
+ 
+  
   localparam ADC_AXI_DATA_WIDTH = 64;
   localparam ADC_AXI_TID_WIDTH = 1;
   localparam ADC_AXI_TDEST_WIDTH = 1;
   localparam ADC_AXI_TUSER_WIDTH = 1;
   localparam ADC_AXI_STREAM_ID = 1'b0;
-  localparam ADC_AXI_STREAM_DEST = 1'b0;
+  localparam ADC_AXI_STREAM_DEST = 1'b1;
 
 //wire                          clk_245_76MHz;
 //wire                          clk_491_52MHz;
@@ -292,9 +291,9 @@ wire ui_clk;
 wire ui_clk_sync_rst;
 wire                              mmcm_locked;
 reg                               aresetn;
-wire                              app_sr_req;
-wire                              app_ref_req;
-wire                              app_zq_req;
+//wire                              app_sr_req;
+//wire                              app_ref_req;
+//wire                              app_zq_req;
 wire                              app_sr_active;
 wire                              app_ref_ack;
 wire                              app_zq_ack;
@@ -339,10 +338,6 @@ wire                 clk250_resetn;
 
 reg                  sysclk_reset;
 
-wire                  gen_tx_data;
-wire                  chk_tx_data;
-wire      [1:0]       mac_speed;
-
 wire [8:0]          adc_pkt_axis_tdata;
 wire                adc_pkt_axis_tvalid;
 wire                adc_pkt_axis_tlast;
@@ -361,6 +356,23 @@ wire gtx_resetn;
 wire s_axi_resetn;
 wire chk_resetn;
 
+// Serialised Pause interface controls
+//------------------------------------
+wire         pause_req_s;      //input gpio switch s
+
+// Main example design controls
+//-----------------------------
+wire  [1:0]  mac_speed;    //input mac_speed[0] = dip switch[3]. mac_speed[1] = dip switch[2]
+wire         update_speed;     //input gpio switch c
+wire         config_board;     //input gpio switch w
+wire         reset_error;      //input gpio switch n
+wire         gen_tx_data; // dip switch[1]
+wire         chk_tx_data;   // dip switch[0]
+wire        frame_error;      //output gpio led 0
+wire        frame_errorn;      //output gpio led 1
+wire        activity_flash;     //output gpio led 2
+wire        activity_flashn;     //output gpio led 3
+
  // --ADC AXI-Stream Data Out Signals from fmc150_dac_adc module
 wire [ADC_AXI_DATA_WIDTH-1:0]   axis_adc_tdata;
 wire                            axis_adc_tvalid;
@@ -378,12 +390,12 @@ wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
 // S01 AXIS Connection to Ethernet RX Module
 wire S01_AXIS_TVALID=   1'b0;
 wire S01_AXIS_TREADY;
-wire [7 : 0] S01_AXIS_TDATA;
-wire [0 : 0] S01_AXIS_TSTRB;
-wire [0 : 0] S01_AXIS_TKEEP;
-wire S01_AXIS_TLAST;
-wire [0 : 0] S01_AXIS_TID;
-wire [0 : 0] S01_AXIS_TDEST;
+wire [7 : 0] S01_AXIS_TDATA = 'b0;
+wire [0 : 0] S01_AXIS_TSTRB = 1'b0;
+wire [0 : 0] S01_AXIS_TKEEP = 1'b0;
+wire S01_AXIS_TLAST = 1'b0;
+wire [0 : 0] S01_AXIS_TID = 1'b1;
+wire [0 : 0] S01_AXIS_TDEST = 1'b0;
 
 //Non-AXIS Signals
 wire S00_ARB_REQ_SUPPRESS;
@@ -478,10 +490,13 @@ wire [0 : 0] m_axi_vfifo_ruser;
 wire m_axi_vfifo_rvalid;
 wire m_axi_vfifo_rready;
 
+wire [1 : 0] vfifo_mm2s_channel_full;        // input to vfifo
+wire [1 : 0] vfifo_s2mm_channel_full;        // output from vfifo
+wire [1 : 0] vfifo_mm2s_channel_empty;       // output from vfifo
+wire [1 : 0] vfifo_idle;                     // output from vfifo
 
-
-assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
-
+reg     vfifo_mm2s_ch0_full;
+reg     vfifo_mm2s_ch1_full;
 
 
 
@@ -498,7 +513,7 @@ assign tg_compare_error = cmd_err | data_msmatch_err | write_err | read_err;
 kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
 (
   // asynchronous reset
-  .glbl_rst         (glbl_rst_intn),
+  .glbl_rst_intn         (glbl_rst_intn),
 
   // 200MHz clock input from board
   //.clk_in_p         (ddr3_clk1_p),
@@ -562,17 +577,21 @@ kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
   .serial_response        (serial_response),
   .gen_tx_data         (gen_tx_data),
   .chk_tx_data         (chk_tx_data),
-  .reset_error         (reset_error),
+ // .reset_error         (reset_error),
   .frame_error        (frame_error),
   .frame_errorn        (frame_errorn),
   .activity_flash        (activity_flash),
   .activity_flashn        (activity_flashn)
 );
-
+//assign enable_adc_pkt = 1'b1;
+assign enable_adc_pkt = !gpio_dip_sw[0]&gpio_dip_sw[1];
 assign gen_tx_data = gpio_dip_sw[1];
 assign chk_tx_data = gpio_dip_sw[0];
 assign mac_speed = {gpio_dip_sw[2],gpio_dip_sw[3]};
-assign enable_adc_pkt = 1'b1;
+assign pause_req_s = gpio_sw_s;      //input gpio switch s
+assign update_speed = gpio_sw_c;      //input gpio switch c
+assign config_board = gpio_sw_w;      //input gpio switch w
+assign reset_error = gpio_sw_n;      //input gpio switch n
 
 //----------------------------------------------------------------------------
 // Clock logic to generate required clocks from the 200MHz on board
@@ -634,22 +653,6 @@ kc705_ethernet_rgmii_example_design_clocks example_clocks
 
 fmc150_dac_adc  #
 (
-    .C_AXI_ID_WIDTH                   (C_S_AXI_ID_WIDTH),
-    .C_AXI_ADDR_WIDTH                 (C_S_AXI_ADDR_WIDTH),
-    .C_AXI_DATA_WIDTH                 (C_S_AXI_DATA_WIDTH),
-    .C_AXI_NBURST_SUPPORT             (C_AXI_NBURST_TEST),
-    .C_EN_WRAP_TRANS                  (C_EN_WRAP_TRANS),
-    .C_BEGIN_ADDRESS                  (BEGIN_ADDRESS),
-    .C_END_ADDRESS                    (END_ADDRESS),
-    .PRBS_EADDR_MASK_POS              (PRBS_EADDR_MASK_POS),
-    .DBG_WR_STS_WIDTH                 (DBG_WR_STS_WIDTH),
-    .DBG_RD_STS_WIDTH                 (DBG_RD_STS_WIDTH),
-    .ENFORCE_RD_WR                    (ENFORCE_RD_WR),
-    .ENFORCE_RD_WR_CMD                (ENFORCE_RD_WR_CMD),
-    .EN_UPSIZER                       (C_S_AXI_SUPPORTS_NARROW_BURST),
-    .ENFORCE_RD_WR_PATTERN            (ENFORCE_RD_WR_PATTERN),
-    .ADC_BUFFER_WIDTH (C_ADC_BUFFER_WIDTH),
-
     .ADC_AXI_DATA_WIDTH(ADC_AXI_DATA_WIDTH),
     .ADC_AXI_TID_WIDTH(ADC_AXI_TID_WIDTH),
     .ADC_AXI_TDEST_WIDTH(ADC_AXI_TDEST_WIDTH),
@@ -677,10 +680,10 @@ fmc150_dac_adc_inst
   //   .clk_out_491_52MHz                       (clk_491_52MHz),
 
 
-//    .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
+    .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
 //    .sysclk_p (sysclk_p),        // : in    std_logic;
 //    .sysclk_n (sysclk_n),        // : in    std_logic;
-    .cpu_reset (sysclk_reset),
+//    .cpu_reset (sysclk_reset),
     .sysclk_bufg (sysclk_bufg),
     .gpio_led (gpio_led),        // : out   std_logic_vector(7 downto 0);
     .gpio_dip_sw (gpio_dip_sw),   //   : in    std_logic_vector(7 downto 0);
@@ -823,7 +826,8 @@ axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .vfifo_mm2s_channel_empty(vfifo_mm2s_channel_empty),  // output wire [1 : 0] vfifo_mm2s_channel_empty
     .vfifo_idle(vfifo_idle)                              // output wire [1 : 0] vfifo_idle
 );
-
+assign m_axi_vfifo_buser = 'b0;
+assign m_axi_vfifo_ruser = 'b0;
 // Master - 512 bits
 // Slave0 - 64 bits
 // Slave1 - 8 bits
@@ -929,6 +933,16 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .S00_DECODE_ERR(vfifo_S00_DECODE_ERR)            // output wire S00_DECODE_ERR
 );
 
+always @(posedge ui_clk) begin
+    vfifo_mm2s_ch0_full <= (M00_FIFO_DATA_COUNT > FIFO_M00_THRESHOLD) ? 1'b1 : 1'b0;
+end
+
+always @(posedge ui_clk) begin
+    vfifo_mm2s_ch1_full <= (M01_FIFO_DATA_COUNT > FIFO_M01_THRESHOLD) ? 1'b1 : 1'b0;
+end
+
+assign vfifo_mm2s_channel_full = {vfifo_mm2s_ch1_full,vfifo_mm2s_ch0_full};
+
 // Need .SYSCLK_TYPE("NO_BUFFER") for input from top level mmcm and bufgce
 mig_7series_1 u_mig_7series_1 (
 // Memory interface ports
@@ -955,9 +969,10 @@ mig_7series_1 u_mig_7series_1 (
     .ui_clk_sync_rst                (ui_clk_sync_rst),  // output			ui_clk_sync_rst
     .mmcm_locked                    (mmcm_locked),  // output			mmcm_locked
     .aresetn                        (aresetn),  // input			aresetn
-    .app_sr_req                     (app_sr_req),  // input			app_sr_req
-    .app_ref_req                    (app_ref_req),  // input			app_ref_req
-    .app_zq_req                     (app_zq_req),  // input			app_zq_req
+    .app_sr_req                     (1'b0),  // input			app_sr_req
+    .app_ref_req                    (1'b0),  // input			app_ref_req
+    .app_zq_req                     (1'b0),  // input			app_zq_req
+
     .app_sr_active                  (app_sr_active),  // output			app_sr_active
     .app_ref_ack                    (app_ref_ack),  // output			app_ref_ack
     .app_zq_ack                     (app_zq_ack),  // output			app_zq_ack
@@ -1029,19 +1044,30 @@ mig_7series_1 u_mig_7series_1 (
     .sys_clk_i                      (sysclk_bufg),
 
   //  .sys_rst                        (sys_rst) // input sys_rst
-    .sys_rst                        (sysclk_reset)
+    .sys_rst                        (cpu_reset)
 );
 assign m_axi_vfifo_bid = s_axi_mig_bid[0];
 assign m_axi_vfifo_rid = s_axi_mig_rid[0];
 
+assign dbg_dqs = 'b0;
+assign dbg_bit = 'b0;
 assign ddr3_vio_sync_out={dbg_dqs,dbg_bit};
+assign dbg_sel_pi_incdec='b0;          
+assign dbg_sel_po_incdec='b0;              
+assign dbg_byte_sel= 'b0;             // input [3:0]            dbg_byte_sel
+assign dbg_pi_f_inc= 'b0;               // input            dbg_pi_f_inc
+assign dbg_pi_f_dec= 'b0;             // input            dbg_pi_f_dec
+assign dbg_po_f_inc= 'b0;          // input            dbg_po_f_inc
+assign dbg_po_f_stg23_sel= 'b0;       // input            dbg_po_f_stg23_sel
+assign dbg_po_f_dec= 'b0;             // input            dbg_po_f_dec
 
-   always @(posedge ui_clk) begin
-     aresetn <= ~ui_clk_sync_rst;
-   end
+always @(posedge ui_clk) begin
+ aresetn <= ~ui_clk_sync_rst;
+end
 
-   always @(posedge sysclk_bufg) begin
-     sysclk_reset <= ~sysclk_resetn;
-   end
-
+always @(posedge sysclk_bufg) begin
+ sysclk_reset <= ~sysclk_resetn;
+end
+ 
+ 
 endmodule

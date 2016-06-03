@@ -59,7 +59,7 @@
 
 `timescale 1ps / 1ps
 
-(* dont_touch = "yes" *)
+//(* dont_touch = "yes" *)
 module kc705_ethernet_rgmii_sync_block #(
   parameter INITIALISE = 1'b0,
   parameter DEPTH = 5

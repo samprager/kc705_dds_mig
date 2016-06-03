@@ -1,10 +1,10 @@
 // Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2014.2 (win64) Build 928826 Thu Jun  5 18:17:50 MDT 2014
-// Date        : Sat Jun 07 12:59:52 2014
-// Host        : XCOJAMESM22 running 64-bit Service Pack 1  (build 7601)
+// Tool Version: Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
+// Date        : Thu Jun 02 16:17:38 2016
+// Host        : radar-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode synth_stub
-//               c:/kc705_ethernet/kc705_ethernet.srcs/sources_1/ip/kc705_ethernet_rgmii/kc705_ethernet_rgmii_stub.v
+//               D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/kc705_ethernet_rgmii/kc705_ethernet_rgmii_stub.v
 // Design      : kc705_ethernet_rgmii
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2

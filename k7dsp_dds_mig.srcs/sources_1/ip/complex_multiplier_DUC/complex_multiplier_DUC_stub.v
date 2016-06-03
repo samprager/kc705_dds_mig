@@ -1,10 +1,10 @@
 // Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2014.2 (win64) Build 932637 Wed Jun 11 13:33:10 MDT 2014
-// Date        : Thu Jan 21 17:24:22 2016
+// Date        : Thu Jun 02 16:05:34 2016
 // Host        : radar-PC running 64-bit Service Pack 1  (build 7601)
 // Command     : write_verilog -force -mode synth_stub
-//               D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v
+//               D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/complex_multiplier_DUC/complex_multiplier_DUC_stub.v
 // Design      : complex_multiplier_DUC
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7k325tffg900-2

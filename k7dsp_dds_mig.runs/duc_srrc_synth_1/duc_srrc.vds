@@ -2,42 +2,42 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Thu Jan 21 17:22:21 2016
-# Process ID: 1056
-# Log file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/duc_srrc.vds
-# Journal file: D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1\vivado.jou
+# Start of session at: Thu Jun 02 16:03:35 2016
+# Process ID: 1992
+# Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/duc_srrc.vds
+# Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1\vivado.jou
 #-----------------------------------------------------------
 source duc_srrc.tcl
 # set_param gui.test TreeTableDev
-# set_param project.hsv.suppressChildGraphs 0
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
 # create_project -in_memory -part xc7k325tffg900-2
 # set_property target_language Verilog [current_project]
+# set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
 # set_param project.compositeFile.enableAutoGeneration 0
 # set_property default_lib xil_defaultlib [current_project]
-# read_ip D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.xci
+# read_ip D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.xci
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2014.2/data/ip'.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_lin64.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_lin.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_nt.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_nt64.zip'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.vhdl'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.v'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.vhdl'. Please regenerate to continue.
-# set_property used_in_implementation false [get_files d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp]
-# set_property used_in_implementation false [get_files -all d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp]
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_lin64.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_lin.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_nt.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/cmodel/fir_compiler_v7_1_bitacc_cmodel_nt64.zip'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.vhdl'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.v'. Please regenerate to continue.
+WARNING: [IP_Flow 19-3664] IP 'duc_srrc' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.vhdl'. Please regenerate to continue.
+# set_property used_in_implementation false [get_files d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp]
+# set_property used_in_implementation false [get_files -all d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp]
 # set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
-# set_property is_locked true [get_files D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.xci]
+# set_property is_locked true [get_files D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.xci]
 # read_xdc dont_touch.xdc
 # set_property used_in_implementation false [get_files dont_touch.xdc]
 # set_param synth.vivado.isSynthRun true
-# set_property webtalk.parent_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
-# set_property parent.project_dir D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig [current_project]
+# set_property webtalk.parent_dir D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
+# set_property parent.project_dir D:/UndergroundRadar/kc705_dds_mig [current_project]
 # catch { write_hwdef -file duc_srrc.hwdef }
 INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
 # synth_design -top duc_srrc -part xc7k325tffg900-2 -mode out_of_context
@@ -48,123 +48,123 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 236.566 ; gain = 104.406
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 235.836 ; gain = 103.746
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'duc_srrc' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:71]
-INFO: [Synth 8-3491] module 'fir_compiler_v7_1' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:109' bound to instance 'U0' of component 'fir_compiler_v7_1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:193]
-INFO: [Synth 8-638] synthesizing module 'fir_compiler_v7_1__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:233]
-INFO: [Synth 8-3491] module 'fir_compiler_v7_1_viv' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:118' bound to instance 'i_synth' of component 'fir_compiler_v7_1_viv' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:239]
-INFO: [Synth 8-638] synthesizing module 'fir_compiler_v7_1_viv__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:254]
-INFO: [Synth 8-3491] module 'polyphase_interpolation' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:340' bound to instance 'i_polyphase_interpolation' of component 'polyphase_interpolation' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:788]
-INFO: [Synth 8-638] synthesizing module 'polyphase_interpolation__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:458]
-INFO: [Synth 8-638] synthesizing module 'glb_ifx_slave' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:166]
-INFO: [Synth 8-3491] module 'glb_srl_fifo' declared at 'd:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:196' bound to instance 'fifo0' of component 'glb_srl_fifo' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:199]
-INFO: [Synth 8-638] synthesizing module 'glb_srl_fifo__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
-INFO: [Synth 8-256] done synthesizing module 'glb_srl_fifo__parameterized0' (1#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
-INFO: [Synth 8-256] done synthesizing module 'glb_ifx_slave' (2#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:166]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4189]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4192]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4197]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4236]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4247]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4588]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4590]
-INFO: [Synth 8-638] synthesizing module 'delay' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized0' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized1' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized2' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized2' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized3' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized3' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized4' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized4' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized5' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized5' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized6' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized6' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized7' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized7' (3#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/global_pkg.vhd:4063]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/global_pkg.vhd:4080]
-INFO: [Synth 8-638] synthesizing module 'filt_mem' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'sp_mem' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
-INFO: [Synth 8-256] done synthesizing module 'sp_mem' (4#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
-INFO: [Synth 8-256] done synthesizing module 'filt_mem' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'filt_mem__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:194]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:196]
-INFO: [Synth 8-638] synthesizing module 'sp_mem__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
-INFO: [Synth 8-4472] Detected and applied attribute rom_style = distributed [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:247]
-INFO: [Synth 8-256] done synthesizing module 'sp_mem__parameterized0' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
-INFO: [Synth 8-256] done synthesizing module 'filt_mem__parameterized0' (5#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'cntrl_delay' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
-INFO: [Synth 8-256] done synthesizing module 'cntrl_delay' (6#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
-INFO: [Synth 8-638] synthesizing module 'cntrl_delay__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
-INFO: [Synth 8-256] done synthesizing module 'cntrl_delay__parameterized0' (6#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
-INFO: [Synth 8-638] synthesizing module 'buff' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:147]
-INFO: [Synth 8-506] null port 'READ_ADDR' ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:138]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized8' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized8' (6#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'buff' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:147]
-INFO: [Synth 8-638] synthesizing module 'addsub_mult_accum' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized9' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized9' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized10' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized10' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized11' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized11' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized12' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized12' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'calc' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized13' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized13' (7#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
-INFO: [Synth 8-256] done synthesizing module 'calc' (8#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-256] done synthesizing module 'addsub_mult_accum' (9#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'rounder' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/rounder.vhd:137]
-INFO: [Synth 8-638] synthesizing module 'calc__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized14' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized14' (9#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
-INFO: [Synth 8-256] done synthesizing module 'calc__parameterized0' (9#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-256] done synthesizing module 'rounder' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/rounder.vhd:137]
-INFO: [Synth 8-638] synthesizing module 'addsub_mult_accum__parameterized0' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'calc__parameterized1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
-INFO: [Synth 8-256] done synthesizing module 'calc__parameterized1' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
-INFO: [Synth 8-256] done synthesizing module 'addsub_mult_accum__parameterized0' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized15' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized15' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized16' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized16' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized17' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized17' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized18' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized18' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized19' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized19' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-638] synthesizing module 'delay__parameterized20' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-256] done synthesizing module 'delay__parameterized20' (10#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:7544]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8438]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8466]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8472]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8478]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8492]
-INFO: [Synth 8-3919] null assignment ignored [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8496]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[1].p_path_out_reg[1][fab]' and it is trimmed from '48' to '33' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6786]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[1].g_rounder.p_rounder_out_reg[fab]' and it is trimmed from '48' to '33' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6782]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[0].p_path_out_reg[0][fab]' and it is trimmed from '48' to '33' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6786]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[0].g_rounder.p_rounder_out_reg[fab]' and it is trimmed from '48' to '33' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6782]
-INFO: [Synth 8-256] done synthesizing module 'polyphase_interpolation__parameterized0' (11#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:458]
-INFO: [Synth 8-256] done synthesizing module 'fir_compiler_v7_1_viv__parameterized0' (12#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:254]
-INFO: [Synth 8-256] done synthesizing module 'fir_compiler_v7_1__parameterized0' (13#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:233]
-INFO: [Synth 8-256] done synthesizing module 'duc_srrc' (14#1) [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:71]
+INFO: [Synth 8-638] synthesizing module 'duc_srrc' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:71]
+INFO: [Synth 8-3491] module 'fir_compiler_v7_1' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:109' bound to instance 'U0' of component 'fir_compiler_v7_1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:193]
+INFO: [Synth 8-638] synthesizing module 'fir_compiler_v7_1__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:233]
+INFO: [Synth 8-3491] module 'fir_compiler_v7_1_viv' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:118' bound to instance 'i_synth' of component 'fir_compiler_v7_1_viv' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:239]
+INFO: [Synth 8-638] synthesizing module 'fir_compiler_v7_1_viv__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:254]
+INFO: [Synth 8-3491] module 'polyphase_interpolation' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:340' bound to instance 'i_polyphase_interpolation' of component 'polyphase_interpolation' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:788]
+INFO: [Synth 8-638] synthesizing module 'polyphase_interpolation__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:458]
+INFO: [Synth 8-638] synthesizing module 'glb_ifx_slave' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:166]
+INFO: [Synth 8-3491] module 'glb_srl_fifo' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:196' bound to instance 'fifo0' of component 'glb_srl_fifo' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:199]
+INFO: [Synth 8-638] synthesizing module 'glb_srl_fifo__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
+INFO: [Synth 8-256] done synthesizing module 'glb_srl_fifo__parameterized0' (1#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_srl_fifo.vhd:248]
+INFO: [Synth 8-256] done synthesizing module 'glb_ifx_slave' (2#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/axi_utils_v2_0/hdl/glb_ifx_slave.vhd:166]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4189]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4192]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4197]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4236]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4247]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4588]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4590]
+INFO: [Synth 8-638] synthesizing module 'delay' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized0' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized1' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized2' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized3' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized3' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized4' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized4' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized5' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized5' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized6' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized6' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized7' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized7' (3#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/global_pkg.vhd:4063]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/global_pkg.vhd:4080]
+INFO: [Synth 8-638] synthesizing module 'filt_mem' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'sp_mem' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
+INFO: [Synth 8-256] done synthesizing module 'sp_mem' (4#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
+INFO: [Synth 8-256] done synthesizing module 'filt_mem' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'filt_mem__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:194]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:196]
+INFO: [Synth 8-638] synthesizing module 'sp_mem__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
+INFO: [Synth 8-4472] Detected and applied attribute rom_style = distributed [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:247]
+INFO: [Synth 8-256] done synthesizing module 'sp_mem__parameterized0' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/sp_mem.vhd:141]
+INFO: [Synth 8-256] done synthesizing module 'filt_mem__parameterized0' (5#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/mem.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'cntrl_delay' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
+INFO: [Synth 8-256] done synthesizing module 'cntrl_delay' (6#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'cntrl_delay__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
+INFO: [Synth 8-256] done synthesizing module 'cntrl_delay__parameterized0' (6#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/cntrl_delay.vhd:141]
+INFO: [Synth 8-638] synthesizing module 'buff' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:147]
+INFO: [Synth 8-506] null port 'READ_ADDR' ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized8' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized8' (6#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'buff' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/buff.vhd:147]
+INFO: [Synth 8-638] synthesizing module 'addsub_mult_accum' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized9' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized9' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized10' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized10' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized11' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized11' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized12' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized12' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'calc' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized13' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized13' (7#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
+INFO: [Synth 8-256] done synthesizing module 'calc' (8#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'addsub_mult_accum' (9#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'rounder' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/rounder.vhd:137]
+INFO: [Synth 8-638] synthesizing module 'calc__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized14' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized14' (9#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
+INFO: [Synth 8-256] done synthesizing module 'calc__parameterized0' (9#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'rounder' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/rounder.vhd:137]
+INFO: [Synth 8-638] synthesizing module 'addsub_mult_accum__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'calc__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-113] binding component instance 'i_dsp48e1' to cell 'DSP48E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:382]
+INFO: [Synth 8-256] done synthesizing module 'calc__parameterized1' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/calc.vhd:161]
+INFO: [Synth 8-256] done synthesizing module 'addsub_mult_accum__parameterized0' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/addsub_mult_accum.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized15' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized15' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized16' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized16' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized17' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized17' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized18' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized18' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized19' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized19' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'delay__parameterized20' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-256] done synthesizing module 'delay__parameterized20' (10#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:157]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:7544]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8438]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8466]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8472]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8478]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8492]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8496]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[1].p_path_out_reg[1][fab]' and it is trimmed from '48' to '33' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6786]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[1].g_rounder.p_rounder_out_reg[fab]' and it is trimmed from '48' to '33' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6782]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[0].p_path_out_reg[0][fab]' and it is trimmed from '48' to '33' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6786]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.g_paths[0].g_rounder.p_rounder_out_reg[fab]' and it is trimmed from '48' to '33' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6782]
+INFO: [Synth 8-256] done synthesizing module 'polyphase_interpolation__parameterized0' (11#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:458]
+INFO: [Synth 8-256] done synthesizing module 'fir_compiler_v7_1_viv__parameterized0' (12#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1_viv.vhd:254]
+INFO: [Synth 8-256] done synthesizing module 'fir_compiler_v7_1__parameterized0' (13#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/fir_compiler_v7_1.vhd:233]
+INFO: [Synth 8-256] done synthesizing module 'duc_srrc' (14#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/synth/duc_srrc.vhd:71]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 293.602 ; gain = 161.441
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 293.852 ; gain = 161.762
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -176,16 +176,16 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINA[17] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINA[16] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :ADDRB[4] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINB[17] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINB[16] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINA[17] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINA[16] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :ADDRB[4] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINB[17] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
-INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINB[16] to constant 0 [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINA[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINA[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :ADDRB[4] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINB[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[0].g_mem_array[0].i_mem :DINB[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINA[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINA[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :ADDRB[4] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINB[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
+INFO: [Synth 8-3295] tying undriven pin \g_semi_parallel_and_smac.g_paths[1].g_mem_array[0].i_mem :DINB[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:6064]
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/kintex7/xc7k325t/ClockRegion.xml
@@ -197,10 +197,10 @@ Loading io standards from C:/Xilinx/Vivado/2014.2/data\./parts/xilinx/kintex7/IO
 Loading device configuration modes from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/ConfigModes.xml
 
 Processing XDC Constraints
-Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
-Parsing XDC File [D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc]
+Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
+Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -214,27 +214,27 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 533.199 ; gain = 401.039
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 533.441 ; gain = 401.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 533.199 ; gain = 401.039
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 533.441 ; gain = 401.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 533.199 ; gain = 401.039
+Finished RTL Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 533.441 ; gain = 401.352
 ---------------------------------------------------------------------------------
 Attribute ram_style/rom_style = distributed specified for ROM  "rom". This will be implemented in logic.
-INFO: [Synth 8-4471] merging register 'g_semi_parallel_and_smac.base_en_cntrl_reg' into 'g_semi_parallel_and_smac.base_en_reg' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4168]
-INFO: [Synth 8-4471] merging register 'g_events_if.event_s_data_tlast_unexpected_reg' into 'g_events_if.event_s_data_tlast_missing_reg' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8317]
-INFO: [Synth 8-4471] merging register 'g_events_if.event_s_data_chanid_incorrect_reg' into 'g_events_if.event_s_data_tlast_missing_reg' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8318]
-INFO: [Synth 8-4471] merging register 'g_semi_parallel_and_smac.num_ops_for_ip_reg' into 'g_semi_parallel_and_smac.first_chan_full_reg' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4231]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.we_gen_algn_reg' and it is trimmed from '3' to '2' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4633]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.base_en_algn_reg' and it is trimmed from '3' to '2' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4638]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.base_max_algn_reg' and it is trimmed from '3' to '2' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4643]
-INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.start_px_algn_reg' and it is trimmed from '3' to '2' bits. [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4663]
+INFO: [Synth 8-4471] merging register 'g_semi_parallel_and_smac.base_en_cntrl_reg' into 'g_semi_parallel_and_smac.base_en_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4168]
+INFO: [Synth 8-4471] merging register 'g_events_if.event_s_data_tlast_unexpected_reg' into 'g_events_if.event_s_data_tlast_missing_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8317]
+INFO: [Synth 8-4471] merging register 'g_events_if.event_s_data_chanid_incorrect_reg' into 'g_events_if.event_s_data_tlast_missing_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:8318]
+INFO: [Synth 8-4471] merging register 'g_semi_parallel_and_smac.num_ops_for_ip_reg' into 'g_semi_parallel_and_smac.first_chan_full_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4231]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.we_gen_algn_reg' and it is trimmed from '3' to '2' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4633]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.base_en_algn_reg' and it is trimmed from '3' to '2' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4638]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.base_max_algn_reg' and it is trimmed from '3' to '2' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4643]
+INFO: [Synth 8-3936] Found unconnected internal register 'g_semi_parallel_and_smac.start_px_algn_reg' and it is trimmed from '3' to '2' bits. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/polyphase_interpolation.vhd:4663]
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -262,26 +262,26 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 548.105 ; gain = 415.945
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 549.125 ; gain = 417.035
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[0][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[0][0:0]' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
-INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[1][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[1][0:0]' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
-INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[2][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[2][0:0]' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
-INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[3][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[3][0:0]' [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
+INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[0][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[0][0:0]' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
+INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[1][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[1][0:0]' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
+INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[2][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[2][0:0]' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
+INFO: [Synth 8-4471] merging register 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data_sym/gen_dly.gen_regs.delay_bus_reg[3][0:0]' into 'g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_cntrl_signals[6].g_others.i_delay_cntrl_data/gen_dly.gen_regs.delay_bus_reg[3][0:0]' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/fir_compiler_v7_1/hdl/delay.vhd:220]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 548.113 ; gain = 415.953
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 549.148 ; gain = 417.059
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 548.113 ; gain = 415.953
+Finished Parallel Reinfer  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 549.148 ; gain = 417.059
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 557.156 ; gain = 424.996
+Finished Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 558.883 ; gain = 426.793
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 557.156 ; gain = 424.996
-Finished Parallel Section  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:27 . Memory (MB): peak = 557.156 ; gain = 424.996
+Finished Parallel Area Opt  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 558.883 ; gain = 426.793
+Finished Parallel Section  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 558.883 ; gain = 426.793
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -289,10 +289,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 634.574 ; gain = 502.414
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 635.035 ; gain = 502.945
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 636.551 ; gain = 504.391
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 636.043 ; gain = 503.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -392,7 +392,7 @@ INFO: [Synth 8-3332] Sequential element (full_1_reg) is unused and will be remov
 INFO: [Synth 8-3332] Sequential element (afull_1_reg) is unused and will be removed from module glb_srl_fifo__parameterized0.
 INFO: [Synth 8-3332] Sequential element (not_full_1_reg) is unused and will be removed from module glb_srl_fifo__parameterized0.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 648.496 ; gain = 516.406
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -451,7 +451,7 @@ INFO: [Synth 8-3295] tying undriven pin \g_polyphase_interpolation.i_polyphase_i
 INFO: [Synth 8-3295] tying undriven pin \g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[0].g_coln_cntrl_and_addr[0].i_coln_cntrl_data_sym :CNTRL_IN[9] to constant 0
 INFO: [Synth 8-3295] tying undriven pin \g_polyphase_interpolation.i_polyphase_interpolation/g_semi_parallel_and_smac.g_paths[1].g_data_array.g_madd[0].g_coln_cntrl_and_addr[0].i_coln_cntrl_data_sym :CNTRL_IN[10] to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 648.496 ; gain = 516.406
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -464,13 +464,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 648.496 ; gain = 516.406
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 648.496 ; gain = 516.406
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -500,14 +500,14 @@ Report Cell Usage:
 |12    |FDSE      |    17|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 648.496 ; gain = 516.406
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 515.891
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 648.496 ; gain = 516.406
 INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
-Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [d:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
+Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_ooc.xdc] for cell 'U0'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
@@ -515,20 +515,20 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 279 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 648.051 ; gain = 457.727
+synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:37 . Memory (MB): peak = 648.496 ; gain = 458.645
 # rename_ref -prefix_all duc_srrc_
 INFO: [Coretcl 2-1174] Renamed 44 cell refs.
 # write_checkpoint -noxdef duc_srrc.dcp
 # report_utilization -file duc_srrc_utilization_synth.rpt -pb duc_srrc_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 648.051 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 648.496 ; gain = 0.000
 # if { [catch {
-#   file copy -force D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/duc_srrc.dcp D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp
-#   write_verilog -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.v
-#   write_vhdl -force -mode synth_stub D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.vhdl
-#   write_verilog -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.v
-#   write_vhdl -force -mode funcsim D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.vhdl
+#   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/duc_srrc_synth_1/duc_srrc.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc.dcp
+#   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.v
+#   write_vhdl -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_stub.vhdl
+#   write_verilog -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.v
+#   write_vhdl -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/duc_srrc/duc_srrc_funcsim.vhdl
 # } _RESULT ] } { 
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-INFO: [Common 17-206] Exiting Vivado at Thu Jan 21 17:23:03 2016...
+INFO: [Common 17-206] Exiting Vivado at Thu Jun 02 16:04:16 2016...

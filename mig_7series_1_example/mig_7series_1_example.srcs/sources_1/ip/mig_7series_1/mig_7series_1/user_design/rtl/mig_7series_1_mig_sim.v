@@ -414,7 +414,7 @@ module mig_7series_1_mig #
                                      // It is associated to a set of IODELAYs with
                                      // an IDELAYCTRL that have same IODELAY CONTROLLER
                                      // clock frequency (300MHz/400MHz).
-   parameter SYSCLK_TYPE           = "DIFFERENTIAL",
+   parameter SYSCLK_TYPE           = "NO_BUFFER",
                                      // System clock type DIFFERENTIAL, SINGLE_ENDED,
                                      // NO_BUFFER
    parameter REFCLK_TYPE           = "USE_SYSTEM_CLOCK",
@@ -451,7 +451,7 @@ module mig_7series_1_mig #
                                      // # = Clock Period in pS.
    parameter nCK_PER_CLK           = 4,
                                      // # of memory CKs per fabric CLK
-   parameter DIFF_TERM_SYSCLK      = "FALSE",
+   parameter DIFF_TERM_SYSCLK      = "TRUE",
                                      // Differential Termination for System
                                      // clock input pins
 
@@ -474,7 +474,7 @@ module mig_7series_1_mig #
                                              // Width of S_AXI_AWADDR, S_AXI_ARADDR, M_AXI_AWADDR and
                                              // M_AXI_ARADDR for all SI/MI slots.
                                              // # = 32.
-   parameter C_S_AXI_DATA_WIDTH            = 512,
+   parameter C_S_AXI_DATA_WIDTH            = 64,
                                              // Width of WDATA and RDATA on SI slot.
                                              // Must be <= APP_DATA_WIDTH.
                                              // # = 32, 64, 128, 256.
@@ -573,9 +573,8 @@ module mig_7series_1_mig #
    output [ODT_WIDTH-1:0]                       ddr3_odt,
 
    // Inputs
-   // Differential system clocks
-   input                                        sys_clk_p,
-   input                                        sys_clk_n,
+   // Single-ended system clock
+   input                                        sys_clk_i,
    // user interface signals
    output                                       ui_clk,
    output                                       ui_clk_sync_rst,
@@ -734,7 +733,8 @@ module mig_7series_1_mig #
   // Interrupt output
   wire                              interrupt;
 
-  wire                              sys_clk_i;
+  wire                              sys_clk_p;
+  wire                              sys_clk_n;
   wire                              mmcm_clk;
   wire                              clk_ref_p;
   wire                              clk_ref_n;
@@ -817,7 +817,8 @@ module mig_7series_1_mig #
   assign ui_clk = clk;
   assign ui_clk_sync_rst = rst;
   
-  assign sys_clk_i = 1'b0;
+  assign sys_clk_p = 1'b0;
+  assign sys_clk_n = 1'b0;
   assign clk_ref_i = 1'b0;
       
 

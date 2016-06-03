@@ -137,8 +137,7 @@ library unisim;
 -------------------------------------------------------------------------------------
 entity KC705_fmc150 is
 generic (
-  MAX_PATTERN_CNT : integer := 2000; -- value of 15000 = approx 1 sec for ramp of length 2^14 samples @ 245.76 MSPS
-  ADC_BUFFER_WIDTH : integer := 1
+  MAX_PATTERN_CNT : integer := 2000 -- value of 15000 = approx 1 sec for ramp of length 2^14 samples @ 245.76 MSPS
 );
 port (
 

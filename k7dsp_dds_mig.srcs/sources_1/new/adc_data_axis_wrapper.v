@@ -128,7 +128,7 @@ always @(posedge axi_tclk)
 begin
    if (axi_treset)
       tvalid_int <= 0;
-   else if (state == DATA & tready & adc_data_valid)
+   else if (state == DATA & tready & adc_fifo_data_valid)
       tvalid_int <= 1;
    else if (tready)
       tvalid_int <= 0;
@@ -137,7 +137,7 @@ end
 // now generate the TDATA output
 always @(posedge axi_tclk)
 begin
-   if (state == DATA & tready  & adc_data_valid)
+   if (state == DATA & tready  & adc_fifo_data_valid)
       tdata <= adc_data;
 end
 
@@ -147,7 +147,7 @@ always @(posedge axi_tclk)
 begin
    if (axi_treset)
       tlast <= 0;
-   else if (state == DATA & tready  & adc_data_valid)
+   else if (state == DATA & tready  & adc_fifo_data_valid)
       tlast <= 1;
    else if (tready)
       tlast <= 0;

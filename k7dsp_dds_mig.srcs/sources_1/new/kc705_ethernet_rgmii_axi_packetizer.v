@@ -85,7 +85,7 @@ reg                        adc_axis_tvalid_reg;
 reg                        adc_axis_tlast_reg;
 //reg                        adc_axis_tuser_reg;
 
-wire                       adc_axis_tready_int;
+reg                       adc_axis_tready_int;
 
 // rate control signals
 reg         [7:0]          basic_rc_counter;
