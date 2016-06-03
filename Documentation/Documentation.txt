@@ -41,6 +41,41 @@ Clock Generation Error Output:
 	 and example_clocks/clock_generator/mmcm_adv_inst (MMCME2_ADV.CLKFBIN) is provisionally placed by clockplacer on MMCME2_ADV_X1Y2
 
 
+Output Before fix: 
+ >> get_property route [get_nets example_clocks/clkin1]
+ { IOB_IBUF0 RIOI_I0 RIOI_ILOGIC0_D IOI_ILOGIC0_O  { IOI_LOGIC_OUTS18_1 INT_INTERFACE_LOGIC_OUTS18 NN6BEG0 LV0 LV0 NN6BEG1 NW2BEG1 SR1BEG1 CLK_L0 CMT_L_LOWER_B_CLK_IN1_INT CMT_LR_LOWER_B_MMCM_CLKIN1 }  RIOI_I2GCLK_TOP0 HCLK_CMT_CK_IN0 CLK_HROW_BOT_R_CK_BUFG_CASCO22 CLK_HROW_BOT_R_CK_BUFG_CASCO22 CLK_HROW_BOT_R_CK_BUFG_CASCO22 CLK_BUFG_BUFGCTRL11_I0 }  
+
+Fix:
+
+1) Open the implemented design and from the Tcl console perform the following:
+
+>> report_drc -file pre_wa_drc_chk.rpt
+This performs a DRC check and shows the DRC reported by write_bitstream.
+
+>> route_design -unroute
+Unroutes the entire design.
+
+>> route_design -nets [get_nets example_clocks/clkin1]
+Routes the net reported in the DRC error only.
+
+>> set_property IS_ROUTE_FIXED 1 [get_nets example_clocks/clkin1]
+Locks the net.
+
+>> route_design
+Routes the rest of the design.
+
+>> report_drc -file post_wa_drc_chk.rpt
+DRC error no longer reported.
+
+2) Create a route constraint to add to the XDC file
+
+>> get_property route [get_nets example_clocks/clkin1
+{ IOB_IBUF0 LIOI_I0 LIOI_ILOGIC0_D IOI_ILOGIC0_O LIOI_I2GCLK_TOP0 HCLK_CMT_MUX_OUT_FREQ_REF0 HCLK_CMT_FREQ_REF_NS0 MMCM_CLK_FREQ_BB_REBUF0_NS PLL_CLK_FREQ_BB0_NS { CMT_TOP_R_UPPER_T_FREQ_BB0 CMT_TOP_R_UPPER_T_PLLE2_CLKIN1 } MMCM_CLK_FREQ_BB_REBUF0_NS PLL_CLK_FREQ_BB0_NS CMT_R_LOWER_B_CLK_FREQ_BB3 CMT_LR_LOWER_B_MMCM_CLKIN1 }
+
+3) Add an XDC constraint as follows:
+
+set_property route 
+{ IOB_IBUF0 LIOI_I0 LIOI_ILOGIC0_D IOI_ILOGIC0_O LIOI_I2GCLK_TOP0 HCLK_CMT_MUX_OUT_FREQ_REF0 HCLK_CMT_FREQ_REF_NS0 MMCM_CLK_FREQ_BB_REBUF0_NS PLL_CLK_FREQ_BB0_NS  { MMCM_CLK_FREQ_BB_REBUF0_NS PLL_CLK_FREQ_BB0_NS CMT_R_LOWER_B_CLK_FREQ_BB3 CMT_LR_LOWER_B_MMCM_CLKIN1 }  CMT_TOP_R_UPPER_T_FREQ_BB0 CMT_TOP_R_UPPER_T_PLLE2_CLKIN1 } [get_nets clk_in1]
 
 
 Startup Sequence for proper triggering (Chirp):

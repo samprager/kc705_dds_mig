@@ -268,7 +268,7 @@ module fmc150_dac_adc #
       .tready                     (axis_adc_tready)
       );
 
-   assign adc_fifo_rd_en = 1'b1;
+   //assign adc_fifo_rd_en = 1'b1;
 
 
    assign collect_adc_samples = 1'b1;
