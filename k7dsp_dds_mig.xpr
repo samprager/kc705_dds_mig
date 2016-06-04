@@ -1265,36 +1265,28 @@
     </Run>
     <Run Id="ila_axis_adc_synth_1" Type="Ft3:Synth" SrcSet="ila_axis_adc" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_adc" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_axis_adc_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="ila_axis_adc_pkt_synth_1" Type="Ft3:Synth" SrcSet="ila_axis_adc_pkt" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_adc_pkt" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_axis_adc_pkt_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="ila_axi_mm2s_ic_synth_1" Type="Ft3:Synth" SrcSet="ila_axi_mm2s_ic" Part="xc7k325tffg900-2" ConstrsSet="ila_axi_mm2s_ic" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_axi_mm2s_ic_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="ila_axis_vfifo_synth_1" Type="Ft3:Synth" SrcSet="ila_axis_vfifo" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_vfifo" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_axis_vfifo_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1708,9 +1700,7 @@
     </Run>
     <Run Id="ila_axis_adc_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_adc" Description="Vivado Implementation Defaults" SynthRun="ila_axis_adc_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1724,9 +1714,7 @@
     </Run>
     <Run Id="ila_axis_adc_pkt_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_adc_pkt" Description="Vivado Implementation Defaults" SynthRun="ila_axis_adc_pkt_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1740,9 +1728,7 @@
     </Run>
     <Run Id="ila_axi_mm2s_ic_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_axi_mm2s_ic" Description="Vivado Implementation Defaults" SynthRun="ila_axi_mm2s_ic_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1756,9 +1742,7 @@
     </Run>
     <Run Id="ila_axis_vfifo_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_vfifo" Description="Vivado Implementation Defaults" SynthRun="ila_axis_vfifo_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
