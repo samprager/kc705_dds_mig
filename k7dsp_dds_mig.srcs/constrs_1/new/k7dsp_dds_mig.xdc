@@ -328,8 +328,8 @@ set_false_path -from [get_cells -hier -filter {name =~ *phy_resetn_int_reg}] -to
 
 
 ## control signal is synched over clock boundary separately
-set_false_path -from [get_cells -hier -filter {name =~ tx_stats_reg[*]}] to [get_cells -hier -filter {name =~ tx_stats_shift_reg[*]}]
-set_false_path -from [get_cells -hier -filter {name =~ rx_stats_reg[*]}] to [get_cells -hier -filter {name =~ rx_stats_shift_reg[*]}]
+set_false_path -from [get_cells -hier -filter {name =~ tx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ tx_stats_shift_reg[*]}]
+set_false_path -from [get_cells -hier -filter {name =~ rx_stats_reg[*]}] -to [get_cells -hier -filter {name =~ rx_stats_shift_reg[*]}]
 
 
 #############################################################

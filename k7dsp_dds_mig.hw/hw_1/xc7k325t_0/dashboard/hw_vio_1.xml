@@ -3,9 +3,9 @@
     <DashboardHolder activeDashboard="VIO">
         <Dashboard columnResizable="1" key="VIO" rowResizable="0" title="VIO">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="1" height="443"
-                layout="JideBoxLayout" vgap="6" width="495">
-                <Gadget height="437" key="VIO Probes" name="VIO Probes" width="495"/>
+            <GadgetContainer boxAxis="1" count="1" height="467"
+                layout="JideBoxLayout" vgap="6" width="330">
+                <Gadget height="437" key="VIO Probes" name="VIO Probes" width="330"/>
                 <Settings/>
             </GadgetContainer>
         </Dashboard>

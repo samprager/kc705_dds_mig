@@ -411,7 +411,7 @@ wire [31 : 0] S01_FIFO_DATA_COUNT;
 //////////////////////////////////////////
 // M00 AXIS Connection to DAC Module
 wire M00_AXIS_TVALID;
-wire M00_AXIS_TREADY = 1'b0;
+wire M00_AXIS_TREADY = 1'b1;
 wire [63 : 0] M00_AXIS_TDATA;
 wire [7 : 0] M00_AXIS_TSTRB;
 wire [7 : 0] M00_AXIS_TKEEP;
@@ -753,7 +753,56 @@ fmc150_dac_adc_inst
 
 );
 
+ila_axis_adc ila_axis_adc_inst(
+    .clk (ui_clk),
+     .probe0(axis_adc_tdata),
+     .probe1(axis_adc_tvalid),
+     .probe2(axis_adc_tready)
+);
 
+ila_axis_adc_pkt ila_axis_adc_pkt_inst(
+    .clk (gtx_clk_bufg),
+     .probe0(adc_pkt_axis_tdata),
+     .probe1(adc_pkt_axis_tvalid),
+     .probe2(adc_pkt_axis_tready)
+);
+
+ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
+     .clk (ui_clk),
+     .probe0(M00_AXIS_TDATA),
+     .probe1(M00_AXIS_TKEEP),
+     .probe2(M00_AXIS_TSTRB),
+     .probe3(M00_AXIS_TVALID),
+     .probe4(M00_AXIS_TREADY),
+     .probe5(M00_AXIS_TLAST),
+     .probe6(M00_AXIS_TID),
+     .probe7(M00_AXIS_TDEST),
+     .probe8(M00_FIFO_DATA_COUNT)
+);
+
+ila_axis_vfifo   ila_axis_vfifo_inst(
+    .clk(ui_clk),
+    .probe0(vfifo_mm2s_channel_full),
+    .probe1(s_axis_vfifo_tdata),
+    .probe2(s_axis_vfifo_tkeep),
+    .probe3(s_axis_vfifo_tstrb),
+    .probe4(s_axis_vfifo_tvalid),
+    .probe5(s_axis_vfifo_tready),
+    .probe6(s_axis_vfifo_tlast),
+    .probe7(s_axis_vfifo_tid),
+    .probe8(s_axis_vfifo_tdest),
+    .probe9(m_axis_vfifo_tdata),
+    .probe10(m_axis_vfifo_tkeep),
+    .probe11(m_axis_vfifo_tstrb),
+    .probe12(m_axis_vfifo_tvalid),
+    .probe13(m_axis_vfifo_tready),
+    .probe14(m_axis_vfifo_tlast),
+    .probe15(m_axis_vfifo_tid),
+    .probe16(m_axis_vfifo_tdest),
+    .probe17(vfifo_s2mm_channel_full),    // output wire [1 : 0] vfifo_s2mm_channel_full
+    .probe18(vfifo_mm2s_channel_empty),  // output wire [1 : 0] vfifo_mm2s_channel_empty
+    .probe19(vfifo_idle)                // output wire [1 : 0]
+);
 
 axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .aclk(ui_clk),                                          // input wire aclk
@@ -864,9 +913,9 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .M00_AXIS_ARESETN(aresetn),          // input wire M00_AXIS_ARESETN
     .M00_AXIS_TVALID(s_axis_vfifo_tvalid),            // output wire M00_AXIS_TVALID
     .M00_AXIS_TREADY(s_axis_vfifo_tready),            // input wire M00_AXIS_TREADY
-    .M00_AXIS_TDATA(s_axis_vfifo_tdata),              // output wire [511 : 0] M00_AXIS_TDATA
-    .M00_AXIS_TSTRB(s_axis_vfifo_tstrb),              // output wire [63 : 0] M00_AXIS_TSTRB
-    .M00_AXIS_TKEEP(s_axis_vfifo_tkeep),              // output wire [63 : 0] M00_AXIS_TKEEP
+    .M00_AXIS_TDATA(s_axis_vfifo_tdata),              // output wire [63 : 0] M00_AXIS_TDATA
+    .M00_AXIS_TSTRB(s_axis_vfifo_tstrb),              // output wire [7 : 0] M00_AXIS_TSTRB
+    .M00_AXIS_TKEEP(s_axis_vfifo_tkeep),              // output wire [7 : 0] M00_AXIS_TKEEP
     .M00_AXIS_TLAST(s_axis_vfifo_tlast),              // output wire M00_AXIS_TLAST
     .M00_AXIS_TID(s_axis_vfifo_tid),                  // output wire [0 : 0] M00_AXIS_TID
     .M00_AXIS_TDEST(s_axis_vfifo_tdest),              // output wire [0 : 0] M00_AXIS_TDEST
@@ -895,9 +944,9 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .S00_AXIS_ARESETN(aresetn),        // input wire S00_AXIS_ARESETN
       .S00_AXIS_TVALID(m_axis_vfifo_tvalid),          // input wire S00_AXIS_TVALID
       .S00_AXIS_TREADY(m_axis_vfifo_tready),          // output wire S00_AXIS_TREADY
-      .S00_AXIS_TDATA(m_axis_vfifo_tdata),            // input wire [511 : 0] S00_AXIS_TDATA
-      .S00_AXIS_TSTRB(m_axis_vfifo_tstrb),            // input wire [63 : 0] S00_AXIS_TSTRB
-      .S00_AXIS_TKEEP(m_axis_vfifo_tkeep),            // input wire [63 : 0] S00_AXIS_TKEEP
+      .S00_AXIS_TDATA(m_axis_vfifo_tdata),            // input wire [63 : 0] S00_AXIS_TDATA
+      .S00_AXIS_TSTRB(m_axis_vfifo_tstrb),            // input wire [7 : 0] S00_AXIS_TSTRB
+      .S00_AXIS_TKEEP(m_axis_vfifo_tkeep),            // input wire [7 : 0] S00_AXIS_TKEEP
       .S00_AXIS_TLAST(m_axis_vfifo_tlast),            // input wire S00_AXIS_TLAST
       .S00_AXIS_TID(m_axis_vfifo_tid),                // input wire [0 : 0] S00_AXIS_TID
       .S00_AXIS_TDEST(m_axis_vfifo_tdest),            // input wire [0 : 0] S00_AXIS_TDEST

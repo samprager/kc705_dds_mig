@@ -3,72 +3,52 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/Prager/KC705_DDS/Mixed/k7dsp_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
+      <db_ref path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_2/hw_ila_data_2.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="9" />
    <wave_markers>
    </wave_markers>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_probe" type="array">
-      <obj_property name="ElementShortName">adc_data_out_probe[63:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_probe[63:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TDATA" type="array">
+      <obj_property name="ElementShortName">M00_AXIS_TDATA[63:0]</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TDATA[63:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_probe_1" type="array">
-      <obj_property name="ElementShortName">adc_data_out_probe_1[63:48]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_probe_1[63:48]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TDEST" type="logic">
+      <obj_property name="ElementShortName">M00_AXIS_TDEST</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TDEST</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_probe_2" type="array">
-      <obj_property name="ElementShortName">adc_data_out_probe_2[47:32]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_probe_2[47:32]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TID" type="logic">
+      <obj_property name="ElementShortName">M00_AXIS_TID</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TID</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_probe_3" type="array">
-      <obj_property name="ElementShortName">adc_data_out_probe_3[31:16]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_probe_3[31:16]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TKEEP" type="array">
+      <obj_property name="ElementShortName">M00_AXIS_TKEEP[6:0]</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TKEEP[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_probe_4" type="array">
-      <obj_property name="ElementShortName">adc_data_out_probe_4[15:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_probe_4[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-      <obj_property name="CellHeight">100</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TLAST" type="logic">
+      <obj_property name="ElementShortName">M00_AXIS_TLAST</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TLAST</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_data_out_valid_probe" type="logic">
-      <obj_property name="ElementShortName">adc_data_out_valid_probe</obj_property>
-      <obj_property name="ObjectShortName">adc_data_out_valid_probe</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TREADY" type="logic">
+      <obj_property name="ElementShortName">M00_AXIS_TREADY</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TREADY</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_fifo_almost_full_probe" type="logic">
-      <obj_property name="ElementShortName">adc_fifo_almost_full_probe</obj_property>
-      <obj_property name="ObjectShortName">adc_fifo_almost_full_probe</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TSTRB" type="array">
+      <obj_property name="ElementShortName">M00_AXIS_TSTRB[6:0]</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TSTRB[6:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_fifo_full_probe" type="logic">
-      <obj_property name="ElementShortName">adc_fifo_full_probe</obj_property>
-      <obj_property name="ObjectShortName">adc_fifo_full_probe</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_AXIS_TVALID" type="logic">
+      <obj_property name="ElementShortName">M00_AXIS_TVALID</obj_property>
+      <obj_property name="ObjectShortName">M00_AXIS_TVALID</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_fifo_valid_probe" type="logic">
-      <obj_property name="ElementShortName">adc_fifo_valid_probe</obj_property>
-      <obj_property name="ObjectShortName">adc_fifo_valid_probe</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_fifo_wr_ack_probe" type="logic">
-      <obj_property name="ElementShortName">adc_fifo_wr_ack_probe</obj_property>
-      <obj_property name="ObjectShortName">adc_fifo_wr_ack_probe</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="adc_fifo_wr_data_count_probe" type="array">
-      <obj_property name="ElementShortName">adc_fifo_wr_data_count_probe[9:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_fifo_wr_data_count_probe[9:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject db_ref_id="1" fp_name="M00_FIFO_DATA_COUNT" type="array">
+      <obj_property name="ElementShortName">M00_FIFO_DATA_COUNT[0:0]</obj_property>
+      <obj_property name="ObjectShortName">M00_FIFO_DATA_COUNT[0:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
