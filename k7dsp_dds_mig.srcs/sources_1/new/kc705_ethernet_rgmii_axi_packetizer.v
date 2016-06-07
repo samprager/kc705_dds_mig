@@ -91,6 +91,8 @@ reg                       adc_axis_tready_int;
 reg         [7:0]          basic_rc_counter;
 reg                        add_credit;
 reg         [12:0]         credit_count;
+reg         [3:0]         align_count;
+reg         [15:0]          packet_count;
 
 wire                       axi_treset;
 
@@ -134,6 +136,32 @@ begin
       header_count <= 0;
    end
 end
+
+// need a smaller count to manage the alignment counter (2 bytes)
+always @(posedge axi_tclk)
+begin
+   if (axi_treset) begin
+      align_count <= 0;
+   end
+   else if (gen_state == SIZE & (tready | !tvalid_int) & (|align_count) & header_count==0) begin
+      align_count <= align_count - 1;
+   end
+   else if (gen_state == IDLE) begin
+      align_count <= 2;
+   end
+end
+
+// 2 byte packet counter to increment with every packet
+always @(posedge axi_tclk)
+begin
+   if (axi_treset) begin
+      packet_count <= 0;
+   end
+   else if (gen_state == OVERHEAD & next_gen_state == IDLE) begin
+      packet_count <= packet_count + 1;
+   end
+end
+
 
 // need a count to manage the frame overhead (assume 24 bytes)
 always @(posedge axi_tclk)
@@ -269,7 +297,7 @@ begin
       SIZE : begin
          // when we enter SIZE header count is initially all 1's
          // it is cleared when we enter SIZE which gives us the required two cycles in this state
-         if (header_count == 0 & tready & adc_axis_tvalid)
+         if (header_count == 0 & tready & adc_axis_tvalid & align_count == 0)
             next_gen_state = DATA;
       end
       DATA : begin
@@ -308,9 +336,9 @@ begin
       adc_axis_tready_int <= 0;
    end
    else begin
-      if (next_gen_state == SIZE | gen_state == SIZE)
+      if (gen_state == SIZE & header_count == 0)
          adc_axis_tready_int <= 1;
-      else if (gen_state == DATA & next_gen_state == DATA) 
+      else if (gen_state == DATA & next_gen_state == DATA)
          adc_axis_tready_int <= 1;
       else
          adc_axis_tready_int <= 0;
@@ -338,8 +366,12 @@ begin
    else if (gen_state == SIZE & tready) begin
       if (header_count[3])
          tdata <= {5'h0, pkt_size[10:8]};
-      else
+      else if (align_count[1] & header_count == 0)
          tdata <= pkt_size[7:0];
+      else if (align_count[0])
+         tdata <= packet_count[15:8];
+      else if (align_count == 0)
+         tdata <= packet_count[7:0];
    end
    else if (tready & adc_axis_tvalid)
       tdata <= adc_axis_tdata[7:0];
