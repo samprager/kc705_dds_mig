@@ -2,17 +2,15 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Fri Jun 03 21:34:23 2016
-# Process ID: 3848
+# Start of session at: Tue Jun 07 10:53:05 2016
+# Process ID: 4956
 # Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axis_interconnect_1s2m_synth_1/axis_interconnect_1s2m.vds
 # Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axis_interconnect_1s2m_synth_1\vivado.jou
 #-----------------------------------------------------------
 source axis_interconnect_1s2m.tcl
 # set_param gui.test TreeTableDev
-# set_param xicom.use_bs_reader 1
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
-# set_msg_config -id {Labtools 27-147} -limit 4294967295
 # create_project -in_memory -part xc7k325tffg900-2
 # set_property target_language Verilog [current_project]
 # set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
@@ -46,7 +44,7 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 249.645 ; gain = 116.789
+Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 248.855 ; gain = 115.902
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'axis_interconnect_1s2m' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/synth/axis_interconnect_1s2m.v:57]
 INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_interconnect_16x16_top' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_interconnect_16x16_top.v:53]
@@ -82,8 +80,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_interconnec
 	Parameter C_M13_AXIS_CONNECTIVITY bound to: 16'b0000000000000000 
 	Parameter C_M14_AXIS_CONNECTIVITY bound to: 16'b0000000000000000 
 	Parameter C_M15_AXIS_CONNECTIVITY bound to: 16'b0000000000000000 
-	Parameter C_M00_AXIS_BASETDEST bound to: 1 - type: integer 
-	Parameter C_M01_AXIS_BASETDEST bound to: 0 - type: integer 
+	Parameter C_M00_AXIS_BASETDEST bound to: 0 - type: integer 
+	Parameter C_M01_AXIS_BASETDEST bound to: 1 - type: integer 
 	Parameter C_M02_AXIS_BASETDEST bound to: 2 - type: integer 
 	Parameter C_M03_AXIS_BASETDEST bound to: 3 - type: integer 
 	Parameter C_M04_AXIS_BASETDEST bound to: 4 - type: integer 
@@ -98,8 +96,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_interconnec
 	Parameter C_M13_AXIS_BASETDEST bound to: 13 - type: integer 
 	Parameter C_M14_AXIS_BASETDEST bound to: 14 - type: integer 
 	Parameter C_M15_AXIS_BASETDEST bound to: 15 - type: integer 
-	Parameter C_M00_AXIS_HIGHTDEST bound to: 1 - type: integer 
-	Parameter C_M01_AXIS_HIGHTDEST bound to: 0 - type: integer 
+	Parameter C_M00_AXIS_HIGHTDEST bound to: 0 - type: integer 
+	Parameter C_M01_AXIS_HIGHTDEST bound to: 1 - type: integer 
 	Parameter C_M02_AXIS_HIGHTDEST bound to: 2 - type: integer 
 	Parameter C_M03_AXIS_HIGHTDEST bound to: 3 - type: integer 
 	Parameter C_M04_AXIS_HIGHTDEST bound to: 4 - type: integer 
@@ -341,8 +339,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_interconnec
 	Parameter C_AXIS_TDATA_MAX_WIDTH bound to: 64 - type: integer 
 	Parameter C_AXIS_TUSER_MAX_WIDTH bound to: 8 - type: integer 
 	Parameter P_M_AXIS_CONNECTIVITY_ARRAY bound to: 16'b0000000000000011 
-	Parameter P_M_AXIS_BASETDEST_ARRAY bound to: 16'b1010101010101001 
-	Parameter P_M_AXIS_HIGHTDEST_ARRAY bound to: 16'b1010101010101001 
+	Parameter P_M_AXIS_BASETDEST_ARRAY bound to: 16'b1010101010101010 
+	Parameter P_M_AXIS_HIGHTDEST_ARRAY bound to: 16'b1010101010101010 
 	Parameter P_S_AXIS_TDATA_WIDTH_ARRAY bound to: 512'b00000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000001000000 
 	Parameter P_S_AXIS_TUSER_WIDTH_ARRAY bound to: 512'b00000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000000001000000000000000000000000000000010000000000000000000000000000000100000000000000000000000000001000 
 	Parameter P_S_AXIS_IS_ACLK_ASYNC_ARRAY bound to: 512'b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -377,8 +375,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_interconnec
 	Parameter C_SWITCH_USE_ACLKEN bound to: 0 - type: integer 
 	Parameter C_SYNCHRONIZER_STAGE bound to: 2 - type: integer 
 	Parameter C_M_AXIS_CONNECTIVITY_ARRAY bound to: 2'b11 
-	Parameter C_M_AXIS_BASETDEST_ARRAY bound to: 2'b01 
-	Parameter C_M_AXIS_HIGHTDEST_ARRAY bound to: 2'b01 
+	Parameter C_M_AXIS_BASETDEST_ARRAY bound to: 2'b10 
+	Parameter C_M_AXIS_HIGHTDEST_ARRAY bound to: 2'b10 
 	Parameter C_S_AXIS_TDATA_WIDTH_ARRAY bound to: 32'b00000000000000000000000001000000 
 	Parameter C_S_AXIS_TUSER_WIDTH_ARRAY bound to: 32'b00000000000000000000000000001000 
 	Parameter C_S_AXIS_IS_ACLK_ASYNC_ARRAY bound to: 32'b00000000000000000000000000000000 
@@ -446,8 +444,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axis_switch' [d:
 	Parameter C_MAX_XFERS_PER_ARB bound to: 1 - type: integer 
 	Parameter C_NUM_CYCLES_TIMEOUT bound to: 0 - type: integer 
 	Parameter C_M_AXIS_CONNECTIVITY_ARRAY bound to: 2'b11 
-	Parameter C_M_AXIS_BASETDEST_ARRAY bound to: 2'b01 
-	Parameter C_M_AXIS_HIGHTDEST_ARRAY bound to: 2'b01 
+	Parameter C_M_AXIS_BASETDEST_ARRAY bound to: 2'b10 
+	Parameter C_M_AXIS_HIGHTDEST_ARRAY bound to: 2'b10 
 	Parameter G_INDX_SS_TREADY bound to: 0 - type: integer 
 	Parameter G_INDX_SS_TDATA bound to: 1 - type: integer 
 	Parameter G_INDX_SS_TSTRB bound to: 2 - type: integer 
@@ -519,8 +517,8 @@ INFO: [Synth 8-638] synthesizing module 'axis_interconnect_v1_1_axisc_decoder' [
 	Parameter C_USE_PACKET_MODE bound to: 0 - type: integer 
 	Parameter C_REG_CONFIG bound to: 1 - type: integer 
 	Parameter C_CONNECTIVITY bound to: 2'b11 
-	Parameter C_BASETDEST bound to: 2'b01 
-	Parameter C_HIGHTDEST bound to: 2'b01 
+	Parameter C_BASETDEST bound to: 2'b10 
+	Parameter C_HIGHTDEST bound to: 2'b10 
 	Parameter G_INDX_SS_TREADY bound to: 0 - type: integer 
 	Parameter G_INDX_SS_TDATA bound to: 1 - type: integer 
 	Parameter G_INDX_SS_TSTRB bound to: 2 - type: integer 
@@ -11359,7 +11357,7 @@ INFO: [Synth 8-256] done synthesizing module 'axis_interconnect_v1_1_axis_interc
 INFO: [Synth 8-256] done synthesizing module 'axis_interconnect_v1_1_axis_interconnect_16x16_top' (46#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_v1_1/hdl/verilog/axis_interconnect_v1_1_axis_interconnect_16x16_top.v:53]
 INFO: [Synth 8-256] done synthesizing module 'axis_interconnect_1s2m' (47#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/synth/axis_interconnect_1s2m.v:57]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:01:43 ; elapsed = 00:01:46 . Memory (MB): peak = 453.977 ; gain = 321.121
+Finished RTL Elaboration : Time (s): cpu = 00:01:44 ; elapsed = 00:01:46 . Memory (MB): peak = 453.316 ; gain = 320.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -11421,17 +11419,17 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 606.063 ; gain = 473.207
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 605.578 ; gain = 472.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for inst. (constraint file  D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axis_interconnect_1s2m_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 606.063 ; gain = 473.207
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 605.578 ; gain = 472.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 606.063 ; gain = 473.207
+Finished RTL Optimization : Time (s): cpu = 00:01:51 ; elapsed = 00:01:54 . Memory (MB): peak = 605.578 ; gain = 472.625
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axis_interconnect_v1_1_axisc_register_slice'
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'axis_interconnect_v1_1_axisc_register_slice__parameterized0'
@@ -11492,8 +11490,8 @@ Detailed RTL Component Info :
 	   4 Input      2 Bit        Muxes := 2     
 	   2 Input      2 Bit        Muxes := 14    
 	   2 Input      1 Bit        Muxes := 20    
-	   3 Input      1 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -11965,7 +11963,7 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:52 ; elapsed = 00:01:55 . Memory (MB): peak = 606.063 ; gain = 473.207
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 609.613 ; gain = 476.660
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -11974,9 +11972,9 @@ INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to los
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/fifo_generator_v12_0/hdl/ramfifo/wr_dc_fwft_ext_as.vhd:214]
 INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/fifo_generator_v12_0/hdl/ramfifo/rd_dc_fwft_ext_as.vhd:196]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:01:55 . Memory (MB): peak = 606.063 ; gain = 473.207
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 609.613 ; gain = 476.660
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:55 . Memory (MB): peak = 606.063 ; gain = 473.207
+Finished Parallel Reinfer  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 609.613 ; gain = 476.660
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -11992,10 +11990,10 @@ WARNING: [Synth 8-3332] Sequential element (\axis_interconnect_0/gen_switch.axis
 WARNING: [Synth 8-3332] Sequential element (\axis_interconnect_0/gen_switch.axis_switch_0/gen_transfer_mux[1].axisc_transfer_mux_0/axisc_arb_responder/busy_r_reg[0] ) is unused and will be removed from module axis_interconnect_v1_1_axis_interconnect_16x16_top.
 WARNING: [Synth 8-3332] Sequential element (\axis_interconnect_0/inst_mi_datapath[1].dynamic_datapath_mi/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_dwidth_converter.axis_dwidth_converter_0/gen_downsizer_conversion.axisc_downsizer_0/r0_is_null_r_reg[0] ) is unused and will be removed from module axis_interconnect_v1_1_axis_interconnect_16x16_top.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 620.051 ; gain = 487.195
+Finished Area Optimization : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 627.281 ; gain = 494.328
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 620.051 ; gain = 487.195
-Finished Parallel Section  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 620.051 ; gain = 487.195
+Finished Parallel Area Opt  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 627.281 ; gain = 494.328
+Finished Parallel Section  : Time (s): cpu = 00:01:53 ; elapsed = 00:01:56 . Memory (MB): peak = 627.281 ; gain = 494.328
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -12003,10 +12001,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:04 . Memory (MB): peak = 632.949 ; gain = 500.094
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:01 ; elapsed = 00:02:04 . Memory (MB): peak = 633.199 ; gain = 500.246
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:04 . Memory (MB): peak = 635.957 ; gain = 503.102
+Finished Timing Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:04 . Memory (MB): peak = 635.266 ; gain = 502.313
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -12016,7 +12014,7 @@ WARNING: [Synth 8-3332] Sequential element (\inst_fifo_gen/gaxis_fifo.gaxisf.axi
 WARNING: [Synth 8-3332] Sequential element (\axis_interconnect_0/gen_switch.axis_switch_0/gen_decoder[0].axisc_decoder_0/gen_tdest_decoder.axisc_register_slice_0/FSM_sequential_state_reg[2] ) is unused and will be removed from module axis_interconnect_v1_1_axis_interconnect_16x16_top.
 WARNING: [Synth 8-3332] Sequential element (\axis_interconnect_0/gen_switch.axis_switch_0/gen_decoder[0].axisc_decoder_0/gen_tdest_decoder.axisc_register_slice_1/FSM_sequential_state_reg[2] ) is unused and will be removed from module axis_interconnect_v1_1_axis_interconnect_16x16_top.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Finished Technology Mapping : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 649.609 ; gain = 516.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -12050,7 +12048,7 @@ INFO: [Synth 8-3295] tying undriven pin \axis_interconnect_0/inst_mi_datapath[1]
 INFO: [Synth 8-3295] tying undriven pin \axis_interconnect_0/inst_mi_datapath[1].dynamic_datapath_mi/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_data_fifo.axis_data_fifo_0/gen_fifo_generator.fifo_generator_inst :s_axis_tuser[1] to constant 0
 INFO: [Synth 8-3295] tying undriven pin \axis_interconnect_0/inst_mi_datapath[1].dynamic_datapath_mi/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_nested.dynamic_datapath_0/gen_data_fifo.axis_data_fifo_0/gen_fifo_generator.fifo_generator_inst :s_axis_tuser[0] to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Finished IO Insertion : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 649.609 ; gain = 516.656
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -12063,13 +12061,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 649.609 ; gain = 516.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:02 ; elapsed = 00:02:06 . Memory (MB): peak = 649.609 ; gain = 516.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -12247,17 +12245,17 @@ Report Instance Areas:
 |130   |                              rstblk                                |reset_blk_ramfifo                                           |    18|
 +------+--------------------------------------------------------------------+------------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:03 ; elapsed = 00:02:06 . Memory (MB): peak = 649.609 ; gain = 516.656
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:02:02 ; elapsed = 00:02:05 . Memory (MB): peak = 650.305 ; gain = 517.449
+Synthesis Optimization Complete : Time (s): cpu = 00:02:03 ; elapsed = 00:02:06 . Memory (MB): peak = 649.609 ; gain = 516.656
 INFO: [Netlist 29-17] Analyzing 96 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_ooc.xdc] for cell 'inst'
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_ooc.xdc] for cell 'inst'
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_clocks.xdc] for cell 'inst'
 INFO: [Timing 38-35] Done setting XDC timing constraints. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_clocks.xdc:2]
-get_clocks: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1120.699 ; gain = 451.859
+get_clocks: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1120.023 ; gain = 451.902
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_clocks.xdc] for cell 'inst'
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -12267,12 +12265,12 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 448 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:12 ; elapsed = 00:02:15 . Memory (MB): peak = 1125.367 ; gain = 927.391
+synth_design: Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1124.668 ; gain = 927.434
 # rename_ref -prefix_all axis_interconnect_1s2m_
 INFO: [Coretcl 2-1174] Renamed 129 cell refs.
 # write_checkpoint -noxdef axis_interconnect_1s2m.dcp
 # report_utilization -file axis_interconnect_1s2m_utilization_synth.rpt -pb axis_interconnect_1s2m_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1125.367 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 1124.668 ; gain = 0.000
 # if { [catch {
 #   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axis_interconnect_1s2m_synth_1/axis_interconnect_1s2m.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m.dcp
 #   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axis_interconnect_1s2m/axis_interconnect_1s2m_stub.v
@@ -12283,4 +12281,4 @@ report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-INFO: [Common 17-206] Exiting Vivado at Fri Jun 03 21:36:42 2016...
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 07 10:55:24 2016...

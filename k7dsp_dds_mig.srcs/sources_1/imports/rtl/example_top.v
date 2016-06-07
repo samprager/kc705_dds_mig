@@ -274,7 +274,7 @@ function integer clogb2 (input integer size);
   localparam ADC_AXI_TDEST_WIDTH = 1;
   localparam ADC_AXI_TUSER_WIDTH = 1;
   localparam ADC_AXI_STREAM_ID = 1'b0;
-  localparam ADC_AXI_STREAM_DEST = 1'b0;
+  localparam ADC_AXI_STREAM_DEST = 1'b1;     
 
 //wire                          clk_245_76MHz;
 //wire                          clk_491_52MHz;

@@ -3,10 +3,8 @@
 # 
 
   set_param gui.test TreeTableDev
-  set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
-set_msg_config -id {Labtools 27-147} -limit 4294967295
 create_project -in_memory -part xc7k325tffg900-2
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
