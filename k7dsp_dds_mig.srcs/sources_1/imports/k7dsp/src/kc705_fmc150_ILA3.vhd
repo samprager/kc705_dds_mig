@@ -597,6 +597,7 @@ signal adc_data_out_valid_sig : std_logic;
 
 signal adc_test_pattern_i  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_q  :std_logic_vector(15 downto 0);
+signal adc_test_pattern_iq  :std_logic_vector(31 downto 0);
 signal gen_adc_test_pattern : std_logic;
 
 
@@ -643,6 +644,7 @@ signal CDCE72010  : std_logic_vector(0 downto 0); --(toggle to read/write) [64]
 signal ADS62P49   : std_logic_vector(0 downto 0); -- (toggle to read/write) [65]
 signal DAC3283    : std_logic_vector(0 downto 0); --(toggle to read/write) [66]
 signal AMC7823    : std_logic_vector(0 downto 0); --(toggle to read/write) [67]
+
 attribute mark_debug of Set_CLK_iDelay: signal is "TRUE";
 attribute mark_debug of Set_CH_A_iDelay: signal is "TRUE";
 attribute mark_debug of Set_CH_B_iDelay: signal is "TRUE";
@@ -1468,9 +1470,11 @@ begin
     if (rst = '1') then
       adc_test_pattern_i <= (others=>'0');
       adc_test_pattern_q <= (8=> '1',others=>'0');
+      adc_test_pattern_iq <= (others=>'0');
     elsif (gen_adc_test_pattern = '1') then
       adc_test_pattern_i(7 downto 0) <= adc_test_pattern_i(7 downto 0) + 1;
       adc_test_pattern_q(7 downto 0) <= adc_test_pattern_q(7 downto 0) + 1;
+      adc_test_pattern_iq <= adc_test_pattern_iq + 1;
 		end if;
   end if;
 end process generate_test_pattern;
@@ -1479,8 +1483,10 @@ adc_test_pattern_mux: process (clk_245_76MHz)
 begin
   if rising_edge(clk_245_76MHz) then
     if (gen_adc_test_pattern = '1') then
-      adc_data_out_i_sig <= adc_test_pattern_i;
-      adc_data_out_q_sig <= adc_test_pattern_q;
+      --adc_data_out_i_sig <= adc_test_pattern_i;
+      --adc_data_out_q_sig <= adc_test_pattern_q;
+      adc_data_out_i_sig <= adc_test_pattern_iq(15 downto 0);
+      adc_data_out_q_sig <= adc_test_pattern_iq(31 downto 16);
       adc_data_out_valid_sig <= '1';
     else
       adc_data_out_i_sig <= adc_dout_i;
