@@ -1485,8 +1485,8 @@ begin
     if (gen_adc_test_pattern = '1') then
       --adc_data_out_i_sig <= adc_test_pattern_i;
       --adc_data_out_q_sig <= adc_test_pattern_q;
-      adc_data_out_i_sig <= adc_test_pattern_iq(15 downto 0);
-      adc_data_out_q_sig <= adc_test_pattern_iq(31 downto 16);
+      adc_data_out_i_sig <= adc_test_pattern_iq(31 downto 16);
+      adc_data_out_q_sig <= adc_test_pattern_iq(15 downto 0);
       adc_data_out_valid_sig <= '1';
     else
       adc_data_out_i_sig <= adc_dout_i;
