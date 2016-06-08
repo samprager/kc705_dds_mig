@@ -985,7 +985,8 @@ mig_7series_1 u_mig_7series_1 (
 
     // Slave Interface Write Address Ports
     .s_axi_awid                     ({3'b0,m_axi_vfifo_awid[0]}),  // input [3:0]			s_axi_awid
-    .s_axi_awaddr                   (m_axi_vfifo_awaddr[31:2]),  // input [29:0]			s_axi_awaddr
+    //.s_axi_awaddr                   (m_axi_vfifo_awaddr[31:2]),  // input [29:0]			s_axi_awaddr
+    .s_axi_awaddr                   (m_axi_vfifo_awaddr[29:0]),  // input [29:0]			s_axi_awaddr
     .s_axi_awlen                    (m_axi_vfifo_awlen),  // input [7:0]			s_axi_awlen
     .s_axi_awsize                   (m_axi_vfifo_awsize),  // input [2:0]			s_axi_awsize
     .s_axi_awburst                  (m_axi_vfifo_awburst),  // input [1:0]			s_axi_awburst
@@ -1011,7 +1012,8 @@ mig_7series_1 u_mig_7series_1 (
 
     // Slave Interface Read Address Ports
     .s_axi_arid                     ({3'b0,m_axi_vfifo_arid[0]}),  // input [3:0]			s_axi_arid
-    .s_axi_araddr                   (m_axi_vfifo_araddr[31:2]),  // input [29:0]			s_axi_araddr
+   // .s_axi_araddr                   (m_axi_vfifo_araddr[31:2]),  // input [29:0]			s_axi_araddr
+    .s_axi_araddr                   (m_axi_vfifo_araddr[29:0]),  // input [29:0]			s_axi_araddr
     .s_axi_arlen                    (m_axi_vfifo_arlen),  // input [7:0]			s_axi_arlen
     .s_axi_arsize                   (m_axi_vfifo_arsize),  // input [2:0]			s_axi_arsize
     .s_axi_arburst                  (m_axi_vfifo_arburst),  // input [1:0]			s_axi_arburst
