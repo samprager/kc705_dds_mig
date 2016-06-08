@@ -598,7 +598,7 @@ signal adc_data_out_valid_sig : std_logic;
 signal adc_test_pattern_i  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_q  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_iq  :std_logic_vector(31 downto 0);
-signal gen_adc_test_pattern : std_logic;
+signal gen_adc_test_pattern : std_logic := '1';
 
 
 attribute mark_debug : string;
@@ -1464,7 +1464,7 @@ begin
     end if;
 end process;
 
-generate_test_pattern: process (clk_245_76MHz)
+generate_test_pattern: process (rst,clk_245_76MHz)
 begin
   if rising_edge(clk_245_76MHz) then
     if (rst = '1') then
@@ -1472,9 +1472,9 @@ begin
       adc_test_pattern_q <= (8=> '1',others=>'0');
       adc_test_pattern_iq <= (others=>'0');
     elsif (gen_adc_test_pattern = '1') then
-      adc_test_pattern_i(7 downto 0) <= adc_test_pattern_i(7 downto 0) + 1;
-      adc_test_pattern_q(7 downto 0) <= adc_test_pattern_q(7 downto 0) + 1;
-      adc_test_pattern_iq <= adc_test_pattern_iq + 1;
+      adc_test_pattern_i(7 downto 0) <= adc_test_pattern_i(7 downto 0) + '1';
+      adc_test_pattern_q(7 downto 0) <= adc_test_pattern_q(7 downto 0) + '1';
+      adc_test_pattern_iq <= adc_test_pattern_iq + '1';
 		end if;
   end if;
 end process generate_test_pattern;
@@ -1797,7 +1797,7 @@ adc_out_dac_in <= gpio_dip_sw(1);
 external_clock <= gpio_dip_sw(2);
 ddc_duc_bypass <= gpio_dip_sw(3);
 
-gen_adc_test_pattern <= gpio_dip_sw(3) AND gpio_dip_sw(2);
+--gen_adc_test_pattern <= gpio_dip_sw(3) AND gpio_dip_sw(2);
 
 ----------------------------------------------------------------------------------------------------
 -- IDELAYCTRL
