@@ -2,15 +2,17 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Thu Jun 02 18:26:59 2016
-# Process ID: 4708
+# Start of session at: Wed Jun 08 15:25:18 2016
+# Process ID: 4268
 # Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axi_vfifo_ctrl_0_synth_1/axi_vfifo_ctrl_0.vds
 # Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axi_vfifo_ctrl_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source axi_vfifo_ctrl_0.tcl
 # set_param gui.test TreeTableDev
+# set_param xicom.use_bs_reader 1
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
+# set_msg_config -id {Labtools 27-147} -limit 4294967295
 # create_project -in_memory -part xc7k325tffg900-2
 # set_property target_language Verilog [current_project]
 # set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
@@ -46,7 +48,7 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 238.297 ; gain = 105.188
+Starting RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 237.934 ; gain = 105.273
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'axi_vfifo_ctrl_0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/synth/axi_vfifo_ctrl_0.vhd:130]
 INFO: [Synth 8-3491] module 'axi_vfifo_ctrl_v2_0' declared at 'd:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/axi_vfifo_ctrl_v2_0.vhd:127' bound to instance 'U0' of component 'axi_vfifo_ctrl_v2_0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/synth/axi_vfifo_ctrl_0.vhd:311]
@@ -135,6 +137,14 @@ INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/
 INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9500]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper' (22#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width' (23#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9439]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9500]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' (23#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized0' (23#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_generic_cstr' (24#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd:450]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_output_block' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_output_block.vhd:214]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_output_block' (25#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_output_block.vhd:214]
@@ -303,13 +313,6 @@ INFO: [Synth 8-256] done synthesizing module 'blk_mem_input_block__parameterized
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd:450]
 INFO: [Synth 8-638] synthesizing module 'bindec' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_bindec.vhd:167]
 INFO: [Synth 8-256] done synthesizing module 'bindec' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_bindec.vhd:167]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
-INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
-INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9172]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized0' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized0' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
@@ -419,8 +422,7 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized16
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized16' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9822]
-INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9172]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized16' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized16' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized17' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
@@ -463,6 +465,14 @@ INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/Un
 INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized21' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized21' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized22' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized22' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9822]
+INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized22' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized22' (49#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux' (50#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
@@ -484,12 +494,14 @@ INFO: [Synth 8-256] done synthesizing module 'mcf_txn_top' (52#1) [d:/Undergroun
 INFO: [Synth 8-638] synthesizing module 'mcf_txn_top__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_txn_top.vhd:206]
 INFO: [Synth 8-638] synthesizing module 'multi_channel_fifo__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/multi_channel_fifo.vhd:208]
 INFO: [Synth 8-638] synthesizing module 'mcf_data_flow_logic__parameterized3' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_data_flow_logic.vhd:211]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized8' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized8' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-638] synthesizing module 'rom__parameterized4' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/rom.vhd:151]
 INFO: [Synth 8-256] done synthesizing module 'rom__parameterized4' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/rom.vhd:151]
 INFO: [Synth 8-638] synthesizing module 'rom__parameterized5' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/rom.vhd:151]
 INFO: [Synth 8-256] done synthesizing module 'rom__parameterized5' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/rom.vhd:151]
-INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized8' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
-INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized8' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized9' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized9' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-256] done synthesizing module 'mcf_data_flow_logic__parameterized3' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_data_flow_logic.vhd:211]
 INFO: [Synth 8-638] synthesizing module 'mcf_data_flow_logic__parameterized4' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_data_flow_logic.vhd:211]
 INFO: [Synth 8-256] done synthesizing module 'mcf_data_flow_logic__parameterized4' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_data_flow_logic.vhd:211]
@@ -502,13 +514,6 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_top__parameterized1' [d:/Un
 INFO: [Synth 8-638] synthesizing module 'blk_mem_input_block__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_input_block.vhd:392]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_input_block__parameterized1' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_input_block.vhd:392]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd:450]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized22' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
-INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
-INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized22' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9172]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized22' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized22' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized23' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
@@ -618,8 +623,7 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized38
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized38' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9822]
-INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
+INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9172]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized38' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized38' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized39' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
@@ -654,6 +658,14 @@ INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/Un
 INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized42' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized42' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized43' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
+INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized43' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-113] binding component instance 'ram_T' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:9822]
+INFO: [Synth 8-113] binding component instance 'ram_B' to cell 'RAMB36E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:10027]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized43' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized43' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_mux__parameterized1' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_mux__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_mux.vhd:284]
@@ -669,10 +681,16 @@ INFO: [Synth 8-638] synthesizing module 'axi_vfifo_ctrl_v2_0_delay__parameterize
 INFO: [Synth 8-256] done synthesizing module 'axi_vfifo_ctrl_v2_0_delay__parameterized4' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/delay.vhd:140]
 INFO: [Synth 8-256] done synthesizing module 'mcf_txn_top__parameterized0' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_txn_top.vhd:206]
 INFO: [Synth 8-638] synthesizing module 'vfifo_awgen' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/awgen/vfifo_awgen.vhd:191]
-INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized9' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
-INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized9' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized10' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized10' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized11' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized11' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized12' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized12' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized13' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized13' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized14' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized14' (52#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-256] done synthesizing module 'vfifo_awgen' (53#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/awgen/vfifo_awgen.vhd:191]
 INFO: [Synth 8-638] synthesizing module 'vfifo_ar_top' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/argen/vfifo_ar_top.vhd:207]
 INFO: [Synth 8-638] synthesizing module 'vfifo_ar_txn' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/argen/vfifo_ar_txn.vhd:195]
@@ -735,14 +753,14 @@ INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_top__parameterized2' [d:/Un
 INFO: [Synth 8-638] synthesizing module 'blk_mem_input_block__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_input_block.vhd:392]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_input_block__parameterized2' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_input_block.vhd:392]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_generic_cstr__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd:450]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized43' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_width__parameterized44' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1042]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1043]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized43' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_prim_wrapper__parameterized44' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
 INFO: [Synth 8-3919] null assignment ignored [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:8868]
 INFO: [Synth 8-113] binding component instance 'ram' to cell 'RAMB18E1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:8911]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized43' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
-INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized43' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_wrapper__parameterized44' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_wrapper.vhd:399]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_prim_width__parameterized44' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:400]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_generic_cstr__parameterized2' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_generic_cstr.vhd:450]
 INFO: [Synth 8-638] synthesizing module 'blk_mem_output_block__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_output_block.vhd:214]
 INFO: [Synth 8-256] done synthesizing module 'blk_mem_output_block__parameterized2' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_output_block.vhd:214]
@@ -762,14 +780,12 @@ INFO: [Synth 8-256] done synthesizing module 'fifo_generator_v12_0_synth__parame
 INFO: [Synth 8-256] done synthesizing module 'fifo_generator_v12_0__parameterized6' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/fifo_generator_v12_0/hdl/fifo_generator_v12_0.vhd:664]
 INFO: [Synth 8-256] done synthesizing module 'fifo_top__parameterized2' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/fifo_top.vhd:170]
 INFO: [Synth 8-638] synthesizing module 'vfifo_mm2s' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mm2s/vfifo_mm2s.vhd:166]
-INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized11' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
-INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized11' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
-INFO: [Synth 8-638] synthesizing module 'axi_vfifo_ctrl_v2_0_compare__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/compare.vhd:138]
-INFO: [Synth 8-256] done synthesizing module 'axi_vfifo_ctrl_v2_0_compare__parameterized2' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/compare.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized15' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized15' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-226] default block is never used [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mm2s/vfifo_mm2s.vhd:319]
 INFO: [Synth 8-226] default block is never used [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mm2s/vfifo_mm2s.vhd:353]
-INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized12' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
-INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized12' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-638] synthesizing module 'axic_register_slice__parameterized16' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
+INFO: [Synth 8-256] done synthesizing module 'axic_register_slice__parameterized16' (56#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:152]
 INFO: [Synth 8-256] done synthesizing module 'vfifo_mm2s' (57#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mm2s/vfifo_mm2s.vhd:166]
 INFO: [Synth 8-638] synthesizing module 'flag_gen' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/flag_gen/flag_gen.vhd:140]
 INFO: [Synth 8-638] synthesizing module 'set_clr_ff_top__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/flag_gen/set_clr_ff_top.vhd:132]
@@ -815,7 +831,7 @@ INFO: [Synth 8-256] done synthesizing module 'axi_vfifo_ctrl_v2_0_synth' (60#1) 
 INFO: [Synth 8-256] done synthesizing module 'axi_vfifo_ctrl_v2_0__parameterized0' (61#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/axi_vfifo_ctrl_v2_0.vhd:258]
 INFO: [Synth 8-256] done synthesizing module 'axi_vfifo_ctrl_0' (62#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/synth/axi_vfifo_ctrl_0.vhd:130]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:02:55 ; elapsed = 00:02:59 . Memory (MB): peak = 485.105 ; gain = 351.996
+Finished RTL Elaboration : Time (s): cpu = 00:02:59 ; elapsed = 00:03:04 . Memory (MB): peak = 488.723 ; gain = 356.063
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -828,19 +844,35 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[71] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[70] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[62] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[61] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[53] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[52] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[44] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[43] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[35] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[34] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[26] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[25] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[8] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[71] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[70] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[62] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[61] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[53] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[52] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[44] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[43] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[35] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[34] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[26] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[25] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[17] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[16] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
+INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[8] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[35] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[34] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINA[33] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
@@ -881,7 +913,7 @@ INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[7] to constant 0 
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[6] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[5] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
 INFO: [Synth 8-3295] tying undriven pin \prim_noinit.ram :DINB[4] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/blk_mem_gen_v8_2/hdl/blk_mem_gen_prim_width.vhd:1056]
-INFO: [Netlist 29-17] Analyzing 74 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 75 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/kintex7/xc7k325t/ClockRegion.xml
 Loading clock buffers from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/kintex7/xc7k325t/ClockBuffers.xml
@@ -911,17 +943,17 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:03:04 ; elapsed = 00:03:08 . Memory (MB): peak = 645.879 ; gain = 512.770
+Finished Loading Part and Timing Information : Time (s): cpu = 00:03:10 ; elapsed = 00:03:14 . Memory (MB): peak = 657.547 ; gain = 524.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0. (constraint file  D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axi_vfifo_ctrl_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:04 ; elapsed = 00:03:08 . Memory (MB): peak = 645.879 ; gain = 512.770
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:03:10 ; elapsed = 00:03:14 . Memory (MB): peak = 657.547 ; gain = 524.887
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:03:04 ; elapsed = 00:03:08 . Memory (MB): peak = 645.879 ; gain = 512.770
+Finished RTL Optimization : Time (s): cpu = 00:03:10 ; elapsed = 00:03:14 . Memory (MB): peak = 657.547 ; gain = 524.887
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'gfwd_rev.state_reg' in module 'axic_register_slice'
 INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/mult_chan_fifo/mcf_data_flow_logic.vhd:387]
@@ -956,7 +988,7 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:03:07 ; elapsed = 00:03:11 . Memory (MB): peak = 656.309 ; gain = 523.199
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:03:13 ; elapsed = 00:03:18 . Memory (MB): peak = 665.488 ; gain = 532.828
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -973,6 +1005,9 @@ INFO: [Synth 8-4471] merging register 'mcf_inst/mcf_dfl_rd_inst/s2mm_reg_slice_i
 INFO: [Synth 8-4471] merging register 'mcf_inst/mcf_dfl_rd_inst/mcf2awgen_reg_slice_inst/gfwd_mode.areset_d1_reg' into 'mcf_inst/mcf_dfl_wr_inst/s2mm_reg_slice_inst/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
 INFO: [Synth 8-4471] merging register 'wdata_rslice1/gfwd_mode.areset_d1_reg' into 'aw_rslice1/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
 INFO: [Synth 8-4471] merging register 'wdata_rslice2/gfwd_mode.areset_d1_reg' into 'aw_rslice1/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
+INFO: [Synth 8-4471] merging register 'gen_strb_pipeline_regslice.strt_no_byte_rl/gfwd_mode.areset_d1_reg' into 'aw_rslice1/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
+INFO: [Synth 8-4471] merging register 'gen_strb_pipeline_regslice.dest_usr_id_rl/gfwd_mode.areset_d1_reg' into 'aw_rslice1/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
+INFO: [Synth 8-4471] merging register 'gen_tstrb_lt_256.gen_tstrb_eq_128.append_strb_rl/gfwd_mode.areset_d1_reg' into 'aw_rslice1/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
 INFO: [Synth 8-4471] merging register 'mm2s_out_reg_slice_inst/gfwd_mode.areset_d1_reg' into 'mm2s_in_reg_slice_inst/gfwd_mode.areset_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_v2_0/hdl/common/axic_register_slice.vhd:340]
 INFO: [Synth 8-4471] merging register 'inst_vfifo/w_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d1_reg' into 'inst_vfifo/aw_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d1_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/fifo_generator_v12_0/hdl/ramfifo/reset_blk_ramfifo.vhd:622]
 INFO: [Synth 8-4471] merging register 'inst_vfifo/w_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg' into 'inst_vfifo/aw_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d2_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/fifo_generator_v12_0/hdl/ramfifo/reset_blk_ramfifo.vhd:623]
@@ -983,118 +1018,17 @@ INFO: [Synth 8-4471] merging register 'inst_vfifo/ar_fifo_inst/fifo_gen/inst_fif
 INFO: [Synth 8-4471] merging register 'inst_vfifo/ar_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg' into 'inst_vfifo/aw_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.rst_d3_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/fifo_generator_v12_0/hdl/ramfifo/reset_blk_ramfifo.vhd:624]
 INFO: [Synth 8-4471] merging register 'inst_vfifo/ar_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.RST_FULL_GEN_reg' into 'inst_vfifo/aw_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/grstd1.grst_full.grst_f.RST_FULL_GEN_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/fifo_generator_v12_0/hdl/ramfifo/reset_blk_ramfifo.vhd:625]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:03:08 ; elapsed = 00:03:12 . Memory (MB): peak = 656.309 ; gain = 523.199
+Finished Cross Boundary Optimization : Time (s): cpu = 00:03:14 ; elapsed = 00:03:19 . Memory (MB): peak = 665.488 ; gain = 532.828
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:03:08 ; elapsed = 00:03:12 . Memory (MB): peak = 656.309 ; gain = 523.199
+Finished Parallel Reinfer  : Time (s): cpu = 00:03:14 ; elapsed = 00:03:19 . Memory (MB): peak = 665.488 ; gain = 532.828
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3332] Sequential element (\gs2mm/s2mm_awgen_rslice2/gfwd_mode.storage_data1_reg[14] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/s2mm_awgen_rslice1/gfwd_mode.storage_data1_reg[14] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[7] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[6] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[5] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[4] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[3] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\gs2mm/tstart_reg_reg[2] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.active_ch_valid_dly_reg[4] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.active_ch_valid_dly_reg[3] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.active_ch_valid_dly_reg[2] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[31] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[30] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[29] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[28] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[27] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[26] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[25] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[24] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[23] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[22] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[21] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[20] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[19] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[18] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[17] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[16] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[15] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[14] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[13] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[12] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[11] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[10] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[9] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[8] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[7] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[6] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[5] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[4] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[3] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[2] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[1] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[0] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[31] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[30] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[29] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[28] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[27] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[26] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[25] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[24] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[23] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[22] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[21] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[20] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[19] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[18] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[17] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[16] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[15] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[14] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[13] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[12] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[11] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[10] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[9] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[8] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[7] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[6] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[5] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[4] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[3] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[2] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[1] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[0] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/mcf2awgen_reg_slice_inst/gfwd_mode.m_valid_i_reg ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/mcf2awgen_reg_slice_inst/gfwd_mode.storage_data1_reg[0] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[31] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[30] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[29] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[28] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[14] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[13] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[12] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[11] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[10] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[9] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[8] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[7] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[6] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[5] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[4] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[3] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[2] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[1] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_wr_inst/depth_rom_inst/greg_out.QSPO_reg[0] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/depth_rom_inst/greg_out.QSPO_reg[31] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/depth_rom_inst/greg_out.QSPO_reg[30] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/depth_rom_inst/greg_out.QSPO_reg[29] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Synth 8-3332] Sequential element (\mcdf_inst/mcf_dfl_rd_inst/depth_rom_inst/greg_out.QSPO_reg[28] ) is unused and will be removed from module axi_vfifo_top.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:03:11 ; elapsed = 00:03:16 . Memory (MB): peak = 660.305 ; gain = 527.195
+Finished Area Optimization : Time (s): cpu = 00:03:16 ; elapsed = 00:03:22 . Memory (MB): peak = 669.906 ; gain = 537.246
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:03:11 ; elapsed = 00:03:16 . Memory (MB): peak = 660.305 ; gain = 527.195
-Finished Parallel Section  : Time (s): cpu = 00:03:11 ; elapsed = 00:03:16 . Memory (MB): peak = 660.305 ; gain = 527.195
+Finished Parallel Area Opt  : Time (s): cpu = 00:03:16 ; elapsed = 00:03:22 . Memory (MB): peak = 669.906 ; gain = 537.246
+Finished Parallel Section  : Time (s): cpu = 00:03:16 ; elapsed = 00:03:22 . Memory (MB): peak = 669.906 ; gain = 537.246
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -1102,16 +1036,117 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:21 ; elapsed = 00:03:26 . Memory (MB): peak = 695.621 ; gain = 562.512
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:27 ; elapsed = 00:03:33 . Memory (MB): peak = 691.051 ; gain = 558.391
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:21 ; elapsed = 00:03:27 . Memory (MB): peak = 706.461 ; gain = 573.352
+Finished Timing Optimization : Time (s): cpu = 00:03:27 ; elapsed = 00:03:33 . Memory (MB): peak = 702.875 ; gain = 570.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/gs2mm/s2mm_awgen_rslice1/gfwd_mode.storage_data1_reg[22] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.active_ch_valid_dly_reg[3] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.active_ch_valid_dly_reg[2] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[31] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[30] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[29] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[28] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[27] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[26] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[25] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[24] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[23] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[22] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[21] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[20] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[19] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[18] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[17] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[16] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[15] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[14] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[13] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[12] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[11] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[10] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[9] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[8] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[7] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[6] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[5] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[4] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[3] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[2] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[1] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.rdp_dly_inst/gstage1.q_dly_reg[0] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[31] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[30] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[29] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[28] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[27] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[26] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[25] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[24] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[23] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[22] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[21] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[20] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[19] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[18] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[17] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[16] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[15] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[14] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[13] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[12] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[11] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[10] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[9] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[8] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[7] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[6] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[5] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[4] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[3] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[2] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[1] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gch_idle.wrp_dly_inst/gstage1.q_dly_reg[0] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/mcf2awgen_reg_slice_inst/gfwd_mode.m_valid_i_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/mcf2awgen_reg_slice_inst/gfwd_mode.storage_data1_reg[0] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/awgen_inst/gen_strb_pipeline_regslice.strt_no_byte_rl/gfwd_mode.m_valid_i_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/awgen_inst/gen_strb_pipeline_regslice.dest_usr_id_rl/gfwd_mode.m_valid_i_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/awgen_inst/wdata_rslice1/gfwd_mode.storage_data1_reg[0] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/argen_inst/ar_mpf_inst/ar_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/tdest_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/tdest_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/tid_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/gpr1.dout_i_reg[1] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/tid_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/tid_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwss.wsts/ram_full_i_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/aw_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/w_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/ar_fifo_inst/fifo_gen/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.rfwft/aempty_fwft_fb_reg ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/garb/ch_req_rgslice/FSM_sequential_gfwd_rev.state_reg[2] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[12] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[11] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[9] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[8] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[7] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[6] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[5] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[4] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[3] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[2] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[1] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_wr_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[0] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[12] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[11] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[9] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[8] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[7] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+WARNING: [Synth 8-3332] Sequential element (\inst_vfifo/gvfifo_top/mcdf_inst/mcf_dfl_rd_inst/gptr_mcdf.gwr_data_1.mcdf_pf_gen_inst/gin_reg.channel_depth_dly_reg[6] ) is unused and will be removed from module axi_vfifo_ctrl_v2_0__parameterized0.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:23 ; elapsed = 00:03:28 . Memory (MB): peak = 729.172 ; gain = 596.063
+Finished Technology Mapping : Time (s): cpu = 00:03:30 ; elapsed = 00:03:36 . Memory (MB): peak = 730.770 ; gain = 598.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1129,7 +1164,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:23 ; elapsed = 00:03:29 . Memory (MB): peak = 729.172 ; gain = 596.063
+Finished IO Insertion : Time (s): cpu = 00:03:30 ; elapsed = 00:03:36 . Memory (MB): peak = 730.770 ; gain = 598.109
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1142,13 +1177,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:23 ; elapsed = 00:03:29 . Memory (MB): peak = 729.172 ; gain = 596.063
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:30 ; elapsed = 00:03:36 . Memory (MB): peak = 730.770 ; gain = 598.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:24 ; elapsed = 00:03:29 . Memory (MB): peak = 729.172 ; gain = 596.063
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:31 ; elapsed = 00:03:37 . Memory (MB): peak = 730.770 ; gain = 598.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1164,16 +1199,16 @@ Report Cell Usage:
 +------+-----------+------+
 |      |Cell       |Count |
 +------+-----------+------+
-|1     |CARRY4     |   125|
+|1     |CARRY4     |   122|
 |2     |DSP48E1    |    18|
-|3     |LUT1       |   135|
-|4     |LUT2       |   356|
+|3     |LUT1       |   133|
+|4     |LUT2       |   365|
 |5     |LUT3       |   142|
-|6     |LUT4       |   386|
-|7     |LUT5       |   287|
-|8     |LUT6       |   198|
+|6     |LUT4       |   392|
+|7     |LUT5       |   286|
+|8     |LUT6       |   202|
 |9     |MUXCY      |    48|
-|10    |MUXF7      |    36|
+|10    |MUXF7      |    37|
 |11    |MUXF8      |    18|
 |12    |RAM16X1D   |    12|
 |13    |RAM32M     |    79|
@@ -1182,18 +1217,18 @@ Report Cell Usage:
 |16    |RAMB36E1   |    32|
 |17    |RAMB36E1_1 |    11|
 |18    |RAMB36E1_2 |    11|
-|19    |RAMB36E1_3 |     1|
+|19    |RAMB36E1_3 |     2|
 |20    |FDCE       |   196|
 |21    |FDPE       |   101|
-|22    |FDRE       |  1897|
-|23    |FDSE       |    18|
+|22    |FDRE       |  2475|
+|23    |FDSE       |     7|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:24 ; elapsed = 00:03:29 . Memory (MB): peak = 729.172 ; gain = 596.063
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:31 ; elapsed = 00:03:37 . Memory (MB): peak = 730.770 ; gain = 598.109
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 347 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:03:24 ; elapsed = 00:03:30 . Memory (MB): peak = 729.172 ; gain = 596.063
-INFO: [Netlist 29-17] Analyzing 291 Unisim elements for replacement
+Synthesis finished with 0 errors, 0 critical warnings and 426 warnings.
+Synthesis Optimization Complete : Time (s): cpu = 00:03:31 ; elapsed = 00:03:37 . Memory (MB): peak = 730.770 ; gain = 598.109
+INFO: [Netlist 29-17] Analyzing 289 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_0_ooc.xdc] for cell 'U0'
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_0_ooc.xdc] for cell 'U0'
@@ -1208,14 +1243,14 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-957 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+890 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:25 ; elapsed = 00:03:31 . Memory (MB): peak = 729.172 ; gain = 538.605
+synth_design: Time (s): cpu = 00:03:32 ; elapsed = 00:03:38 . Memory (MB): peak = 730.770 ; gain = 540.738
 # rename_ref -prefix_all axi_vfifo_ctrl_0_
-INFO: [Coretcl 2-1174] Renamed 432 cell refs.
+INFO: [Coretcl 2-1174] Renamed 468 cell refs.
 # write_checkpoint -noxdef axi_vfifo_ctrl_0.dcp
 # report_utilization -file axi_vfifo_ctrl_0_utilization_synth.rpt -pb axi_vfifo_ctrl_0_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 729.172 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.082 . Memory (MB): peak = 730.770 ; gain = 0.000
 # if { [catch {
 #   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/axi_vfifo_ctrl_0_synth_1/axi_vfifo_ctrl_0.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_0.dcp
 #   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/axi_vfifo_ctrl_0/axi_vfifo_ctrl_0_stub.v
@@ -1226,4 +1261,4 @@ report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 02 18:30:35 2016...
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 08 15:29:02 2016...

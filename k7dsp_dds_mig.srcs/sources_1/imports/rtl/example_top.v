@@ -252,7 +252,7 @@ function integer clogb2 (input integer size);
     end
   endfunction
 
-  localparam MIG_AXI_DATA_WIDTH = 64;
+  localparam MIG_AXI_DATA_WIDTH = 128;
  
   localparam FIFO_M00_DEPTH = 2048;                     //data words    
   localparam FIFO_M01_DEPTH = 8192;                     //data words     
@@ -593,6 +593,7 @@ assign update_speed = gpio_sw_c;      //input gpio switch c
 assign config_board = gpio_sw_w;      //input gpio switch w
 assign reset_error = gpio_sw_n;      //input gpio switch n
 
+assign adc_pkt_axis_tuser = 'b0;
 //----------------------------------------------------------------------------
 // Clock logic to generate required clocks from the 200MHz on board
 // if 125MHz is available directly this can be removed
@@ -662,8 +663,10 @@ fmc150_dac_adc  #
 )
 fmc150_dac_adc_inst
 (
-    .aclk (ui_clk),
-    .aresetn (aresetn),
+    //.aclk (ui_clk),
+    //.aresetn (aresetn),
+    .aclk(sysclk_bufg),
+    .aresetn (sysclk_resetn),
      // --KC705 Resources - from fmc150 example design
      .axis_adc_tdata                      (axis_adc_tdata),
      .axis_adc_tvalid                     (axis_adc_tvalid),
@@ -753,57 +756,6 @@ fmc150_dac_adc_inst
 
 );
 
-ila_axis_adc ila_axis_adc_inst(
-    .clk (ui_clk),
-     .probe0(axis_adc_tdata),
-     .probe1(axis_adc_tvalid),
-     .probe2(axis_adc_tready)
-);
-
-ila_axis_adc_pkt ila_axis_adc_pkt_inst(
-    .clk (gtx_clk_bufg),
-     .probe0(adc_pkt_axis_tdata),
-     .probe1(adc_pkt_axis_tvalid),
-     .probe2(adc_pkt_axis_tready)
-);
-
-ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
-     .clk (ui_clk),
-     .probe0(M00_AXIS_TDATA),
-     .probe1(M00_AXIS_TKEEP),
-     .probe2(M00_AXIS_TSTRB),
-     .probe3(M00_AXIS_TVALID),
-     .probe4(M00_AXIS_TREADY),
-     .probe5(M00_AXIS_TLAST),
-     .probe6(M00_AXIS_TID),
-     .probe7(M00_AXIS_TDEST),
-     .probe8(M00_FIFO_DATA_COUNT)
-);
-
-ila_axis_vfifo   ila_axis_vfifo_inst(
-    .clk(ui_clk),
-    .probe0(vfifo_mm2s_channel_full),
-    .probe1(s_axis_vfifo_tdata),
-    .probe2(s_axis_vfifo_tkeep),
-    .probe3(s_axis_vfifo_tstrb),
-    .probe4(s_axis_vfifo_tvalid),
-    .probe5(s_axis_vfifo_tready),
-    .probe6(s_axis_vfifo_tlast),
-    .probe7(s_axis_vfifo_tid),
-    .probe8(s_axis_vfifo_tdest),
-    .probe9(m_axis_vfifo_tdata),
-    .probe10(m_axis_vfifo_tkeep),
-    .probe11(m_axis_vfifo_tstrb),
-    .probe12(m_axis_vfifo_tvalid),
-    .probe13(m_axis_vfifo_tready),
-    .probe14(m_axis_vfifo_tlast),
-    .probe15(m_axis_vfifo_tid),
-    .probe16(m_axis_vfifo_tdest),
-    .probe17(vfifo_s2mm_channel_full),    // output wire [1 : 0] vfifo_s2mm_channel_full
-    .probe18(vfifo_mm2s_channel_empty),  // output wire [1 : 0] vfifo_mm2s_channel_empty
-    .probe19(vfifo_idle)                // output wire [1 : 0]
-);
-
 axi_vfifo_ctrl_0 u_axi_vfifo_ctrl_0(
     .aclk(ui_clk),                                          // input wire aclk
     .aresetn(aresetn),                                    // input wire aresetn
@@ -885,8 +837,10 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
     .ARESETN(aresetn),                            // input wire ARESETN
 
 // S00 AXIS Connection to ADC Module
-    .S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
-    .S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN
+    //.S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
+    //.S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN
+    .S00_AXIS_ACLK(sysclk_bufg),
+    .S00_AXIS_ARESETN (sysclk_resetn),
     .S00_AXIS_TVALID(axis_adc_tvalid),            // input wire S00_AXIS_TVALID
     .S00_AXIS_TREADY(axis_adc_tready),            // output wire S00_AXIS_TREADY
     .S00_AXIS_TDATA(axis_adc_tdata),              // input wire [63 : 0] S00_AXIS_TDATA
@@ -952,8 +906,11 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .S00_AXIS_TDEST(m_axis_vfifo_tdest),            // input wire [0 : 0] S00_AXIS_TDEST
 
 // M00 AXIS Connection to DAC Module
-      .M00_AXIS_ACLK(ui_clk),              // input wire M00_AXIS_ACLK
-      .M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
+      //.M00_AXIS_ACLK(ui_clk),              // input wire M00_AXIS_ACLK
+      //.M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
+      .M00_AXIS_ACLK(sysclk_bufg),              // input wire M00_AXIS_ACLK
+      .M00_AXIS_ARESETN(sysclk_resetn),        // input wire M00_AXIS_ARESETN
+           
       .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
       .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
       .M00_AXIS_TDATA(M00_AXIS_TDATA),            // output wire [63 : 0] M00_AXIS_TDATA
@@ -1040,8 +997,8 @@ mig_7series_1 u_mig_7series_1 (
     .s_axi_awready                  (m_axi_vfifo_awready),  // output			s_axi_awready
 
     // Slave Interface Write Data Ports
-    .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [63:0]			s_axi_wdata
-    .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [7:0]			s_axi_wstrb
+    .s_axi_wdata                    (m_axi_vfifo_wdata),  // input [127:0]			s_axi_wdata
+    .s_axi_wstrb                    (m_axi_vfifo_wstrb),  // input [15:0]			s_axi_wstrb
     .s_axi_wlast                    (m_axi_vfifo_wlast),  // input			s_axi_wlast
     .s_axi_wvalid                   (m_axi_vfifo_wvalid),  // input			s_axi_wvalid
     .s_axi_wready                   (m_axi_vfifo_wready),  // output			s_axi_wready
@@ -1117,6 +1074,73 @@ end
 always @(posedge sysclk_bufg) begin
  sysclk_reset <= ~sysclk_resetn;
 end
+
+
+ila_axis_adc ila_axis_adc_inst(
+    //.clk (ui_clk),
+    .clk(sysclk_bufg),
+     .probe0(axis_adc_tdata),
+     .probe1(axis_adc_tvalid),
+     .probe2(axis_adc_tready),
+     .probe3(axis_adc_tlast),    //wire axis_adc_tlast;
+     .probe4(axis_adc_tkeep),   //wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tkeep;
+     .probe5(axis_adc_tid),     //wire [ADC_AXI_TID_WIDTH-1:0]    axis_adc_tid;
+     .probe6(axis_adc_tdest),   //wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
+     .probe7(axis_adc_tuser),   //wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
+     .probe8(axis_adc_tstrb)    //wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+);
+
+ila_axis_adc_pkt ila_axis_adc_pkt_inst(
+    .clk (gtx_clk_bufg),
+     .probe0(adc_pkt_axis_tdata),
+     .probe1(adc_pkt_axis_tvalid),
+     .probe2(adc_pkt_axis_tready),
+     .probe3(adc_pkt_axis_tlast),//wire                adc_pkt_axis_tlast;
+     .probe4(adc_pkt_axis_tuser),//wire                adc_pkt_axis_tuser;
+     .probe5(adc_pkt_axis_tstrb),//wire [0:0]          adc_pkt_axis_tstrb;
+     .probe6(adc_pkt_axis_tkeep),//wire [0:0]          adc_pkt_axis_tkeep;
+     .probe7(adc_pkt_axis_tid),//wire [0:0]          adc_pkt_axis_tid;
+     .probe8(adc_pkt_axis_tdest)//wire [0:0]          adc_pkt_axis_tdest;
+);
+
+ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
+    // .clk (ui_clk),
+    .clk (sysclk_bufg),              // input wire M00_AXIS_ACLK
+     .probe0(M00_AXIS_TDATA),
+     .probe1(M00_AXIS_TKEEP),
+     .probe2(M00_AXIS_TSTRB),
+     .probe3(M00_AXIS_TVALID),
+     .probe4(M00_AXIS_TREADY),
+     .probe5(M00_AXIS_TLAST),
+     .probe6(M00_AXIS_TID),
+     .probe7(M00_AXIS_TDEST),
+     .probe8(M00_FIFO_DATA_COUNT)
+);
+
+ila_axis_vfifo   ila_axis_vfifo_inst(
+    .clk(ui_clk),
+    .probe0(vfifo_mm2s_channel_full),
+    .probe1(s_axis_vfifo_tdata),
+    .probe2(s_axis_vfifo_tkeep),
+    .probe3(s_axis_vfifo_tstrb),
+    .probe4(s_axis_vfifo_tvalid),
+    .probe5(s_axis_vfifo_tready),
+    .probe6(s_axis_vfifo_tlast),
+    .probe7(s_axis_vfifo_tid),
+    .probe8(s_axis_vfifo_tdest),
+    .probe9(m_axis_vfifo_tdata),
+    .probe10(m_axis_vfifo_tkeep),
+    .probe11(m_axis_vfifo_tstrb),
+    .probe12(m_axis_vfifo_tvalid),
+    .probe13(m_axis_vfifo_tready),
+    .probe14(m_axis_vfifo_tlast),
+    .probe15(m_axis_vfifo_tid),
+    .probe16(m_axis_vfifo_tdest),
+    .probe17(vfifo_s2mm_channel_full),    // output wire [1 : 0] vfifo_s2mm_channel_full
+    .probe18(vfifo_mm2s_channel_empty),  // output wire [1 : 0] vfifo_mm2s_channel_empty
+    .probe19(vfifo_idle)                // output wire [1 : 0]
+);
+
  
  
 endmodule

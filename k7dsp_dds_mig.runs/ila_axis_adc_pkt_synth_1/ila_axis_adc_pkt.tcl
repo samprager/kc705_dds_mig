@@ -7,17 +7,17 @@
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Labtools 27-147} -limit 4294967295
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7k325tffg900-2
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:kc705:part0:1.0 [current_project]
 set_param project.compositeFile.enableAutoGeneration 0
 set_property default_lib xil_defaultlib [current_project]
 
-read_ip d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.xci
+read_ip D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.xci
+set_property used_in_implementation false [get_files d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.dcp]
+set_property used_in_implementation false [get_files -all d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.dcp]
 set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property is_locked true [get_files d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.xci]
+set_property is_locked true [get_files D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.xci]
 
 set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.cache/wt [current_project]
@@ -29,11 +29,11 @@ rename_ref -prefix_all ila_axis_adc_pkt_
 write_checkpoint -noxdef ila_axis_adc_pkt.dcp
 report_utilization -file ila_axis_adc_pkt_utilization_synth.rpt -pb ila_axis_adc_pkt_utilization_synth.pb
 if { [catch {
-  file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/ila_axis_adc_pkt_synth_1/ila_axis_adc_pkt.dcp d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.dcp
-  write_verilog -force -mode synth_stub d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_stub.v
-  write_vhdl -force -mode synth_stub d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_stub.vhdl
-  write_verilog -force -mode funcsim d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_funcsim.v
-  write_vhdl -force -mode funcsim d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_funcsim.vhdl
+  file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/ila_axis_adc_pkt_synth_1/ila_axis_adc_pkt.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt.dcp
+  write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_stub.v
+  write_vhdl -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_stub.vhdl
+  write_verilog -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_funcsim.v
+  write_vhdl -force -mode funcsim D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/ila_axis_adc_pkt/ila_axis_adc_pkt_funcsim.vhdl
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
   return -code error

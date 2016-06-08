@@ -248,7 +248,9 @@ COMPONENT ila
     probe6  : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
     --probe7  : IN STD_LOGIC_VECTOR(13 DOWNTO 0)
     probe7  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    probe8  : IN STD_LOGIC_VECTOR(15 DOWNTO 0)
+    probe8  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    probe9  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    probe10  : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END COMPONENT;
 
@@ -592,13 +594,15 @@ signal baseband_out_valid_sig_dly1_1	: std_logic_vector(0 downto 0) := "1";
 
 signal adc_data_out_i_sig : std_logic_vector(15 downto 0);
 signal adc_data_out_q_sig : std_logic_vector(15 downto 0);
-signal adc_data_out_sig : std_logic_vector(63 downto 0);
+signal adc_data_out_ila_sig : std_logic_vector(63 downto 0);
 signal adc_data_out_valid_sig : std_logic;
+signal adc_data_out_valid_ila_sig : std_logic_vector(0 downto 0);
 
 signal adc_test_pattern_i  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_q  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_iq  :std_logic_vector(31 downto 0);
-signal gen_adc_test_pattern : std_logic := '1';
+signal gen_adc_test_pattern : std_logic;
+signal adc_test_pattern_valid : std_logic;
 
 
 attribute mark_debug : string;
@@ -610,7 +614,8 @@ attribute mark_debug of baseband_out_valid_sig_dly1: signal is "TRUE";
 attribute mark_debug of adc_chb_re_mux_polarity: signal is "TRUE";
 attribute mark_debug of adc_dout_q_245_76_MSPS: signal is "TRUE";
 
-attribute mark_debug of adc_data_out_sig: signal is "TRUE";
+attribute mark_debug of adc_data_out_valid_ila_sig: signal is "TRUE";
+attribute mark_debug of adc_data_out_ila_sig: signal is "TRUE";
 --attribute mark_debug of adc_data_out_i_sig: signal is "TRUE";
 --attribute mark_debug of adc_data_out_q_sig: signal is "TRUE";
 
@@ -707,12 +712,8 @@ attribute keep of adc_dout_q_245_76_MSPS: signal is "TRUE";
 attribute keep of ILA_ADC_cali_inst_trig1: signal is "TRUE";
 attribute keep of ILA_ADC_cali_inst_trig2: signal is "TRUE";
 
-attribute keep of adc_data_out_sig: signal is "TRUE";
---attribute keep of adc_data_out_i_sig: signal is "TRUE";
---attribute keep of adc_data_out_q_sig: signal is "TRUE";
-
---attribute keep of ILA_ADC_ddr_inst_trig1: signal is "TRUE";
---attribute keep of ILA_ADC_cali_inst_trig2: signal is "TRUE";
+attribute keep of adc_data_out_ila_sig: signal is "TRUE";
+attribute keep of adc_data_out_valid_ila_sig: signal is "TRUE";
 
 ---------------------
 ----------------------------------------------------------------------------------------------------
@@ -1464,18 +1465,22 @@ begin
     end if;
 end process;
 
-generate_test_pattern: process (rst,clk_245_76MHz)
+generate_test_pattern: process (clk_245_76MHz)
 begin
   if rising_edge(clk_245_76MHz) then
     if (rst = '1') then
       adc_test_pattern_i <= (others=>'0');
       adc_test_pattern_q <= (8=> '1',others=>'0');
       adc_test_pattern_iq <= (others=>'0');
-    elsif (gen_adc_test_pattern = '1') then
+      adc_test_pattern_valid <= '0';
+    elsif (gen_adc_test_pattern = '1' and mmcm_adac_locked = '1') then
       adc_test_pattern_i(7 downto 0) <= adc_test_pattern_i(7 downto 0) + '1';
       adc_test_pattern_q(7 downto 0) <= adc_test_pattern_q(7 downto 0) + '1';
       adc_test_pattern_iq <= adc_test_pattern_iq + '1';
-		end if;
+      adc_test_pattern_valid <= '1';
+    else 
+      adc_test_pattern_valid <= '0';    
+    end if;
   end if;
 end process generate_test_pattern;
 
@@ -1487,7 +1492,7 @@ begin
       --adc_data_out_q_sig <= adc_test_pattern_q;
       adc_data_out_i_sig <= adc_test_pattern_iq(31 downto 16);
       adc_data_out_q_sig <= adc_test_pattern_iq(15 downto 0);
-      adc_data_out_valid_sig <= '1';
+      adc_data_out_valid_sig <= adc_test_pattern_valid;
     else
       adc_data_out_i_sig <= adc_dout_i;
       adc_data_out_q_sig <= adc_dout_q;
@@ -1797,7 +1802,7 @@ adc_out_dac_in <= gpio_dip_sw(1);
 external_clock <= gpio_dip_sw(2);
 ddc_duc_bypass <= gpio_dip_sw(3);
 
---gen_adc_test_pattern <= gpio_dip_sw(3) AND gpio_dip_sw(2);
+gen_adc_test_pattern <= gpio_dip_sw(3) AND gpio_dip_sw(2);
 
 ----------------------------------------------------------------------------------------------------
 -- IDELAYCTRL
@@ -1926,18 +1931,16 @@ end process DAC_re_clock_to_245_76_MHz;
 register_ADC_out: process(clk_245_76MHz)
 begin
 	if (rising_edge(clk_245_76MHz)) then
-         --adc_data_out_valid_sig <= baseband_out_valid_sig;
-         adc_data_out_sig(63 downto 48)  <= dac_din_i;
-         adc_data_out_sig(47 downto 32)  <= dac_din_q;
-         --adc_data_out_sig(31 downto 16)  <= baseband_out_i_sig;
-         --adc_data_out_sig(15 downto 0)  <= baseband_out_q_sig;
-         adc_data_out_sig(31 downto 16)  <= adc_dout_i;
-         adc_data_out_sig(15 downto 0)  <= adc_dout_q;
+         adc_data_out_valid_ila_sig(0) <= adc_data_out_valid_sig;
+         adc_data_out_ila_sig(63 downto 48)  <= dac_din_i;
+         adc_data_out_ila_sig(47 downto 32)  <= dac_din_q;
+         --adc_data_out_ila_sig(31 downto 16)  <= baseband_out_i_sig;
+         --adc_data_out_ila_sig(15 downto 0)  <= baseband_out_q_sig;
+         adc_data_out_ila_sig(31 downto 16)  <= adc_data_out_i_sig;
+         adc_data_out_ila_sig(15 downto 0)  <= adc_data_out_q_sig;
     end if;
 end process register_ADC_out;
 
---adc_data_out_i_sig <= adc_data_out_sig(31 downto 16);
---adc_data_out_q_sig <= adc_data_out_sig(15 downto 0);
 ----------------------------------------------------------------------------------------------------
 -- ILA DAC to monitor digital data driven to DAC3283
 ----------------------------------------------------------------------------------------------------
@@ -1961,8 +1964,13 @@ ila_dac_baseband_ADC : ila
     probe6  => adc_dout_i_245_76_MSPS,               -- 14-bit
    -- probe7  => "00000000000000"               -- 14-bit
     --probe7  => "0000000000000000"               -- 16-bit
-    probe7 => adc_data_out_sig(31 downto 16),                       -- 16 bit i channel
-    probe8 => adc_data_out_sig(15 downto 0)                       -- 16 bit q channel
+    --probe7 => adc_data_out_ila_sig(31 downto 16),                       -- 16 bit i channel
+    --probe8 => adc_data_out_ila_sig(15 downto 0),                       -- 16 bit q channel
+    probe7 => adc_data_out_ila_sig(63 downto 48),                       -- 16 bit dac i channel
+    probe8 => adc_data_out_ila_sig(47 downto 32),                       -- 16 bit dac q channel
+    probe9 => adc_data_out_ila_sig(31 downto 0),
+    probe10 => adc_data_out_valid_ila_sig
+
    );
     baseband_out_valid_sig_dly1_1(0) <= baseband_out_valid_sig_dly1;
     adc_chb_re_mux_polarity_1(0) <= adc_chb_re_mux_polarity;
