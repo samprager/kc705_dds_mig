@@ -58,7 +58,8 @@ localparam     IDLE        = 3'b000,
                OVERHEAD    = 3'b100;
 
 // work out the adjustment required to get the right packet size.
-localparam     PKT_ADJUST  = (ENABLE_VLAN) ? 22 : 18;
+//localparam     PKT_ADJUST  = (ENABLE_VLAN) ? 22 : 18;
+localparam     PKT_ADJUST  = (ENABLE_VLAN) ? 24 : 20;
 
 // generate the vlan fields
 localparam     VLAN_HEADER = {8'h81, 8'h00, VLAN_PRIORITY, 1'b0, VLAN_ID};
@@ -336,7 +337,8 @@ begin
       adc_axis_tready_int <= 0;
    end
    else begin
-      if (gen_state == SIZE & header_count == 0)
+   //   if (gen_state == SIZE & header_count == 0)
+     if (gen_state == SIZE & align_count == 0)
          adc_axis_tready_int <= 1;
       else if (gen_state == DATA & next_gen_state == DATA)
          adc_axis_tready_int <= 1;
