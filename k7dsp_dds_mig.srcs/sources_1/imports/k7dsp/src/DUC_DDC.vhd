@@ -253,7 +253,7 @@ constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',others=>'0
 
 -- Push the initial freq beyon baseband
 -- min_freq = freq_offset*fclock/2^n
-constant freq_offset  :std_logic_vector(31 downto 0) := (12=>'1',others=>'0'); 
+constant freq_offset  :std_logic_vector(31 downto 0) := (4=>'1',others=>'0'); 
 --constant freq_offset  :std_logic_vector(31 downto 0) := (others=>'0');
 
 

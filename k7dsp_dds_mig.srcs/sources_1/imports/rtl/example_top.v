@@ -584,10 +584,10 @@ kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
   .activity_flashn        (activity_flashn)
 );
 //assign enable_adc_pkt = 1'b1;
-assign enable_adc_pkt = !gpio_dip_sw[0]&gpio_dip_sw[1];
-assign gen_tx_data = gpio_dip_sw[1];
-assign chk_tx_data = gpio_dip_sw[0];
-assign mac_speed = {gpio_dip_sw[2],gpio_dip_sw[3]};
+assign enable_adc_pkt = gpio_dip_sw[1];//!gpio_dip_sw[0]&gpio_dip_sw[1];
+assign gen_tx_data = 1'b0; //gpio_dip_sw[1];
+assign chk_tx_data = 1'b0; //gpio_dip_sw[0];
+assign mac_speed = {gpio_dip_sw[0],~gpio_dip_sw[0]};//{gpio_dip_sw[2],gpio_dip_sw[3]};
 assign pause_req_s = gpio_sw_s;      //input gpio switch s
 assign update_speed = gpio_sw_c;      //input gpio switch c
 assign config_board = gpio_sw_w;      //input gpio switch w

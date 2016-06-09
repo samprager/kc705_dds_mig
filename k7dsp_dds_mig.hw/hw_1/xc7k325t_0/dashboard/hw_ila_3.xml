@@ -4,8 +4,8 @@
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
             <GadgetContainer boxAxis="1" count="1" height="443"
-                layout="JideBoxLayout" vgap="6" width="33">
-                <Gadget height="295" key="Basic Trigger Setup" width="33">
+                layout="JideBoxLayout" vgap="6" width="219">
+                <Gadget height="295" key="Basic Trigger Setup" width="219">
                     <Probe name="adc_data_out_probe[63:0]"/>
                 </Gadget>
                 <Settings/>
