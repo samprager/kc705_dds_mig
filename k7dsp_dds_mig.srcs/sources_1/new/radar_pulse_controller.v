@@ -25,29 +25,33 @@ module radar_pulse_controller #(
   input aclk,
   input aresetn,
 
-  input gpio_sw_c,
-  input gpio_sw_e,
-  input gpio_sw_n,
-  input gpio_sw_s,
-  input gpio_sw_w,
-  input [7:0]  gpio_dip_sw,
-  output [7:0]  gpio_led,
+  // input gpio_sw_c,
+  // input gpio_sw_e,
+  // input gpio_sw_n,
+  // input gpio_sw_s,
+  // input gpio_sw_w,
+  // input [7:0]  gpio_dip_sw,
+  // output [7:0]  gpio_led,
 
-  input clk_mig,              // 200 MHZ OR 100 MHz
-  input mig_init_calib_complete,
+//  input clk_mig,              // 200 MHZ OR 100 MHz
+//  input mig_init_calib_complete,
 
   input clk_fmc150,           // 245.76 MHz
   input fmc150_status_vector, // {pll_status, mmcm_adac_locked, mmcm_locked, ADC_calibration_good};
 
-  input chirp_ready,
-  input chirp_done,
-  output chirp_enable,
-  output adc_enable,
+  input chirp_ready,          // continuous high when dac ready
+  input chirp_active,         // continuous high while chirping
+  input chirp_done,           // single pulse when chirp finished
+  output chirp_init,          // single pulse to initiate chirp
+  output chirp_enable,        // continuous high while chirp enabled
+  output adc_enable          // high while adc samples saved
 
   input clk_eth,              // gtx_clk : 125 MHz
-  input data_tx_ready,
-  input data_tx_done,
-  output data_tx_enable,
+  input data_tx_ready,        // high when ready to transmit
+  input data_tx_active,       // high while data being transmitted
+  input data_tx_done,         // single pule when done transmitting
+  output data_tx_init,        // single pulse to start tx data
+  output data_tx_enable,      // continuous high while transmit enabled
 
 );
 
@@ -71,30 +75,18 @@ reg [31:0] adc_collect_count;
 reg [31:0] process_count
 
 reg chirp_ready_int;
+reg chirp_active_int;
 reg chirp_done_int;
+reg chirp_init_int;
 reg chirp_enable_int;
 reg adc_enable_int;
 
 reg data_tx_ready_int;
+reg data_tx_active_int
 reg data_tx_done_int;
+reg data_tx_init_int;
 reg data_tx_enable_int;
 
-
-
-always @(posedge clk_fmc150)
-begin
-  if(~aresetn) begin
-    chirp_enable_int <= 1'b0;
-    adc_enable_int <= 1'b0;
-  end
-end
-
-always @(posedge clk_eth)
-begin
-  if(~aresetn) begin
-    data_tx_enable_int <= 1'b0;
-  end
-end
 
 end
 always @(posedge aclk)
@@ -137,18 +129,18 @@ begin
     overhead_count <= 2;
 end
 
-always @(gen_state or chirp_count or chirp_done or chirp_ready or data_tx_ready or data_tx_done or
-         mig_init_calib_complete or overhead_count or chirp_enable_int or adc_enable_int or data_tx_enable_int or
-         fmc150_status_vector or adc_collect_count or process_count)
+always @(gen_state or chirp_count or chirp_done or chirp_ready or
+          data_tx_ready or data_tx_done or overhead_count or
+          fmc150_status_vector or adc_collect_count or process_count)
 begin
    next_gen_state = gen_state;
    case (gen_state)
       IDLE : begin
-         if (chirp_ready & (&fmc150_status_vector) & mig_init_calib_complete)
+         if (chirp_ready & (&fmc150_status_vector))
             next_gen_state = ACTIVE;
       end
       ACTIVE : begin
-         if (chirp_ready & (~|chirp_count) & (&fmc150_status_vector))
+         if (chirp_ready & (chirp_count == 0) & (&fmc150_status_vector))
             next_gen_state = CHIRP;
       end
       CHIRP : begin
@@ -156,28 +148,22 @@ begin
             next_gen_state = COLLECT;
       end
       COLLECT : begin
-         // when we enter SIZE header count is initially all 1's
-         // it is cleared when we enter SIZE which gives us the required two cycles in this state
-         if (adc_collect_count == 0)
+         if (adc_collect_count == 1)
             next_gen_state = PROCESS;
       end
       PROCESS : begin
-         // when an AVB AV channel we want to keep valid asserted to indicate a continuous feed of data
-         //   the AVB module is then enitirely resposible for the bandwidth
          if (process_count == 1) begin
-            next_gen_state = WAIT;
+            //next_gen_state = WAIT;
+            next_gen_state = OVERHEAD;
          end
       end
+      // Skip Transmit Control for now
       WAIT : begin
-         // when an AVB AV channel we want to keep valid asserted to indicate a continuous feed of data
-         //   the AVB module is then enitirely resposible for the bandwidth
          if (data_tx_ready) begin
             next_gen_state = TRANSMIT;
          end
       end
       TRANSMIT : begin
-         // when an AVB AV channel we want to keep valid asserted to indicate a continuous feed of data
-         //   the AVB module is then enitirely resposible for the bandwidth
          if (data_tx_done) begin
             next_gen_state = OVERHEAD;
          end
@@ -206,11 +192,21 @@ end
 always @(posedge clk_fmc150)
 begin
   if(~aresetn)
-    chirp_enable_int <= 0;
+    chirp_enable_int <= 1'b0;
   else if (gen_state ==  CHIRP)
     chirp_enable_int <= 1'b1;
   else
     chirp_enable_int <= 1'b0;
+end
+
+always @(posedge clk_fmc150)
+begin
+  if(~aresetn)
+    chirp_init_int <= 1'b0;
+  else if (gen_state ==  CHIRP & !chirp_active)
+    chirp_init_int <= 1'b1;
+  else
+    chirp_init_int <= 1'b0;
 end
 
 always @(posedge clk_fmc150)
@@ -233,8 +229,20 @@ begin
     data_tx_enable_int <= 1'b0;
 end
 
+always @(posedge clk_eth)
+begin
+  if(~aresetn)
+    data_tx_init_int <= 1'b0;
+  else if (gen_state == TRANSMIT & !data_tx_active)
+    data_tx_init_int <= 1'b1;
+  else
+    data_tx_init_int <= 1'b0;
+end
+
 assign chirp_enable = chirp_enable_int;
+assign chirp_init = chirp_init_int;
 assign adc_enable = adc_enable_int;
 assign data_tx_enable = data_tx_enable_int;
+assign data_tx_init = data_tx_init_int;
 
 endmodule

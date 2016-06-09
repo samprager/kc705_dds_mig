@@ -147,6 +147,11 @@ port (
   adc_data_out_valid : out std_logic;
 
   fmc150_status_vector : out std_logic_vector(3 downto 0);
+  chirp_ready  : out std_logic;
+  chirp_done  : out std_logic;
+  chirp_active  : out std_logic;
+  chirp_init  : in std_logic;
+  chirp_enable : in std_logic;
 
   clk_out_245_76MHz     :out std_logic;
   clk_out_491_52MHz     :out std_logic;
@@ -413,7 +418,13 @@ port (
 
 	duc_dcc_route_ctrl	: in std_logic_vector(2 downto 0);
 	test_mode				: in std_logic;
-	gpio_sw_c				: in std_logic
+	gpio_sw_c				: in std_logic;
+
+  chirp_ready  : out std_logic;
+  chirp_done  : out std_logic;
+  chirp_active  : out std_logic;
+  chirp_init  : in std_logic;
+  chirp_enable : in std_logic
 );
 end component duc_ddc;
 
@@ -1865,7 +1876,13 @@ port map(
 	baseband_out_valid	=> baseband_out_valid_sig,
 	duc_dcc_route_ctrl	=> duc_dcc_route_ctrl_sig,			-- control of various mux'es within duc_ddc module
 	test_mode				=> '1',									-- set to '1' for test_mode to select dds or impulse, set to '0' to select baseband-side input to duc
-	gpio_sw_c				=> gpio_sw_c							-- gpio on baseboard triggers impulse generator
+	gpio_sw_c				=> gpio_sw_c,							-- gpio on baseboard triggers impulse generator
+
+  chirp_ready  =>  chirp_ready,
+  chirp_done  => chirp_done,
+  chirp_active  => chirp_active,
+  chirp_init  => chirp_init,
+  chirp_enable => chirp_enable
 );
 
 duc_dcc_route_ctrl_sig(0) 	<= digital_mode;
@@ -1980,7 +1997,6 @@ ila_dac_baseband_ADC : ila
     probe8 => adc_data_out_ila_sig(47 downto 32),                       -- 16 bit dac q channel
     probe9 => adc_data_out_ila_sig(31 downto 0),
     probe10 => adc_data_out_valid_ila_sig
-
    );
     baseband_out_valid_sig_dly1_1(0) <= baseband_out_valid_sig_dly1;
     adc_chb_re_mux_polarity_1(0) <= adc_chb_re_mux_polarity;

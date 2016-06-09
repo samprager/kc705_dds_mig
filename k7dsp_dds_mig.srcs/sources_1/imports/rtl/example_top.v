@@ -276,7 +276,7 @@ function integer clogb2 (input integer size);
   localparam ADC_AXI_STREAM_ID = 1'b0;
   localparam ADC_AXI_STREAM_DEST = 1'b1;
 
-//wire                          clk_245_76MHz;
+  wire                          clk_245_76MHz;
 //wire                          clk_491_52MHz;
 
 //////////////////////////////////////////
@@ -384,7 +384,20 @@ wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
 wire                            axis_adc_tready;
 wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
 
+// Control Module Signals
 wire [3:0] fmc150_status_vector;
+wire chirp_ready;          // continuous high when dac ready
+wire chirp_active;         // continuous high while chirping
+wire chirp_done;           // single pulse when chirp finished
+wire chirp_init;          // single pulse to initiate chirp
+wire chirp_enable;        // continuous high while chirp enabled
+wire adc_enable;          // high while adc samples saved
+
+wire data_tx_ready;        // high when ready to transmit
+wire data_tx_active;       // high while data being transmitted
+wire data_tx_done;         // single pule when done transmitting
+wire data_tx_init;        // single pulse to start tx data
+wire data_tx_enable;      // continuous high while transmit enabled
 
 //////////////////////////////////////////
 // 1m2s AXIS Interconnect Unconnected wires
@@ -510,6 +523,37 @@ reg     vfifo_mm2s_ch1_full;
 // for connecting the memory controller to system.
 //***************************************************************************
 
+radar_pulse_controller radar_pulse_controller_inst (
+  .aclk(sysclk_bufg),
+  .aresetn(sysclk_resetn),
+
+  // input gpio_sw_c,
+  // input gpio_sw_e,
+  // input gpio_sw_n,
+  // input gpio_sw_s,
+  // input gpio_sw_w,
+  // input [7:0]  gpio_dip_sw,
+  // output [7:0]  gpio_led,
+
+  //input clk_mig,              // 200 MHZ OR 100 MHz
+  //input mig_init_calib_complete (init_calib_complete),
+
+  .clk_fmc150 (clk_245_76MHz),           // 245.76 MHz
+  .fmc150_status_vector (fmc150_status_vector), // {pll_status, mmcm_adac_locked, mmcm_locked, ADC_calibration_good};
+  .chirp_ready (chirp_ready),
+  .chirp_done (chirp_done),
+  .chirp_active (chirp_active),
+  .chirp_init  (chirp_init),
+  .chirp_enable  (chirp_enable),
+  .adc_enable   (adc_enable),
+
+  .clk_eth (gtx_clk_bufg),              // gtx_clk : 125 MHz
+  .data_tx_ready  (1'b1),        // high when ready to transmit
+  .data_tx_active (1'b1),       // high while data being transmitted
+  .data_tx_done   (1'b0),         // single pule when done transmitting
+  .data_tx_init (data_tx_init),        // single pulse to start tx data
+  .data_tx_enable (data_tx_enable)     // continuous high while transmit enabled
+);
 
 
 kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
@@ -681,9 +725,14 @@ fmc150_dac_adc_inst
      .axis_adc_tstrb                      (axis_adc_tstrb),
 
      .fmc150_status_vector                (fmc150_status_vector),
+     .chirp_ready                         (chirp_ready),
+     .chirp_done                          (chirp_done),
+     .chirp_active                        (chirp_active),
+     .chirp_init                          (chirp_init),
+     .chirp_enable                        (chirp_enable),
+     .adc_enable                          (adc_enable),
 
-
-  //   .clk_out_245_76MHz                        (clk_245_76MHz),
+     .clk_out_245_76MHz                        (clk_245_76MHz),
   //   .clk_out_491_52MHz                       (clk_491_52MHz),
 
 

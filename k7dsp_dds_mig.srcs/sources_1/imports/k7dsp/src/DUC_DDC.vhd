@@ -3,9 +3,9 @@
 -- MiXIL, University of Southern Calfiornia
 -- Chirp Generation using DUC_DDC.vhd
 
-  
+
   --------------DDS Chirp Generation Parameters-------------------
-  -- period = 4.17 us, BW = 46.08 MHz 
+  -- period = 4.17 us, BW = 46.08 MHz
   -- 491.52 Mhz clock, 4096 samples, 16 bit phase accumulator (n = 16)
   -- tuning_word_coeff = 3      for BW = 46.08 MHz (2048 samples)
   -- tuning_word_coeff = 4      for BW = 61.44 MHz (2048 samples)
@@ -14,9 +14,9 @@
   -- Calculated Using:
   --    tuning_word_coeff = BW*(2^n)/(num_samples*fClock)
   -- Taken From:
-  --    tuning_word_coeff = period*slope*(2^n)/(num_samples*fClock)  
+  --    tuning_word_coeff = period*slope*(2^n)/(num_samples*fClock)
   -- Where:
-  --    slope = BW/period       
+  --    slope = BW/period
   --    num_samples = period*fclock
   --
   -- Note: Derived From:
@@ -89,7 +89,13 @@ port (
 
 	DUC_DCC_ROUTE_CTRL	: in std_logic_vector(2 downto 0);
 	TEST_MODE				: in std_logic;
-	GPIO_SW_C				: in std_logic
+	GPIO_SW_C				: in std_logic;
+
+  chirp_ready  : out std_logic;
+  chirp_done  : out std_logic;
+  chirp_active  : out std_logic;
+  chirp_init  : in std_logic;
+  chirp_enable : in std_logic
 );
 end DUC_DDC;
 
@@ -212,9 +218,13 @@ signal dds_dout_q        : std_logic_vector(15 downto 0);
 signal dds_dout_i_q      : std_logic_vector(31 downto 0);
 
 -- For Chirp---------------------------------
---signal chirp_begin : std_logic := '0';
---signal chirp_finish : std_logic := '0';
---signal chirp_busy : std_logic := '0';
+
+signal chirp_ready_r  :  std_logic;
+signal chirp_done_r  :   std_logic;
+signal chirp_active_r  :  std_logic;
+signal chirp_init_r  :   std_logic;
+signal chirp_enable_r :  std_logic;
+
 signal s_axis_phase_tvalid, m_axis_data_tvalid : std_logic;
 --signal phase_acc  : std_logic_vector(15 downto 0) := (others=>'0');
 signal chirp_i              : std_logic_vector(15 downto 0);
@@ -235,25 +245,24 @@ signal phase_acc_long  :std_logic_vector(31 downto 0) := (others=>'0');
 signal chirp_count  :std_logic_vector(11 downto 0) := (others=>'0');
 
 -- tuning word coeff = 3 for 46.08 MHz BW, and 4 for 61.44 MHz BW with 2048 samples
---constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',1=>'1',others=>'0');  
+--constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',1=>'1',others=>'0');
 --constant tuning_word_coeff :std_logic_vector(31 downto 0) := (2=>'1',others=>'0');
 
 -- tuning word coeff = 1.5 for 46.08 MHz BW, and 2 for 61.44 MHz BW with 4096 samples
-constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',others=>'0');  
-
+constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',others=>'0');
 
 -- tuning word coeff = 6
---constant tuning_word_coeff :std_logic_vector(31 downto 0) := (1=> '1',2=>'1',others=>'0'); 
+--constant tuning_word_coeff :std_logic_vector(31 downto 0) := (1=> '1',2=>'1',others=>'0');
 
 -- Try doubling freq slope and number of samples. tuning word coeff = 6
 --constant tuning_word_coeff :std_logic_vector(31 downto 0) := (1=>'1',2=>'1',others=>'0');
 
 -- test tuning word coeff = 1. Note: must calculate BW
---constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',others=>'0'); 
+--constant tuning_word_coeff :std_logic_vector(31 downto 0) := (0=> '1',others=>'0');
 
 -- Push the initial freq beyon baseband
 -- min_freq = freq_offset*fclock/2^n
-constant freq_offset  :std_logic_vector(31 downto 0) := (4=>'1',others=>'0'); 
+constant freq_offset  :std_logic_vector(31 downto 0) := (4=>'1',others=>'0');
 --constant freq_offset  :std_logic_vector(31 downto 0) := (others=>'0');
 
 
@@ -293,6 +302,9 @@ ddc_duc_bypass <= DUC_DCC_ROUTE_CTRL(2);
 if_in_i_sig 		<= IF_IN_I;
 if_in_q_sig 		<= IF_IN_Q;
 if_in_valid_sig 	<= IF_IN_VALID;
+
+chirp_init_r  <= chirp_init;
+chirp_enable_r <= chirp_enable;
 
 ----------------------------------------------------------------------------------------------------
 -- Signal generation
@@ -370,7 +382,7 @@ port map (
   --aclken     => signal_vout_DDS,
   aclken        => '1',
   aclk       => clk,
- m_axis_data_tvalid => open,
+  m_axis_data_tvalid => open,
   s_axis_phase_tvalid => s_axis_phase_tvalid,
   s_axis_phase_tdata => dds_dout_chirp_phase,
   m_axis_data_tdata   => dds_dout_chirp_i_q
@@ -389,7 +401,7 @@ dds_dout_chirp_q <= dds_dout_chirp_i_q(15 downto 0);
 process(rst, clk2)
 begin
   if (rst = '1') then
-  
+
 	debounce_rst <= '0';
     debounce_cnt <= "0000000001111111";
 	imp_dout_i <= '0';
@@ -423,66 +435,95 @@ begin
 end process;
 
 ------------------ Chirp Generation -----------------------
-Chirp_Gen: process (rst,clk)    -- 491.52 MHz clock
+Chirp_Gen: process (clk)    -- 491.52 MHz clock
   begin
     if (rising_edge(clk)) then
       if (rst = '1') then
-        
+
        -- chirp_begin <= '0';
        -- chirp_finish <= '0';
        -- chirp_busy <= '0';
-        
+
         chirp_count <= (others => '0');
-        
+
         --tuning_word <= (others => '0');
         tuning_word(31 downto 0) <= freq_offset(31 downto 0);
         --phase_acc <= (others => '0');
         phase_acc_long <= (others => '0');
-        
-        
         chirp_i  <= (others => '0');
         chirp_q  <= (others => '0');
-        
-      else       
+
+        chirp_active_r <= '0';
+        chirp_done_r  <= '0';
+      elsif (chirp_init_r = '1' and chirp_active_r = '0') then
+        chirp_count <= (others => '0');
+        tuning_word(31 downto 0) <= freq_offset(31 downto 0);
+        phase_acc_long <= (others => '0');
+        chirp_i  <= (others => '0');
+        chirp_q  <= (others => '0');
+
+        chirp_active_r <= '1';
+        chirp_done_r <= '0';
+
+      elsif(chirp_active_r = '1') then
         chirp_count <= chirp_count + 1;
         phase_acc_long(31 downto 0) <= phase_acc_long(31 downto 0) + tuning_word(31 downto 0);
-        
+
         -- if phase_acc_long is unsigned use:
        -- phase_acc(15 downto 0) <= std_logic_vector(phase_acc_long(15 downto 0));
-       
+
        -- if phase_acc_long is std logic vector use:
        --phase_acc(15 downto 0) <= phase_acc_long(15 downto 0);
-        
+
         chirp_i <= dds_dout_chirp_i;
         chirp_q <= dds_dout_chirp_q;
-        
+
         -- For 2048 samples/ chirp
         --if (chirp_count(10 downto 0) = "11111111111") then
-        
+
         -- For 4096 samples/ chirp
         if (chirp_count(11 downto 0) = "111111111111") then
-        
+
             --tuning_word(31 downto 0) <= (others => '0');
-            
+
             tuning_word(31 downto 0) <= freq_offset(31 downto 0);
             -- Push the initial freq beyon baseband
-        --elsif (chirp_count(10 downto 0) = "00000000000") then  
-        --elsif (chirp_count(11 downto 0) = "000000000000") then 
-            --tuning_word(31 downto 0) <= freq_offset(31 downto 0); 
+        --elsif (chirp_count(10 downto 0) = "00000000000") then
+        --elsif (chirp_count(11 downto 0) = "000000000000") then
+            chirp_done_r <= '1';
+            chirp_active_r <= '0';
         else
             tuning_word(31 downto 0) <= tuning_word(31 downto 0) + tuning_word_coeff;
         end if;
-              
+      else
+          chirp_done_r <= '0';
       end if;
     end if;
   end process Chirp_Gen;
 
+process (clk)
+if (rising_edge(clk)) then
+  if(rst = '1') then
+    chirp_ready_r <= '0';
+  -- If DDC and DUC is bypassed connect the incoming ADC outputs right back out to the DAC inputs
+  elsif (ddc_duc_bypass = '1' and adc_out_dac_in = '0') then
+    chirp_ready_r <= '1';
+  -- otherwise DUC is used connect the DUC output to the DAC inputs
+  else
+    chirp_ready_r <= '0';
+  end if;
+end if;
+end process;
+
+chirp_ready <= chirp_ready_r;
+chirp_active <= chirp_active_r;
+chirp_done <= chirp_done_r;
 ----------------------------------------------------------------------------------------------------
 -- Make synchronous active-low reset in 245.76 MHz clock domain for DUC & DDC, after debounce-delay triggered by pushbutton-press
 -- User can substitute their own reset-triggering event in place of signal 'debounce_rst_r15_36MHz' if needed
 ----------------------------------------------------------------------------------------------------
 
-process (clk1)			
+process (clk1)
 begin
   if rising_edge(clk1) then
 	 debounce_rst_r <= debounce_rst_r15_36MHz;	-- synchronize reset pulse triggered from pushbutton into 245.76 MHz clock domain
@@ -511,10 +552,10 @@ begin
 			 else
 				--duc_din_i <= dds_dout_i;
 				--duc_din_q <= dds_dout_q;
-				
+
 				-- Connect the Chirp DDS output to DUC input in converter loopback mode
-				duc_din_i <= chirp_i;
-                duc_din_q <= chirp_q;
+				    duc_din_i <= chirp_i;
+            duc_din_q <= chirp_q;
 			 end if;
 		else
 			duc_din_i <= BASEBAND_IN_I;
@@ -542,10 +583,10 @@ port map (
   dout_q        => duc_dout_q,
   dds_vout 		 => dds_reset_duc,
   cmplx_mult_vout  => duc_vout,
-  duc_OE			 => duc_OE					-- this input connects to DUC complex mult TREADY IN 
+  duc_OE			 => duc_OE					-- this input connects to DUC complex mult TREADY IN
 													-- it is driven by DDC complex mult TVALID OUT form back-pressure from DDC to delay data output of DUC complex mixer until DDC DDS start-up has completed
   );
-  
+
 ----------------------------------------------------------------------------------------------------
 -- Output MUX - Select data connected to the physical DAC interface
 ----------------------------------------------------------------------------------------------------
@@ -561,9 +602,8 @@ begin
 		 else
 			--if_out_i_sig <= dds_dout_i;	-- connect DDS output directly to DAC @ 245.76 MSPS
 			--if_out_q_sig <= dds_dout_q;
-			
 			if_out_i_sig <= chirp_i;	-- connect Chirp DDS output directly to DAC @ 245.76 MSPS
-            if_out_q_sig <= chirp_q;
+      if_out_q_sig <= chirp_q;
 		 end if;
     -- otherwise DUC is used connect the DUC output to the DAC inputs
     else
@@ -596,7 +636,7 @@ begin
       ddc_din_q <= if_in_q_sig;
 		ddc_resetn  <= rst_duc_ddc_n;
     end if;
-	 
+
 	 rst_duc_ddc_n_r  <= rst_duc_ddc_n;	-- align resets to both DDC and DUC
   end if;
 end process RX_mux_to_DDC;
@@ -638,7 +678,7 @@ end process baseband_output_align;
 ------------------------------------------------------------------------------------------------------
 -- DDC Output MUX - Select data connected to the baseband-side output
 -- ... Re-clock DDC baseband output data from 491.52 MHz clock domain to 245.76 MHz clock domain
--- ... Note: Data can't be re-clocked any slower than 245.76 MHz clock domain because, 
+-- ... Note: Data can't be re-clocked any slower than 245.76 MHz clock domain because,
 -- ... although baseband DDC output data @ 15.36 MSPS, 'ddc_duc_bypass' may be active for 245.76 MSPS data from ADC
 ------------------------------------------------------------------------------------------------------
 baseband_output_mux: process (clk1)
