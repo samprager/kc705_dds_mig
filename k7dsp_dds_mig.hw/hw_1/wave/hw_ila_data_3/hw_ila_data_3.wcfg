@@ -3,112 +3,51 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_5/hw_ila_data_5.wdb" id="1">
+      <db_ref path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_3/hw_ila_data_3.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="9" />
    <wave_markers>
    </wave_markers>
-   <wvobject db_ref_id="1" fp_name="vfifo_mm2s_channel_full" type="array">
-      <obj_property name="ElementShortName">vfifo_mm2s_channel_full[1:0]</obj_property>
-      <obj_property name="ObjectShortName">vfifo_mm2s_channel_full[1:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tdata" type="array">
+      <obj_property name="ElementShortName">axis_adc_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tdata[63:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tdata" type="array">
-      <obj_property name="ElementShortName">s_axis_vfifo_tdata[63:0]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tdata[63:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tdest" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tdest</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tdest</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tid" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tid</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tkeep" type="array">
+      <obj_property name="ElementShortName">axis_adc_tkeep[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tkeep[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tkeep" type="array">
-      <obj_property name="ElementShortName">s_axis_vfifo_tkeep[6:0]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tkeep[6:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tlast" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tlast</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tlast</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tlast_1" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tlast_1</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tlast_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tready" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tready</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tready</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tstrb" type="array">
+      <obj_property name="ElementShortName">axis_adc_tstrb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tstrb[7:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tstrb" type="array">
-      <obj_property name="ElementShortName">s_axis_vfifo_tstrb[6:0]</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tstrb[6:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tvalid" type="logic">
-      <obj_property name="ElementShortName">s_axis_vfifo_tvalid</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tvalid</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tready" type="logic">
-      <obj_property name="ElementShortName">s_axis_vfifo_tready</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tready</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tlast" type="logic">
-      <obj_property name="ElementShortName">s_axis_vfifo_tlast</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tlast</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tid" type="logic">
-      <obj_property name="ElementShortName">s_axis_vfifo_tid</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tid</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="s_axis_vfifo_tdest" type="logic">
-      <obj_property name="ElementShortName">s_axis_vfifo_tdest</obj_property>
-      <obj_property name="ObjectShortName">s_axis_vfifo_tdest</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tdata" type="array">
-      <obj_property name="ElementShortName">m_axis_vfifo_tdata[63:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tdata[63:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tkeep" type="array">
-      <obj_property name="ElementShortName">m_axis_vfifo_tkeep[6:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tkeep[6:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tstrb" type="array">
-      <obj_property name="ElementShortName">m_axis_vfifo_tstrb[6:0]</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tstrb[6:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tvalid" type="logic">
-      <obj_property name="ElementShortName">m_axis_vfifo_tvalid</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tvalid</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tready" type="logic">
-      <obj_property name="ElementShortName">m_axis_vfifo_tready</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tready</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tlast" type="logic">
-      <obj_property name="ElementShortName">m_axis_vfifo_tlast</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tlast</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tid" type="logic">
-      <obj_property name="ElementShortName">m_axis_vfifo_tid</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tid</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="m_axis_vfifo_tdest" type="logic">
-      <obj_property name="ElementShortName">m_axis_vfifo_tdest</obj_property>
-      <obj_property name="ObjectShortName">m_axis_vfifo_tdest</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="vfifo_s2mm_channel_full" type="array">
-      <obj_property name="ElementShortName">vfifo_s2mm_channel_full[1:0]</obj_property>
-      <obj_property name="ObjectShortName">vfifo_s2mm_channel_full[1:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="vfifo_mm2s_channel_empty" type="array">
-      <obj_property name="ElementShortName">vfifo_mm2s_channel_empty[1:0]</obj_property>
-      <obj_property name="ObjectShortName">vfifo_mm2s_channel_empty[1:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="vfifo_idle" type="array">
-      <obj_property name="ElementShortName">vfifo_idle[1:0]</obj_property>
-      <obj_property name="ObjectShortName">vfifo_idle[1:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject db_ref_id="1" fp_name="axis_adc_tuser" type="logic">
+      <obj_property name="ElementShortName">axis_adc_tuser</obj_property>
+      <obj_property name="ObjectShortName">axis_adc_tuser</obj_property>
    </wvobject>
 </wave_config>

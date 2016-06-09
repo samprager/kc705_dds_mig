@@ -1201,7 +1201,7 @@
         <net name="M00_AXIS_TID"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq7&apos;hXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq7&apos;hXX"/>
@@ -1291,7 +1291,7 @@
         <net name="M00_FIFO_DATA_COUNT[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq32&apos;hXXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq32&apos;hXXXX_XXXX"/>
@@ -1773,7 +1773,7 @@
         <net name="adc_fifo_wr_en_probe"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq8&apos;hXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq8&apos;hXX"/>
@@ -3110,7 +3110,7 @@
         <net name="fmc150_dac_adc_inst/KC705_fmc150_inst/adc_data_out_valid_ila_sig"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq14&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq14&apos;hXXXX"/>
@@ -3149,7 +3149,7 @@
         <net name="fmc150_dac_adc_inst/KC705_fmc150_inst/baseband_out_valid_sig_dly1_1"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
@@ -3177,7 +3177,7 @@
         <net name="fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_i[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
@@ -3205,7 +3205,7 @@
         <net name="fmc150_dac_adc_inst/KC705_fmc150_inst/dac_din_q[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
@@ -3551,7 +3551,7 @@
         <net name="m_axis_vfifo_tid"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq16&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq16&apos;hXXXX"/>
@@ -5773,7 +5773,7 @@
         <net name="s_axi_wstrb_probe_9[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq128&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq128&apos;hXXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX_XXXX"/>
@@ -6087,7 +6087,7 @@
         <net name="s_axis_vfifo_tready"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq15&apos;hXXXX"/>
         <Option Id="COMPARE_VALUE.0" value="eq15&apos;hXXXX"/>
@@ -6222,7 +6222,7 @@
         <net name="trig_0[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq2&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq2&apos;hX"/>
@@ -6236,7 +6236,7 @@
         <net name="vfifo_idle[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq2&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq2&apos;hX"/>
@@ -6250,7 +6250,7 @@
         <net name="vfifo_mm2s_channel_empty[0]"/>
       </nets>
     </probe>
-    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+    <probe type="ila" busType="net" source="netlist" spec="ILA_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="CAPTURE_COMPARE_VALUE" value="eq2&apos;hX"/>
         <Option Id="COMPARE_VALUE.0" value="eq2&apos;hX"/>
@@ -6381,7 +6381,7 @@
         <net name="KC705_fmc150_inst/SPI_Register_Data_from_FM150[0]"/>
       </nets>
     </probe>
-    <probe type="vio_input" busType="net" source="netlist" spec="VIO_INPUT_V2_RT">
+    <probe type="vio_input" busType="bus" source="netlist" spec="VIO_INPUT_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="ACTIVITY_PERSISTENCE" value="SHORT"/>
         <Option Id="DISPLAY_HINT" value=""/>
@@ -6441,7 +6441,7 @@
         <net name="fmc150_dac_adc_inst/KC705_fmc150_inst/Busy_signal_1"/>
       </nets>
     </probe>
-    <probe type="vio_input" busType="bus" source="netlist" spec="VIO_INPUT_V2_RT">
+    <probe type="vio_input" busType="net" source="netlist" spec="VIO_INPUT_V2_RT">
       <probeOptions Id="DebugProbeParams">
         <Option Id="ACTIVITY_PERSISTENCE" value="SHORT"/>
         <Option Id="DISPLAY_HINT" value=""/>
