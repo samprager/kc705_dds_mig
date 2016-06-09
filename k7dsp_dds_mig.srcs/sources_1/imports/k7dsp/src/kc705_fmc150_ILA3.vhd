@@ -146,6 +146,8 @@ port (
   adc_data_out_q : out std_logic_vector(15 downto 0);
   adc_data_out_valid : out std_logic;
 
+  fmc150_status_vector : out std_logic_vector(3 downto 0);
+
   clk_out_245_76MHz     :out std_logic;
   clk_out_491_52MHz     :out std_logic;
 
@@ -1478,8 +1480,8 @@ begin
       adc_test_pattern_q(7 downto 0) <= adc_test_pattern_q(7 downto 0) + '1';
       adc_test_pattern_iq <= adc_test_pattern_iq + '1';
       adc_test_pattern_valid <= '1';
-    else 
-      adc_test_pattern_valid <= '0';    
+    else
+      adc_test_pattern_valid <= '0';
     end if;
   end if;
 end process generate_test_pattern;
@@ -1791,6 +1793,8 @@ gpio_led(4) <= pll_status;
 gpio_led(5) <= mmcm_adac_locked;
 gpio_led(6) <= mmcm_locked;
 gpio_led(7) <= ADC_calibration_good;
+
+fmc150_status_vector <= pll_status & mmcm_adac_locked & mmcm_locked & ADC_calibration_good;
 
 ADC_calibration_good <= ADC_chb_calibration_good AND ADC_cha_calibration_good;
 

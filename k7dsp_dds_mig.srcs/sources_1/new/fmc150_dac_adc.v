@@ -32,6 +32,8 @@ module fmc150_dac_adc #
   output [ADC_AXI_TUSER_WIDTH-1:0] axis_adc_tuser,
   input axis_adc_tready,
 
+  output [3:0] fmc150_status_vector,
+
 //  output clk_out_245_76MHz,
 //  output clk_out_491_52MHz,
 
@@ -140,6 +142,8 @@ module fmc150_dac_adc #
 
         .clk_out_245_76MHz  (clk_245_76MHz),
         .clk_out_491_52MHz  (clk_491_52MHz),
+
+        .fmc150_status_vector (fmc150_status_vector),
 
 
        .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705

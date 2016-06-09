@@ -207,7 +207,7 @@ module example_top #
     output        gtx_clk_bufg_out,
 
     output        phy_resetn,
-    
+
     // Serialised statistics vectors
     //------------------------------
     output        tx_statistics_s,  // output conflicts with adc serial pin ak25 - moved to hpc c30
@@ -253,28 +253,28 @@ function integer clogb2 (input integer size);
   endfunction
 
   localparam MIG_AXI_DATA_WIDTH = 128;
- 
-  localparam FIFO_M00_DEPTH = 2048;                     //data words    
-  localparam FIFO_M01_DEPTH = 8192;                     //data words     
-  localparam FIFO_M00_WIDTH = 8;                        // bytes     
-  localparam FIFO_M01_WIDTH = 1;                        // bytes 
-  localparam VFIFO_CH0_AR_WEIGHT = 4;    
-  localparam VFIFO_CH1_AR_WEIGHT = 2;          
+
+  localparam FIFO_M00_DEPTH = 2048;                     //data words
+  localparam FIFO_M01_DEPTH = 8192;                     //data words
+  localparam FIFO_M00_WIDTH = 8;                        // bytes
+  localparam FIFO_M01_WIDTH = 1;                        // bytes
+  localparam VFIFO_CH0_AR_WEIGHT = 4;
+  localparam VFIFO_CH1_AR_WEIGHT = 2;
   localparam VFIFO_BURST_SIZE = 1024;                   // bytes
   localparam VFIFO_CH0_AR_BURST = VFIFO_CH0_AR_WEIGHT*VFIFO_BURST_SIZE;
   localparam VFIFO_CH1_AR_BURST = VFIFO_CH1_AR_WEIGHT*VFIFO_BURST_SIZE;
-  
+
   // Space available in FIFO must be at least 2*AR_Burst before Programmable Full is deasserted
   localparam FIFO_M00_THRESHOLD = FIFO_M00_DEPTH - (2*VFIFO_CH0_AR_BURST)/FIFO_M00_WIDTH;
   localparam FIFO_M01_THRESHOLD = FIFO_M01_DEPTH - (2*VFIFO_CH1_AR_BURST)/FIFO_M01_WIDTH;
- 
-  
+
+
   localparam ADC_AXI_DATA_WIDTH = 64;
   localparam ADC_AXI_TID_WIDTH = 1;
   localparam ADC_AXI_TDEST_WIDTH = 1;
   localparam ADC_AXI_TUSER_WIDTH = 1;
   localparam ADC_AXI_STREAM_ID = 1'b0;
-  localparam ADC_AXI_STREAM_DEST = 1'b1;     
+  localparam ADC_AXI_STREAM_DEST = 1'b1;
 
 //wire                          clk_245_76MHz;
 //wire                          clk_491_52MHz;
@@ -383,6 +383,8 @@ wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
 wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
 wire                            axis_adc_tready;
 wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+
+wire [3:0] fmc150_status_vector;
 
 //////////////////////////////////////////
 // 1m2s AXIS Interconnect Unconnected wires
@@ -678,6 +680,8 @@ fmc150_dac_adc_inst
      .axis_adc_tready                     (axis_adc_tready),
      .axis_adc_tstrb                      (axis_adc_tstrb),
 
+     .fmc150_status_vector                (fmc150_status_vector),
+
 
   //   .clk_out_245_76MHz                        (clk_245_76MHz),
   //   .clk_out_491_52MHz                       (clk_491_52MHz),
@@ -910,7 +914,7 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       //.M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
       .M00_AXIS_ACLK(sysclk_bufg),              // input wire M00_AXIS_ACLK
       .M00_AXIS_ARESETN(sysclk_resetn),        // input wire M00_AXIS_ARESETN
-           
+
       .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
       .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
       .M00_AXIS_TDATA(M00_AXIS_TDATA),            // output wire [63 : 0] M00_AXIS_TDATA
@@ -1060,8 +1064,8 @@ assign m_axi_vfifo_rid = s_axi_mig_rid[0];
 assign dbg_dqs = 'b0;
 assign dbg_bit = 'b0;
 assign ddr3_vio_sync_out={dbg_dqs,dbg_bit};
-assign dbg_sel_pi_incdec='b0;          
-assign dbg_sel_po_incdec='b0;              
+assign dbg_sel_pi_incdec='b0;
+assign dbg_sel_po_incdec='b0;
 assign dbg_byte_sel= 'b0;             // input [3:0]            dbg_byte_sel
 assign dbg_pi_f_inc= 'b0;               // input            dbg_pi_f_inc
 assign dbg_pi_f_dec= 'b0;             // input            dbg_pi_f_dec
@@ -1143,6 +1147,6 @@ ila_axis_vfifo   ila_axis_vfifo_inst(
     .probe19(vfifo_idle)                // output wire [1 : 0]
 );
 
- 
- 
+
+
 endmodule
