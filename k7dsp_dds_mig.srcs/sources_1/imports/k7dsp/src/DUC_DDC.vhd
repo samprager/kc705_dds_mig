@@ -501,7 +501,7 @@ Chirp_Gen: process (clk)    -- 491.52 MHz clock
     end if;
   end process Chirp_Gen;
 
-process (clk)
+process (clk) begin
 if (rising_edge(clk)) then
   if(rst = '1') then
     chirp_ready_r <= '0';

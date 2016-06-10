@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module radar_pulse_controller #(
   parameter CLK_FREQ = 200,    // MHz
-  parameter CHIRP_PRP = 1000000, //Pule Repetition Period (usec)
+  parameter CHIRP_PRP = 1000000 //Pule Repetition Period (usec)
 )(
   input aclk,
   input aresetn,
@@ -44,14 +44,14 @@ module radar_pulse_controller #(
   input chirp_done,           // single pulse when chirp finished
   output chirp_init,          // single pulse to initiate chirp
   output chirp_enable,        // continuous high while chirp enabled
-  output adc_enable          // high while adc samples saved
+  output adc_enable,          // high while adc samples saved
 
   input clk_eth,              // gtx_clk : 125 MHz
   input data_tx_ready,        // high when ready to transmit
   input data_tx_active,       // high while data being transmitted
   input data_tx_done,         // single pule when done transmitting
   output data_tx_init,        // single pulse to start tx data
-  output data_tx_enable,      // continuous high while transmit enabled
+  output data_tx_enable      // continuous high while transmit enabled
 
 );
 
@@ -63,7 +63,7 @@ localparam     IDLE        = 3'b000,
                COLLECT     = 3'b011,    // continue to collect adc samples
                PROCESS     = 3'b100,    // process adc samples
                WAIT        = 3'b101,    // wait to transmit samples
-               TRANSMIT    = 3'b110;    // transmitting samples over ethernet
+               TRANSMIT    = 3'b110,    // transmitting samples over ethernet
                OVERHEAD    = 3'b111;    // clean up before idle
 
 reg [2:0] next_gen_state;
@@ -72,7 +72,7 @@ reg [2:0] gen_state;
 reg [31:0] chirp_count;
 reg [3:0] overhead_count;
 reg [31:0] adc_collect_count;
-reg [31:0] process_count
+reg [31:0] process_count;
 
 reg chirp_ready_int;
 reg chirp_active_int;
@@ -82,13 +82,12 @@ reg chirp_enable_int;
 reg adc_enable_int;
 
 reg data_tx_ready_int;
-reg data_tx_active_int
+reg data_tx_active_int;
 reg data_tx_done_int;
 reg data_tx_init_int;
 reg data_tx_enable_int;
 
 
-end
 always @(posedge aclk)
 begin
   if(~aresetn)
