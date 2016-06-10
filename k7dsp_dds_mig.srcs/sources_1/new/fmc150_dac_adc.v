@@ -32,7 +32,16 @@ module fmc150_dac_adc #
   output [ADC_AXI_TUSER_WIDTH-1:0] axis_adc_tuser,
   input axis_adc_tready,
 
-//  output clk_out_245_76MHz,
+// Control Module signals
+  output [3:0] fmc150_status_vector,
+  output chirp_ready,
+  output chirp_done,
+  output chirp_active,
+  input  chirp_init,
+  input  chirp_enable,
+  input  adc_enable,
+
+  output clk_out_245_76MHz,
 //  output clk_out_491_52MHz,
 
   output [7:0]  gpio_led,        // : out   std_logic_vector(7 downto 0);
@@ -114,9 +123,6 @@ module fmc150_dac_adc #
   wire [31:0] adc_data_iq;
   wire adc_data_valid;
 
-  wire collect_adc_samples;
-
-
      wire [15:0]              adc_fifo_wr_data_count;
      wire [14:0]               adc_fifo_rd_data_count;
      wire                       adc_fifo_wr_ack;
@@ -141,6 +147,12 @@ module fmc150_dac_adc #
         .clk_out_245_76MHz  (clk_245_76MHz),
         .clk_out_491_52MHz  (clk_491_52MHz),
 
+        .fmc150_status_vector (fmc150_status_vector),
+        .chirp_ready (chirp_ready),
+        .chirp_done (chirp_done),
+        .chirp_active (chirp_active),
+        .chirp_init  (chirp_init),
+        .chirp_enable  (chirp_enable),
 
        .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
   //     .sysclk_p (sysclk_p),        // : in    std_logic;
@@ -270,15 +282,13 @@ module fmc150_dac_adc #
 
    //assign adc_fifo_rd_en = 1'b1;
 
-
-   assign collect_adc_samples = 1'b1;
    assign adc_data_iq = {adc_data_i,adc_data_q};
 
-   assign adc_fifo_wr_en = adc_data_valid & collect_adc_samples;
+   assign adc_fifo_wr_en = adc_data_valid & adc_enable;
 
 assign rd_fifo_clk = aclk;
 
-//assign clk_out_245_76MHz = clk_245_76MHz;
+assign clk_out_245_76MHz = clk_245_76MHz;
 //assign clk_out_491_52MHz = clk_491_52MHz;
 
    endmodule

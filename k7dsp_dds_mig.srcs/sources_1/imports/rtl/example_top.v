@@ -207,7 +207,7 @@ module example_top #
     output        gtx_clk_bufg_out,
 
     output        phy_resetn,
-    
+
     // Serialised statistics vectors
     //------------------------------
     output        tx_statistics_s,  // output conflicts with adc serial pin ak25 - moved to hpc c30
@@ -253,30 +253,30 @@ function integer clogb2 (input integer size);
   endfunction
 
   localparam MIG_AXI_DATA_WIDTH = 128;
- 
-  localparam FIFO_M00_DEPTH = 2048;                     //data words    
-  localparam FIFO_M01_DEPTH = 8192;                     //data words     
-  localparam FIFO_M00_WIDTH = 8;                        // bytes     
-  localparam FIFO_M01_WIDTH = 1;                        // bytes 
-  localparam VFIFO_CH0_AR_WEIGHT = 4;    
-  localparam VFIFO_CH1_AR_WEIGHT = 2;          
+
+  localparam FIFO_M00_DEPTH = 2048;                     //data words
+  localparam FIFO_M01_DEPTH = 8192;                     //data words
+  localparam FIFO_M00_WIDTH = 8;                        // bytes
+  localparam FIFO_M01_WIDTH = 1;                        // bytes
+  localparam VFIFO_CH0_AR_WEIGHT = 4;
+  localparam VFIFO_CH1_AR_WEIGHT = 2;
   localparam VFIFO_BURST_SIZE = 1024;                   // bytes
   localparam VFIFO_CH0_AR_BURST = VFIFO_CH0_AR_WEIGHT*VFIFO_BURST_SIZE;
   localparam VFIFO_CH1_AR_BURST = VFIFO_CH1_AR_WEIGHT*VFIFO_BURST_SIZE;
-  
+
   // Space available in FIFO must be at least 2*AR_Burst before Programmable Full is deasserted
   localparam FIFO_M00_THRESHOLD = FIFO_M00_DEPTH - (2*VFIFO_CH0_AR_BURST)/FIFO_M00_WIDTH;
   localparam FIFO_M01_THRESHOLD = FIFO_M01_DEPTH - (2*VFIFO_CH1_AR_BURST)/FIFO_M01_WIDTH;
- 
-  
+
+
   localparam ADC_AXI_DATA_WIDTH = 64;
   localparam ADC_AXI_TID_WIDTH = 1;
   localparam ADC_AXI_TDEST_WIDTH = 1;
   localparam ADC_AXI_TUSER_WIDTH = 1;
   localparam ADC_AXI_STREAM_ID = 1'b0;
-  localparam ADC_AXI_STREAM_DEST = 1'b1;     
+  localparam ADC_AXI_STREAM_DEST = 1'b1;
 
-//wire                          clk_245_76MHz;
+  wire                          clk_245_76MHz;
 //wire                          clk_491_52MHz;
 
 //////////////////////////////////////////
@@ -383,6 +383,21 @@ wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
 wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
 wire                            axis_adc_tready;
 wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+
+// Control Module Signals
+wire [3:0] fmc150_status_vector;
+wire chirp_ready;          // continuous high when dac ready
+wire chirp_active;         // continuous high while chirping
+wire chirp_done;           // single pulse when chirp finished
+wire chirp_init;          // single pulse to initiate chirp
+wire chirp_enable;        // continuous high while chirp enabled
+wire adc_enable;          // high while adc samples saved
+
+wire data_tx_ready;        // high when ready to transmit
+wire data_tx_active;       // high while data being transmitted
+wire data_tx_done;         // single pule when done transmitting
+wire data_tx_init;        // single pulse to start tx data
+wire data_tx_enable;      // continuous high while transmit enabled
 
 //////////////////////////////////////////
 // 1m2s AXIS Interconnect Unconnected wires
@@ -508,6 +523,37 @@ reg     vfifo_mm2s_ch1_full;
 // for connecting the memory controller to system.
 //***************************************************************************
 
+radar_pulse_controller radar_pulse_controller_inst (
+  .aclk(sysclk_bufg),
+  .aresetn(sysclk_resetn),
+
+  // input gpio_sw_c,
+  // input gpio_sw_e,
+  // input gpio_sw_n,
+  // input gpio_sw_s,
+  // input gpio_sw_w,
+  // input [7:0]  gpio_dip_sw,
+  // output [7:0]  gpio_led,
+
+  //input clk_mig,              // 200 MHZ OR 100 MHz
+  //input mig_init_calib_complete (init_calib_complete),
+
+  .clk_fmc150 (clk_245_76MHz),           // 245.76 MHz
+  .fmc150_status_vector (fmc150_status_vector), // {pll_status, mmcm_adac_locked, mmcm_locked, ADC_calibration_good};
+  .chirp_ready (chirp_ready),
+  .chirp_done (chirp_done),
+  .chirp_active (chirp_active),
+  .chirp_init  (chirp_init),
+  .chirp_enable  (chirp_enable),
+  .adc_enable   (adc_enable),
+
+  .clk_eth (gtx_clk_bufg),              // gtx_clk : 125 MHz
+  .data_tx_ready  (1'b1),        // high when ready to transmit
+  .data_tx_active (1'b1),       // high while data being transmitted
+  .data_tx_done   (1'b0),         // single pule when done transmitting
+  .data_tx_init (data_tx_init),        // single pulse to start tx data
+  .data_tx_enable (data_tx_enable)     // continuous high while transmit enabled
+);
 
 
 kc705_ethernet_rgmii_example_design ethernet_rgmii_wrapper
@@ -678,8 +724,15 @@ fmc150_dac_adc_inst
      .axis_adc_tready                     (axis_adc_tready),
      .axis_adc_tstrb                      (axis_adc_tstrb),
 
+     .fmc150_status_vector                (fmc150_status_vector),
+     .chirp_ready                         (chirp_ready),
+     .chirp_done                          (chirp_done),
+     .chirp_active                        (chirp_active),
+     .chirp_init                          (chirp_init),
+     .chirp_enable                        (chirp_enable),
+     .adc_enable                          (adc_enable),
 
-  //   .clk_out_245_76MHz                        (clk_245_76MHz),
+     .clk_out_245_76MHz                        (clk_245_76MHz),
   //   .clk_out_491_52MHz                       (clk_491_52MHz),
 
 
@@ -910,7 +963,7 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       //.M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
       .M00_AXIS_ACLK(sysclk_bufg),              // input wire M00_AXIS_ACLK
       .M00_AXIS_ARESETN(sysclk_resetn),        // input wire M00_AXIS_ARESETN
-           
+
       .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
       .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
       .M00_AXIS_TDATA(M00_AXIS_TDATA),            // output wire [63 : 0] M00_AXIS_TDATA
@@ -1060,8 +1113,8 @@ assign m_axi_vfifo_rid = s_axi_mig_rid[0];
 assign dbg_dqs = 'b0;
 assign dbg_bit = 'b0;
 assign ddr3_vio_sync_out={dbg_dqs,dbg_bit};
-assign dbg_sel_pi_incdec='b0;          
-assign dbg_sel_po_incdec='b0;              
+assign dbg_sel_pi_incdec='b0;
+assign dbg_sel_po_incdec='b0;
 assign dbg_byte_sel= 'b0;             // input [3:0]            dbg_byte_sel
 assign dbg_pi_f_inc= 'b0;               // input            dbg_pi_f_inc
 assign dbg_pi_f_dec= 'b0;             // input            dbg_pi_f_dec
@@ -1143,6 +1196,6 @@ ila_axis_vfifo   ila_axis_vfifo_inst(
     .probe19(vfifo_idle)                // output wire [1 : 0]
 );
 
- 
- 
+
+
 endmodule
