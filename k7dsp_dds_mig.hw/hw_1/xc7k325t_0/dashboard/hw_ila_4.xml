@@ -3,7 +3,7 @@
     <DashboardHolder activeDashboard="ILA">
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="2" height="443"
+            <GadgetContainer boxAxis="1" count="2" height="467"
                 layout="JideBoxLayout" vgap="6" width="219">
                 <Gadget height="85" key="Trigger Capture Status" width="219">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
