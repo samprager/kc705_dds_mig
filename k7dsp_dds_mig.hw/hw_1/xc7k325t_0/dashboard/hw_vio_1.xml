@@ -3,9 +3,9 @@
     <DashboardHolder activeDashboard="VIO">
         <Dashboard columnResizable="1" key="VIO" rowResizable="0" title="VIO">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="1" height="467"
-                layout="JideBoxLayout" vgap="6" width="521">
-                <Gadget height="461" key="VIO Probes" name="VIO Probes" width="521">
+            <GadgetContainer boxAxis="1" count="1" height="678"
+                layout="JideBoxLayout" vgap="6" width="865">
+                <Gadget height="471" key="VIO Probes" name="VIO Probes" width="865">
                     <Probe core="hw_vio_1" name="fmc150_dac_adc_inst/KC705_fmc150_inst/ADC_CLK_iDelay[4:0]"/>
                     <Probe core="hw_vio_1" name="fmc150_dac_adc_inst/KC705_fmc150_inst/ADC_Ch_A_iDelay[4:0]"/>
                     <Probe core="hw_vio_1" name="fmc150_dac_adc_inst/KC705_fmc150_inst/Set_CH_B_iDelay[4:0]"/>

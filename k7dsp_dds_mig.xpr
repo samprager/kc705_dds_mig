@@ -533,6 +533,15 @@
       </File>
       <File Path="$PSRCDIR/sources_1/ip/mmcm/mmcm.upgrade_log"/>
       <File Path="$PSRCDIR/sources_1/ip/mmcm_adac/mmcm_adac.upgrade_log"/>
+      <File Path="$PSRCDIR/sources_1/imports/new/radar_pulse_controller.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/radar_pulse_controller.v"/>
+          <Attr Name="ImportTime" Val="1465586815"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="example_top"/>
@@ -1058,6 +1067,32 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
+    <FileSet Name="ila_adc_wr_fifo" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_adc_wr_fifo">
+      <File Path="$PSRCDIR/sources_1/ip/ila_adc_wr_fifo/ila_adc_wr_fifo.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="ila_adc_wr_fifo"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="ila_adc_rd_fifo" Type="BlockSrcs" RelSrcDir="$PSRCDIR/ila_adc_rd_fifo">
+      <File Path="$PSRCDIR/sources_1/ip/ila_adc_rd_fifo/ila_adc_rd_fifo.xci">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <Config>
+        <Option Name="TopModule" Val="ila_adc_rd_fifo"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
   </FileSets>
   <Runs Version="1" Minor="9">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7k325tffg900-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" State="current" Dir="$PRUNDIR/synth_1">
@@ -1285,6 +1320,20 @@
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
     </Run>
     <Run Id="ila_axis_vfifo_synth_1" Type="Ft3:Synth" SrcSet="ila_axis_vfifo" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_vfifo" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_axis_vfifo_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="ila_adc_wr_fifo_synth_1" Type="Ft3:Synth" SrcSet="ila_adc_wr_fifo" Part="xc7k325tffg900-2" ConstrsSet="ila_adc_wr_fifo" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_adc_wr_fifo_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+    </Run>
+    <Run Id="ila_adc_rd_fifo_synth_1" Type="Ft3:Synth" SrcSet="ila_adc_rd_fifo" Part="xc7k325tffg900-2" ConstrsSet="ila_adc_rd_fifo" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/ila_adc_rd_fifo_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
@@ -1741,6 +1790,34 @@
       </Strategy>
     </Run>
     <Run Id="ila_axis_vfifo_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_axis_vfifo" Description="Vivado Implementation Defaults" SynthRun="ila_axis_vfifo_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="ila_adc_wr_fifo_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_adc_wr_fifo" Description="Vivado Implementation Defaults" SynthRun="ila_adc_wr_fifo_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+    </Run>
+    <Run Id="ila_adc_rd_fifo_impl_1" Type="Ft2:EntireDesign" Part="xc7k325tffg900-2" ConstrsSet="ila_adc_rd_fifo" Description="Vivado Implementation Defaults" SynthRun="ila_adc_rd_fifo_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>

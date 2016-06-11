@@ -277,6 +277,7 @@ function integer clogb2 (input integer size);
   localparam ADC_AXI_STREAM_DEST = 1'b1;
 
   wire                          clk_245_76MHz;
+  wire                          clk_245_rst;
 //wire                          clk_491_52MHz;
 
 //////////////////////////////////////////
@@ -524,9 +525,10 @@ reg     vfifo_mm2s_ch1_full;
 //***************************************************************************
 
 radar_pulse_controller radar_pulse_controller_inst (
-  .aclk(sysclk_bufg),
-  .aresetn(sysclk_resetn),
-
+  //.aclk(sysclk_bufg),
+  //.aresetn(sysclk_resetn),
+  .aclk(clk_245_76MHz),
+  .aresetn(!clk_245_rst),
   // input gpio_sw_c,
   // input gpio_sw_e,
   // input gpio_sw_n,
@@ -733,6 +735,7 @@ fmc150_dac_adc_inst
      .adc_enable                          (adc_enable),
 
      .clk_out_245_76MHz                        (clk_245_76MHz),
+     .clk_245_rst                               (clk_245_rst),
   //   .clk_out_491_52MHz                       (clk_491_52MHz),
 
 

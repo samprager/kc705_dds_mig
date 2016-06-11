@@ -152,9 +152,11 @@ port (
   chirp_active  : out std_logic;
   chirp_init  : in std_logic;
   chirp_enable : in std_logic;
+  adc_enable : in std_logic;
 
   clk_out_245_76MHz     :out std_logic;
   clk_out_491_52MHz     :out std_logic;
+  clk_245_rst           :out std_logic;
 
  -- adc_data_out : out std_logic_vector(511 downto 0);
   --KC705 Resources
@@ -257,7 +259,14 @@ COMPONENT ila
     probe7  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     probe8  : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     probe9  : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-    probe10  : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
+    probe10  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe11  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+    probe12  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe13  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe14  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe15  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe16  : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    probe17  : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END COMPONENT;
 
@@ -617,6 +626,22 @@ signal adc_test_pattern_iq  :std_logic_vector(31 downto 0);
 signal gen_adc_test_pattern : std_logic;
 signal adc_test_pattern_valid : std_logic;
 
+signal  fmc150_status_vector_sig :  std_logic_vector(3 downto 0);
+signal  chirp_ready_sig  :  std_logic;
+signal  chirp_done_sig  :  std_logic;
+signal  chirp_active_sig  :  std_logic;
+signal  chirp_init_sig  :  std_logic;
+signal  chirp_enable_sig :  std_logic;
+signal  adc_enable_sig :  std_logic;
+
+signal  fmc150_status_vector_ila_sig :  std_logic_vector(3 downto 0);
+signal  chirp_ready_ila_sig  :  std_logic_vector(0 downto 0);
+signal  chirp_done_ila_sig  :  std_logic_vector(0 downto 0);
+signal  chirp_active_ila_sig  :  std_logic_vector(0 downto 0);
+signal  chirp_init_ila_sig  :  std_logic_vector(0 downto 0);
+signal  chirp_enable_ila_sig :  std_logic_vector(0 downto 0);
+signal  adc_enable_ila_sig :  std_logic_vector(0 downto 0);
+
 
 attribute mark_debug : string;
 attribute mark_debug of dac_din_i: signal is "TRUE";
@@ -631,6 +656,14 @@ attribute mark_debug of adc_data_out_valid_ila_sig: signal is "TRUE";
 attribute mark_debug of adc_data_out_ila_sig: signal is "TRUE";
 --attribute mark_debug of adc_data_out_i_sig: signal is "TRUE";
 --attribute mark_debug of adc_data_out_q_sig: signal is "TRUE";
+
+attribute mark_debug of fmc150_status_vector_ila_sig: signal is "TRUE";
+attribute mark_debug of chirp_ready_ila_sig: signal is "TRUE";
+attribute mark_debug of chirp_done_ila_sig: signal is "TRUE";
+attribute mark_debug of chirp_active_ila_sig: signal is "TRUE";
+attribute mark_debug of chirp_init_ila_sig: signal is "TRUE";
+attribute mark_debug of chirp_enable_ila_sig: signal is "TRUE";
+attribute mark_debug of adc_enable_ila_sig: signal is "TRUE";
 
 
 attribute mark_debug of cha_cntvalueout: signal is "TRUE";
@@ -673,6 +706,7 @@ attribute mark_debug of CDCE72010: signal is "TRUE";
 attribute mark_debug of ADS62P49: signal is "TRUE";
 attribute mark_debug of DAC3283: signal is "TRUE";
 attribute mark_debug of AMC7823: signal is "TRUE";
+
 
 --  PROBE0  => dac_din_i,                            -- 16-bit
 --  PROBE1  => dac_din_q,                            -- 16-bit
@@ -728,6 +762,13 @@ attribute keep of ILA_ADC_cali_inst_trig2: signal is "TRUE";
 attribute keep of adc_data_out_ila_sig: signal is "TRUE";
 attribute keep of adc_data_out_valid_ila_sig: signal is "TRUE";
 
+attribute keep of fmc150_status_vector_ila_sig: signal is "TRUE";
+attribute keep of chirp_ready_ila_sig: signal is "TRUE";
+attribute keep of chirp_done_ila_sig: signal is "TRUE";
+attribute keep of chirp_active_ila_sig: signal is "TRUE";
+attribute keep of chirp_init_ila_sig: signal is "TRUE";
+attribute keep of chirp_enable_ila_sig: signal is "TRUE";
+attribute keep of adc_enable_ila_sig: signal is "TRUE";
 ---------------------
 ----------------------------------------------------------------------------------------------------
 -- Begin
@@ -1135,6 +1176,8 @@ begin
     end if;
   end if;
 end process;
+
+clk_245_rst <= rst;
 
 process (mmcm_adac_locked, clk_122_88MHz)
   variable cnt : integer range 0 to 1023 := 0;
@@ -1805,7 +1848,9 @@ gpio_led(5) <= mmcm_adac_locked;
 gpio_led(6) <= mmcm_locked;
 gpio_led(7) <= ADC_calibration_good;
 
-fmc150_status_vector <= pll_status & mmcm_adac_locked & mmcm_locked & ADC_calibration_good;
+fmc150_status_vector <= fmc150_status_vector_sig;
+fmc150_status_vector_sig <= pll_status & mmcm_adac_locked & mmcm_locked & ADC_calibration_good;
+adc_enable_sig <= adc_enable;
 
 ADC_calibration_good <= ADC_chb_calibration_good AND ADC_cha_calibration_good;
 
@@ -1878,16 +1923,25 @@ port map(
 	test_mode				=> '1',									-- set to '1' for test_mode to select dds or impulse, set to '0' to select baseband-side input to duc
 	gpio_sw_c				=> gpio_sw_c,							-- gpio on baseboard triggers impulse generator
 
-  chirp_ready  =>  chirp_ready,
-  chirp_done  => chirp_done,
-  chirp_active  => chirp_active,
-  chirp_init  => chirp_init,
-  chirp_enable => chirp_enable
+  chirp_ready  =>  chirp_ready_sig,
+  chirp_done  => chirp_done_sig,
+  chirp_active  => chirp_active_sig,
+  chirp_init  => chirp_init_sig,
+  chirp_enable => chirp_enable_sig
 );
 
 duc_dcc_route_ctrl_sig(0) 	<= digital_mode;
 duc_dcc_route_ctrl_sig(1) 	<= adc_out_dac_in;
 duc_dcc_route_ctrl_sig(2) 	<= ddc_duc_bypass;
+
+-- Outputs from DUC DDC Module 
+chirp_ready <= chirp_ready_sig;
+chirp_done <= chirp_done_sig;
+chirp_active <= chirp_active_sig;
+
+-- Inputs from control module
+chirp_init_sig <= chirp_init;
+chirp_enable_sig <= chirp_enable;
 
 ----------------------------------------------------------------------------------------------------
 -- ICON
@@ -1968,6 +2022,18 @@ begin
     end if;
 end process register_ADC_out;
 
+register_control_signals: process(clk_245_76MHz)
+begin
+	if (rising_edge(clk_245_76MHz)) then
+         fmc150_status_vector_ila_sig <= fmc150_status_vector_sig;
+         chirp_ready_ila_sig(0) <= chirp_ready_sig;
+         chirp_done_ila_sig(0)  <= chirp_done_sig;
+         chirp_active_ila_sig(0)  <= chirp_active_sig;
+         chirp_init_ila_sig(0)  <= chirp_init_sig;
+         chirp_enable_ila_sig(0) <= chirp_enable_sig;
+         adc_enable_ila_sig(0)  <= adc_enable_sig;
+    end if;
+end process register_control_signals;
 ----------------------------------------------------------------------------------------------------
 -- ILA DAC to monitor digital data driven to DAC3283
 ----------------------------------------------------------------------------------------------------
@@ -1996,7 +2062,14 @@ ila_dac_baseband_ADC : ila
     probe7 => adc_data_out_ila_sig(63 downto 48),                       -- 16 bit dac i channel
     probe8 => adc_data_out_ila_sig(47 downto 32),                       -- 16 bit dac q channel
     probe9 => adc_data_out_ila_sig(31 downto 0),
-    probe10 => adc_data_out_valid_ila_sig
+    probe10 => adc_data_out_valid_ila_sig,
+    probe11 => fmc150_status_vector_ila_sig(3 downto 0),
+    probe12 => chirp_ready_ila_sig,
+    probe13 => chirp_done_ila_sig,
+    probe14 => chirp_active_ila_sig,
+    probe15 => chirp_init_ila_sig,
+    probe16 => chirp_enable_ila_sig,
+    probe17 => adc_enable_ila_sig
    );
     baseband_out_valid_sig_dly1_1(0) <= baseband_out_valid_sig_dly1;
     adc_chb_re_mux_polarity_1(0) <= adc_chb_re_mux_polarity;

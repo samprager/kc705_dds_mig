@@ -8,47 +8,53 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="9" />
+   <WVObjectSize size="10" />
    <wave_markers>
    </wave_markers>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TDATA" type="array">
-      <obj_property name="ElementShortName">M00_AXIS_TDATA[63:0]</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TDATA[63:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/O6" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/O6[63:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/O6[63:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TDEST" type="logic">
-      <obj_property name="ElementShortName">M00_AXIS_TDEST</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TDEST</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_almost_empty" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_almost_empty</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_almost_empty</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TID" type="logic">
-      <obj_property name="ElementShortName">M00_AXIS_TID</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TID</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TKEEP" type="array">
-      <obj_property name="ElementShortName">M00_AXIS_TKEEP[6:0]</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TKEEP[6:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_data_out" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_data_out[63:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_data_out[63:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TLAST" type="logic">
-      <obj_property name="ElementShortName">M00_AXIS_TLAST</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TLAST</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_empty" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_empty</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TREADY" type="logic">
-      <obj_property name="ElementShortName">M00_AXIS_TREADY</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TREADY</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TSTRB" type="array">
-      <obj_property name="ElementShortName">M00_AXIS_TSTRB[6:0]</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TSTRB[6:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_rd_data_count" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_rd_data_count[14:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_rd_data_count[14:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_AXIS_TVALID" type="logic">
-      <obj_property name="ElementShortName">M00_AXIS_TVALID</obj_property>
-      <obj_property name="ObjectShortName">M00_AXIS_TVALID</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_rd_en" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_rd_en</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_rd_en</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="M00_FIFO_DATA_COUNT" type="array">
-      <obj_property name="ElementShortName">M00_FIFO_DATA_COUNT[0:0]</obj_property>
-      <obj_property name="ObjectShortName">M00_FIFO_DATA_COUNT[0:0]</obj_property>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_rd_en_1" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_rd_en_1</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_rd_en_1</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/adc_fifo_valid" type="logic">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/adc_fifo_valid</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/adc_fifo_valid</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/probe8" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/probe8[0:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/probe8[0:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject db_ref_id="1" fp_name="fmc150_dac_adc_inst/probe8_1" type="array">
+      <obj_property name="ElementShortName">fmc150_dac_adc_inst/probe8_1[0:0]</obj_property>
+      <obj_property name="ObjectShortName">fmc150_dac_adc_inst/probe8_1[0:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

@@ -42,6 +42,7 @@ module fmc150_dac_adc #
   input  adc_enable,
 
   output clk_out_245_76MHz,
+  output clk_245_rst,
 //  output clk_out_491_52MHz,
 
   output [7:0]  gpio_led,        // : out   std_logic_vector(7 downto 0);
@@ -146,6 +147,7 @@ module fmc150_dac_adc #
 
         .clk_out_245_76MHz  (clk_245_76MHz),
         .clk_out_491_52MHz  (clk_491_52MHz),
+        .clk_245_rst (clk_245_rst),
 
         .fmc150_status_vector (fmc150_status_vector),
         .chirp_ready (chirp_ready),
@@ -153,6 +155,7 @@ module fmc150_dac_adc #
         .chirp_active (chirp_active),
         .chirp_init  (chirp_init),
         .chirp_enable  (chirp_enable),
+        .adc_enable    (adc_enable),
 
        .cpu_reset (cpu_reset),       // : in    std_logic; -- CPU RST button, SW7 on KC705
   //     .sysclk_p (sysclk_p),        // : in    std_logic;
@@ -290,5 +293,33 @@ assign rd_fifo_clk = aclk;
 
 assign clk_out_245_76MHz = clk_245_76MHz;
 //assign clk_out_491_52MHz = clk_491_52MHz;
+
+ila_adc_wr_fifo ila_adc_wr_fifo_inst(
+    //.clk (ui_clk),
+     .clk(clk_245_76MHz),
+     .probe0(adc_data_iq),
+     .probe1(adc_fifo_wr_data_count),
+     .probe2(adc_fifo_wr_ack),
+     .probe3(adc_fifo_wr_en),    
+     .probe4(adc_fifo_almost_full),   
+     .probe5(adc_fifo_full)     
+);
+
+ila_adc_rd_fifo ila_adc_rd_fifo_inst(
+    //.clk (ui_clk),
+     .clk(rd_fifo_clk),
+     .probe0(adc_fifo_data_out),
+     .probe1(adc_fifo_rd_data_count),
+     .probe2(adc_fifo_valid),
+     .probe3(adc_fifo_rd_en),   
+     .probe4(adc_fifo_almost_empty),   
+     .probe5(adc_fifo_empty),
+     
+     .probe6                      (axis_adc_tdata),
+     .probe7                     (axis_adc_tvalid),
+     .probe8                      (axis_adc_tlast),
+     .probe9                     (axis_adc_tready)     
+);
+
 
    endmodule
