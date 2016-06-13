@@ -4,14 +4,14 @@
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
             <GadgetContainer boxAxis="1" count="2" height="443"
-                layout="JideBoxLayout" vgap="6" width="111">
-                <Gadget height="137" key="Trigger Capture Status" width="111">
+                layout="JideBoxLayout" vgap="6" width="68">
+                <Gadget height="137" key="Trigger Capture Status" width="68">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
                         data_depth="2048" trigger_condition="AND"
                         trigger_mode="BASIC_ONLY" trigger_position="0"
                         trigout_mode="DISABLED" tsm_file="" window_count="1"/>
                 </Gadget>
-                <Gadget height="293" key="Basic Trigger Setup" width="111">
+                <Gadget height="293" key="Basic Trigger Setup" width="68">
                     <Probe name="fmc150_dac_adc_inst/KC705_fmc150_inst/chirp_enable_ila_sig"/>
                 </Gadget>
                 <Settings/>

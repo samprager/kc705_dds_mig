@@ -889,9 +889,11 @@ assign m_axi_vfifo_ruser = 'b0;
 // Slave0 - 64 bits
 // Slave1 - 8 bits
 axis_interconnect_1m2s u_axis_interconnect_1m2s(
-    .ACLK(ui_clk),                                  // input wire ACLK
-    .ARESETN(aresetn),                            // input wire ARESETN
-
+    //.ACLK(ui_clk),                                  // input wire ACLK
+    //.ARESETN(aresetn),                            // input wire ARESETN
+      .ACLK(sysclk_bufg),                                  // input wire ACLK
+      .ARESETN(sysclk_resetn),                            // input wire ARESETN
+    
 // S00 AXIS Connection to ADC Module
     //.S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
     //.S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN

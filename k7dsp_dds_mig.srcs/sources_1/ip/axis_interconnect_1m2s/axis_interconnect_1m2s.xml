@@ -5326,7 +5326,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>71684e0b</spirit:value>
+            <spirit:value>6653ff54</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5334,7 +5334,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:57 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:10 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5359,7 +5359,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>71684e0b</spirit:value>
+            <spirit:value>6653ff54</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5367,7 +5367,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:58 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5386,7 +5386,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>71684e0b</spirit:value>
+            <spirit:value>6653ff54</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5394,7 +5394,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:58 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5416,7 +5416,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4951262e</spirit:value>
+            <spirit:value>27b406a2</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5424,7 +5424,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:58 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5443,7 +5443,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>4951262e</spirit:value>
+            <spirit:value>27b406a2</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5451,7 +5451,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:58 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5469,7 +5469,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>71684e0b</spirit:value>
+            <spirit:value>6653ff54</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5477,7 +5477,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 18:36:59 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5495,7 +5495,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>71684e0b</spirit:value>
+            <spirit:value>6653ff54</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -17613,7 +17613,7 @@
           <xilinx:portInfo>
             <xilinx:enablement>
               <xilinx:presence>optional</xilinx:presence>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MI_SLOTS&apos;))   >=   1) and (spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_FIFO_MODE&apos;)) > 0)">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_NUM_MI_SLOTS&apos;))   >=   1) and (spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_FIFO_MODE&apos;)) > 0)">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -18037,7 +18037,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SWITCH_TDATA_WIDTH</spirit:name>
         <spirit:displayName>C Switch Tdata Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SWITCH_TDATA_WIDTH">128</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SWITCH_TDATA_WIDTH">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SWITCH_TID_WIDTH</spirit:name>
@@ -18052,7 +18052,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SWITCH_TUSER_WIDTH</spirit:name>
         <spirit:displayName>C Switch Tuser Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SWITCH_TUSER_WIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SWITCH_TUSER_WIDTH">8</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SWITCH_SIGNAL_SET</spirit:name>
@@ -19197,7 +19197,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_IS_ACLK_ASYNC</spirit:name>
         <spirit:displayName>C M00 Axis Is Aclk Async</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_IS_ACLK_ASYNC</spirit:name>
@@ -19277,7 +19277,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_FIFO_DEPTH</spirit:name>
         <spirit:displayName>C M00 Axis Fifo Depth</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_FIFO_DEPTH">32</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_FIFO_DEPTH">1024</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_FIFO_DEPTH</spirit:name>
@@ -19357,7 +19357,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_FIFO_MODE</spirit:name>
         <spirit:displayName>C M00 Axis Fifo Mode</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_FIFO_MODE">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_FIFO_MODE">1</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_FIFO_MODE</spirit:name>
@@ -21746,7 +21746,7 @@
     <spirit:parameter>
       <spirit:name>SWITCH_TDATA_NUM_BYTES</spirit:name>
       <spirit:displayName>Interconnect switch TDATA width (bytes)</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SWITCH_TDATA_NUM_BYTES" spirit:order="103" spirit:minimum="1" spirit:maximum="512">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SWITCH_TDATA_NUM_BYTES" spirit:order="103" spirit:minimum="1" spirit:maximum="512">8</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>HAS_TSTRB</spirit:name>
@@ -21846,7 +21846,7 @@
     <spirit:parameter>
       <spirit:name>C_M00_AXIS_IS_ACLK_ASYNC</spirit:name>
       <spirit:displayName>C_M00_AXIS_IS_ACLK_ASYNC</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_4" spirit:order="122">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_4" spirit:order="122">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXIS_ACLK_RATIO</spirit:name>
@@ -21856,12 +21856,12 @@
     <spirit:parameter>
       <spirit:name>M00_AXIS_FIFO_MODE</spirit:name>
       <spirit:displayName>M00_AXIS_FIFO_MODE</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.M00_AXIS_FIFO_MODE" spirit:choiceRef="choices_6" spirit:order="124">0_(Disabled)</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.M00_AXIS_FIFO_MODE" spirit:choiceRef="choices_6" spirit:order="124">1_(Normal)</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXIS_FIFO_DEPTH</spirit:name>
       <spirit:displayName>C_M00_AXIS_FIFO_DEPTH</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_FIFO_DEPTH" spirit:choiceRef="choices_7" spirit:order="125">32</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_FIFO_DEPTH" spirit:choiceRef="choices_7" spirit:order="125">1024</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_S00_AXIS_REG_CONFIG</spirit:name>
