@@ -2,8 +2,8 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Wed Jun 08 15:31:18 2016
-# Process ID: 4468
+# Start of session at: Mon Jun 13 12:50:02 2016
+# Process ID: 7136
 # Log file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/mig_7series_1_synth_1/mig_7series_1.vds
 # Journal file: D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/mig_7series_1_synth_1\vivado.jou
 #-----------------------------------------------------------
@@ -44,7 +44,7 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 284.770 ; gain = 151.590
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 285.121 ; gain = 151.008
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'mig_7series_1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1.v:69]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_1_mig' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:74]
@@ -199,7 +199,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_1_mig' [d:/UndergroundRadar
 	Parameter C_S_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_MEM_SIZE bound to: 1073741824 - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_MC_nCK_PER_CLK bound to: 4 - type: integer 
 	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 0 - type: integer 
 	Parameter C_RD_WR_ARB_ALGORITHM bound to: RD_PRI_REG - type: string 
@@ -627,7 +627,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_memc_ui_top_axi' [d:/U
 	Parameter PI_VAL_ADJ bound to: ON - type: string 
 	Parameter C_S_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 0 - type: integer 
 	Parameter C_RD_WR_ARB_ALGORITHM bound to: RD_PRI_REG - type: string 
 	Parameter C_S_AXI_REG_EN0 bound to: 20'b00000000000000000000 
@@ -4673,7 +4673,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc' [d:/Undergroun
 	Parameter C_FAMILY bound to: virtex7 - type: string 
 	Parameter C_S_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_MC_ADDR_WIDTH bound to: 28 - type: integer 
 	Parameter C_MC_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_MC_BURST_MODE bound to: 8 - type: string 
@@ -4689,10 +4689,10 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc' [d:/Undergroun
 	Parameter P_D1_REG_CONFIG_B bound to: 0 - type: integer 
 	Parameter P_D1_REG_CONFIG_AR bound to: 0 - type: integer 
 	Parameter P_D1_REG_CONFIG_R bound to: 0 - type: integer 
-	Parameter P_USE_UPSIZER bound to: 1 - type: integer 
-	Parameter P_D2_REG_CONFIG_AW bound to: 1 - type: integer 
+	Parameter P_USE_UPSIZER bound to: 0 - type: integer 
+	Parameter P_D2_REG_CONFIG_AW bound to: 0 - type: integer 
 	Parameter P_D2_REG_CONFIG_W bound to: 0 - type: integer 
-	Parameter P_D2_REG_CONFIG_AR bound to: 1 - type: integer 
+	Parameter P_D2_REG_CONFIG_AR bound to: 0 - type: integer 
 	Parameter P_D2_REG_CONFIG_R bound to: 0 - type: integer 
 	Parameter P_D3_REG_CONFIG_AW bound to: 0 - type: integer 
 	Parameter P_D3_REG_CONFIG_W bound to: 0 - type: integer 
@@ -4707,7 +4707,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice
 	Parameter C_FAMILY bound to: virtex7 - type: string 
 	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_AXI_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
 	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
@@ -4747,12 +4747,12 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice
 	Parameter C_WLAST_RIGHT bound to: 0 - type: integer 
 	Parameter C_WLAST_LEN bound to: 1 - type: integer 
 	Parameter C_WSTRB_RIGHT bound to: 1 - type: integer 
-	Parameter C_WSTRB_LEN bound to: 16 - type: integer 
-	Parameter C_WDATA_RIGHT bound to: 17 - type: integer 
-	Parameter C_WDATA_LEN bound to: 128 - type: integer 
-	Parameter C_WID_RIGHT bound to: 145 - type: integer 
+	Parameter C_WSTRB_LEN bound to: 64 - type: integer 
+	Parameter C_WDATA_RIGHT bound to: 65 - type: integer 
+	Parameter C_WDATA_LEN bound to: 512 - type: integer 
+	Parameter C_WID_RIGHT bound to: 577 - type: integer 
 	Parameter C_WID_LEN bound to: 4 - type: integer 
-	Parameter C_W_SIZE bound to: 149 - type: integer 
+	Parameter C_W_SIZE bound to: 581 - type: integer 
 	Parameter C_BUSER_RIGHT bound to: 0 - type: integer 
 	Parameter C_BUSER_LEN bound to: 0 - type: integer 
 	Parameter C_BRESP_RIGHT bound to: 0 - type: integer 
@@ -4790,10 +4790,10 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice
 	Parameter C_RRESP_RIGHT bound to: 1 - type: integer 
 	Parameter C_RRESP_LEN bound to: 2 - type: integer 
 	Parameter C_RDATA_RIGHT bound to: 3 - type: integer 
-	Parameter C_RDATA_LEN bound to: 128 - type: integer 
-	Parameter C_RID_RIGHT bound to: 131 - type: integer 
+	Parameter C_RDATA_LEN bound to: 512 - type: integer 
+	Parameter C_RID_RIGHT bound to: 515 - type: integer 
 	Parameter C_RID_LEN bound to: 4 - type: integer 
-	Parameter C_R_SIZE bound to: 135 - type: integer 
+	Parameter C_R_SIZE bound to: 519 - type: integer 
 INFO: [Synth 8-4472] Detected and applied attribute iob = false [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:206]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 	Parameter C_FAMILY bound to: virtex7 - type: string 
@@ -4802,7 +4802,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slic
 INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice' (68#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 149 - type: integer 
+	Parameter C_DATA_WIDTH bound to: 581 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized0' (68#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
@@ -4812,534 +4812,10 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slic
 INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized1' (68#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 135 - type: integer 
+	Parameter C_DATA_WIDTH bound to: 519 - type: integer 
 	Parameter C_REG_CONFIG bound to: 0 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized2' (68#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
 INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_upsizer' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_upsizer.v:71]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_M_AXI_AW_REGISTER bound to: 1 - type: integer 
-	Parameter C_M_AXI_W_REGISTER bound to: 0 - type: integer 
-	Parameter C_M_AXI_AR_REGISTER bound to: 1 - type: integer 
-	Parameter C_S_AXI_R_REGISTER bound to: 0 - type: integer 
-	Parameter C_M_AXI_R_REGISTER bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_WRITE bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_READ bound to: 1 - type: integer 
-	Parameter C_PACKING_LEVEL bound to: 2 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_SINGLE_THREAD bound to: 0 - type: integer 
-	Parameter C_S_AXI_BYTES_LOG bound to: 4 - type: integer 
-	Parameter C_M_AXI_BYTES_LOG bound to: 6 - type: integer 
-	Parameter C_RATIO bound to: 4 - type: integer 
-	Parameter C_RATIO_LOG bound to: 2 - type: integer 
-	Parameter P_BYPASS bound to: 0 - type: integer 
-	Parameter P_LIGHTWT bound to: 7 - type: integer 
-	Parameter P_FWD_REV bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_REG_CONFIG_AW bound to: 7 - type: integer 
-	Parameter C_REG_CONFIG_W bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_B bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_AR bound to: 7 - type: integer 
-	Parameter C_REG_CONFIG_R bound to: 0 - type: integer 
-	Parameter C_AWUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWUSER_LEN bound to: 0 - type: integer 
-	Parameter C_AWQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWQOS_LEN bound to: 4 - type: integer 
-	Parameter C_AWREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_AWREGION_LEN bound to: 4 - type: integer 
-	Parameter C_AWPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_AWPROT_LEN bound to: 3 - type: integer 
-	Parameter C_AWCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_AWCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_AWLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_AWLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_AWBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_AWBURST_LEN bound to: 2 - type: integer 
-	Parameter C_AWSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_AWSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_AWLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_AWLEN_LEN bound to: 8 - type: integer 
-	Parameter C_AWADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_AWADDR_LEN bound to: 30 - type: integer 
-	Parameter C_AWID_RIGHT bound to: 60 - type: integer 
-	Parameter C_AWID_LEN bound to: 4 - type: integer 
-	Parameter C_AW_SIZE bound to: 64 - type: integer 
-	Parameter C_WUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_WUSER_LEN bound to: 0 - type: integer 
-	Parameter C_WLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_WLAST_LEN bound to: 1 - type: integer 
-	Parameter C_WSTRB_RIGHT bound to: 1 - type: integer 
-	Parameter C_WSTRB_LEN bound to: 16 - type: integer 
-	Parameter C_WDATA_RIGHT bound to: 17 - type: integer 
-	Parameter C_WDATA_LEN bound to: 128 - type: integer 
-	Parameter C_WID_RIGHT bound to: 145 - type: integer 
-	Parameter C_WID_LEN bound to: 4 - type: integer 
-	Parameter C_W_SIZE bound to: 149 - type: integer 
-	Parameter C_BUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_BUSER_LEN bound to: 0 - type: integer 
-	Parameter C_BRESP_RIGHT bound to: 0 - type: integer 
-	Parameter C_BRESP_LEN bound to: 2 - type: integer 
-	Parameter C_BID_RIGHT bound to: 2 - type: integer 
-	Parameter C_BID_LEN bound to: 4 - type: integer 
-	Parameter C_B_SIZE bound to: 6 - type: integer 
-	Parameter C_ARUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARUSER_LEN bound to: 0 - type: integer 
-	Parameter C_ARQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARQOS_LEN bound to: 4 - type: integer 
-	Parameter C_ARREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_ARREGION_LEN bound to: 4 - type: integer 
-	Parameter C_ARPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_ARPROT_LEN bound to: 3 - type: integer 
-	Parameter C_ARCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_ARCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_ARLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_ARLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_ARBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_ARBURST_LEN bound to: 2 - type: integer 
-	Parameter C_ARSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_ARSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_ARLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_ARLEN_LEN bound to: 8 - type: integer 
-	Parameter C_ARADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_ARADDR_LEN bound to: 30 - type: integer 
-	Parameter C_ARID_RIGHT bound to: 60 - type: integer 
-	Parameter C_ARID_LEN bound to: 4 - type: integer 
-	Parameter C_AR_SIZE bound to: 64 - type: integer 
-	Parameter C_RUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_RUSER_LEN bound to: 0 - type: integer 
-	Parameter C_RLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_RLAST_LEN bound to: 1 - type: integer 
-	Parameter C_RRESP_RIGHT bound to: 1 - type: integer 
-	Parameter C_RRESP_LEN bound to: 2 - type: integer 
-	Parameter C_RDATA_RIGHT bound to: 3 - type: integer 
-	Parameter C_RDATA_LEN bound to: 128 - type: integer 
-	Parameter C_RID_RIGHT bound to: 131 - type: integer 
-	Parameter C_RID_LEN bound to: 4 - type: integer 
-	Parameter C_R_SIZE bound to: 135 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized3' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 64 - type: integer 
-	Parameter C_REG_CONFIG bound to: 7 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized3' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized4' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 149 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized4' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized5' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 6 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized5' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized6' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 135 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized6' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized0' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_REG_CONFIG_AW bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_W bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_B bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_AR bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_R bound to: 1 - type: integer 
-	Parameter C_AWUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWUSER_LEN bound to: 0 - type: integer 
-	Parameter C_AWQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWQOS_LEN bound to: 4 - type: integer 
-	Parameter C_AWREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_AWREGION_LEN bound to: 4 - type: integer 
-	Parameter C_AWPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_AWPROT_LEN bound to: 3 - type: integer 
-	Parameter C_AWCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_AWCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_AWLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_AWLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_AWBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_AWBURST_LEN bound to: 2 - type: integer 
-	Parameter C_AWSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_AWSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_AWLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_AWLEN_LEN bound to: 8 - type: integer 
-	Parameter C_AWADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_AWADDR_LEN bound to: 30 - type: integer 
-	Parameter C_AWID_RIGHT bound to: 60 - type: integer 
-	Parameter C_AWID_LEN bound to: 4 - type: integer 
-	Parameter C_AW_SIZE bound to: 64 - type: integer 
-	Parameter C_WUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_WUSER_LEN bound to: 0 - type: integer 
-	Parameter C_WLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_WLAST_LEN bound to: 1 - type: integer 
-	Parameter C_WSTRB_RIGHT bound to: 1 - type: integer 
-	Parameter C_WSTRB_LEN bound to: 64 - type: integer 
-	Parameter C_WDATA_RIGHT bound to: 65 - type: integer 
-	Parameter C_WDATA_LEN bound to: 512 - type: integer 
-	Parameter C_WID_RIGHT bound to: 577 - type: integer 
-	Parameter C_WID_LEN bound to: 4 - type: integer 
-	Parameter C_W_SIZE bound to: 581 - type: integer 
-	Parameter C_BUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_BUSER_LEN bound to: 0 - type: integer 
-	Parameter C_BRESP_RIGHT bound to: 0 - type: integer 
-	Parameter C_BRESP_LEN bound to: 2 - type: integer 
-	Parameter C_BID_RIGHT bound to: 2 - type: integer 
-	Parameter C_BID_LEN bound to: 4 - type: integer 
-	Parameter C_B_SIZE bound to: 6 - type: integer 
-	Parameter C_ARUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARUSER_LEN bound to: 0 - type: integer 
-	Parameter C_ARQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARQOS_LEN bound to: 4 - type: integer 
-	Parameter C_ARREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_ARREGION_LEN bound to: 4 - type: integer 
-	Parameter C_ARPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_ARPROT_LEN bound to: 3 - type: integer 
-	Parameter C_ARCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_ARCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_ARLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_ARLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_ARBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_ARBURST_LEN bound to: 2 - type: integer 
-	Parameter C_ARSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_ARSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_ARLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_ARLEN_LEN bound to: 8 - type: integer 
-	Parameter C_ARADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_ARADDR_LEN bound to: 30 - type: integer 
-	Parameter C_ARID_RIGHT bound to: 60 - type: integer 
-	Parameter C_ARID_LEN bound to: 4 - type: integer 
-	Parameter C_AR_SIZE bound to: 64 - type: integer 
-	Parameter C_RUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_RUSER_LEN bound to: 0 - type: integer 
-	Parameter C_RLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_RLAST_LEN bound to: 1 - type: integer 
-	Parameter C_RRESP_RIGHT bound to: 1 - type: integer 
-	Parameter C_RRESP_LEN bound to: 2 - type: integer 
-	Parameter C_RDATA_RIGHT bound to: 3 - type: integer 
-	Parameter C_RDATA_LEN bound to: 512 - type: integer 
-	Parameter C_RID_RIGHT bound to: 515 - type: integer 
-	Parameter C_RID_LEN bound to: 4 - type: integer 
-	Parameter C_R_SIZE bound to: 519 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized7' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 64 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized7' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized8' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 581 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized8' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized9' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 519 - type: integer 
-	Parameter C_REG_CONFIG bound to: 1 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:183]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized9' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized1' (69#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_a_upsizer' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_a_upsizer.v:62]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_M_AXI_REGISTER bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_CHANNEL bound to: 0 - type: integer 
-	Parameter C_PACKING_LEVEL bound to: 2 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_SINGLE_THREAD bound to: 0 - type: integer 
-	Parameter C_S_AXI_BYTES_LOG bound to: 4 - type: integer 
-	Parameter C_M_AXI_BYTES_LOG bound to: 6 - type: integer 
-	Parameter C_S_AXI_NATIVE_SIZE bound to: 3'b100 
-	Parameter C_M_AXI_NATIVE_SIZE bound to: 3'b110 
-	Parameter C_DOUBLE_LEN bound to: 24'b000000000000000011111111 
-	Parameter C_FIX_BURST bound to: 2'b00 
-	Parameter C_INCR_BURST bound to: 2'b01 
-	Parameter C_WRAP_BURST bound to: 2'b10 
-	Parameter C_NEVER_PACK bound to: 0 - type: integer 
-	Parameter C_DEFAULT_PACK bound to: 1 - type: integer 
-	Parameter C_ALWAYS_PACK bound to: 2 - type: integer 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_BURST_BYTES_LOG bound to: 8 - type: integer 
-	Parameter C_SI_UNUSED_LOG bound to: 26 - type: integer 
-	Parameter C_MI_UNUSED_LOG bound to: 24 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'MUXCY' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:16642]
-INFO: [Synth 8-256] done synthesizing module 'MUXCY' (70#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:16642]
-INFO: [Synth 8-638] synthesizing module 'XORCY' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:35674]
-INFO: [Synth 8-256] done synthesizing module 'XORCY' (71#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:35674]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_carry_latch_and' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_latch_and.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-INFO: [Synth 8-638] synthesizing module 'AND2B1L' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:36]
-	Parameter IS_SRI_INVERTED bound to: 1'b0 
-INFO: [Synth 8-256] done synthesizing module 'AND2B1L' (72#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:36]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_carry_latch_and' (73#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_latch_and.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_carry_and' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_and.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_carry_and' (74#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_and.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_command_fifo' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_command_fifo.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_ENABLE_S_VALID_CARRY bound to: 1 - type: integer 
-	Parameter C_ENABLE_REGISTERED_OUTPUT bound to: 1 - type: integer 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_FIFO_WIDTH bound to: 47 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_carry_latch_or' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_latch_or.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-INFO: [Synth 8-638] synthesizing module 'OR2L' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:20853]
-	Parameter IS_SRI_INVERTED bound to: 1'b0 
-INFO: [Synth 8-256] done synthesizing module 'OR2L' (75#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:20853]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_carry_latch_or' (76#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_latch_or.v:61]
-INFO: [Synth 8-638] synthesizing module 'FDRE' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:3014]
-	Parameter INIT bound to: 1'b0 
-	Parameter IS_C_INVERTED bound to: 1'b0 
-	Parameter IS_D_INVERTED bound to: 1'b0 
-	Parameter IS_R_INVERTED bound to: 1'b0 
-INFO: [Synth 8-256] done synthesizing module 'FDRE' (77#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:3014]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_command_fifo' (78#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_command_fifo.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_a_upsizer' (79#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_a_upsizer.v:62]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_w_upsizer' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_w_upsizer.v:63]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_M_AXI_REGISTER bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_PACKING_LEVEL bound to: 2 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_S_AXI_BYTES_LOG bound to: 4 - type: integer 
-	Parameter C_M_AXI_BYTES_LOG bound to: 6 - type: integer 
-	Parameter C_RATIO bound to: 4 - type: integer 
-	Parameter C_RATIO_LOG bound to: 2 - type: integer 
-	Parameter C_NEVER_PACK bound to: 0 - type: integer 
-	Parameter C_DEFAULT_PACK bound to: 1 - type: integer 
-	Parameter C_ALWAYS_PACK bound to: 2 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_comparator_sel_static' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel_static.v:60]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_VALUE bound to: 6'b000000 
-	Parameter C_DATA_WIDTH bound to: 6 - type: integer 
-	Parameter C_BITS_PER_LUT bound to: 2 - type: integer 
-	Parameter C_NUM_LUT bound to: 3 - type: integer 
-	Parameter C_FIX_DATA_WIDTH bound to: 6 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_comparator_sel_static' (80#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel_static.v:60]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_carry_or' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_or.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_carry_or' (81#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_carry_or.v:61]
-INFO: [Synth 8-638] synthesizing module 'LUT6_2' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15926]
-	Parameter INIT bound to: 64'b0101101001011010010110100110011011110000111100001111000011001100 
-INFO: [Synth 8-256] done synthesizing module 'LUT6_2' (82#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15926]
-INFO: [Synth 8-638] synthesizing module 'LUT6_2__parameterized0' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15926]
-	Parameter INIT bound to: 64'b0011001100111100010101010101101011111111111100001111111111110000 
-INFO: [Synth 8-256] done synthesizing module 'LUT6_2__parameterized0' (82#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15926]
-INFO: [Synth 8-638] synthesizing module 'LUT4' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15821]
-	Parameter INIT bound to: 16'b1100110011001010 
-INFO: [Synth 8-256] done synthesizing module 'LUT4' (83#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15821]
-INFO: [Synth 8-638] synthesizing module 'LUT6' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15910]
-	Parameter INIT bound to: 64'b1010101010101100101010101010110010101010101011001010101010101100 
-INFO: [Synth 8-256] done synthesizing module 'LUT6' (84#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15910]
-INFO: [Synth 8-638] synthesizing module 'FDSE' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:3150]
-	Parameter INIT bound to: 1'b1 
-	Parameter IS_C_INVERTED bound to: 1'b0 
-	Parameter IS_D_INVERTED bound to: 1'b0 
-	Parameter IS_S_INVERTED bound to: 1'b0 
-INFO: [Synth 8-256] done synthesizing module 'FDSE' (85#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:3150]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_comparator_sel_static__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel_static.v:60]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_VALUE bound to: 8'b00000000 
-	Parameter C_DATA_WIDTH bound to: 8 - type: integer 
-	Parameter C_BITS_PER_LUT bound to: 2 - type: integer 
-	Parameter C_NUM_LUT bound to: 4 - type: integer 
-	Parameter C_FIX_DATA_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_comparator_sel_static__parameterized0' (85#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel_static.v:60]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_comparator_sel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel.v:60]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 6 - type: integer 
-	Parameter C_BITS_PER_LUT bound to: 1 - type: integer 
-	Parameter C_NUM_LUT bound to: 6 - type: integer 
-	Parameter C_FIX_DATA_WIDTH bound to: 6 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_comparator_sel' (86#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_comparator_sel.v:60]
-INFO: [Synth 8-638] synthesizing module 'LUT6__parameterized0' [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15910]
-	Parameter INIT bound to: 64'b1111000011110000111100001111000011001100110011000000000010101010 
-INFO: [Synth 8-256] done synthesizing module 'LUT6__parameterized0' (86#1) [C:/Xilinx/Vivado/2014.2/scripts/rt/data/unisim_comp.v:15910]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_w_upsizer' (87#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_w_upsizer.v:63]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_a_upsizer__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_a_upsizer.v:62]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_M_AXI_REGISTER bound to: 1 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_CHANNEL bound to: 1 - type: integer 
-	Parameter C_PACKING_LEVEL bound to: 2 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_SINGLE_THREAD bound to: 0 - type: integer 
-	Parameter C_S_AXI_BYTES_LOG bound to: 4 - type: integer 
-	Parameter C_M_AXI_BYTES_LOG bound to: 6 - type: integer 
-	Parameter C_S_AXI_NATIVE_SIZE bound to: 3'b100 
-	Parameter C_M_AXI_NATIVE_SIZE bound to: 3'b110 
-	Parameter C_DOUBLE_LEN bound to: 24'b000000000000000011111111 
-	Parameter C_FIX_BURST bound to: 2'b00 
-	Parameter C_INCR_BURST bound to: 2'b01 
-	Parameter C_WRAP_BURST bound to: 2'b10 
-	Parameter C_NEVER_PACK bound to: 0 - type: integer 
-	Parameter C_DEFAULT_PACK bound to: 1 - type: integer 
-	Parameter C_ALWAYS_PACK bound to: 2 - type: integer 
-	Parameter C_FIFO_DEPTH_LOG bound to: 5 - type: integer 
-	Parameter C_BURST_BYTES_LOG bound to: 8 - type: integer 
-	Parameter C_SI_UNUSED_LOG bound to: 26 - type: integer 
-	Parameter C_MI_UNUSED_LOG bound to: 24 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_a_upsizer__parameterized0' (87#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_a_upsizer.v:62]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_r_upsizer' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_r_upsizer.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
-	Parameter C_M_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_S_AXI_REGISTER bound to: 0 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_PACKING_LEVEL bound to: 2 - type: integer 
-	Parameter C_SUPPORT_BURSTS bound to: 1 - type: integer 
-	Parameter C_S_AXI_BYTES_LOG bound to: 4 - type: integer 
-	Parameter C_M_AXI_BYTES_LOG bound to: 6 - type: integer 
-	Parameter C_RATIO bound to: 4 - type: integer 
-	Parameter C_RATIO_LOG bound to: 2 - type: integer 
-	Parameter C_NEVER_PACK bound to: 0 - type: integer 
-	Parameter C_DEFAULT_PACK bound to: 1 - type: integer 
-	Parameter C_ALWAYS_PACK bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_r_upsizer' (88#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_r_upsizer.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axi_upsizer' (89#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_upsizer.v:71]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized2' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
-	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
-	Parameter C_AXI_DATA_WIDTH bound to: 512 - type: integer 
-	Parameter C_AXI_SUPPORTS_USER_SIGNALS bound to: 0 - type: integer 
-	Parameter C_AXI_AWUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_ARUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_WUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_RUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_AXI_BUSER_WIDTH bound to: 1 - type: integer 
-	Parameter C_REG_CONFIG_AW bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_W bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_B bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_AR bound to: 0 - type: integer 
-	Parameter C_REG_CONFIG_R bound to: 0 - type: integer 
-	Parameter C_AWUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWUSER_LEN bound to: 0 - type: integer 
-	Parameter C_AWQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_AWQOS_LEN bound to: 4 - type: integer 
-	Parameter C_AWREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_AWREGION_LEN bound to: 4 - type: integer 
-	Parameter C_AWPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_AWPROT_LEN bound to: 3 - type: integer 
-	Parameter C_AWCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_AWCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_AWLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_AWLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_AWBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_AWBURST_LEN bound to: 2 - type: integer 
-	Parameter C_AWSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_AWSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_AWLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_AWLEN_LEN bound to: 8 - type: integer 
-	Parameter C_AWADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_AWADDR_LEN bound to: 30 - type: integer 
-	Parameter C_AWID_RIGHT bound to: 60 - type: integer 
-	Parameter C_AWID_LEN bound to: 4 - type: integer 
-	Parameter C_AW_SIZE bound to: 64 - type: integer 
-	Parameter C_WUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_WUSER_LEN bound to: 0 - type: integer 
-	Parameter C_WLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_WLAST_LEN bound to: 1 - type: integer 
-	Parameter C_WSTRB_RIGHT bound to: 1 - type: integer 
-	Parameter C_WSTRB_LEN bound to: 64 - type: integer 
-	Parameter C_WDATA_RIGHT bound to: 65 - type: integer 
-	Parameter C_WDATA_LEN bound to: 512 - type: integer 
-	Parameter C_WID_RIGHT bound to: 577 - type: integer 
-	Parameter C_WID_LEN bound to: 4 - type: integer 
-	Parameter C_W_SIZE bound to: 581 - type: integer 
-	Parameter C_BUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_BUSER_LEN bound to: 0 - type: integer 
-	Parameter C_BRESP_RIGHT bound to: 0 - type: integer 
-	Parameter C_BRESP_LEN bound to: 2 - type: integer 
-	Parameter C_BID_RIGHT bound to: 2 - type: integer 
-	Parameter C_BID_LEN bound to: 4 - type: integer 
-	Parameter C_B_SIZE bound to: 6 - type: integer 
-	Parameter C_ARUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARUSER_LEN bound to: 0 - type: integer 
-	Parameter C_ARQOS_RIGHT bound to: 0 - type: integer 
-	Parameter C_ARQOS_LEN bound to: 4 - type: integer 
-	Parameter C_ARREGION_RIGHT bound to: 4 - type: integer 
-	Parameter C_ARREGION_LEN bound to: 4 - type: integer 
-	Parameter C_ARPROT_RIGHT bound to: 8 - type: integer 
-	Parameter C_ARPROT_LEN bound to: 3 - type: integer 
-	Parameter C_ARCACHE_RIGHT bound to: 11 - type: integer 
-	Parameter C_ARCACHE_LEN bound to: 4 - type: integer 
-	Parameter C_ARLOCK_RIGHT bound to: 15 - type: integer 
-	Parameter C_ARLOCK_LEN bound to: 2 - type: integer 
-	Parameter C_ARBURST_RIGHT bound to: 17 - type: integer 
-	Parameter C_ARBURST_LEN bound to: 2 - type: integer 
-	Parameter C_ARSIZE_RIGHT bound to: 19 - type: integer 
-	Parameter C_ARSIZE_LEN bound to: 3 - type: integer 
-	Parameter C_ARLEN_RIGHT bound to: 22 - type: integer 
-	Parameter C_ARLEN_LEN bound to: 8 - type: integer 
-	Parameter C_ARADDR_RIGHT bound to: 30 - type: integer 
-	Parameter C_ARADDR_LEN bound to: 30 - type: integer 
-	Parameter C_ARID_RIGHT bound to: 60 - type: integer 
-	Parameter C_ARID_LEN bound to: 4 - type: integer 
-	Parameter C_AR_SIZE bound to: 64 - type: integer 
-	Parameter C_RUSER_RIGHT bound to: 0 - type: integer 
-	Parameter C_RUSER_LEN bound to: 0 - type: integer 
-	Parameter C_RLAST_RIGHT bound to: 0 - type: integer 
-	Parameter C_RLAST_LEN bound to: 1 - type: integer 
-	Parameter C_RRESP_RIGHT bound to: 1 - type: integer 
-	Parameter C_RRESP_LEN bound to: 2 - type: integer 
-	Parameter C_RDATA_RIGHT bound to: 3 - type: integer 
-	Parameter C_RDATA_LEN bound to: 512 - type: integer 
-	Parameter C_RID_RIGHT bound to: 515 - type: integer 
-	Parameter C_RID_LEN bound to: 4 - type: integer 
-	Parameter C_R_SIZE bound to: 519 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized10' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 581 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized10' (89#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized11' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-	Parameter C_FAMILY bound to: virtex7 - type: string 
-	Parameter C_DATA_WIDTH bound to: 519 - type: integer 
-	Parameter C_REG_CONFIG bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axic_register_slice__parameterized11' (89#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axic_register_slice.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_ddr_axi_register_slice__parameterized2' (89#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_ddr_axi_register_slice.v:63]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_aw_channel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_aw_channel.v:57]
 	Parameter C_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
@@ -5370,7 +4846,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd' [d:/U
 	Parameter C_MC_RD_INST bound to: 0 - type: integer 
 	Parameter P_AXLEN_WIDTH bound to: 8 - type: integer 
 INFO: [Synth 8-4472] Detected and applied attribute keep = true [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_incr_cmd.v:126]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd' (90#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_incr_cmd.v:64]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd' (70#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_incr_cmd.v:64]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
 	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
 	Parameter C_MC_ADDR_WIDTH bound to: 28 - type: integer 
@@ -5379,13 +4855,13 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd' [d:/U
 	Parameter C_AXSIZE bound to: 6 - type: integer 
 	Parameter C_MC_RD_INST bound to: 0 - type: integer 
 	Parameter P_AXLEN_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd' (91#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_translator' (92#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_translator.v:62]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd' (71#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_translator' (72#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_translator.v:62]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_wr_cmd_fsm' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wr_cmd_fsm.v:76]
 	Parameter C_MC_BURST_LEN bound to: 1 - type: integer 
 	Parameter C_MC_RD_INST bound to: 0 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wr_cmd_fsm' (93#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wr_cmd_fsm.v:76]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_aw_channel' (94#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_aw_channel.v:57]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wr_cmd_fsm' (73#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wr_cmd_fsm.v:76]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_aw_channel' (74#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_aw_channel.v:57]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_w_channel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_w_channel.v:64]
 	Parameter C_DATA_WIDTH bound to: 512 - type: integer 
 	Parameter C_MC_BURST_LEN bound to: 1 - type: integer 
@@ -5394,7 +4870,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_w_channel' [d:/
 	Parameter SM_FIRST_DATA bound to: 1'b0 
 	Parameter SM_SECOND_DATA bound to: 1'b1 
 WARNING: [Synth 8-3848] Net cmd_wr_bytes in module/entity mig_7series_v2_1_axi_mc_w_channel does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_w_channel.v:96]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_w_channel' (95#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_w_channel.v:64]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_w_channel' (75#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_w_channel.v:64]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_b_channel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_b_channel.v:83]
 	Parameter C_ID_WIDTH bound to: 4 - type: integer 
 	Parameter P_WIDTH bound to: 4 - type: integer 
@@ -5413,8 +4889,8 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_fifo' [d:/Under
 	Parameter C_EMPTY_PRE bound to: 3'b000 
 	Parameter C_FULL bound to: 3'b111 
 	Parameter C_FULL_PRE bound to: 3'b110 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo' (96#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_b_channel' (97#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_b_channel.v:83]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo' (76#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_b_channel' (77#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_b_channel.v:83]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_ar_channel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_ar_channel.v:57]
 	Parameter C_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
@@ -5442,7 +4918,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd__param
 	Parameter C_AXSIZE bound to: 6 - type: integer 
 	Parameter C_MC_RD_INST bound to: 1 - type: integer 
 	Parameter P_AXLEN_WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd__parameterized0' (97#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_incr_cmd.v:64]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_incr_cmd__parameterized0' (77#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_incr_cmd.v:64]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd__parameterized0' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
 	Parameter C_AXI_ADDR_WIDTH bound to: 30 - type: integer 
 	Parameter C_MC_ADDR_WIDTH bound to: 28 - type: integer 
@@ -5451,13 +4927,13 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd__param
 	Parameter C_AXSIZE bound to: 6 - type: integer 
 	Parameter C_MC_RD_INST bound to: 1 - type: integer 
 	Parameter P_AXLEN_WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd__parameterized0' (97#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_translator__parameterized0' (97#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_translator.v:62]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_wrap_cmd__parameterized0' (77#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_wrap_cmd.v:97]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_translator__parameterized0' (77#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_translator.v:62]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_cmd_fsm' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_fsm.v:72]
 	Parameter C_MC_BURST_LEN bound to: 1 - type: integer 
 	Parameter C_MC_RD_INST bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_fsm' (98#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_fsm.v:72]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_ar_channel' (99#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_ar_channel.v:57]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_fsm' (78#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_fsm.v:72]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_ar_channel' (79#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_ar_channel.v:57]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_r_channel' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_r_channel.v:67]
 	Parameter C_ID_WIDTH bound to: 4 - type: integer 
 	Parameter C_DATA_WIDTH bound to: 512 - type: integer 
@@ -5486,7 +4962,7 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameter
 	Parameter C_EMPTY_PRE bound to: 5'b00000 
 	Parameter C_FULL bound to: 5'b11111 
 	Parameter C_FULL_PRE bound to: 5'b11110 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameterized0' (99#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameterized0' (79#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameterized1' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
 	Parameter C_WIDTH bound to: 7 - type: integer 
 	Parameter C_AWIDTH bound to: 5 - type: integer 
@@ -5495,21 +4971,21 @@ INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameter
 	Parameter C_EMPTY_PRE bound to: 5'b00000 
 	Parameter C_FULL bound to: 5'b11101 
 	Parameter C_FULL_PRE bound to: 5'b11100 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameterized1' (99#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_fifo__parameterized1' (79#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_fifo.v:70]
 WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_r_channel.v:189]
 INFO: [Synth 8-155] case statement is not full and has no default [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_r_channel.v:315]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_r_channel' (100#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_r_channel.v:67]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_r_channel' (80#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_r_channel.v:67]
 INFO: [Synth 8-638] synthesizing module 'mig_7series_v2_1_axi_mc_cmd_arbiter' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_arbiter.v:61]
 	Parameter C_MC_ADDR_WIDTH bound to: 28 - type: integer 
 	Parameter C_MC_BURST_LEN bound to: 1 - type: integer 
 	Parameter C_AXI_WR_STARVE_LIMIT bound to: 256 - type: integer 
 	Parameter C_AXI_STARVE_CNT_WIDTH bound to: 8 - type: integer 
 	Parameter C_RD_WR_ARB_ALGORITHM bound to: RD_PRI_REG - type: string 
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_arbiter' (101#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_arbiter.v:61]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc' (102#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc.v:90]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc_cmd_arbiter' (81#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc_cmd_arbiter.v:61]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_axi_mc' (82#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/axi/mig_7series_v2_1_axi_mc.v:90]
 WARNING: [Synth 8-3848] Net error in module/entity mig_7series_v2_1_memc_ui_top_axi does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/ip_top/mig_7series_v2_1_memc_ui_top_axi.v:534]
 WARNING: [Synth 8-3848] Net app_correct_en_i in module/entity mig_7series_v2_1_memc_ui_top_axi does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/ip_top/mig_7series_v2_1_memc_ui_top_axi.v:480]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_memc_ui_top_axi' (103#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/ip_top/mig_7series_v2_1_memc_ui_top_axi.v:72]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_v2_1_memc_ui_top_axi' (83#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/ip_top/mig_7series_v2_1_memc_ui_top_axi.v:72]
 WARNING: [Synth 8-3848] Net s_axi_ctrl_awvalid in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:712]
 WARNING: [Synth 8-3848] Net s_axi_ctrl_awaddr in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:714]
 WARNING: [Synth 8-3848] Net s_axi_ctrl_wvalid in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:716]
@@ -5521,10 +4997,10 @@ WARNING: [Synth 8-3848] Net s_axi_ctrl_rready in module/entity mig_7series_1_mig
 WARNING: [Synth 8-3848] Net clk_ref_p in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:739]
 WARNING: [Synth 8-3848] Net clk_ref_n in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:740]
 WARNING: [Synth 8-3848] Net device_temp_i in module/entity mig_7series_1_mig does not have driver. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:743]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_1_mig' (104#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:74]
-INFO: [Synth 8-256] done synthesizing module 'mig_7series_1' (105#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1.v:69]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_1_mig' (84#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1_mig.v:74]
+INFO: [Synth 8-256] done synthesizing module 'mig_7series_1' (85#1) [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/mig_7series_1.v:69]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 562.285 ; gain = 429.105
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 542.582 ; gain = 408.469
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -5637,7 +5113,7 @@ WARNING: [Synth 8-3295] tying undriven pin u_ddr_mc_phy:phy_dout[721] to constan
 WARNING: [Synth 8-3295] tying undriven pin u_ddr_mc_phy:phy_dout[720] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/phy/mig_7series_v2_1_ddr_mc_phy_wrapper.v:1482]
 WARNING: [Synth 8-3295] tying undriven pin u_ddr_mc_phy:phy_dout[711] to constant 0 [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/phy/mig_7series_v2_1_ddr_mc_phy_wrapper.v:1482]
 INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Netlist 29-17] Analyzing 451 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 345 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Loading clock regions from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/kintex7/xc7k325t/ClockRegion.xml
 Loading clock buffers from C:/Xilinx/Vivado/2014.2/data\parts/xilinx/kintex7/kintex7/xc7k325t/ClockBuffers.xml
@@ -5661,10 +5137,9 @@ Resolution: To avoid this message, exclude constraints listed in [.Xil/mig_7seri
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 287 instances were transformed.
+  A total of 259 instances were transformed.
   IOBUFDS_DCIEN => IOBUFDS_DCIEN (IBUFDS_IBUFDISABLE_INT, IBUFDS_IBUFDISABLE_INT, OBUFTDS_DCIEN, OBUFTDS_DCIEN, INV): 8 instances
   IOBUF_DCIEN => IOBUF_DCIEN (IBUF_IBUFDISABLE, OBUFT_DCIEN): 64 instances
-  LUT6_2 => LUT6_2 (LUT6, LUT5): 28 instances
   RAM32M => RAM32M (RAMS32, RAMS32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32): 187 instances
 
 ---------------------------------------------------------------------------------
@@ -5675,16 +5150,16 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:41 ; elapsed = 00:00:40 . Memory (MB): peak = 998.074 ; gain = 864.895
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 998.074 ; gain = 864.895
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 998.074 ; gain = 864.895
+Finished RTL Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4471] merging register 'xadc_supplied_temperature.xadc_den_reg' into 'xadc_supplied_temperature.sample_timer_clr_reg' [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/rtl/clocking/mig_7series_v2_1_tempmon.v:286]
 INFO: [Synth 8-802] inferred FSM for state register 'xadc_supplied_temperature.tempmon_state_reg' in module 'mig_7series_v2_1_tempmon'
@@ -5816,7 +5291,7 @@ Report RTL Partitions:
 |6     |mig_7series_v2_1_ddr_calib_top__GB1                  |           1|      9288|
 |7     |mig_7series_v2_1_ddr_phy_top__GC0                    |           1|       698|
 |8     |mig_7series_v2_1_mc                                  |           1|      4852|
-|9     |mig_7series_v2_1_memc_ui_top_axi__GC0                |           1|     18817|
+|9     |mig_7series_v2_1_memc_ui_top_axi__GC0                |           1|      9996|
 |10    |mig_7series_1_mig__GC0                               |           1|      4573|
 +------+-----------------------------------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -5824,53 +5299,50 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 4     
 	   3 Input     32 Bit       Adders := 9     
+	   2 Input     32 Bit       Adders := 4     
 	   2 Input     30 Bit       Adders := 2     
 	   2 Input     13 Bit       Adders := 1     
 	   2 Input     12 Bit       Adders := 16    
-	   3 Input     11 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 8     
+	   3 Input     11 Bit       Adders := 1     
 	   3 Input     10 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 8     
 	   2 Input      9 Bit       Adders := 3     
-	   2 Input      8 Bit       Adders := 11    
+	   2 Input      8 Bit       Adders := 10    
 	   2 Input      7 Bit       Adders := 10    
-	   2 Input      6 Bit       Adders := 58    
-	   4 Input      6 Bit       Adders := 1     
 	   3 Input      6 Bit       Adders := 19    
+	   2 Input      6 Bit       Adders := 56    
+	   4 Input      6 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 55    
 	   2 Input      4 Bit       Adders := 43    
 	   2 Input      3 Bit       Adders := 29    
 	   3 Input      3 Bit       Adders := 1     
 	   8 Input      2 Bit       Adders := 1     
-	   2 Input      2 Bit       Adders := 58    
 	   4 Input      2 Bit       Adders := 5     
-	   5 Input      2 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 58    
 	   3 Input      2 Bit       Adders := 3     
-	   2 Input      1 Bit       Adders := 4     
+	   5 Input      2 Bit       Adders := 1     
+	   5 Input      1 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
+	   7 Input      1 Bit       Adders := 1     
+	   6 Input      1 Bit       Adders := 1     
+	  10 Input      1 Bit       Adders := 1     
 	   4 Input      1 Bit       Adders := 1     
 	   8 Input      1 Bit       Adders := 1     
-	   6 Input      1 Bit       Adders := 1     
 	   9 Input      1 Bit       Adders := 1     
-	   7 Input      1 Bit       Adders := 1     
-	  10 Input      1 Bit       Adders := 1     
-	   3 Input      1 Bit       Adders := 1     
-	   5 Input      1 Bit       Adders := 1     
-+---XORs : 
-	   2 Input      1 Bit         XORs := 22    
+	   2 Input      1 Bit       Adders := 4     
 +---Registers : 
 	              576 Bit    Registers := 1     
-	              519 Bit    Registers := 2     
-	              512 Bit    Registers := 6     
+	              512 Bit    Registers := 5     
 	              320 Bit    Registers := 1     
 	               88 Bit    Registers := 1     
 	               80 Bit    Registers := 8     
-	               64 Bit    Registers := 7     
+	               64 Bit    Registers := 5     
 	               56 Bit    Registers := 1     
 	               48 Bit    Registers := 6     
 	               32 Bit    Registers := 5     
-	               30 Bit    Registers := 15    
+	               30 Bit    Registers := 13    
 	               28 Bit    Registers := 2     
 	               24 Bit    Registers := 1     
 	               16 Bit    Registers := 9     
@@ -5881,14 +5353,14 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 2     
 	               10 Bit    Registers := 6     
 	                9 Bit    Registers := 20    
-	                8 Bit    Registers := 33    
+	                8 Bit    Registers := 31    
 	                7 Bit    Registers := 3     
-	                6 Bit    Registers := 189   
+	                6 Bit    Registers := 185   
 	                5 Bit    Registers := 85    
-	                4 Bit    Registers := 124   
-	                3 Bit    Registers := 97    
-	                2 Bit    Registers := 79    
-	                1 Bit    Registers := 2115  
+	                4 Bit    Registers := 115   
+	                3 Bit    Registers := 93    
+	                2 Bit    Registers := 70    
+	                1 Bit    Registers := 2091  
 +---Multipliers : 
 	                  4x7  Multipliers := 1     
 	                  3x6  Multipliers := 1     
@@ -5896,88 +5368,83 @@ Detailed RTL Component Info :
 +---ROMs : 
 	                              ROMs := 2     
 +---Muxes : 
-	   2 Input    519 Bit        Muxes := 1     
 	   2 Input    512 Bit        Muxes := 14    
 	   2 Input    511 Bit        Muxes := 1     
-	   2 Input    128 Bit        Muxes := 1     
-	   4 Input    128 Bit        Muxes := 2     
 	   2 Input     80 Bit        Muxes := 19    
 	   2 Input     64 Bit        Muxes := 8     
 	   2 Input     56 Bit        Muxes := 1     
 	   2 Input     48 Bit        Muxes := 10    
 	   3 Input     48 Bit        Muxes := 2     
-	   2 Input     47 Bit        Muxes := 2     
 	   2 Input     32 Bit        Muxes := 1     
 	   4 Input     30 Bit        Muxes := 11    
-	   2 Input     30 Bit        Muxes := 49    
+	   2 Input     30 Bit        Muxes := 43    
 	   2 Input     28 Bit        Muxes := 1     
 	  48 Input     22 Bit        Muxes := 1     
 	   2 Input     21 Bit        Muxes := 22    
-	  32 Input     16 Bit        Muxes := 1     
 	   3 Input     16 Bit        Muxes := 1     
+	  32 Input     16 Bit        Muxes := 1     
 	   9 Input     14 Bit        Muxes := 1     
-	   4 Input     14 Bit        Muxes := 1     
 	   2 Input     14 Bit        Muxes := 16    
+	   4 Input     14 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
 	   2 Input     11 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 5     
 	   4 Input      9 Bit        Muxes := 15    
 	   2 Input      9 Bit        Muxes := 37    
-	   8 Input      8 Bit        Muxes := 2     
-	   2 Input      8 Bit        Muxes := 195   
 	   5 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 65    
+	   3 Input      7 Bit        Muxes := 1     
 	  36 Input      7 Bit        Muxes := 1     
 	   2 Input      7 Bit        Muxes := 3     
-	   3 Input      7 Bit        Muxes := 1     
-	  36 Input      6 Bit        Muxes := 3     
-	  22 Input      6 Bit        Muxes := 17    
-	   4 Input      6 Bit        Muxes := 24    
-	  30 Input      6 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 211   
-	  34 Input      6 Bit        Muxes := 2     
-	   8 Input      6 Bit        Muxes := 5     
 	   3 Input      6 Bit        Muxes := 19    
+	  36 Input      6 Bit        Muxes := 3     
+	   4 Input      6 Bit        Muxes := 24    
+	  34 Input      6 Bit        Muxes := 2     
 	  16 Input      6 Bit        Muxes := 1     
 	  23 Input      6 Bit        Muxes := 2     
-	   8 Input      5 Bit        Muxes := 10    
-	  22 Input      5 Bit        Muxes := 2     
+	  22 Input      6 Bit        Muxes := 17    
+	  30 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 207   
+	   8 Input      6 Bit        Muxes := 1     
 	   3 Input      5 Bit        Muxes := 2     
 	   2 Input      5 Bit        Muxes := 75    
-	   5 Input      5 Bit        Muxes := 1     
+	  22 Input      5 Bit        Muxes := 2     
 	  34 Input      5 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 10    
+	   2 Input      4 Bit        Muxes := 119   
 	  10 Input      4 Bit        Muxes := 1     
-	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 120   
+	  34 Input      4 Bit        Muxes := 1     
 	  29 Input      4 Bit        Muxes := 1     
 	  17 Input      4 Bit        Muxes := 1     
-	  34 Input      4 Bit        Muxes := 1     
-	  29 Input      3 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
 	   8 Input      3 Bit        Muxes := 2     
-	   2 Input      3 Bit        Muxes := 123   
-	   4 Input      3 Bit        Muxes := 3     
-	   5 Input      3 Bit        Muxes := 1     
-	   9 Input      3 Bit        Muxes := 1     
 	   3 Input      3 Bit        Muxes := 17    
-	   3 Input      2 Bit        Muxes := 7     
-	   2 Input      2 Bit        Muxes := 73    
+	   9 Input      3 Bit        Muxes := 1     
+	  29 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 3     
+	   2 Input      3 Bit        Muxes := 123   
+	   5 Input      3 Bit        Muxes := 1     
+	  34 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 2     
 	  22 Input      2 Bit        Muxes := 4     
 	  23 Input      2 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 6     
 	   8 Input      2 Bit        Muxes := 16    
-	   5 Input      2 Bit        Muxes := 2     
-	  34 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 6     
 	  29 Input      2 Bit        Muxes := 26    
-	   4 Input      1 Bit        Muxes := 195   
-	   2 Input      1 Bit        Muxes := 1155  
-	  10 Input      1 Bit        Muxes := 17    
-	   3 Input      1 Bit        Muxes := 24    
-	  12 Input      1 Bit        Muxes := 1     
-	  34 Input      1 Bit        Muxes := 34    
-	  29 Input      1 Bit        Muxes := 51    
+	   4 Input      2 Bit        Muxes := 5     
+	   2 Input      2 Bit        Muxes := 68    
+	   3 Input      1 Bit        Muxes := 18    
 	  22 Input      1 Bit        Muxes := 81    
+	   4 Input      1 Bit        Muxes := 193   
 	  16 Input      1 Bit        Muxes := 21    
-	   5 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 1     
 	   8 Input      1 Bit        Muxes := 16    
+	  29 Input      1 Bit        Muxes := 51    
+	  34 Input      1 Bit        Muxes := 34    
+	  10 Input      1 Bit        Muxes := 17    
+	   5 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1072  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -6002,15 +5469,15 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 1     
-	   6 Input      1 Bit       Adders := 1     
-	   3 Input      1 Bit       Adders := 1     
 	   5 Input      1 Bit       Adders := 1     
+	   4 Input      1 Bit       Adders := 1     
+	   7 Input      1 Bit       Adders := 1     
 	   9 Input      1 Bit       Adders := 1     
 	   2 Input      1 Bit       Adders := 1     
-	   8 Input      1 Bit       Adders := 1     
-	   7 Input      1 Bit       Adders := 1     
+	   6 Input      1 Bit       Adders := 1     
 	  10 Input      1 Bit       Adders := 1     
-	   4 Input      1 Bit       Adders := 1     
+	   3 Input      1 Bit       Adders := 1     
+	   8 Input      1 Bit       Adders := 1     
 +---Registers : 
 	                6 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
@@ -6805,8 +6272,8 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input    512 Bit        Muxes := 5     
 	   2 Input    511 Bit        Muxes := 1     
-	   2 Input     14 Bit        Muxes := 11    
 	   9 Input     14 Bit        Muxes := 1     
+	   2 Input     14 Bit        Muxes := 11    
 	   4 Input     14 Bit        Muxes := 1     
 	   2 Input     10 Bit        Muxes := 3     
 	   2 Input      9 Bit        Muxes := 2     
@@ -6814,20 +6281,20 @@ Detailed RTL Component Info :
 	   2 Input      7 Bit        Muxes := 1     
 	   3 Input      7 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 88    
-	   2 Input      5 Bit        Muxes := 14    
 	   8 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 14    
 	   5 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 16    
-	   2 Input      3 Bit        Muxes := 9     
-	   8 Input      3 Bit        Muxes := 1     
 	   9 Input      3 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 2     
-	   4 Input      2 Bit        Muxes := 5     
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 9     
 	   5 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 42    
 	   4 Input      1 Bit        Muxes := 2     
 	   3 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 42    
 Module mig_7series_v2_1_ddr_phy_wrcal 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -6902,12 +6369,12 @@ Detailed RTL Component Info :
 	  34 Input      6 Bit        Muxes := 2     
 	  36 Input      6 Bit        Muxes := 3     
 	   2 Input      6 Bit        Muxes := 6     
-	   2 Input      5 Bit        Muxes := 16    
 	  34 Input      5 Bit        Muxes := 1     
 	   8 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 16    
+	   2 Input      4 Bit        Muxes := 13    
 	  34 Input      4 Bit        Muxes := 1     
 	   3 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 13    
 	   2 Input      3 Bit        Muxes := 3     
 	  34 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 3     
@@ -6938,22 +6405,22 @@ Detailed RTL Component Info :
 +---ROMs : 
 	                              ROMs := 1     
 +---Muxes : 
-	   2 Input     48 Bit        Muxes := 6     
 	   3 Input     48 Bit        Muxes := 2     
+	   2 Input     48 Bit        Muxes := 6     
 	   2 Input     12 Bit        Muxes := 1     
-	  22 Input      6 Bit        Muxes := 7     
 	   2 Input      6 Bit        Muxes := 10    
 	   3 Input      6 Bit        Muxes := 8     
+	  22 Input      6 Bit        Muxes := 7     
 	  23 Input      6 Bit        Muxes := 2     
-	  22 Input      5 Bit        Muxes := 1     
 	   2 Input      5 Bit        Muxes := 2     
+	  22 Input      5 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 8     
 	   2 Input      3 Bit        Muxes := 2     
-	  22 Input      2 Bit        Muxes := 1     
 	  23 Input      2 Bit        Muxes := 1     
+	  22 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 164   
 	   3 Input      1 Bit        Muxes := 10    
 	  22 Input      1 Bit        Muxes := 36    
-	   2 Input      1 Bit        Muxes := 164   
 Module mig_7series_v2_1_ddr_phy_tempmon 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -7038,20 +6505,20 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input      9 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 16    
 	   4 Input      6 Bit        Muxes := 8     
-	   3 Input      6 Bit        Muxes := 9     
+	   2 Input      6 Bit        Muxes := 16    
 	  30 Input      6 Bit        Muxes := 1     
+	   3 Input      6 Bit        Muxes := 9     
 	   2 Input      5 Bit        Muxes := 18    
 	  29 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 20    
-	   3 Input      3 Bit        Muxes := 17    
-	   2 Input      3 Bit        Muxes := 10    
 	  29 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 10    
+	   3 Input      3 Bit        Muxes := 17    
 	   2 Input      2 Bit        Muxes := 1     
 	  29 Input      2 Bit        Muxes := 26    
-	  29 Input      1 Bit        Muxes := 51    
 	   2 Input      1 Bit        Muxes := 116   
+	  29 Input      1 Bit        Muxes := 51    
 Module mig_7series_v2_1_ddr_calib_top 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -7138,6 +6605,20 @@ Module mig_7series_v2_1_ui_top
 Detailed RTL Component Info : 
 Module mig_7series_v2_1_ddr_axic_register_slice__3 
 Detailed RTL Component Info : 
+Module mig_7series_v2_1_ddr_axic_register_slice__parameterized0__1 
+Detailed RTL Component Info : 
+Module mig_7series_v2_1_ddr_axic_register_slice__parameterized1__1 
+Detailed RTL Component Info : 
+Module mig_7series_v2_1_ddr_axic_register_slice__2 
+Detailed RTL Component Info : 
+Module mig_7series_v2_1_ddr_axic_register_slice__parameterized2__1 
+Detailed RTL Component Info : 
+Module mig_7series_v2_1_ddr_axi_register_slice__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module mig_7series_v2_1_ddr_axic_register_slice__1 
+Detailed RTL Component Info : 
 Module mig_7series_v2_1_ddr_axic_register_slice__parameterized0 
 Detailed RTL Component Info : 
 Module mig_7series_v2_1_ddr_axic_register_slice__parameterized1 
@@ -7147,332 +6628,6 @@ Detailed RTL Component Info :
 Module mig_7series_v2_1_ddr_axic_register_slice__parameterized2 
 Detailed RTL Component Info : 
 Module mig_7series_v2_1_ddr_axi_register_slice 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized3__1 
-Detailed RTL Component Info : 
-+---Registers : 
-	               64 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 3     
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized4 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized5 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized3 
-Detailed RTL Component Info : 
-+---Registers : 
-	               64 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 2     
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 3     
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized6 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axi_register_slice__parameterized0 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized7__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized8 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized5__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized7 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized9 
-Detailed RTL Component Info : 
-+---Registers : 
-	              519 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input    519 Bit        Muxes := 1     
-	   3 Input      2 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
-	   4 Input      1 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 2     
-Module mig_7series_v2_1_ddr_axi_register_slice__parameterized1 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module mig_7series_v2_1_ddr_carry_and 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__21 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__22 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__23 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_or 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__24 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__25 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__26 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_command_fifo 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 5     
-+---Registers : 
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     47 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module mig_7series_v2_1_ddr_carry_latch_and__11 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__12 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__13 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__14 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__15 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_a_upsizer 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      8 Bit       Adders := 1     
-	   2 Input      6 Bit       Adders := 1     
-+---XORs : 
-	   2 Input      1 Bit         XORs := 6     
-+---Registers : 
-	               30 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                4 Bit    Registers := 4     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input     30 Bit        Muxes := 3     
-	   2 Input      8 Bit        Muxes := 1     
-	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   8 Input      6 Bit        Muxes := 2     
-Module mig_7series_v2_1_ddr_carry_and__11 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__12 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__13 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel_static 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__28 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__29 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__30 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__31 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__8 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__32 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__33 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_or 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__34 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__35 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__36 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__9 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__37 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__7 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__8 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__9 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__10 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel_static__parameterized0 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__2 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__3 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__4 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__5 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__6 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__38 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__39 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__40 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__10 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_w_upsizer 
-Detailed RTL Component Info : 
-+---Registers : 
-	                6 Bit    Registers := 2     
-	                1 Bit    Registers := 5     
-+---Muxes : 
-	   2 Input      8 Bit        Muxes := 128   
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 67    
-Module mig_7series_v2_1_ddr_carry_and__27 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__59 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__58 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__57 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_or__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__56 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__55 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__54 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_command_fifo__1 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 5     
-+---Registers : 
-	                1 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     47 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
-Module mig_7series_v2_1_ddr_carry_latch_and__2 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__3 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__4 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__5 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__6 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__7 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_a_upsizer__parameterized0 
-Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input      6 Bit       Adders := 1     
-+---XORs : 
-	   2 Input      1 Bit         XORs := 6     
-+---Registers : 
-	               30 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                4 Bit    Registers := 4     
-	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input     30 Bit        Muxes := 3     
-	   2 Input      8 Bit        Muxes := 1     
-	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      6 Bit        Muxes := 1     
-	   8 Input      6 Bit        Muxes := 2     
-Module mig_7series_v2_1_ddr_carry_and__53 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__52 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__51 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel_static__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__14 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__15 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__16 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__17 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_or__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__18 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__19 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_latch_and__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__50 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__49 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__48 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__47 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel_static__parameterized0__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__20 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_or__2 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__46 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__45 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__44 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__43 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__42 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_carry_and__41 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_comparator_sel__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_r_upsizer 
-Detailed RTL Component Info : 
-+---Registers : 
-	              512 Bit    Registers := 1     
-	                6 Bit    Registers := 2     
-	                4 Bit    Registers := 1     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input    128 Bit        Muxes := 1     
-	   4 Input    128 Bit        Muxes := 2     
-	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
-Module mig_7series_v2_1_ddr_axi_upsizer 
-Detailed RTL Component Info : 
-+---Registers : 
-	                1 Bit    Registers := 1     
-Module mig_7series_v2_1_ddr_axic_register_slice__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized10 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized1__1 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__2 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axic_register_slice__parameterized11 
-Detailed RTL Component Info : 
-Module mig_7series_v2_1_ddr_axi_register_slice__parameterized2 
 Detailed RTL Component Info : 
 +---Registers : 
 	                1 Bit    Registers := 1     
@@ -7682,7 +6837,7 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 998.074 ; gain = 864.895
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:01:01 ; elapsed = 00:01:01 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -7891,9 +7046,9 @@ WARNING: [Synth 8-3917] design mig_7series_1 has port ddr3_ila_rdpath[501] drive
 WARNING: [Synth 8-3917] design mig_7series_1 has port ddr3_ila_rdpath[500] driven by constant 0
 INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:16 . Memory (MB): peak = 998.074 ; gain = 864.895
+Finished Cross Boundary Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:15 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:01:15 ; elapsed = 00:01:16 . Memory (MB): peak = 998.074 ; gain = 864.895
+Finished Parallel Reinfer  : Time (s): cpu = 00:01:14 ; elapsed = 00:01:15 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -8067,10 +7222,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7s
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /i_0/\phy_ctl_wd_i1_reg[31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_axi_mc/\axi_mc_r_channel_0/r_ignore_end_r_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_axi_mc/\axi_mc_r_channel_0/FSM_sequential_state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_axi_mc/\USE_UPSIZER.upsizer_d2 /mi_register_slice_inst/\r_pipe/storage_data2_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_ui_top/\ui_cmd0/app_addr_r1_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_ui_top/\ui_cmd0/app_hi_pri_r1_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_memc_ui_top_axii_3/u_axi_mc/\USE_UPSIZER.upsizer_d2 /mi_register_slice_inst/\r_pipe/storage_data1_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_mig_7series_1_migi_4/\temp_mon_enabled.u_tempmon/FSM_sequential_xadc_supplied_temperature.tempmon_state_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/mc0 /\bank_mach0/bank_cntrl[1].bank0/bank_compare0/req_col_r_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/mc0 /\bank_mach0/bank_cntrl[0].bank0/bank_compare0/req_col_r_reg[2] )
@@ -8084,10 +7237,10 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_ddr_cal
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /i_0/\phy_ctl_wd_i1_reg[26] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /i_0/\phy_ctl_wd_i1_reg[26] )
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1001.145 ; gain = 867.965
+Finished Area Optimization : Time (s): cpu = 00:01:58 ; elapsed = 00:02:02 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1001.145 ; gain = 867.965
-Finished Parallel Section  : Time (s): cpu = 00:02:02 ; elapsed = 00:02:07 . Memory (MB): peak = 1001.145 ; gain = 867.965
+Finished Parallel Area Opt  : Time (s): cpu = 00:01:58 ; elapsed = 00:02:02 . Memory (MB): peak = 954.785 ; gain = 820.672
+Finished Parallel Section  : Time (s): cpu = 00:01:58 ; elapsed = 00:02:02 . Memory (MB): peak = 954.785 ; gain = 820.672
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -8095,26 +7248,26 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1080.770 ; gain = 947.590
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:07 ; elapsed = 00:02:11 . Memory (MB): peak = 1014.715 ; gain = 880.602
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:14 ; elapsed = 00:02:19 . Memory (MB): peak = 1099.688 ; gain = 966.508
+Finished Timing Optimization : Time (s): cpu = 00:02:09 ; elapsed = 00:02:14 . Memory (MB): peak = 1032.613 ; gain = 898.500
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/prbs_dqs_cnt_r_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_A.ddr_byte_lane_A /ddr_byte_group_io/\fine_delay_r_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_B.ddr_byte_lane_B /ddr_byte_group_io/\fine_delay_r_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_C.ddr_byte_lane_C /ddr_byte_group_io/\fine_delay_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_B.ddr_byte_lane_B /ddr_byte_group_io/\fine_delay_r_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_D.ddr_byte_lane_D /ddr_byte_group_io/\fine_delay_r_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_A.ddr_byte_lane_A /ddr_byte_group_io/\fine_delay_r_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_B.ddr_byte_lane_B /ddr_byte_group_io/\fine_delay_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_0.u_ddr_phy_4lanes /\ddr_byte_lane_A.ddr_byte_lane_A /ddr_byte_group_io/\fine_delay_r_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_C.ddr_byte_lane_C /ddr_byte_group_io/\fine_delay_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_B.ddr_byte_lane_B /ddr_byte_group_io/\fine_delay_r_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_D.ddr_byte_lane_D /ddr_byte_group_io/\fine_delay_r_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_mc_phy_wrapper /u_ddr_mc_phy/\ddr_phy_4lanes_2.u_ddr_phy_4lanes /\ddr_byte_lane_A.ddr_byte_lane_A /ddr_byte_group_io/\fine_delay_r_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/prbs_dqs_cnt_r_reg[3] )
 INFO: [Synth 8-4480] The timing for the instance \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl/dec_cnt_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:38 ; elapsed = 00:02:46 . Memory (MB): peak = 1170.563 ; gain = 1037.383
+Finished Technology Mapping : Time (s): cpu = 00:02:29 ; elapsed = 00:02:35 . Memory (MB): peak = 1049.246 ; gain = 915.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -8137,20 +7290,16 @@ INFO: [Synth 8-4618] Found max_fanout attribute set to 40 on net my_empty[4]. Fa
 INFO: [Synth 8-4618] Found max_fanout attribute set to 40 on net my_empty[4]. Fanout reduced from 65 to 33 by creating 1 replicas.
 INFO: [Synth 8-4618] Found max_fanout attribute set to 40 on net my_empty[4]. Fanout reduced from 65 to 33 by creating 1 replicas.
 INFO: [Synth 8-828] writing Verilog file '_myprint.v' for module 'keep_new'
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/u_axi_mc/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/state [1]. Fanout reduced from 523 to 48 by creating 10 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 100 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/u_axi_mc/USE_UPSIZER.upsizer_d2/ARESET . Fanout reduced from 2032 to 100 by creating 21 replicas.
 INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \n_0_u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/init_calib_complete_reg . Fanout reduced from 708 to 47 by creating 15 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/mb_wrlvl_inst.u_ddr_phy_wrlvl/dqs_count_r [0]. Fanout reduced from 96 to 48 by creating 2 replicas.
+INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/mb_wrlvl_inst.u_ddr_phy_wrlvl/dqs_count_r [0]. Fanout reduced from 98 to 49 by creating 2 replicas.
 INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/mb_wrlvl_inst.u_ddr_phy_wrlvl/dqs_count_r [1]. Fanout reduced from 96 to 48 by creating 2 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/mb_wrlvl_inst.u_ddr_phy_wrlvl/dqs_count_r [2]. Fanout reduced from 74 to 26 by creating 2 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/u_axi_mc/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/state [0]. Fanout reduced from 530 to 49 by creating 10 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_ddr3_infrastructure/rstdiv0_sync_r1 . Fanout reduced from 1431 to 50 by creating 28 replicas.
-INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/u_axi_mc/USE_UPSIZER.upsizer_d2/mi_register_slice_inst/r_pipe/state [1]. Fanout reduced from 58 to 29 by creating 1 replicas.
+INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_memc_ui_top_axi/mem_intfc0/ddr_phy_top0/u_ddr_calib_top/mb_wrlvl_inst.u_ddr_phy_wrlvl/dqs_count_r [2]. Fanout reduced from 70 to 48 by creating 1 replicas.
+INFO: [Synth 8-4618] Found max_fanout attribute set to 50 on net \u_mig_7series_1_mig/u_ddr3_infrastructure/rstdiv0_sync_r1 . Fanout reduced from 1447 to 50 by creating 29 replicas.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:42 ; elapsed = 00:02:49 . Memory (MB): peak = 1170.563 ; gain = 1037.383
+Finished IO Insertion : Time (s): cpu = 00:02:31 ; elapsed = 00:02:37 . Memory (MB): peak = 1049.246 ; gain = 915.133
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -8163,13 +7312,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:42 ; elapsed = 00:02:49 . Memory (MB): peak = 1170.563 ; gain = 1037.383
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:31 ; elapsed = 00:02:37 . Memory (MB): peak = 1049.246 ; gain = 915.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:45 ; elapsed = 00:02:53 . Memory (MB): peak = 1170.563 ; gain = 1037.383
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:34 ; elapsed = 00:02:40 . Memory (MB): peak = 1049.246 ; gain = 915.133
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -8221,289 +7370,189 @@ Report Cell Usage:
 +------+---------------------+------+
 |      |Cell                 |Count |
 +------+---------------------+------+
-|1     |AND2B1L              |    14|
-|2     |BUFG                 |     2|
-|3     |BUFH                 |     2|
-|4     |BUFIO                |     3|
-|5     |CARRY4               |   226|
-|6     |IDELAYCTRL           |     2|
-|7     |IDELAYE2_FINEDELAY   |    32|
-|8     |IDELAYE2_FINEDELAY_1 |    32|
-|9     |INV                  |     8|
-|10    |IN_FIFO              |     8|
-|11    |ISERDESE2            |    64|
-|12    |LUT1                 |   573|
-|13    |LUT2                 |  1024|
-|14    |LUT3                 |  3884|
-|15    |LUT4                 |  1932|
-|16    |LUT5                 |  3879|
-|17    |LUT6                 |  5046|
-|18    |LUT6_2               |    28|
-|19    |MMCME2_ADV           |     2|
-|20    |MUXCY                |   161|
-|21    |MUXCY_L              |    54|
-|22    |MUXF7                |   690|
-|23    |MUXF8                |    65|
-|24    |ODDR                 |    17|
-|25    |OR2L                 |     2|
-|26    |OSERDESE2            |    23|
-|27    |OSERDESE2_1          |     8|
-|28    |OSERDESE2_2          |    72|
-|29    |OUT_FIFO             |     3|
-|30    |OUT_FIFO_1           |     8|
-|31    |PHASER_IN_PHY        |     8|
-|32    |PHASER_OUT_PHY       |     3|
-|33    |PHASER_OUT_PHY_1     |     8|
-|34    |PHASER_REF           |     3|
-|35    |PHY_CONTROL          |     3|
-|36    |PLLE2_ADV            |     1|
-|37    |RAM32M               |   424|
-|38    |RAMB18E1_1           |     1|
-|39    |RAMB36E1             |     1|
-|40    |SRL16E               |    26|
-|41    |SRLC32E              |   605|
-|42    |XADC                 |     1|
-|43    |XORCY                |   124|
-|44    |FDCE                 |     4|
-|45    |FDPE                 |    71|
-|46    |FDRE                 | 12186|
-|47    |FDSE                 |   639|
-|48    |IOBUFDS_DCIEN        |     8|
-|49    |IOBUF_DCIEN          |    64|
-|50    |OBUF                 |    24|
-|51    |OBUFDS               |     1|
-|52    |OBUFT                |     8|
+|1     |BUFG                 |     2|
+|2     |BUFH                 |     2|
+|3     |BUFIO                |     3|
+|4     |CARRY4               |   218|
+|5     |IDELAYCTRL           |     2|
+|6     |IDELAYE2_FINEDELAY   |    32|
+|7     |IDELAYE2_FINEDELAY_1 |    32|
+|8     |INV                  |     8|
+|9     |IN_FIFO              |     8|
+|10    |ISERDESE2            |    64|
+|11    |LUT1                 |   562|
+|12    |LUT2                 |   931|
+|13    |LUT3                 |  3791|
+|14    |LUT4                 |  1249|
+|15    |LUT5                 |  3659|
+|16    |LUT6                 |  3480|
+|17    |MMCME2_ADV           |     2|
+|18    |MUXCY_L              |    54|
+|19    |MUXF7                |   563|
+|20    |MUXF8                |    65|
+|21    |ODDR                 |    17|
+|22    |OSERDESE2            |    23|
+|23    |OSERDESE2_1          |     8|
+|24    |OSERDESE2_2          |    72|
+|25    |OUT_FIFO             |     3|
+|26    |OUT_FIFO_1           |     8|
+|27    |PHASER_IN_PHY        |     8|
+|28    |PHASER_OUT_PHY       |     3|
+|29    |PHASER_OUT_PHY_1     |     8|
+|30    |PHASER_REF           |     3|
+|31    |PHY_CONTROL          |     3|
+|32    |PLLE2_ADV            |     1|
+|33    |RAM32M               |   424|
+|34    |RAMB18E1_1           |     1|
+|35    |RAMB36E1             |     1|
+|36    |SRL16E               |    26|
+|37    |SRLC32E              |   520|
+|38    |XADC                 |     1|
+|39    |XORCY                |    58|
+|40    |FDCE                 |     4|
+|41    |FDPE                 |    72|
+|42    |FDRE                 |  9115|
+|43    |FDSE                 |   620|
+|44    |IOBUFDS_DCIEN        |     8|
+|45    |IOBUF_DCIEN          |    64|
+|46    |OBUF                 |    24|
+|47    |OBUFDS               |     1|
+|48    |OBUFT                |     8|
 +------+---------------------+------+
 
 Report Instance Areas: 
-+------+-------------------------------------------------------------------------+--------------------------------------------------------------+------+
-|      |Instance                                                                 |Module                                                        |Cells |
-+------+-------------------------------------------------------------------------+--------------------------------------------------------------+------+
-|1     |top                                                                      |                                                              | 32077|
-|2     |  u_mig_7series_1_mig                                                    |mig_7series_1_mig                                             | 32065|
-|3     |    \temp_mon_enabled.u_tempmon                                          |mig_7series_v2_1_tempmon                                      |   171|
-|4     |    u_ddr3_clk_ibuf                                                      |mig_7series_v2_1_clk_ibuf                                     |     0|
-|5     |    u_ddr3_infrastructure                                                |mig_7series_v2_1_infrastructure                               |    68|
-|6     |    u_iodelay_ctrl                                                       |mig_7series_v2_1_iodelay_ctrl                                 |    34|
-|7     |    u_memc_ui_top_axi                                                    |mig_7series_v2_1_memc_ui_top_axi                              | 31727|
-|8     |      mem_intfc0                                                         |mig_7series_v2_1_mem_intfc                                    | 19203|
-|9     |        ddr_phy_top0                                                     |mig_7series_v2_1_ddr_phy_top                                  | 17833|
-|10    |          u_ddr_mc_phy_wrapper                                           |mig_7series_v2_1_ddr_mc_phy_wrapper                           |  4558|
-|11    |            u_ddr_mc_phy                                                 |mig_7series_v2_1_ddr_mc_phy                                   |  4028|
-|12    |              \ddr_phy_4lanes_1.u_ddr_phy_4lanes                         |mig_7series_v2_1_ddr_phy_4lanes__parameterized0               |   451|
-|13    |                \ddr_byte_lane_B.ddr_byte_lane_B                         |mig_7series_v2_1_ddr_byte_lane__parameterized4                |   123|
-|14    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__1           |   112|
-|15    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized2            |     6|
-|16    |                \ddr_byte_lane_A.ddr_byte_lane_A                         |mig_7series_v2_1_ddr_byte_lane__parameterized3                |   168|
-|17    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__3           |   153|
-|18    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized1            |    12|
-|19    |                \ddr_byte_lane_C.ddr_byte_lane_C                         |mig_7series_v2_1_ddr_byte_lane__parameterized5                |   113|
-|20    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__2           |   105|
-|21    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized3            |     5|
-|22    |              \ddr_phy_4lanes_0.u_ddr_phy_4lanes                         |mig_7series_v2_1_ddr_phy_4lanes                               |  1770|
-|23    |                \ddr_byte_lane_A.ddr_byte_lane_A                         |mig_7series_v2_1_ddr_byte_lane                                |   410|
-|24    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo                             |   113|
-|25    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1              |   171|
-|26    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io                            |    42|
-|27    |                \ddr_byte_lane_B.ddr_byte_lane_B                         |mig_7series_v2_1_ddr_byte_lane__parameterized0                |   403|
-|28    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__7                          |   112|
-|29    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__10          |   171|
-|30    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized0            |    42|
-|31    |                \ddr_byte_lane_C.ddr_byte_lane_C                         |mig_7series_v2_1_ddr_byte_lane__parameterized1                |   403|
-|32    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__6                          |   112|
-|33    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__9           |   171|
-|34    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized0__4         |    42|
-|35    |                \ddr_byte_lane_D.ddr_byte_lane_D                         |mig_7series_v2_1_ddr_byte_lane__parameterized2                |   403|
-|36    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__5                          |   112|
-|37    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__8           |   171|
-|38    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized0__3         |    42|
-|39    |              \ddr_phy_4lanes_2.u_ddr_phy_4lanes                         |mig_7series_v2_1_ddr_phy_4lanes__parameterized1               |  1770|
-|40    |                \ddr_byte_lane_A.ddr_byte_lane_A                         |mig_7series_v2_1_ddr_byte_lane__parameterized6                |   410|
-|41    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__4                          |   113|
-|42    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__7           |   171|
-|43    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized4            |    42|
-|44    |                \ddr_byte_lane_B.ddr_byte_lane_B                         |mig_7series_v2_1_ddr_byte_lane__parameterized7                |   403|
-|45    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__3                          |   112|
-|46    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__6           |   171|
-|47    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized5            |    42|
-|48    |                \ddr_byte_lane_C.ddr_byte_lane_C                         |mig_7series_v2_1_ddr_byte_lane__parameterized8                |   403|
-|49    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__2                          |   112|
-|50    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__5           |   171|
-|51    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized5__4         |    42|
-|52    |                \ddr_byte_lane_D.ddr_byte_lane_D                         |mig_7series_v2_1_ddr_byte_lane__parameterized9                |   403|
-|53    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo         |mig_7series_v2_1_ddr_if_post_fifo__1                          |   112|
-|54    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo                     |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__4           |   171|
-|55    |                  ddr_byte_group_io                                      |mig_7series_v2_1_ddr_byte_group_io__parameterized5__3         |    42|
-|56    |            \genblk24.phy_ctl_pre_fifo_0                                 |mig_7series_v2_1_ddr_of_pre_fifo                              |    48|
-|57    |            \genblk24.phy_ctl_pre_fifo_1                                 |mig_7series_v2_1_ddr_of_pre_fifo__parameterized0__1           |    48|
-|58    |            \genblk24.phy_ctl_pre_fifo_2                                 |mig_7series_v2_1_ddr_of_pre_fifo__parameterized0              |    48|
-|59    |          u_ddr_calib_top                                                |mig_7series_v2_1_ddr_calib_top                                | 12507|
-|60    |            u_ddr_phy_rdlvl                                              |mig_7series_v2_1_ddr_phy_rdlvl                                |  2389|
-|61    |            \ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl                 |mig_7series_v2_1_ddr_phy_prbs_rdlvl                           |  2047|
-|62    |            ddr_phy_tempmon_0                                            |mig_7series_v2_1_ddr_phy_tempmon                              |   761|
-|63    |            \dqsfind_calib_right.u_ddr_phy_dqs_found_cal                 |mig_7series_v2_1_ddr_phy_dqs_found_cal                        |   606|
-|64    |            \mb_wrlvl_inst.u_ddr_phy_ck_addr_cmd_delay                   |mig_7series_v2_1_ddr_phy_ck_addr_cmd_delay                    |    67|
-|65    |            \mb_wrlvl_inst.u_ddr_phy_wrlvl                               |mig_7series_v2_1_ddr_phy_wrlvl                                |  1318|
-|66    |            \oclk_calib.u_ddr_phy_oclkdelay_cal                          |mig_7series_v2_1_ddr_phy_oclkdelay_cal                        |  1153|
-|67    |            u_ddr_phy_init                                               |mig_7series_v2_1_ddr_phy_init                                 |  2150|
-|68    |            u_ddr_phy_wrcal                                              |mig_7series_v2_1_ddr_phy_wrcal                                |   701|
-|69    |            u_ddr_prbs_gen                                               |mig_7series_v2_1_ddr_prbs_gen                                 |  1054|
-|70    |        mc0                                                              |mig_7series_v2_1_mc                                           |  1370|
-|71    |          bank_mach0                                                     |mig_7series_v2_1_bank_mach                                    |  1013|
-|72    |            arb_mux0                                                     |mig_7series_v2_1_arb_mux                                      |   247|
-|73    |              arb_row_col0                                               |mig_7series_v2_1_arb_row_col                                  |   242|
-|74    |                col_arb0                                                 |mig_7series_v2_1_round_robin_arb__parameterized1              |    81|
-|75    |                \pre_4_1_1T_arb.pre_arb0                                 |mig_7series_v2_1_round_robin_arb__parameterized1_83           |    59|
-|76    |                row_arb0                                                 |mig_7series_v2_1_round_robin_arb__parameterized1_84           |    81|
-|77    |              arb_select0                                                |mig_7series_v2_1_arb_select                                   |     5|
-|78    |            \bank_cntrl[0].bank0                                         |mig_7series_v2_1_bank_cntrl                                   |   181|
-|79    |              bank_compare0                                              |mig_7series_v2_1_bank_compare_82                              |    64|
-|80    |              bank_queue0                                                |mig_7series_v2_1_bank_queue                                   |    67|
-|81    |              bank_state0                                                |mig_7series_v2_1_bank_state                                   |    50|
-|82    |            \bank_cntrl[1].bank0                                         |mig_7series_v2_1_bank_cntrl__parameterized0                   |   172|
-|83    |              bank_compare0                                              |mig_7series_v2_1_bank_compare_81                              |    53|
-|84    |              bank_queue0                                                |mig_7series_v2_1_bank_queue__parameterized0                   |    72|
-|85    |              bank_state0                                                |mig_7series_v2_1_bank_state__parameterized0                   |    47|
-|86    |            \bank_cntrl[2].bank0                                         |mig_7series_v2_1_bank_cntrl__parameterized1                   |   181|
-|87    |              bank_compare0                                              |mig_7series_v2_1_bank_compare_80                              |    60|
-|88    |              bank_queue0                                                |mig_7series_v2_1_bank_queue__parameterized1                   |    65|
-|89    |              bank_state0                                                |mig_7series_v2_1_bank_state__parameterized1                   |    56|
-|90    |            \bank_cntrl[3].bank0                                         |mig_7series_v2_1_bank_cntrl__parameterized2                   |   170|
-|91    |              bank_compare0                                              |mig_7series_v2_1_bank_compare                                 |    62|
-|92    |              bank_queue0                                                |mig_7series_v2_1_bank_queue__parameterized2                   |    58|
-|93    |              bank_state0                                                |mig_7series_v2_1_bank_state__parameterized2                   |    50|
-|94    |            bank_common0                                                 |mig_7series_v2_1_bank_common                                  |    62|
-|95    |          col_mach0                                                      |mig_7series_v2_1_col_mach                                     |    50|
-|96    |          rank_mach0                                                     |mig_7series_v2_1_rank_mach                                    |   211|
-|97    |            \rank_cntrl[0].rank_cntrl0                                   |mig_7series_v2_1_rank_cntrl                                   |    31|
-|98    |            rank_common0                                                 |mig_7series_v2_1_rank_common                                  |   180|
-|99    |              \maintenance_request.maint_arb0                            |mig_7series_v2_1_round_robin_arb                              |    16|
-|100   |      u_axi_mc                                                           |mig_7series_v2_1_axi_mc                                       | 10402|
-|101   |        \USE_UPSIZER.upsizer_d2                                          |mig_7series_v2_1_ddr_axi_upsizer                              |  6295|
-|102   |          \USE_READ.read_addr_inst                                       |mig_7series_v2_1_ddr_a_upsizer__parameterized0                |   356|
-|103   |            \USE_BURSTS.cmd_queue                                        |mig_7series_v2_1_ddr_command_fifo_65                          |   197|
-|104   |              \USE_FPGA_VALID_WRITE.new_write_inst                       |mig_7series_v2_1_ddr_carry_latch_or_73                        |     9|
-|105   |              \USE_FPGA_VALID_WRITE.s_valid_dummy_inst1                  |mig_7series_v2_1_ddr_carry_and_74                             |     1|
-|106   |              \USE_FPGA_VALID_WRITE.s_valid_dummy_inst2                  |mig_7series_v2_1_ddr_carry_and_75                             |     1|
-|107   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst1              |mig_7series_v2_1_ddr_carry_and_76                             |     1|
-|108   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst2              |mig_7series_v2_1_ddr_carry_and_77                             |     1|
-|109   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst3              |mig_7series_v2_1_ddr_carry_and_78                             |     1|
-|110   |              \USE_FPGA_VALID_WRITE.valid_write_inst                     |mig_7series_v2_1_ddr_carry_and_79                             |     1|
-|111   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[0].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_66                       |     1|
-|112   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[1].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_67                       |     1|
-|113   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[2].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_68                       |     1|
-|114   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[3].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_69                       |     1|
-|115   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[4].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_70                       |     1|
-|116   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[5].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_71                       |     1|
-|117   |            \USE_FPGA_ADJUSTED_LEN.access_need_extra_word_inst           |mig_7series_v2_1_ddr_carry_and_72                             |     1|
-|118   |          \USE_READ.read_data_inst                                       |mig_7series_v2_1_ddr_r_upsizer                                |   879|
-|119   |            \USE_FPGA_CTRL.cmd_ready_inst                                |mig_7series_v2_1_ddr_carry_latch_and_39                       |     8|
-|120   |            \USE_FPGA_LAST_WORD.USE_FPGA_PACK.last_beat_inst_1           |mig_7series_v2_1_ddr_carry_and_40                             |     1|
-|121   |            \USE_FPGA_LAST_WORD.USE_FPGA_PACK.last_beat_wrap_inst        |mig_7series_v2_1_ddr_carry_or_41                              |     1|
-|122   |            \USE_FPGA_LAST_WORD.last_beat_curr_word_inst                 |mig_7series_v2_1_ddr_comparator_sel_42                        |     6|
-|123   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_59                             |     1|
-|124   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_60                             |     1|
-|125   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_61                             |     1|
-|126   |              \LUT_LEVEL[3].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_62                             |     1|
-|127   |              \LUT_LEVEL[4].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_63                             |     1|
-|128   |              \LUT_LEVEL[5].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_64                             |     1|
-|129   |            \USE_FPGA_LAST_WORD.last_beat_inst                           |mig_7series_v2_1_ddr_comparator_sel_static__parameterized0_43 |     4|
-|130   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_55                             |     1|
-|131   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_56                             |     1|
-|132   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_57                             |     1|
-|133   |              \LUT_LEVEL[3].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_58                             |     1|
-|134   |            \USE_FPGA_WORD_COMPLETED.next_word_wrap_inst                 |mig_7series_v2_1_ddr_comparator_sel_static_44                 |     3|
-|135   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_52                             |     1|
-|136   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_53                             |     1|
-|137   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_54                             |     1|
-|138   |            \USE_FPGA_WORD_COMPLETED.word_complete_last_word_inst        |mig_7series_v2_1_ddr_carry_and_45                             |     1|
-|139   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_inst        |mig_7series_v2_1_ddr_carry_and_46                             |     1|
-|140   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_pop_inst    |mig_7series_v2_1_ddr_carry_and_47                             |     1|
-|141   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_ready_inst  |mig_7series_v2_1_ddr_carry_and_48                             |     1|
-|142   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_inst             |mig_7series_v2_1_ddr_carry_or_49                              |     1|
-|143   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_pop_inst         |mig_7series_v2_1_ddr_carry_and_50                             |     1|
-|144   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_ready_inst       |mig_7series_v2_1_ddr_carry_and_51                             |     1|
-|145   |          \USE_WRITE.write_addr_inst                                     |mig_7series_v2_1_ddr_a_upsizer                                |  1062|
-|146   |            \USE_BURSTS.cmd_queue                                        |mig_7series_v2_1_ddr_command_fifo                             |   901|
-|147   |              \USE_FPGA_VALID_WRITE.new_write_inst                       |mig_7series_v2_1_ddr_carry_latch_or                           |     9|
-|148   |              \USE_FPGA_VALID_WRITE.s_valid_dummy_inst1                  |mig_7series_v2_1_ddr_carry_and_33                             |     1|
-|149   |              \USE_FPGA_VALID_WRITE.s_valid_dummy_inst2                  |mig_7series_v2_1_ddr_carry_and_34                             |     1|
-|150   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst1              |mig_7series_v2_1_ddr_carry_and_35                             |     1|
-|151   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst2              |mig_7series_v2_1_ddr_carry_and_36                             |     1|
-|152   |              \USE_FPGA_VALID_WRITE.valid_write_dummy_inst3              |mig_7series_v2_1_ddr_carry_and_37                             |     1|
-|153   |              \USE_FPGA_VALID_WRITE.valid_write_inst                     |mig_7series_v2_1_ddr_carry_and_38                             |     1|
-|154   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[0].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_26                       |     1|
-|155   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[1].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_27                       |     1|
-|156   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[2].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_28                       |     1|
-|157   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[3].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_29                       |     1|
-|158   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[4].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_30                       |     1|
-|159   |            \USE_FPGA_ADJUSTED_LEN.LUT_LAST_MASK[5].last_mask_inst       |mig_7series_v2_1_ddr_carry_latch_and_31                       |     1|
-|160   |            \USE_FPGA_ADJUSTED_LEN.access_need_extra_word_inst           |mig_7series_v2_1_ddr_carry_and_32                             |     1|
-|161   |          \USE_WRITE.write_data_inst                                     |mig_7series_v2_1_ddr_w_upsizer                                |  1908|
-|162   |            \USE_FPGA_LAST_WORD.last_beat_inst                           |mig_7series_v2_1_ddr_comparator_sel_static__parameterized0    |     4|
-|163   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_16                             |     1|
-|164   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_17                             |     1|
-|165   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_18                             |     1|
-|166   |              \LUT_LEVEL[3].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_19                             |     1|
-|167   |            \USE_FPGA_LAST_WORD.last_beat_curr_word_inst                 |mig_7series_v2_1_ddr_comparator_sel                           |     6|
-|168   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_20                             |     1|
-|169   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_21                             |     1|
-|170   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_22                             |     1|
-|171   |              \LUT_LEVEL[3].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_23                             |     1|
-|172   |              \LUT_LEVEL[4].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_24                             |     1|
-|173   |              \LUT_LEVEL[5].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_25                             |     1|
-|174   |            \USE_FPGA_LAST_WORD.last_word_inst                           |mig_7series_v2_1_ddr_carry_and                                |     1|
-|175   |            \USE_FPGA_USE_WRAP.last_word_inst2                           |mig_7series_v2_1_ddr_carry_and_1                              |     1|
-|176   |            \USE_FPGA_USE_WRAP.last_word_inst3                           |mig_7series_v2_1_ddr_carry_and_2                              |     1|
-|177   |            \USE_FPGA_USE_WRAP.word_complete_next_wrap_stall_inst        |mig_7series_v2_1_ddr_carry_latch_and                          |    70|
-|178   |            \USE_FPGA_WORD_COMPLETED.last_word_inst_2                    |mig_7series_v2_1_ddr_carry_and_3                              |     1|
-|179   |            \USE_FPGA_WORD_COMPLETED.next_word_wrap_inst                 |mig_7series_v2_1_ddr_comparator_sel_static                    |     3|
-|180   |              \LUT_LEVEL[0].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_13                             |     1|
-|181   |              \LUT_LEVEL[1].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_14                             |     1|
-|182   |              \LUT_LEVEL[2].compare_inst                                 |mig_7series_v2_1_ddr_carry_and_15                             |     1|
-|183   |            \USE_FPGA_WORD_COMPLETED.pop_si_data_inst                    |mig_7series_v2_1_ddr_carry_or                                 |     1|
-|184   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_inst        |mig_7series_v2_1_ddr_carry_and_4                              |     1|
-|185   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_last_inst   |mig_7series_v2_1_ddr_carry_and_5                              |     1|
-|186   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_pop_inst    |mig_7series_v2_1_ddr_carry_and_6                              |     1|
-|187   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_qual_inst   |mig_7series_v2_1_ddr_carry_and_7                              |     1|
-|188   |            \USE_FPGA_WORD_COMPLETED.word_complete_next_wrap_valid_inst  |mig_7series_v2_1_ddr_carry_and_8                              |     1|
-|189   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_last_inst        |mig_7series_v2_1_ddr_carry_and_9                              |     1|
-|190   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_pop_inst         |mig_7series_v2_1_ddr_carry_and_10                             |     1|
-|191   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_qual_inst        |mig_7series_v2_1_ddr_carry_and_11                             |     1|
-|192   |            \USE_FPGA_WORD_COMPLETED.word_complete_rest_valid_inst       |mig_7series_v2_1_ddr_carry_and_12                             |     1|
-|193   |          mi_register_slice_inst                                         |mig_7series_v2_1_ddr_axi_register_slice__parameterized1       |  1742|
-|194   |            r_pipe                                                       |mig_7series_v2_1_ddr_axic_register_slice__parameterized9      |  1741|
-|195   |          si_register_slice_inst                                         |mig_7series_v2_1_ddr_axi_register_slice__parameterized0       |   348|
-|196   |            ar_pipe                                                      |mig_7series_v2_1_ddr_axic_register_slice__parameterized3      |   168|
-|197   |            aw_pipe                                                      |mig_7series_v2_1_ddr_axic_register_slice__parameterized3_0    |   178|
-|198   |        axi_mc_ar_channel_0                                              |mig_7series_v2_1_axi_mc_ar_channel                            |   226|
-|199   |          ar_cmd_fsm_0                                                   |mig_7series_v2_1_axi_mc_cmd_fsm                               |   121|
-|200   |          axi_mc_cmd_translator_0                                        |mig_7series_v2_1_axi_mc_cmd_translator__parameterized0        |    54|
-|201   |            axi_mc_incr_cmd_0                                            |mig_7series_v2_1_axi_mc_incr_cmd__parameterized0              |    42|
-|202   |            axi_mc_wrap_cmd_0                                            |mig_7series_v2_1_axi_mc_wrap_cmd__parameterized0              |    12|
-|203   |        axi_mc_aw_channel_0                                              |mig_7series_v2_1_axi_mc_aw_channel                            |   228|
-|204   |          aw_cmd_fsm_0                                                   |mig_7series_v2_1_axi_mc_wr_cmd_fsm                            |   130|
-|205   |          axi_mc_cmd_translator_0                                        |mig_7series_v2_1_axi_mc_cmd_translator                        |    50|
-|206   |            axi_mc_incr_cmd_0                                            |mig_7series_v2_1_axi_mc_incr_cmd                              |    38|
-|207   |            axi_mc_wrap_cmd_0                                            |mig_7series_v2_1_axi_mc_wrap_cmd                              |    12|
-|208   |        axi_mc_b_channel_0                                               |mig_7series_v2_1_axi_mc_b_channel                             |    23|
-|209   |          bid_fifo_0                                                     |mig_7series_v2_1_axi_mc_fifo                                  |    17|
-|210   |        axi_mc_cmd_arbiter_0                                             |mig_7series_v2_1_axi_mc_cmd_arbiter                           |    90|
-|211   |        axi_mc_r_channel_0                                               |mig_7series_v2_1_axi_mc_r_channel                             |   621|
-|212   |          rd_data_fifo_0                                                 |mig_7series_v2_1_axi_mc_fifo__parameterized0                  |   576|
-|213   |          transaction_fifo_0                                             |mig_7series_v2_1_axi_mc_fifo__parameterized1                  |    30|
-|214   |        axi_mc_w_channel_0                                               |mig_7series_v2_1_axi_mc_w_channel                             |  2896|
-|215   |      u_ui_top                                                           |mig_7series_v2_1_ui_top                                       |  2120|
-|216   |        ui_cmd0                                                          |mig_7series_v2_1_ui_cmd                                       |   111|
-|217   |        ui_rd_data0                                                      |mig_7series_v2_1_ui_rd_data                                   |   670|
-|218   |        ui_wr_data0                                                      |mig_7series_v2_1_ui_wr_data                                   |  1339|
-+------+-------------------------------------------------------------------------+--------------------------------------------------------------+------+
++------+------------------------------------------------------------------+-------------------------------------------------------+------+
+|      |Instance                                                          |Module                                                 |Cells |
++------+------------------------------------------------------------------+-------------------------------------------------------+------+
+|1     |top                                                               |                                                       | 25831|
+|2     |  u_mig_7series_1_mig                                             |mig_7series_1_mig                                      | 25824|
+|3     |    \temp_mon_enabled.u_tempmon                                   |mig_7series_v2_1_tempmon                               |   171|
+|4     |    u_ddr3_clk_ibuf                                               |mig_7series_v2_1_clk_ibuf                              |     0|
+|5     |    u_ddr3_infrastructure                                         |mig_7series_v2_1_infrastructure                        |    67|
+|6     |    u_iodelay_ctrl                                                |mig_7series_v2_1_iodelay_ctrl                          |    34|
+|7     |    u_memc_ui_top_axi                                             |mig_7series_v2_1_memc_ui_top_axi                       | 25487|
+|8     |      mem_intfc0                                                  |mig_7series_v2_1_mem_intfc                             | 19182|
+|9     |        ddr_phy_top0                                              |mig_7series_v2_1_ddr_phy_top                           | 17782|
+|10    |          u_ddr_mc_phy_wrapper                                    |mig_7series_v2_1_ddr_mc_phy_wrapper                    |  4570|
+|11    |            u_ddr_mc_phy                                          |mig_7series_v2_1_ddr_mc_phy                            |  4040|
+|12    |              \ddr_phy_4lanes_1.u_ddr_phy_4lanes                  |mig_7series_v2_1_ddr_phy_4lanes__parameterized0        |   455|
+|13    |                \ddr_byte_lane_B.ddr_byte_lane_B                  |mig_7series_v2_1_ddr_byte_lane__parameterized4         |   123|
+|14    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__1    |   112|
+|15    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized2     |     6|
+|16    |                \ddr_byte_lane_A.ddr_byte_lane_A                  |mig_7series_v2_1_ddr_byte_lane__parameterized3         |   172|
+|17    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__3    |   157|
+|18    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized1     |    12|
+|19    |                \ddr_byte_lane_C.ddr_byte_lane_C                  |mig_7series_v2_1_ddr_byte_lane__parameterized5         |   113|
+|20    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__2    |   105|
+|21    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized3     |     5|
+|22    |              \ddr_phy_4lanes_0.u_ddr_phy_4lanes                  |mig_7series_v2_1_ddr_phy_4lanes                        |  1774|
+|23    |                \ddr_byte_lane_A.ddr_byte_lane_A                  |mig_7series_v2_1_ddr_byte_lane                         |   411|
+|24    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo                      |   113|
+|25    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1       |   172|
+|26    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io                     |    42|
+|27    |                \ddr_byte_lane_B.ddr_byte_lane_B                  |mig_7series_v2_1_ddr_byte_lane__parameterized0         |   404|
+|28    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__7                   |   112|
+|29    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__10   |   172|
+|30    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized0     |    42|
+|31    |                \ddr_byte_lane_C.ddr_byte_lane_C                  |mig_7series_v2_1_ddr_byte_lane__parameterized1         |   404|
+|32    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__6                   |   112|
+|33    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__9    |   172|
+|34    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized0__4  |    42|
+|35    |                \ddr_byte_lane_D.ddr_byte_lane_D                  |mig_7series_v2_1_ddr_byte_lane__parameterized2         |   404|
+|36    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__5                   |   112|
+|37    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__8    |   172|
+|38    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized0__3  |    42|
+|39    |              \ddr_phy_4lanes_2.u_ddr_phy_4lanes                  |mig_7series_v2_1_ddr_phy_4lanes__parameterized1        |  1774|
+|40    |                \ddr_byte_lane_A.ddr_byte_lane_A                  |mig_7series_v2_1_ddr_byte_lane__parameterized6         |   411|
+|41    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__4                   |   113|
+|42    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__7    |   172|
+|43    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized4     |    42|
+|44    |                \ddr_byte_lane_B.ddr_byte_lane_B                  |mig_7series_v2_1_ddr_byte_lane__parameterized7         |   404|
+|45    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__3                   |   112|
+|46    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__6    |   172|
+|47    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized5     |    42|
+|48    |                \ddr_byte_lane_C.ddr_byte_lane_C                  |mig_7series_v2_1_ddr_byte_lane__parameterized8         |   404|
+|49    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__2                   |   112|
+|50    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__5    |   172|
+|51    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized5__4  |    42|
+|52    |                \ddr_byte_lane_D.ddr_byte_lane_D                  |mig_7series_v2_1_ddr_byte_lane__parameterized9         |   404|
+|53    |                  \dq_gen_40.if_post_fifo_gen.u_ddr_if_post_fifo  |mig_7series_v2_1_ddr_if_post_fifo__1                   |   112|
+|54    |                  \of_pre_fifo_gen.u_ddr_of_pre_fifo              |mig_7series_v2_1_ddr_of_pre_fifo__parameterized1__4    |   172|
+|55    |                  ddr_byte_group_io                               |mig_7series_v2_1_ddr_byte_group_io__parameterized5__3  |    42|
+|56    |            \genblk24.phy_ctl_pre_fifo_0                          |mig_7series_v2_1_ddr_of_pre_fifo                       |    48|
+|57    |            \genblk24.phy_ctl_pre_fifo_1                          |mig_7series_v2_1_ddr_of_pre_fifo__parameterized0__1    |    48|
+|58    |            \genblk24.phy_ctl_pre_fifo_2                          |mig_7series_v2_1_ddr_of_pre_fifo__parameterized0       |    48|
+|59    |          u_ddr_calib_top                                         |mig_7series_v2_1_ddr_calib_top                         | 12444|
+|60    |            u_ddr_phy_rdlvl                                       |mig_7series_v2_1_ddr_phy_rdlvl                         |  2353|
+|61    |            \ddr_phy_prbs_rdlvl_gen.u_ddr_phy_prbs_rdlvl          |mig_7series_v2_1_ddr_phy_prbs_rdlvl                    |  2008|
+|62    |            ddr_phy_tempmon_0                                     |mig_7series_v2_1_ddr_phy_tempmon                       |   761|
+|63    |            \dqsfind_calib_right.u_ddr_phy_dqs_found_cal          |mig_7series_v2_1_ddr_phy_dqs_found_cal                 |   596|
+|64    |            \mb_wrlvl_inst.u_ddr_phy_ck_addr_cmd_delay            |mig_7series_v2_1_ddr_phy_ck_addr_cmd_delay             |    66|
+|65    |            \mb_wrlvl_inst.u_ddr_phy_wrlvl                        |mig_7series_v2_1_ddr_phy_wrlvl                         |  1292|
+|66    |            \oclk_calib.u_ddr_phy_oclkdelay_cal                   |mig_7series_v2_1_ddr_phy_oclkdelay_cal                 |  1110|
+|67    |            u_ddr_phy_init                                        |mig_7series_v2_1_ddr_phy_init                          |  2145|
+|68    |            u_ddr_phy_wrcal                                       |mig_7series_v2_1_ddr_phy_wrcal                         |   634|
+|69    |            u_ddr_prbs_gen                                        |mig_7series_v2_1_ddr_prbs_gen                          |  1054|
+|70    |        mc0                                                       |mig_7series_v2_1_mc                                    |  1400|
+|71    |          bank_mach0                                              |mig_7series_v2_1_bank_mach                             |  1021|
+|72    |            arb_mux0                                              |mig_7series_v2_1_arb_mux                               |   272|
+|73    |              arb_row_col0                                        |mig_7series_v2_1_arb_row_col                           |   266|
+|74    |                col_arb0                                          |mig_7series_v2_1_round_robin_arb__parameterized1       |    75|
+|75    |                config_arb0                                       |mig_7series_v2_1_round_robin_arb__parameterized1_3     |    26|
+|76    |                \pre_4_1_1T_arb.pre_arb0                          |mig_7series_v2_1_round_robin_arb__parameterized1_4     |    59|
+|77    |                row_arb0                                          |mig_7series_v2_1_round_robin_arb__parameterized1_5     |    87|
+|78    |              arb_select0                                         |mig_7series_v2_1_arb_select                            |     6|
+|79    |            \bank_cntrl[0].bank0                                  |mig_7series_v2_1_bank_cntrl                            |   176|
+|80    |              bank_compare0                                       |mig_7series_v2_1_bank_compare_2                        |    57|
+|81    |              bank_queue0                                         |mig_7series_v2_1_bank_queue                            |    67|
+|82    |              bank_state0                                         |mig_7series_v2_1_bank_state                            |    52|
+|83    |            \bank_cntrl[1].bank0                                  |mig_7series_v2_1_bank_cntrl__parameterized0            |   170|
+|84    |              bank_compare0                                       |mig_7series_v2_1_bank_compare_1                        |    61|
+|85    |              bank_queue0                                         |mig_7series_v2_1_bank_queue__parameterized0            |    61|
+|86    |              bank_state0                                         |mig_7series_v2_1_bank_state__parameterized0            |    48|
+|87    |            \bank_cntrl[2].bank0                                  |mig_7series_v2_1_bank_cntrl__parameterized1            |   178|
+|88    |              bank_compare0                                       |mig_7series_v2_1_bank_compare_0                        |    58|
+|89    |              bank_queue0                                         |mig_7series_v2_1_bank_queue__parameterized1            |    61|
+|90    |              bank_state0                                         |mig_7series_v2_1_bank_state__parameterized1            |    59|
+|91    |            \bank_cntrl[3].bank0                                  |mig_7series_v2_1_bank_cntrl__parameterized2            |   168|
+|92    |              bank_compare0                                       |mig_7series_v2_1_bank_compare                          |    66|
+|93    |              bank_queue0                                         |mig_7series_v2_1_bank_queue__parameterized2            |    50|
+|94    |              bank_state0                                         |mig_7series_v2_1_bank_state__parameterized2            |    52|
+|95    |            bank_common0                                          |mig_7series_v2_1_bank_common                           |    57|
+|96    |          col_mach0                                               |mig_7series_v2_1_col_mach                              |    49|
+|97    |          rank_mach0                                              |mig_7series_v2_1_rank_mach                             |   226|
+|98    |            \rank_cntrl[0].rank_cntrl0                            |mig_7series_v2_1_rank_cntrl                            |    36|
+|99    |            rank_common0                                          |mig_7series_v2_1_rank_common                           |   190|
+|100   |              \maintenance_request.maint_arb0                     |mig_7series_v2_1_round_robin_arb                       |    18|
+|101   |      u_axi_mc                                                    |mig_7series_v2_1_axi_mc                                |  4180|
+|102   |        axi_mc_ar_channel_0                                       |mig_7series_v2_1_axi_mc_ar_channel                     |   280|
+|103   |          ar_cmd_fsm_0                                            |mig_7series_v2_1_axi_mc_cmd_fsm                        |   138|
+|104   |          axi_mc_cmd_translator_0                                 |mig_7series_v2_1_axi_mc_cmd_translator__parameterized0 |    91|
+|105   |            axi_mc_incr_cmd_0                                     |mig_7series_v2_1_axi_mc_incr_cmd__parameterized0       |    83|
+|106   |            axi_mc_wrap_cmd_0                                     |mig_7series_v2_1_axi_mc_wrap_cmd__parameterized0       |     8|
+|107   |        axi_mc_aw_channel_0                                       |mig_7series_v2_1_axi_mc_aw_channel                     |   281|
+|108   |          aw_cmd_fsm_0                                            |mig_7series_v2_1_axi_mc_wr_cmd_fsm                     |   142|
+|109   |          axi_mc_cmd_translator_0                                 |mig_7series_v2_1_axi_mc_cmd_translator                 |    91|
+|110   |            axi_mc_incr_cmd_0                                     |mig_7series_v2_1_axi_mc_incr_cmd                       |    83|
+|111   |            axi_mc_wrap_cmd_0                                     |mig_7series_v2_1_axi_mc_wrap_cmd                       |     8|
+|112   |        axi_mc_b_channel_0                                        |mig_7series_v2_1_axi_mc_b_channel                      |    26|
+|113   |          bid_fifo_0                                              |mig_7series_v2_1_axi_mc_fifo                           |    20|
+|114   |        axi_mc_cmd_arbiter_0                                      |mig_7series_v2_1_axi_mc_cmd_arbiter                    |    93|
+|115   |        axi_mc_r_channel_0                                        |mig_7series_v2_1_axi_mc_r_channel                      |   589|
+|116   |          rd_data_fifo_0                                          |mig_7series_v2_1_axi_mc_fifo__parameterized0           |   544|
+|117   |          transaction_fifo_0                                      |mig_7series_v2_1_axi_mc_fifo__parameterized1           |    30|
+|118   |        axi_mc_w_channel_0                                        |mig_7series_v2_1_axi_mc_w_channel                      |  2908|
+|119   |      u_ui_top                                                    |mig_7series_v2_1_ui_top                                |  2120|
+|120   |        ui_cmd0                                                   |mig_7series_v2_1_ui_cmd                                |   106|
+|121   |        ui_rd_data0                                               |mig_7series_v2_1_ui_rd_data                            |   672|
+|122   |        ui_wr_data0                                               |mig_7series_v2_1_ui_wr_data                            |  1342|
++------+------------------------------------------------------------------+-------------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:46 ; elapsed = 00:02:54 . Memory (MB): peak = 1170.563 ; gain = 1037.383
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:35 ; elapsed = 00:02:41 . Memory (MB): peak = 1049.246 ; gain = 915.133
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 4904 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:02:46 ; elapsed = 00:02:54 . Memory (MB): peak = 1170.563 ; gain = 1037.383
-INFO: [Netlist 29-17] Analyzing 1016 Unisim elements for replacement
+Synthesis finished with 0 errors, 0 critical warnings and 4829 warnings.
+Synthesis Optimization Complete : Time (s): cpu = 00:02:35 ; elapsed = 00:02:41 . Memory (MB): peak = 1049.246 ; gain = 915.133
+INFO: [Netlist 29-17] Analyzing 914 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/constraints/mig_7series_1_ooc.xdc]
 INFO: [Vivado 12-2286] Implicit search of objects for pattern 'sys_clk_i' matched to 'clock' objects. [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/constraints/mig_7series_1_ooc.xdc:35]
@@ -8513,24 +7562,23 @@ Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1/user_design/constraints/mig_7series_1.xdc]
 INFO: [Opt 31-138] Pushed 8 inverter(s) to 64 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 588 instances were transformed.
-  (MUXCY,XORCY) => CARRY4: 62 instances
+  A total of 513 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 15 instances
   IOBUFDS_DCIEN => IOBUFDS_DCIEN (IBUFDS_IBUFDISABLE_INT, IBUFDS_IBUFDISABLE_INT, INV, OBUFTDS_DCIEN, OBUFTDS_DCIEN): 8 instances
   IOBUF_DCIEN => IOBUF_DCIEN (IBUF_IBUFDISABLE, OBUFT_DCIEN): 64 instances
-  LUT6_2 => LUT6_2 (LUT5, LUT6): 28 instances
   OBUFDS => OBUFDS_DUAL_BUF (INV, OBUFDS, OBUFDS): 1 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 424 instances
   SRLC32E => SRL16E: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-596 Infos, 526 Warnings, 0 Critical Warnings and 0 Errors encountered.
+517 Infos, 526 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:54 ; elapsed = 00:03:02 . Memory (MB): peak = 1170.563 ; gain = 918.785
+synth_design: Time (s): cpu = 00:02:42 ; elapsed = 00:02:48 . Memory (MB): peak = 1049.246 ; gain = 797.469
 # rename_ref -prefix_all mig_7series_1_
-INFO: [Coretcl 2-1174] Renamed 217 cell refs.
+INFO: [Coretcl 2-1174] Renamed 121 cell refs.
 # write_checkpoint -noxdef mig_7series_1.dcp
 # report_utilization -file mig_7series_1_utilization_synth.rpt -pb mig_7series_1_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.303 . Memory (MB): peak = 1170.563 ; gain = 0.000
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.277 . Memory (MB): peak = 1049.246 ; gain = 0.000
 # if { [catch {
 #   file copy -force D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.runs/mig_7series_1_synth_1/mig_7series_1.dcp D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1.dcp
 #   write_verilog -force -mode synth_stub D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.srcs/sources_1/ip/mig_7series_1/mig_7series_1_stub.v
@@ -8541,5 +7589,4 @@ report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.303 . Memory (
 #   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
 #   return -code error
 # }
-write_vhdl: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1170.563 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Jun 08 15:34:38 2016...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 13 12:53:05 2016...

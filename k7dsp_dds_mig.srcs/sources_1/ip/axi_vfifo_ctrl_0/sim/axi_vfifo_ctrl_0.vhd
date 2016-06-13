@@ -62,17 +62,17 @@ ENTITY axi_vfifo_ctrl_0 IS
     aresetn : IN STD_LOGIC;
     s_axis_tvalid : IN STD_LOGIC;
     s_axis_tready : OUT STD_LOGIC;
-    s_axis_tdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-    s_axis_tstrb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-    s_axis_tkeep : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    s_axis_tdata : IN STD_LOGIC_VECTOR(511 DOWNTO 0);
+    s_axis_tstrb : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+    s_axis_tkeep : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
     s_axis_tlast : IN STD_LOGIC;
     s_axis_tid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     s_axis_tdest : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     m_axis_tvalid : OUT STD_LOGIC;
     m_axis_tready : IN STD_LOGIC;
-    m_axis_tdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-    m_axis_tstrb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    m_axis_tkeep : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_tdata : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+    m_axis_tstrb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+    m_axis_tkeep : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
     m_axis_tlast : OUT STD_LOGIC;
     m_axis_tid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     m_axis_tdest : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -89,8 +89,8 @@ ENTITY axi_vfifo_ctrl_0 IS
     m_axi_awuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     m_axi_awvalid : OUT STD_LOGIC;
     m_axi_awready : IN STD_LOGIC;
-    m_axi_wdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-    m_axi_wstrb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axi_wdata : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+    m_axi_wstrb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
     m_axi_wlast : OUT STD_LOGIC;
     m_axi_wuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     m_axi_wvalid : OUT STD_LOGIC;
@@ -114,7 +114,7 @@ ENTITY axi_vfifo_ctrl_0 IS
     m_axi_arvalid : OUT STD_LOGIC;
     m_axi_arready : IN STD_LOGIC;
     m_axi_rid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    m_axi_rdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+    m_axi_rdata : IN STD_LOGIC_VECTOR(511 DOWNTO 0);
     m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     m_axi_rlast : IN STD_LOGIC;
     m_axi_ruser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -169,18 +169,18 @@ ARCHITECTURE axi_vfifo_ctrl_0_arch OF axi_vfifo_ctrl_0 IS
       aresetn : IN STD_LOGIC;
       s_axis_tvalid : IN STD_LOGIC;
       s_axis_tready : OUT STD_LOGIC;
-      s_axis_tdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-      s_axis_tstrb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-      s_axis_tkeep : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+      s_axis_tdata : IN STD_LOGIC_VECTOR(511 DOWNTO 0);
+      s_axis_tstrb : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
+      s_axis_tkeep : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
       s_axis_tlast : IN STD_LOGIC;
       s_axis_tid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axis_tdest : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       s_axis_tuser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_tvalid : OUT STD_LOGIC;
       m_axis_tready : IN STD_LOGIC;
-      m_axis_tdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-      m_axis_tstrb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-      m_axis_tkeep : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      m_axis_tdata : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+      m_axis_tstrb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
+      m_axis_tkeep : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
       m_axis_tlast : OUT STD_LOGIC;
       m_axis_tid : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axis_tdest : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -198,8 +198,8 @@ ARCHITECTURE axi_vfifo_ctrl_0_arch OF axi_vfifo_ctrl_0 IS
       m_axi_awuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axi_awvalid : OUT STD_LOGIC;
       m_axi_awready : IN STD_LOGIC;
-      m_axi_wdata : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
-      m_axi_wstrb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+      m_axi_wdata : OUT STD_LOGIC_VECTOR(511 DOWNTO 0);
+      m_axi_wstrb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0);
       m_axi_wlast : OUT STD_LOGIC;
       m_axi_wuser : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
       m_axi_wvalid : OUT STD_LOGIC;
@@ -223,7 +223,7 @@ ARCHITECTURE axi_vfifo_ctrl_0_arch OF axi_vfifo_ctrl_0 IS
       m_axi_arvalid : OUT STD_LOGIC;
       m_axi_arready : IN STD_LOGIC;
       m_axi_rid : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-      m_axi_rdata : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+      m_axi_rdata : IN STD_LOGIC_VECTOR(511 DOWNTO 0);
       m_axi_rresp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       m_axi_rlast : IN STD_LOGIC;
       m_axi_ruser : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
@@ -307,7 +307,7 @@ BEGIN
       C_FAMILY => "kintex7",
       C_DRAM_BASE_ADDR => "80000000",
       C_HAS_AXIS_TUSER => 0,
-      C_AXIS_TDATA_WIDTH => 128,
+      C_AXIS_TDATA_WIDTH => 512,
       C_AXIS_TUSER_WIDTH => 1,
       C_AXIS_TID_WIDTH => 1,
       C_AXI_BURST_SIZE => 1024,

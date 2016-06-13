@@ -5326,7 +5326,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6653ff54</spirit:value>
+            <spirit:value>9dd577b5</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5334,7 +5334,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:10 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:56 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5359,7 +5359,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6653ff54</spirit:value>
+            <spirit:value>9dd577b5</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5367,7 +5367,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:56 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5386,7 +5386,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6653ff54</spirit:value>
+            <spirit:value>9dd577b5</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5394,7 +5394,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:57 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5416,7 +5416,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>27b406a2</spirit:value>
+            <spirit:value>37f7907e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5424,7 +5424,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:57 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5443,7 +5443,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>27b406a2</spirit:value>
+            <spirit:value>37f7907e</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5451,7 +5451,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:57 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5469,7 +5469,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6653ff54</spirit:value>
+            <spirit:value>9dd577b5</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -5477,7 +5477,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Jun 13 19:12:11 UTC 2016</spirit:value>
+            <spirit:value>Mon Jun 13 19:44:57 UTC 2016</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>StaleAtRelink</spirit:name>
@@ -5495,7 +5495,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>customizationCRC</spirit:name>
-            <spirit:value>6653ff54</spirit:value>
+            <spirit:value>9dd577b5</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>customizationCRCversion</spirit:name>
@@ -12398,7 +12398,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) - 1)">127</spirit:left>
+            <spirit:left spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) - 1)">511</spirit:left>
             <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -12798,7 +12798,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) div 8) - 1)">15</spirit:left>
+            <spirit:left spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) div 8) - 1)">63</spirit:left>
             <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -13198,7 +13198,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) div 8) - 1)">15</spirit:left>
+            <spirit:left spirit:resolve="dependent" spirit:dependency="((spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH&apos;)) div 8) - 1)">63</spirit:left>
             <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -14734,7 +14734,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TUSER_WIDTH&apos;)) - 1)">15</spirit:left>
+            <spirit:left spirit:resolve="dependent" spirit:dependency="(spirit:decode(id(&apos;MODELPARAM_VALUE.C_M00_AXIS_TUSER_WIDTH&apos;)) - 1)">63</spirit:left>
             <spirit:right>0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -18477,7 +18477,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S00_AXIS_IS_ACLK_ASYNC</spirit:name>
         <spirit:displayName>C S00 Axis Is Aclk Async</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXIS_IS_ACLK_ASYNC">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_S00_AXIS_IS_ACLK_ASYNC">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_S01_AXIS_IS_ACLK_ASYNC</spirit:name>
@@ -18877,7 +18877,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_TDATA_WIDTH</spirit:name>
         <spirit:displayName>C M00 Axis Tdata Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH">128</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_TDATA_WIDTH">512</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_TDATA_WIDTH</spirit:name>
@@ -18957,7 +18957,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_TUSER_WIDTH</spirit:name>
         <spirit:displayName>C M00 Axis Tuser Width</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_TUSER_WIDTH">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_TUSER_WIDTH">64</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_TUSER_WIDTH</spirit:name>
@@ -19037,7 +19037,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_ACLK_RATIO</spirit:name>
         <spirit:displayName>C M00 Axis Aclk Ratio</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_ACLK_RATIO">12</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_ACLK_RATIO">6</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_ACLK_RATIO</spirit:name>
@@ -19197,7 +19197,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M00_AXIS_IS_ACLK_ASYNC</spirit:name>
         <spirit:displayName>C M00 Axis Is Aclk Async</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC">1</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC">0</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_M01_AXIS_IS_ACLK_ASYNC</spirit:name>
@@ -21841,17 +21841,17 @@
     <spirit:parameter>
       <spirit:name>M00_AXIS_TDATA_NUM_BYTES</spirit:name>
       <spirit:displayName>M00_AXIS_TDATA_NUM_BYTES</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.M00_AXIS_TDATA_NUM_BYTES" spirit:order="121" spirit:minimum="1" spirit:maximum="512">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.M00_AXIS_TDATA_NUM_BYTES" spirit:order="121" spirit:minimum="1" spirit:maximum="512">64</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXIS_IS_ACLK_ASYNC</spirit:name>
       <spirit:displayName>C_M00_AXIS_IS_ACLK_ASYNC</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_4" spirit:order="122">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_4" spirit:order="122">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_M00_AXIS_ACLK_RATIO</spirit:name>
       <spirit:displayName>C_M00_AXIS_ACLK_RATIO</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_ACLK_RATIO" spirit:choiceRef="choices_5" spirit:order="123">12</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_M00_AXIS_ACLK_RATIO" spirit:choiceRef="choices_5" spirit:order="123">6</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>M00_AXIS_FIFO_MODE</spirit:name>
@@ -21876,7 +21876,7 @@
     <spirit:parameter>
       <spirit:name>C_S00_AXIS_IS_ACLK_ASYNC</spirit:name>
       <spirit:displayName>C_S00_AXIS_IS_ACLK_ASYNC</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_9" spirit:order="128">1</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_S00_AXIS_IS_ACLK_ASYNC" spirit:choiceRef="choices_9" spirit:order="128">0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>C_S00_AXIS_ACLK_RATIO</spirit:name>

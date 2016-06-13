@@ -252,7 +252,7 @@ function integer clogb2 (input integer size);
     end
   endfunction
 
-  localparam MIG_AXI_DATA_WIDTH = 128;
+  localparam MIG_AXI_DATA_WIDTH = 512;
 
   localparam FIFO_M00_DEPTH = 2048;                     //data words
   localparam FIFO_M01_DEPTH = 8192;                     //data words
@@ -1147,7 +1147,8 @@ ila_axis_adc ila_axis_adc_inst(
      .probe5(axis_adc_tid),     //wire [ADC_AXI_TID_WIDTH-1:0]    axis_adc_tid;
      .probe6(axis_adc_tdest),   //wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
      .probe7(axis_adc_tuser),   //wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
-     .probe8(axis_adc_tstrb)    //wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+     .probe8(axis_adc_tstrb),    //wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
+     .probe9(ui_clk)
 );
 
 ila_axis_adc_pkt ila_axis_adc_pkt_inst(
