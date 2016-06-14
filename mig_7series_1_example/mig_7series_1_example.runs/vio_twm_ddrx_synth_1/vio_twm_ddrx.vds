@@ -2,10 +2,10 @@
 # Vivado v2014.2 (64-bit)
 # SW Build 932637 on Wed Jun 11 13:33:10 MDT 2014
 # IP Build 924643 on Fri May 30 09:20:16 MDT 2014
-# Start of session at: Thu Jun 02 19:27:30 2016
-# Process ID: 6696
-# Log file: d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/vio_twm_ddrx.vds
-# Journal file: d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1\vivado.jou
+# Start of session at: Mon Jun 13 14:55:33 2016
+# Process ID: 7464
+# Log file: D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/vio_twm_ddrx.vds
+# Journal file: D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1\vivado.jou
 #-----------------------------------------------------------
 source vio_twm_ddrx.tcl
 # set_param gui.test TreeTableDev
@@ -20,10 +20,7 @@ source vio_twm_ddrx.tcl
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2014.2/data/ip'.
-WARNING: [IP_Flow 19-3664] IP 'vio_twm_ddrx' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.dcp'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'vio_twm_ddrx' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_stub.v'. Please regenerate to continue.
 WARNING: [IP_Flow 19-3664] IP 'vio_twm_ddrx' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_stub.vhdl'. Please regenerate to continue.
-WARNING: [IP_Flow 19-3664] IP 'vio_twm_ddrx' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_funcsim.v'. Please regenerate to continue.
 WARNING: [IP_Flow 19-3664] IP 'vio_twm_ddrx' generated file not found 'd:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_funcsim.vhdl'. Please regenerate to continue.
 # set_msg_config -id {IP_Flow 19-2162} -severity warning -new_severity info
 # set_property is_locked true [get_files d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.xci]
@@ -42,7 +39,7 @@ Starting synthesis...
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k325t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k325t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 248.367 ; gain = 115.121
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 248.313 ; gain = 115.898
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'vio_twm_ddrx' [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/synth/vio_twm_ddrx.v:52]
 INFO: [Synth 8-638] synthesizing module 'vio_v3_0_vio' [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_v3_0/hdl/vio_v3_0_vio.v:85]
@@ -1495,7 +1492,7 @@ INFO: [Synth 8-256] done synthesizing module 'vio_v3_0_vio' (7#1) [d:/Undergroun
 WARNING: [Synth 8-3848] Net sl_iport0 in module/entity vio_twm_ddrx does not have driver. [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/synth/vio_twm_ddrx.v:132]
 INFO: [Synth 8-256] done synthesizing module 'vio_twm_ddrx' (8#1) [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/synth/vio_twm_ddrx.v:52]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 313.344 ; gain = 180.098
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 313.238 ; gain = 180.824
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Optimization
@@ -1557,8 +1554,8 @@ Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7s
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_ooc.xdc] for cell 'inst'
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.xdc] for cell 'inst'
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.xdc] for cell 'inst'
-Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc]
+Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -1572,17 +1569,17 @@ Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k325tffg900-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 564.457 ; gain = 431.211
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 563.980 ; gain = 431.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for inst. (constraint file  d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for inst. (constraint file  D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 564.457 ; gain = 431.211
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 563.980 ; gain = 431.566
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 564.457 ; gain = 431.211
+Finished RTL Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 563.980 ; gain = 431.566
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3848] Net sl_iport0 in module/entity vio_twm_ddrx does not have driver. [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/synth/vio_twm_ddrx.v:132]
 
@@ -1748,14 +1745,14 @@ BRAMs: 890 (col length: RAMB18 140 RAMB36 70)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 573.816 ; gain = 440.570
+Workers Ready, Starting Parallel Section  : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 573.801 ; gain = 441.387
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 573.832 ; gain = 440.586
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 573.816 ; gain = 441.402
 ---------------------------------------------------------------------------------
-Finished Parallel Reinfer  : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 573.832 ; gain = 440.586
+Finished Parallel Reinfer  : Time (s): cpu = 00:00:31 ; elapsed = 00:00:31 . Memory (MB): peak = 573.816 ; gain = 441.402
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -1766,10 +1763,10 @@ Finished RAM, DSP and Shift Register Reporting
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 592.711 ; gain = 459.465
+Finished Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 592.934 ; gain = 460.520
 ---------------------------------------------------------------------------------
-Finished Parallel Area Opt  : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 592.711 ; gain = 459.465
-Finished Parallel Section  : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 592.711 ; gain = 459.465
+Finished Parallel Area Opt  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 592.934 ; gain = 460.520
+Finished Parallel Section  : Time (s): cpu = 00:00:33 ; elapsed = 00:00:33 . Memory (MB): peak = 592.934 ; gain = 460.520
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -1777,16 +1774,16 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 639.074 ; gain = 505.828
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 638.707 ; gain = 506.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 639.199 ; gain = 505.953
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 639.832 ; gain = 507.418
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 660.047 ; gain = 526.801
+Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -1845,7 +1842,7 @@ WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[2] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[1] to constant 0
 WARNING: [Synth 8-3295] tying undriven pin inst:sl_iport0[0] to constant 0
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 660.047 ; gain = 526.801
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1858,13 +1855,13 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:42 . Memory (MB): peak = 660.047 ; gain = 526.801
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 660.047 ; gain = 526.801
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -1939,10 +1936,10 @@ Report Instance Areas:
 |35    |    PROBE_OUT_WIDTH_INST                |vio_v3_0_probe_width__parameterized0              |    28|
 +------+----------------------------------------+--------------------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 660.047 ; gain = 526.801
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 38 warnings.
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 660.047 ; gain = 526.801
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 659.652 ; gain = 527.238
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_ooc.xdc] for cell 'inst'
 Finished Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_ooc.xdc] for cell 'inst'
 Parsing XDC File [d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.xdc] for cell 'inst'
@@ -1954,20 +1951,13 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 48 Infos, 76 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 669.148 ; gain = 469.563
+synth_design: Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 669.801 ; gain = 470.383
 # rename_ref -prefix_all vio_twm_ddrx_
 INFO: [Coretcl 2-1174] Renamed 34 cell refs.
 # write_checkpoint -noxdef vio_twm_ddrx.dcp
-# report_utilization -file vio_twm_ddrx_utilization_synth.rpt -pb vio_twm_ddrx_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 669.148 ; gain = 0.000
-# if { [catch {
-#   file copy -force d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/vio_twm_ddrx.dcp d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx.dcp
-#   write_verilog -force -mode synth_stub d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_stub.v
-#   write_vhdl -force -mode synth_stub d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_stub.vhdl
-#   write_verilog -force -mode funcsim d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_funcsim.v
-#   write_vhdl -force -mode funcsim d:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.srcs/sources_1/ip/vio_twm_ddrx/vio_twm_ddrx_funcsim.vhdl
-# } _RESULT ] } { 
-#   send_msg_id runtcl-3 error "Unable to successfully create or copy supporting IP files."
-#   return -code error
-# }
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 02 19:28:16 2016...
+ERROR: [Common 17-176] Overwrite of existing file isn't enabled.  Please specify -force to overwrite file  [D:/UndergroundRadar/kc705_dds_mig/mig_7series_1_example/mig_7series_1_example.runs/vio_twm_ddrx_synth_1/vio_twm_ddrx.dcp]
+
+    while executing
+"write_checkpoint -noxdef vio_twm_ddrx.dcp"
+    (file "vio_twm_ddrx.tcl" line 27)
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 13 14:56:18 2016...

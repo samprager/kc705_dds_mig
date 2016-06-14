@@ -57,17 +57,24 @@ module adc_data_axis_wrapper #(
 //reg [15:0]                 current_count;
 //reg                        state;
 //reg                        next_state;
-//reg                        tvalid_int;
+reg                        tvalid_int;
 //reg                        adc_fifo_data_valid_int;
 
 
 assign axi_treset = !axi_tresetn;
 assign adc_fifo_rd_en = tready;
 
-assign tvalid = adc_fifo_data_valid;
+//assign tvalid = adc_fifo_data_valid;
+assign tvalid = tvalid_int;
 assign tdata = adc_data; 
 
-
+always @(posedge axi_tclk)
+begin
+    if (axi_treset) 
+        tvalid_int <= 1'b0;
+    else    
+        tvalid_int <= (tready & !adc_fifo_empty)|(!tready & tvalid_int);
+end   
 /*
 always @(posedge axi_tclk)
 begin
@@ -94,7 +101,7 @@ end
 //        current_count <= 0;
 //  end
 //end
-
+ 
 
 //// simple state machine to control the data
 //// on the transition from IDLE we reset the counters and increment the packet size

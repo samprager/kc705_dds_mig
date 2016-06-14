@@ -252,7 +252,7 @@ function integer clogb2 (input integer size);
     end
   endfunction
 
-  localparam MIG_AXI_DATA_WIDTH = 512;
+  localparam MIG_AXI_DATA_WIDTH = 64;
 
   localparam FIFO_M00_DEPTH = 2048;                     //data words
   localparam FIFO_M01_DEPTH = 8192;                     //data words
@@ -417,7 +417,7 @@ wire [0 : 0] S01_AXIS_TDEST = 1'b0;
 wire S00_ARB_REQ_SUPPRESS;
 wire S01_ARB_REQ_SUPPRESS;
 reg S00_ARB_REQ_SUPPRESS_Reg = 1'b0;
-reg S01_ARB_REQ_SUPPRESS_Reg = 1'b0;
+reg S01_ARB_REQ_SUPPRESS_Reg = 1'b1;
 wire S00_DECODE_ERR;
 wire S01_DECODE_ERR;
 wire [31 : 0] S00_FIFO_DATA_COUNT;
@@ -711,10 +711,10 @@ fmc150_dac_adc  #
 )
 fmc150_dac_adc_inst
 (
-    //.aclk (ui_clk),
-    //.aresetn (aresetn),
-    .aclk(sysclk_bufg),
-    .aresetn (sysclk_resetn),
+    .aclk (ui_clk),
+    .aresetn (aresetn),
+    //.aclk(sysclk_bufg),
+    //.aresetn (sysclk_resetn),
      // --KC705 Resources - from fmc150 example design
      .axis_adc_tdata                      (axis_adc_tdata),
      .axis_adc_tvalid                     (axis_adc_tvalid),
@@ -889,16 +889,16 @@ assign m_axi_vfifo_ruser = 'b0;
 // Slave0 - 64 bits
 // Slave1 - 8 bits
 axis_interconnect_1m2s u_axis_interconnect_1m2s(
-    //.ACLK(ui_clk),                                  // input wire ACLK
-    //.ARESETN(aresetn),                            // input wire ARESETN
-      .ACLK(sysclk_bufg),                                  // input wire ACLK
-      .ARESETN(sysclk_resetn),                            // input wire ARESETN
+    .ACLK(ui_clk),                                  // input wire ACLK
+    .ARESETN(aresetn),                            // input wire ARESETN
+    //  .ACLK(sysclk_bufg),                                  // input wire ACLK
+    //  .ARESETN(sysclk_resetn),                            // input wire ARESETN
     
 // S00 AXIS Connection to ADC Module
-    //.S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
-    //.S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN
-    .S00_AXIS_ACLK(sysclk_bufg),
-    .S00_AXIS_ARESETN (sysclk_resetn),
+    .S00_AXIS_ACLK(ui_clk),                // input wire S00_AXIS_ACLK
+    .S00_AXIS_ARESETN(aresetn),          // input wire S00_AXIS_ARESETN
+    //.S00_AXIS_ACLK(sysclk_bufg),
+    //.S00_AXIS_ARESETN (sysclk_resetn),
     .S00_AXIS_TVALID(axis_adc_tvalid),            // input wire S00_AXIS_TVALID
     .S00_AXIS_TREADY(axis_adc_tready),            // output wire S00_AXIS_TREADY
     .S00_AXIS_TDATA(axis_adc_tdata),              // input wire [63 : 0] S00_AXIS_TDATA
@@ -964,10 +964,10 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
       .S00_AXIS_TDEST(m_axis_vfifo_tdest),            // input wire [0 : 0] S00_AXIS_TDEST
 
 // M00 AXIS Connection to DAC Module
-      //.M00_AXIS_ACLK(ui_clk),              // input wire M00_AXIS_ACLK
-      //.M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
-      .M00_AXIS_ACLK(sysclk_bufg),              // input wire M00_AXIS_ACLK
-      .M00_AXIS_ARESETN(sysclk_resetn),        // input wire M00_AXIS_ARESETN
+      .M00_AXIS_ACLK(ui_clk),              // input wire M00_AXIS_ACLK
+      .M00_AXIS_ARESETN(aresetn),        // input wire M00_AXIS_ARESETN
+      //.M00_AXIS_ACLK(sysclk_bufg),              // input wire M00_AXIS_ACLK
+      //.M00_AXIS_ARESETN(sysclk_resetn),        // input wire M00_AXIS_ARESETN
 
       .M00_AXIS_TVALID(M00_AXIS_TVALID),          // output wire M00_AXIS_TVALID
       .M00_AXIS_TREADY(M00_AXIS_TREADY),          // input wire M00_AXIS_TREADY
@@ -1137,8 +1137,8 @@ end
 
 
 ila_axis_adc ila_axis_adc_inst(
-    //.clk (ui_clk),
-    .clk(sysclk_bufg),
+    .clk (ui_clk),
+    //.clk(sysclk_bufg),
      .probe0(axis_adc_tdata),
      .probe1(axis_adc_tvalid),
      .probe2(axis_adc_tready),
@@ -1148,7 +1148,18 @@ ila_axis_adc ila_axis_adc_inst(
      .probe6(axis_adc_tdest),   //wire [ADC_AXI_TDEST_WIDTH-1:0]  axis_adc_tdest;
      .probe7(axis_adc_tuser),   //wire [ADC_AXI_TUSER_WIDTH-1:0]  axis_adc_tuser;
      .probe8(axis_adc_tstrb),    //wire [ADC_AXI_DATA_WIDTH/8-1:0] axis_adc_tstrb;
-     .probe9(ui_clk)
+     .probe9(S00_ARB_REQ_SUPPRESS),   // input wire S00_ARB_REQ_SUPPRESS
+     .probe10(S00_DECODE_ERR),              // output wire S00_DECODE_ERR
+     .probe11(S00_FIFO_DATA_COUNT),    // output wire [31 : 0] S00_FIFO_DATA_COUNT
+     
+     .probe12(s_axis_vfifo_tdata),      // 64 bits
+    .probe13(s_axis_vfifo_tkeep),       // 8 bits
+    .probe14(s_axis_vfifo_tstrb),       // 8 bits
+    .probe15(s_axis_vfifo_tvalid),
+    .probe16(s_axis_vfifo_tready),
+    .probe17(s_axis_vfifo_tlast),
+    .probe18(s_axis_vfifo_tid),         
+    .probe19(s_axis_vfifo_tdest)
 );
 
 ila_axis_adc_pkt ila_axis_adc_pkt_inst(
@@ -1165,8 +1176,8 @@ ila_axis_adc_pkt ila_axis_adc_pkt_inst(
 );
 
 ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
-    // .clk (ui_clk),
-    .clk (sysclk_bufg),              // input wire M00_AXIS_ACLK
+     .clk (ui_clk),
+    //.clk (sysclk_bufg),              // input wire M00_AXIS_ACLK
      .probe0(M00_AXIS_TDATA),
      .probe1(M00_AXIS_TKEEP),
      .probe2(M00_AXIS_TSTRB),

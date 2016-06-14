@@ -148,11 +148,11 @@ output wire M00_AXIS_TVALID;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *)
 input wire M00_AXIS_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *)
-output wire [511 : 0] M00_AXIS_TDATA;
+output wire [63 : 0] M00_AXIS_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TSTRB" *)
-output wire [63 : 0] M00_AXIS_TSTRB;
+output wire [7 : 0] M00_AXIS_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP" *)
-output wire [63 : 0] M00_AXIS_TKEEP;
+output wire [7 : 0] M00_AXIS_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST" *)
 output wire M00_AXIS_TLAST;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID" *)
@@ -297,7 +297,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_S14_AXIS_ACLK_RATIO(12),
     .C_S15_AXIS_ACLK_RATIO(12),
     .C_S00_AXIS_REG_CONFIG(1),
-    .C_S01_AXIS_REG_CONFIG(1),
+    .C_S01_AXIS_REG_CONFIG(0),
     .C_S02_AXIS_REG_CONFIG(0),
     .C_S03_AXIS_REG_CONFIG(0),
     .C_S04_AXIS_REG_CONFIG(0),
@@ -344,7 +344,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_S13_AXIS_FIFO_MODE(0),
     .C_S14_AXIS_FIFO_MODE(0),
     .C_S15_AXIS_FIFO_MODE(0),
-    .C_M00_AXIS_TDATA_WIDTH(512),
+    .C_M00_AXIS_TDATA_WIDTH(64),
     .C_M01_AXIS_TDATA_WIDTH(8),
     .C_M02_AXIS_TDATA_WIDTH(8),
     .C_M03_AXIS_TDATA_WIDTH(8),
@@ -360,7 +360,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_TDATA_WIDTH(8),
     .C_M14_AXIS_TDATA_WIDTH(8),
     .C_M15_AXIS_TDATA_WIDTH(8),
-    .C_M00_AXIS_TUSER_WIDTH(64),
+    .C_M00_AXIS_TUSER_WIDTH(8),
     .C_M01_AXIS_TUSER_WIDTH(1),
     .C_M02_AXIS_TUSER_WIDTH(1),
     .C_M03_AXIS_TUSER_WIDTH(1),
@@ -376,7 +376,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_TUSER_WIDTH(1),
     .C_M14_AXIS_TUSER_WIDTH(1),
     .C_M15_AXIS_TUSER_WIDTH(1),
-    .C_M00_AXIS_ACLK_RATIO(6),
+    .C_M00_AXIS_ACLK_RATIO(12),
     .C_M01_AXIS_ACLK_RATIO(12),
     .C_M02_AXIS_ACLK_RATIO(12),
     .C_M03_AXIS_ACLK_RATIO(12),
@@ -392,7 +392,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_ACLK_RATIO(12),
     .C_M14_AXIS_ACLK_RATIO(12),
     .C_M15_AXIS_ACLK_RATIO(12),
-    .C_M00_AXIS_REG_CONFIG(1),
+    .C_M00_AXIS_REG_CONFIG(0),
     .C_M01_AXIS_REG_CONFIG(0),
     .C_M02_AXIS_REG_CONFIG(0),
     .C_M03_AXIS_REG_CONFIG(0),
