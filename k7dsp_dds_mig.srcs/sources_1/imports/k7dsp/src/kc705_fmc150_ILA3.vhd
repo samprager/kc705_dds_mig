@@ -144,6 +144,7 @@ port (
 -- ADC data re-mux'd to 245.76 MSPS in fabric, extended to 16-bit
   adc_data_out_i : out std_logic_vector(15 downto 0);
   adc_data_out_q : out std_logic_vector(15 downto 0);
+  adc_counter_out : out std_logic_vector(31 downto 0);
   adc_data_out_valid : out std_logic;
 
   fmc150_status_vector : out std_logic_vector(3 downto 0);
@@ -619,6 +620,8 @@ signal adc_data_out_q_sig : std_logic_vector(15 downto 0);
 signal adc_data_out_ila_sig : std_logic_vector(63 downto 0);
 signal adc_data_out_valid_sig : std_logic;
 signal adc_data_out_valid_ila_sig : std_logic_vector(0 downto 0);
+
+signal adc_counter_out_sig : std_logic_vector(31 downto 0);
 
 signal adc_test_pattern_i  :std_logic_vector(15 downto 0);
 signal adc_test_pattern_q  :std_logic_vector(15 downto 0);
@@ -1540,6 +1543,21 @@ begin
   end if;
 end process generate_test_pattern;
 
+generate_adc_counter: process (clk_245_76MHz)
+begin
+  if rising_edge(clk_245_76MHz) then
+    if (rst = '1') then
+      adc_counter_out_sig <= (others=>'0');
+    elsif (gen_adc_test_pattern = '1') then 
+        if (adc_test_pattern_valid = '1') then
+            adc_counter_out_sig <= adc_counter_out_sig + '1';
+        end if;
+    elsif (adc_dout_valid = '1') then
+      adc_counter_out_sig <= adc_counter_out_sig + '1';
+    end if;
+  end if;
+end process generate_adc_counter;
+
 adc_test_pattern_mux: process (clk_245_76MHz)
 begin
   if rising_edge(clk_245_76MHz) then
@@ -1560,6 +1578,8 @@ end process adc_test_pattern_mux;
 adc_data_out_i <= adc_data_out_i_sig;
 adc_data_out_q <= adc_data_out_q_sig;
 adc_data_out_valid <= adc_data_out_valid_sig;
+
+adc_counter_out <= adc_counter_out_sig;
 
 
 ------------------------------------------------------------------------------------

@@ -252,7 +252,7 @@ function integer clogb2 (input integer size);
     end
   endfunction
 
-  localparam MIG_AXI_DATA_WIDTH = 64;
+  localparam MIG_AXI_DATA_WIDTH = 512;
 
   localparam FIFO_M00_DEPTH = 2048;                     //data words
   localparam FIFO_M01_DEPTH = 8192;                     //data words
@@ -269,7 +269,7 @@ function integer clogb2 (input integer size);
   localparam FIFO_M01_THRESHOLD = FIFO_M01_DEPTH - (2*VFIFO_CH1_AR_BURST)/FIFO_M01_WIDTH;
 
 
-  localparam ADC_AXI_DATA_WIDTH = 64;
+  localparam ADC_AXI_DATA_WIDTH = 512;//64;
   localparam ADC_AXI_TID_WIDTH = 1;
   localparam ADC_AXI_TDEST_WIDTH = 1;
   localparam ADC_AXI_TUSER_WIDTH = 1;
@@ -1139,7 +1139,7 @@ end
 ila_axis_adc ila_axis_adc_inst(
     .clk (ui_clk),
     //.clk(sysclk_bufg),
-     .probe0(axis_adc_tdata),
+     .probe0(axis_adc_tdata),   //wire [ADC_AXI_DATA_WIDTH-1:0]
      .probe1(axis_adc_tvalid),
      .probe2(axis_adc_tready),
      .probe3(axis_adc_tlast),    //wire axis_adc_tlast;
@@ -1152,9 +1152,9 @@ ila_axis_adc ila_axis_adc_inst(
      .probe10(S00_DECODE_ERR),              // output wire S00_DECODE_ERR
      .probe11(S00_FIFO_DATA_COUNT),    // output wire [31 : 0] S00_FIFO_DATA_COUNT
      
-     .probe12(s_axis_vfifo_tdata),      // 64 bits
-    .probe13(s_axis_vfifo_tkeep),       // 8 bits
-    .probe14(s_axis_vfifo_tstrb),       // 8 bits
+     .probe12(s_axis_vfifo_tdata),      // wire [MIG_AXI_DATA_WIDTH-1 : 0]
+    .probe13(s_axis_vfifo_tkeep),       // wire [MIG_AXI_DATA_WIDTH/8-1 : 0]
+    .probe14(s_axis_vfifo_tstrb),       // wire [MIG_AXI_DATA_WIDTH/8-1 : 0]
     .probe15(s_axis_vfifo_tvalid),
     .probe16(s_axis_vfifo_tready),
     .probe17(s_axis_vfifo_tlast),
@@ -1178,7 +1178,7 @@ ila_axis_adc_pkt ila_axis_adc_pkt_inst(
 ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
      .clk (ui_clk),
     //.clk (sysclk_bufg),              // input wire M00_AXIS_ACLK
-     .probe0(M00_AXIS_TDATA),
+     .probe0(M00_AXIS_TDATA),           // 64 bits
      .probe1(M00_AXIS_TKEEP),
      .probe2(M00_AXIS_TSTRB),
      .probe3(M00_AXIS_TVALID),
@@ -1192,7 +1192,7 @@ ila_axi_mm2s_ic ila_axi_mm2s_ic_inst(
 ila_axis_vfifo   ila_axis_vfifo_inst(
     .clk(ui_clk),
     .probe0(vfifo_mm2s_channel_full),
-    .probe1(s_axis_vfifo_tdata),
+    .probe1(s_axis_vfifo_tdata),        // wire [MIG_AXI_DATA_WIDTH-1 : 0]
     .probe2(s_axis_vfifo_tkeep),
     .probe3(s_axis_vfifo_tstrb),
     .probe4(s_axis_vfifo_tvalid),
@@ -1200,7 +1200,7 @@ ila_axis_vfifo   ila_axis_vfifo_inst(
     .probe6(s_axis_vfifo_tlast),
     .probe7(s_axis_vfifo_tid),
     .probe8(s_axis_vfifo_tdest),
-    .probe9(m_axis_vfifo_tdata),
+    .probe9(m_axis_vfifo_tdata),        // wire [MIG_AXI_DATA_WIDTH-1 : 0]
     .probe10(m_axis_vfifo_tkeep),
     .probe11(m_axis_vfifo_tstrb),
     .probe12(m_axis_vfifo_tvalid),

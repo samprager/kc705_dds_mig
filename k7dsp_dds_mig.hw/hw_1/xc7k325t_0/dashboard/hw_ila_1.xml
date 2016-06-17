@@ -3,15 +3,15 @@
     <DashboardHolder activeDashboard="ILA">
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="2" height="654"
-                layout="JideBoxLayout" vgap="6" width="27">
-                <Gadget height="77" key="Trigger Capture Status" width="27">
+            <GadgetContainer boxAxis="1" count="2" height="233"
+                layout="JideBoxLayout" vgap="6" width="26">
+                <Gadget height="77" key="Trigger Capture Status" width="26">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
                         data_depth="2048" trigger_condition="AND"
                         trigger_mode="BASIC_ONLY" trigger_position="0"
                         trigout_mode="DISABLED" tsm_file="" window_count="1"/>
                 </Gadget>
-                <Gadget height="143" key="Basic Trigger Setup" width="27">
+                <Gadget height="143" key="Basic Trigger Setup" width="26">
                     <Probe name="fmc150_dac_adc_inst/KC705_fmc150_inst/chirp_enable_ila_sig"/>
                 </Gadget>
                 <Settings/>

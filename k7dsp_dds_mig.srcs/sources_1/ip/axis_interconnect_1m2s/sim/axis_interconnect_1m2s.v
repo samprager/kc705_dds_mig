@@ -116,15 +116,15 @@ output wire S00_AXIS_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TREADY" *)
 output wire S01_AXIS_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TDATA" *)
-input wire [63 : 0] S00_AXIS_TDATA;
+input wire [511 : 0] S00_AXIS_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TDATA" *)
 input wire [7 : 0] S01_AXIS_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TSTRB" *)
-input wire [7 : 0] S00_AXIS_TSTRB;
+input wire [63 : 0] S00_AXIS_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TSTRB" *)
 input wire [0 : 0] S01_AXIS_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TKEEP" *)
-input wire [7 : 0] S00_AXIS_TKEEP;
+input wire [63 : 0] S00_AXIS_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S01_AXIS TKEEP" *)
 input wire [0 : 0] S01_AXIS_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 S00_AXIS TLAST" *)
@@ -148,11 +148,11 @@ output wire M00_AXIS_TVALID;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TREADY" *)
 input wire M00_AXIS_TREADY;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TDATA" *)
-output wire [63 : 0] M00_AXIS_TDATA;
+output wire [511 : 0] M00_AXIS_TDATA;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TSTRB" *)
-output wire [7 : 0] M00_AXIS_TSTRB;
+output wire [63 : 0] M00_AXIS_TSTRB;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TKEEP" *)
-output wire [7 : 0] M00_AXIS_TKEEP;
+output wire [63 : 0] M00_AXIS_TKEEP;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TLAST" *)
 output wire M00_AXIS_TLAST;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 M00_AXIS TID" *)
@@ -176,10 +176,10 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_SWITCH_MODE(1),
     .C_SWITCH_MAX_XFERS_PER_ARB(1),
     .C_SWITCH_NUM_CYCLES_TIMEOUT(0),
-    .C_SWITCH_TDATA_WIDTH(64),
+    .C_SWITCH_TDATA_WIDTH(512),
     .C_SWITCH_TID_WIDTH(1),
     .C_SWITCH_TDEST_WIDTH(1),
-    .C_SWITCH_TUSER_WIDTH(8),
+    .C_SWITCH_TUSER_WIDTH(64),
     .C_SWITCH_SIGNAL_SET(32'H007F),
     .C_SWITCH_ACLK_RATIO(12),
     .C_SWITCH_USE_ACLKEN(0),
@@ -232,7 +232,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_HIGHTDEST(32'H0000000D),
     .C_M14_AXIS_HIGHTDEST(32'H0000000E),
     .C_M15_AXIS_HIGHTDEST(32'H0000000F),
-    .C_S00_AXIS_TDATA_WIDTH(64),
+    .C_S00_AXIS_TDATA_WIDTH(512),
     .C_S01_AXIS_TDATA_WIDTH(8),
     .C_S02_AXIS_TDATA_WIDTH(8),
     .C_S03_AXIS_TDATA_WIDTH(8),
@@ -248,7 +248,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_S13_AXIS_TDATA_WIDTH(8),
     .C_S14_AXIS_TDATA_WIDTH(8),
     .C_S15_AXIS_TDATA_WIDTH(8),
-    .C_S00_AXIS_TUSER_WIDTH(8),
+    .C_S00_AXIS_TUSER_WIDTH(64),
     .C_S01_AXIS_TUSER_WIDTH(1),
     .C_S02_AXIS_TUSER_WIDTH(1),
     .C_S03_AXIS_TUSER_WIDTH(1),
@@ -344,7 +344,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_S13_AXIS_FIFO_MODE(0),
     .C_S14_AXIS_FIFO_MODE(0),
     .C_S15_AXIS_FIFO_MODE(0),
-    .C_M00_AXIS_TDATA_WIDTH(64),
+    .C_M00_AXIS_TDATA_WIDTH(512),
     .C_M01_AXIS_TDATA_WIDTH(8),
     .C_M02_AXIS_TDATA_WIDTH(8),
     .C_M03_AXIS_TDATA_WIDTH(8),
@@ -360,7 +360,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_TDATA_WIDTH(8),
     .C_M14_AXIS_TDATA_WIDTH(8),
     .C_M15_AXIS_TDATA_WIDTH(8),
-    .C_M00_AXIS_TUSER_WIDTH(8),
+    .C_M00_AXIS_TUSER_WIDTH(64),
     .C_M01_AXIS_TUSER_WIDTH(1),
     .C_M02_AXIS_TUSER_WIDTH(1),
     .C_M03_AXIS_TUSER_WIDTH(1),
@@ -636,7 +636,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .S13_AXIS_TDEST(1'H0),
     .S14_AXIS_TDEST(1'H0),
     .S15_AXIS_TDEST(1'H0),
-    .S00_AXIS_TUSER(8'H00),
+    .S00_AXIS_TUSER(64'H0000000000000000),
     .S01_AXIS_TUSER(1'H0),
     .S02_AXIS_TUSER(1'H0),
     .S03_AXIS_TUSER(1'H0),

@@ -122,17 +122,19 @@ module fmc150_dac_adc #
   wire [15:0] adc_data_i;
   wire [15:0] adc_data_q;
   wire [31:0] adc_data_iq;
+  wire [31:0] adc_counter;
   wire adc_data_valid;
+  wire [63:0] adc_fifo_wr_data;
 
      wire [15:0]              adc_fifo_wr_data_count;
-     wire [14:0]               adc_fifo_rd_data_count;
+     wire [12:0]               adc_fifo_rd_data_count;
      wire                       adc_fifo_wr_ack;
      wire                       adc_fifo_valid;
      wire                       adc_fifo_almost_full;
      wire                       adc_fifo_almost_empty;
      wire                      adc_fifo_wr_en;
      wire                      adc_fifo_rd_en;
-     wire [63:0]              adc_fifo_data_out;
+     wire [ADC_AXI_DATA_WIDTH-1:0]  adc_fifo_data_out;
      wire                     adc_fifo_full;
      wire                     adc_fifo_empty;
 
@@ -143,6 +145,7 @@ module fmc150_dac_adc #
         // --KC705 Resources - from fmc150 example design
         .adc_data_out_i (adc_data_i),
         .adc_data_out_q (adc_data_q),
+        .adc_counter_out (adc_counter),
         .adc_data_out_valid (adc_data_valid),
 
         .clk_out_245_76MHz  (clk_245_76MHz),
@@ -248,7 +251,7 @@ module fmc150_dac_adc #
    .wr_en                     (adc_fifo_wr_en),
    //.rd_en                     (adc_fifo_rd_en),
    .rd_en                     (adc_fifo_rd_en),
-   .din                       (adc_data_iq),
+   .din                       (adc_fifo_wr_data),
    .dout                      (adc_fifo_data_out),
    .full                      (adc_fifo_full),
    .empty                     (adc_fifo_empty)
@@ -286,6 +289,8 @@ module fmc150_dac_adc #
    //assign adc_fifo_rd_en = 1'b1;
 
    assign adc_data_iq = {adc_data_i,adc_data_q};
+   assign adc_fifo_wr_data = {adc_counter,adc_data_iq};
+
 
    assign adc_fifo_wr_en = adc_data_valid & adc_enable;
 
@@ -297,7 +302,7 @@ assign clk_out_245_76MHz = clk_245_76MHz;
 ila_adc_wr_fifo ila_adc_wr_fifo_inst(
     //.clk (ui_clk),
      .clk(clk_245_76MHz),
-     .probe0(adc_data_iq),
+     .probe0(adc_fifo_wr_data),
      .probe1(adc_fifo_wr_data_count),
      .probe2(adc_fifo_wr_ack),
      .probe3(adc_fifo_wr_en),    
