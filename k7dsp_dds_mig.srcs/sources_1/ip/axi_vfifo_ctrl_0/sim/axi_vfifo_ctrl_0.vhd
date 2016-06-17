@@ -325,7 +325,7 @@ BEGIN
       C_HAS_AXIS_TID => 1,
       C_ENABLE_INTERRUPT => 0,
       C_AR_WEIGHT_CH0 => 4,
-      C_AR_WEIGHT_CH1 => 2,
+      C_AR_WEIGHT_CH1 => 8,
       C_AR_WEIGHT_CH2 => 8,
       C_AR_WEIGHT_CH3 => 8,
       C_AR_WEIGHT_CH4 => 8,

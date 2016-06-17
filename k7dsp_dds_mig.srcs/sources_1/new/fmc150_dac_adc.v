@@ -126,8 +126,8 @@ module fmc150_dac_adc #
   wire adc_data_valid;
   wire [63:0] adc_fifo_wr_data;
 
-     wire [15:0]              adc_fifo_wr_data_count;
-     wire [12:0]               adc_fifo_rd_data_count;
+     wire [12:0]              adc_fifo_wr_data_count;
+     wire [9:0]               adc_fifo_rd_data_count;
      wire                       adc_fifo_wr_ack;
      wire                       adc_fifo_valid;
      wire                       adc_fifo_almost_full;

@@ -4,14 +4,14 @@
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
             <GadgetContainer boxAxis="1" count="2" height="233"
-                layout="JideBoxLayout" vgap="6" width="28">
-                <Gadget height="54" key="Trigger Capture Status" width="28">
+                layout="JideBoxLayout" vgap="6" width="11">
+                <Gadget height="54" key="Trigger Capture Status" width="11">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
                         data_depth="1024" trigger_condition="AND"
                         trigger_mode="BASIC_ONLY" trigger_position="0"
                         trigout_mode="DISABLED" tsm_file="" window_count="1"/>
                 </Gadget>
-                <Gadget height="166" key="Basic Trigger Setup" width="28"/>
+                <Gadget height="166" key="Basic Trigger Setup" width="11"/>
                 <Settings/>
             </GadgetContainer>
         </Dashboard>

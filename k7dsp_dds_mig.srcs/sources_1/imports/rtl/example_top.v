@@ -254,20 +254,31 @@ function integer clogb2 (input integer size);
 
   localparam MIG_AXI_DATA_WIDTH = 512;
 
-  localparam FIFO_M00_DEPTH = 2048;                     //data words
-  localparam FIFO_M01_DEPTH = 8192;                     //data words
-  localparam FIFO_M00_WIDTH = 8;                        // bytes
-  localparam FIFO_M01_WIDTH = 1;                        // bytes
+// Virtual Fifo Read Channel (axi-4 mm to axis) prog full thresholds
+// Depends on 1m2s axis-interconnect FIFO depth and channel weight (AR) for each master channel
+// Must ensure that space available in fifo is >= 2*AR*vfifo burst size
+  localparam FIFO_M00_DEPTH = 256;                     //data words
+  localparam FIFO_M01_DEPTH = 1024;                     //data words
+  localparam FIFO_M00_WIDTH = 64;                        // bytes
+  localparam FIFO_M01_WIDTH = 64;                        // bytes
   localparam VFIFO_CH0_AR_WEIGHT = 4;
-  localparam VFIFO_CH1_AR_WEIGHT = 2;
+  localparam VFIFO_CH1_AR_WEIGHT = 8;
   localparam VFIFO_BURST_SIZE = 1024;                   // bytes
   localparam VFIFO_CH0_AR_BURST = VFIFO_CH0_AR_WEIGHT*VFIFO_BURST_SIZE;
   localparam VFIFO_CH1_AR_BURST = VFIFO_CH1_AR_WEIGHT*VFIFO_BURST_SIZE;
-
   // Space available in FIFO must be at least 2*AR_Burst before Programmable Full is deasserted
   localparam FIFO_M00_THRESHOLD = FIFO_M00_DEPTH - (2*VFIFO_CH0_AR_BURST)/FIFO_M00_WIDTH;
   localparam FIFO_M01_THRESHOLD = FIFO_M01_DEPTH - (2*VFIFO_CH1_AR_BURST)/FIFO_M01_WIDTH;
 
+// TODO: once weights and widths are finalize, replace int comparison with binary comparison:
+// for M00: (AR = 4, Burst = 1024 Bytes, Depth = 256, Width = 64 Bytes)
+//          thresh = 16 KB - 2*4 KB = 8 KB 
+//      ->  count <=  128 
+//      or  prog_full = |counter[31:7]
+// for M01: (AR = 8, Burst = 1024 Bytes, Depth = 1024, Width = 64 Bytes)
+//          thresh = 64 KB - 2*8 KB = 48 KB 
+//      ->  count <=  768 
+//      or  prog_full =  (|counter[31:10]) || (&counter[9:8])
 
   localparam ADC_AXI_DATA_WIDTH = 512;//64;
   localparam ADC_AXI_TID_WIDTH = 1;
@@ -999,10 +1010,12 @@ axis_interconnect_1m2s u_axis_interconnect_1m2s(
 
 always @(posedge ui_clk) begin
     vfifo_mm2s_ch0_full <= (M00_FIFO_DATA_COUNT > FIFO_M00_THRESHOLD) ? 1'b1 : 1'b0;
+    // vfifo_mm2s_ch0_full <= |M00_FIFO_DATA_COUNT[31:7];
 end
 
 always @(posedge ui_clk) begin
     vfifo_mm2s_ch1_full <= (M01_FIFO_DATA_COUNT > FIFO_M01_THRESHOLD) ? 1'b1 : 1'b0;
+    //vfifo_mm2s_ch1_full <= (|M01_FIFO_DATA_COUNT[31:10]) || (&M01_FIFO_DATA_COUNT[9:8]);
 end
 
 assign vfifo_mm2s_channel_full = {vfifo_mm2s_ch1_full,vfifo_mm2s_ch0_full};

@@ -91,8 +91,7 @@ module axis_interconnect_1m2s (
   S00_DECODE_ERR,
   S01_DECODE_ERR,
   S00_FIFO_DATA_COUNT,
-  S01_FIFO_DATA_COUNT,
-  M00_FIFO_DATA_COUNT
+  S01_FIFO_DATA_COUNT
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLKIF CLK" *)
@@ -165,7 +164,6 @@ output wire S00_DECODE_ERR;
 output wire S01_DECODE_ERR;
 output wire [31 : 0] S00_FIFO_DATA_COUNT;
 output wire [31 : 0] S01_FIFO_DATA_COUNT;
-output wire [31 : 0] M00_FIFO_DATA_COUNT;
 
   axis_interconnect_v1_1_axis_interconnect_16x16_top #(
     .C_FAMILY("kintex7"),
@@ -312,8 +310,8 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_S13_AXIS_REG_CONFIG(0),
     .C_S14_AXIS_REG_CONFIG(0),
     .C_S15_AXIS_REG_CONFIG(0),
-    .C_S00_AXIS_FIFO_DEPTH(2048),
-    .C_S01_AXIS_FIFO_DEPTH(8192),
+    .C_S00_AXIS_FIFO_DEPTH(1024),
+    .C_S01_AXIS_FIFO_DEPTH(256),
     .C_S02_AXIS_FIFO_DEPTH(32),
     .C_S03_AXIS_FIFO_DEPTH(32),
     .C_S04_AXIS_FIFO_DEPTH(32),
@@ -440,7 +438,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .C_M13_AXIS_FIFO_DEPTH(32),
     .C_M14_AXIS_FIFO_DEPTH(32),
     .C_M15_AXIS_FIFO_DEPTH(32),
-    .C_M00_AXIS_FIFO_MODE(1),
+    .C_M00_AXIS_FIFO_MODE(0),
     .C_M01_AXIS_FIFO_MODE(0),
     .C_M02_AXIS_FIFO_MODE(0),
     .C_M03_AXIS_FIFO_MODE(0),
@@ -956,7 +954,7 @@ output wire [31 : 0] M00_FIFO_DATA_COUNT;
     .M13_PACKER_ERR(),
     .M14_PACKER_ERR(),
     .M15_PACKER_ERR(),
-    .M00_FIFO_DATA_COUNT(M00_FIFO_DATA_COUNT),
+    .M00_FIFO_DATA_COUNT(),
     .M01_FIFO_DATA_COUNT(),
     .M02_FIFO_DATA_COUNT(),
     .M03_FIFO_DATA_COUNT(),
