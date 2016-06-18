@@ -545,7 +545,7 @@ radar_pulse_controller radar_pulse_controller_inst (
   // input gpio_sw_n,
   // input gpio_sw_s,
   // input gpio_sw_w,
-  // input [7:0]  gpio_dip_sw,
+   .gpio_dip_sw(gpio_dip_sw),
   // output [7:0]  gpio_led,
 
   //input clk_mig,              // 200 MHZ OR 100 MHz

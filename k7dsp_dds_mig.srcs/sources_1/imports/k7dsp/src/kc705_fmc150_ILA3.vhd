@@ -1861,7 +1861,7 @@ port map (
 gpio_led(0) <= gpio_dip_sw(0);
 gpio_led(1) <= gpio_dip_sw(1);
 --gpio_led(2) <= external_clock;
-gpio_led(2) <= gen_adc_test_pattern;
+gpio_led(2) <= gpio_dip_sw(2);
 gpio_led(3) <= ddc_duc_bypass;
 gpio_led(4) <= pll_status;
 gpio_led(5) <= mmcm_adac_locked;
@@ -1888,8 +1888,8 @@ adc_out_dac_in <= '0';
 external_clock <= '0';
 ddc_duc_bypass <= gpio_dip_sw(3);
 
-gen_adc_test_pattern <= gpio_dip_sw(2);
-
+--gen_adc_test_pattern <= gpio_dip_sw(2);
+gen_adc_test_pattern <= '0';
 ----------------------------------------------------------------------------------------------------
 -- IDELAYCTRL
 ----------------------------------------------------------------------------------------------------
