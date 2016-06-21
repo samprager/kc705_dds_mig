@@ -170,8 +170,34 @@ int decodePacket(uint32_t **dataIQ, uint32_t **counter,unsigned char *packet_dat
       memcpy(*dataIQ+i+j,((uint32_t*)packet_data)+2*i+s_index+1-counter_offset+14-2*j,sizeof(uint32_t));
     }
   }
-  return sq_size32;
 
+ return sq_size32;
+
+}
+
+int counterJumps(int ** cjumps,uint32_t *counter,int datasize) {
+  int i,j,numjumps;
+  int *temparray;
+  numjumps = 0;
+  for (i=1;i<datasize;i++){
+    if (counter[i]!=counter[i-1]+1){
+      numjumps++;
+    }
+  }
+  temparray = (int *)malloc((2+numjumps)*sizeof(int));
+
+  temparray[0] = 0;
+  j = 1;
+  for (i=1;i<datasize;i++){
+    if (counter[i]!=counter[i-1]+1){
+      temparray[j] = i;
+      j++;
+    }
+  }
+  temparray[numjumps+1] = datasize-1;
+
+  *cjumps = temparray;
+  return numjumps;
 }
 
 int main(int argc, char *argv[])
@@ -181,13 +207,14 @@ int main(int argc, char *argv[])
   const unsigned char *packet;
   char errbuf[PCAP_ERRBUF_SIZE];
   struct pcap_pkthdr header;
-  int mode_select;    // 0: dump udp packet, 1: dump data at offset
+  int i,mode_select;    // 0: dump udp packet, 1: dump data at offset
   int offset = HEADER_SIZE;
   int trim = 0;
   char *filename,*filenameC,*filenameIQ;
   unsigned char *packet_data;
   uint32_t *counter = NULL;
   uint32_t *dataIQ = NULL;
+  int *cjumps = NULL;
   int count,wcount,datasize,p_datasize;
 
   /* Skip over the program name. */
@@ -257,8 +284,10 @@ int main(int argc, char *argv[])
         exit(1);
       }
 
+      int numjumps = counterJumps(&cjumps,counter,datasize);
+
       printf("Decoded %i out of %i packets \n",wcount,count);
-      printf("datasize: %i, counter[0]: %u, counter[end-1]: %u \n",datasize,counter[0],counter[datasize-1]);
+      printf("datasize: %i, counter[0]: %u, counter[end-1]: %u, numjumps: %i\n",datasize,counter[0],counter[datasize-1],numjumps);
 
       fp_c = fopen(filenameC, "wb" );
       fp_iq = fopen(filenameIQ, "wb" );
@@ -269,8 +298,35 @@ int main(int argc, char *argv[])
       fclose(fp_c);
       fclose(fp_iq);
 
+      int plotrng = 2500;
+      if (plotrng > datasize) plotrng = datasize;
+      // Write data to files as [x,y] columns for plotting
+      FILE *fp_temp;
+      fp_temp = fopen("counter.dat","w");
+      for(i=0;i<plotrng;i++) fprintf(fp_temp,"%i %u\n",i,counter[i]);
+      fclose(fp_temp);
+
+      fp_temp = fopen("dataI.dat","w");
+      for(i=0;i<plotrng;i++) fprintf(fp_temp,"%i %i\n",i,*((int16_t *)dataIQ+2*i+1));
+      fclose(fp_temp);
+
+      fp_temp = fopen("dataQ.dat","w");
+      for(i=0;i<plotrng;i++) fprintf(fp_temp,"%i %i\n",i,*((int16_t *)dataIQ+2*i));
+      fclose(fp_temp);
+
+      fp_temp = fopen("cjumps.dat","w");
+      for(i=0;i<numjumps;i++) {
+        if (cjumps[i] >= plotrng) break;
+        fprintf(fp_temp,"%i %u\n",cjumps[i],counter[cjumps[i]]);
+      }
+      fclose(fp_temp);
+
+      // plot data with gnuplot
+      system("gnuplot -p 'plotdata.gp'");
+
       free(counter);
       free(dataIQ);
+      free(cjumps);
     }
 
     free(packet_data);
