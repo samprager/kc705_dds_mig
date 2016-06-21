@@ -86,7 +86,10 @@
 !*.elf
 !*.bmm
 !*.xmp
-
+#########
+#Matlab-files
+#########
+!*.m
 #########
 #Sim Output Directory
 #########
