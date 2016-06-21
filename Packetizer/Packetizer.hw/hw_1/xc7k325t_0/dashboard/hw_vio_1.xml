@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+    <DashboardHolder activeDashboard="VIO">
+        <Dashboard columnResizable="1" key="VIO" rowResizable="0" title="VIO">
+            <Settings/>
+            <GadgetContainer boxAxis="1" count="1" height="467"
+                layout="JideBoxLayout" vgap="6" width="410">
+                <Gadget height="437" key="VIO Probes" name="VIO Probes" width="410"/>
+                <Settings/>
+            </GadgetContainer>
+        </Dashboard>
+    </DashboardHolder>
+</component>
