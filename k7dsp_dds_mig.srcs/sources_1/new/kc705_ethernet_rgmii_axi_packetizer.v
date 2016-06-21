@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+//`timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: MiXIL
 // Engineer: Samuel Prager
@@ -84,10 +84,13 @@ reg                        tvalid_int;
 
 reg                        adc_axis_tvalid_reg;
 reg                        adc_axis_tlast_reg;
+reg     [7:0]               adc_axis_tdata_reg;
 //reg                        adc_axis_tuser_reg;
 
 reg                       adc_axis_tready_int;
+wire                      adc_axis_tready_sig;
 
+reg                       tready_reg;
 // rate control signals
 reg         [7:0]          basic_rc_counter;
 reg                        add_credit;
@@ -104,11 +107,14 @@ always @(posedge axi_tclk)
 begin
    adc_axis_tvalid_reg <= adc_axis_tvalid;
    adc_axis_tlast_reg <= adc_axis_tlast;
+   adc_axis_tdata_reg[7:0] <= adc_axis_tdata[7:0];
  //  adc_axis_tuser_reg <= adc_axis_tuser;
+  
+   tready_reg <= tready;
 end
 
 assign adc_axis_tready  = adc_axis_tready_int;
-
+//assign adc_axis_tready  = adc_axis_tready_sig;
 
 // need a packet counter - max size limited to 11 bits
 always @(posedge axi_tclk)
@@ -205,18 +211,18 @@ generate
                     VLAN_HEADER[i+8],
                     VLAN_HEADER[i+16],
                     VLAN_HEADER[i+24],
-                    SRC_ADDR[i],
-                    SRC_ADDR[i+8],
-                    SRC_ADDR[i+16],
-                    SRC_ADDR[i+24],
-                    SRC_ADDR[i+32],
-                    SRC_ADDR[i+40],
                     DEST_ADDR[i],
                     DEST_ADDR[i+8],
                     DEST_ADDR[i+16],
                     DEST_ADDR[i+24],
                     DEST_ADDR[i+32],
-                    DEST_ADDR[i+40]
+                    DEST_ADDR[i+40],
+                    SRC_ADDR[i],
+                    SRC_ADDR[i+8],
+                    SRC_ADDR[i+16],
+                    SRC_ADDR[i+24],
+                    SRC_ADDR[i+32],
+                    SRC_ADDR[i+40]
                    })   // Specify LUT Contents
     ) LUT6_inst (
        .O         (lut_data[i]),
@@ -283,7 +289,7 @@ end
 // simple state machine to control the data
 // on the transition from IDLE we reset the counters and increment the packet size
 always @(gen_state or enable_adc_pkt or header_count or tready or byte_count or tvalid_int or
-         credit_count or overhead_count or adc_axis_tvalid)
+         credit_count or overhead_count or adc_axis_tvalid or align_count)
 begin
    next_gen_state = gen_state;
    case (gen_state)
@@ -329,8 +335,8 @@ begin
    end
 end
 
-// need to generate the ready output - this is entirely dependant upon the full state
-// of the fifo
+// need to generate the ready output 
+
 always @(posedge axi_tclk)
 begin
    if (axi_treset) begin
@@ -339,19 +345,22 @@ begin
    else begin
    //   if (gen_state == SIZE & header_count == 0)
      if (gen_state == SIZE & align_count == 0)
-         adc_axis_tready_int <= 1;
+         adc_axis_tready_int <= tready;
       else if (gen_state == DATA & next_gen_state == DATA)
-         adc_axis_tready_int <= 1;
+         adc_axis_tready_int <= tready;
       else
          adc_axis_tready_int <= 0;
    end
 end
+
+assign adc_axis_tready_sig = tready & ((gen_state == SIZE & align_count == 0) | (gen_state == DATA & next_gen_state == DATA));
 
 // now generate the TVALID output
 always @(posedge axi_tclk)
 begin
    if (axi_treset)
       tvalid_int <= 0;
+   //else if (gen_state == DATA & !adc_axis_tvalid_reg)
    else if (gen_state == DATA & !adc_axis_tvalid)
       tvalid_int <= 0;
    else if (gen_state != IDLE & gen_state != OVERHEAD)
@@ -375,7 +384,9 @@ begin
       else if (align_count == 0)
          tdata <= packet_count[7:0];
    end
-   else if (tready & adc_axis_tvalid)
+  // else if (tready & adc_axis_tvalid)
+  //    tdata <= adc_axis_tdata[7:0];
+    else if (tready_reg & adc_axis_tvalid_reg)
       tdata <= adc_axis_tdata[7:0];
 end
 
