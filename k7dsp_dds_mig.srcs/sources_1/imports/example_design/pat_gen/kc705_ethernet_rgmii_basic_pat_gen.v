@@ -130,10 +130,10 @@ wire                 mux1_tvalid;
 wire                 mux1_tlast;
 wire                 mux1_tready;
 
-wire     [7:0]       mux2_tdata;
-wire                 mux2_tvalid;
-wire                 mux2_tlast;
-wire                 mux2_tready;
+//wire     [7:0]       mux2_tdata;
+//wire                 mux2_tvalid;
+//wire                 mux2_tlast;
+//wire                 mux2_tready;
 
 wire     [7:0]       tx_axis_as_tdata;
 wire                 tx_axis_as_tvalid;
@@ -174,6 +174,20 @@ kc705_ethernet_rgmii_axi_packetizer #(
    .tvalid                    (adc_pkt_tvalid),
    .tlast                     (adc_pkt_tlast),
    .tready                    (adc_pkt_tready)
+);
+
+packetizer_ila packetizer_ila_inst (
+    .clk  (axi_tclk),
+    .probe1 (adc_axis_tdata),
+    .probe2          (adc_axis_tvalid),
+    .probe3           (adc_axis_tlast),
+    .probe4           (adc_axis_tuser),
+    .probe5          (adc_axis_tready),
+
+   .probe6                     (adc_pkt_tdata),
+   .probe7                    (adc_pkt_tvalid),
+   .probe8                     (adc_pkt_tlast),
+   .probe9                    (adc_pkt_tready)
 );
 
 // basic packet generator - this has parametisable
@@ -230,17 +244,23 @@ kc705_ethernet_rgmii_axi_pat_check #(
 // simple mux between the rx_fifo AXI interface and the pat gen output
 // this is not registered as it is passed through a pipeline stage to limit the impact
 kc705_ethernet_rgmii_axi_mux axi_mux_inst1(
-   .mux_select                (enable_pat_gen),
+   //.mux_select                (enable_pat_gen),
+    .mux_select                (enable_adc_pkt),
+
 
    .tdata0                    (rx_axis_tdata),
    .tvalid0                   (rx_axis_tvalid),
    .tlast0                    (rx_axis_tlast),
    .tready0                   (rx_axis_tready),
 
-   .tdata1                    (pat_gen_tdata),
-   .tvalid1                   (pat_gen_tvalid),
-   .tlast1                    (pat_gen_tlast),
-   .tready1                   (pat_gen_tready_int),
+//   .tdata1                    (pat_gen_tdata),
+//   .tvalid1                   (pat_gen_tvalid),
+//   .tlast1                    (pat_gen_tlast),
+//   .tready1                   (pat_gen_tready_int),\
+   .tdata1                    (adc_pkt_tdata),
+    .tvalid1                   (adc_pkt_tvalid),
+    .tlast1                    (adc_pkt_tlast),
+    .tready1                   (adc_pkt_tready_int),    
 
    .tdata                     (mux1_tdata),
    .tvalid                    (mux1_tvalid),
@@ -250,24 +270,24 @@ kc705_ethernet_rgmii_axi_mux axi_mux_inst1(
 
 // simple mux between the adc data output and loopback/generated output
 // this is not registered as it is passed through a pipeline stage to limit the impact
-kc705_ethernet_rgmii_axi_mux axi_mux_inst2(
-   .mux_select                (enable_adc_pkt),
+//kc705_ethernet_rgmii_axi_mux axi_mux_inst2(
+//   .mux_select                (enable_adc_pkt),
 
-   .tdata0                    (mux1_tdata),
-   .tvalid0                   (mux1_tvalid),
-   .tlast0                    (mux1_tlast),
-   .tready0                   (mux1_tready),
+//   .tdata0                    (mux1_tdata),
+//   .tvalid0                   (mux1_tvalid),
+//   .tlast0                    (mux1_tlast),
+//   .tready0                   (mux1_tready),
 
-   .tdata1                    (adc_pkt_tdata),
-   .tvalid1                   (adc_pkt_tvalid),
-   .tlast1                    (adc_pkt_tlast),
-   .tready1                   (adc_pkt_tready_int),
+//   .tdata1                    (adc_pkt_tdata),
+//   .tvalid1                   (adc_pkt_tvalid),
+//   .tlast1                    (adc_pkt_tlast),
+//   .tready1                   (adc_pkt_tready_int),
 
-   .tdata                     (mux2_tdata),
-   .tvalid                    (mux2_tvalid),
-   .tlast                     (mux2_tlast),
-   .tready                    (mux2_tready)
-);
+//   .tdata                     (mux2_tdata),
+//   .tvalid                    (mux2_tvalid),
+//   .tlast                     (mux2_tlast),
+//   .tready                    (mux2_tready)
+//);
 
 // a pipeline stage has been added to reduce timing issues and allow
 // a pattern generator to be muxed into the path
@@ -275,10 +295,10 @@ kc705_ethernet_rgmii_axi_pipe axi_pipe_inst (
    .axi_tclk                  (axi_tclk),
    .axi_tresetn               (axi_tresetn),
 
-   .rx_axis_fifo_tdata_in     (mux2_tdata),
-   .rx_axis_fifo_tvalid_in    (mux2_tvalid),
-   .rx_axis_fifo_tlast_in     (mux2_tlast),
-   .rx_axis_fifo_tready_in    (mux2_tready),
+   .rx_axis_fifo_tdata_in     (mux1_tdata),
+   .rx_axis_fifo_tvalid_in    (mux1_tvalid),
+   .rx_axis_fifo_tlast_in     (mux1_tlast),
+   .rx_axis_fifo_tready_in    (mux1_tready),
 
    .rx_axis_fifo_tdata_out    (rx_axis_tdata_int),
    .rx_axis_fifo_tvalid_out   (rx_axis_tvalid_int),

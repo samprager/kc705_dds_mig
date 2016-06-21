@@ -1,0 +1,1 @@
+--debug "typical" --relax -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "sim_tb_packetizer_behav" --prj "D:/UndergroundRadar/kc705_dds_mig/Packetizer/Packetizer.sim/sim_1/behav/sim_tb_packetizer.prj" "xil_defaultlib.sim_tb_packetizer" "xil_defaultlib.glbl" 
