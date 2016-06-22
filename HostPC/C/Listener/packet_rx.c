@@ -515,6 +515,7 @@ pthread_t *threads;
     usleep(1000000);
   }
   printf("read: %i/%i, written: %i \n",threadctrl[0][2],threadctrl[0][3],threadctrl[1][2]);
+
   threadctrl[0][0] = 1;
   err = pthread_join(threads[0],NULL);
   if(err != 0) {
@@ -528,6 +529,9 @@ pthread_t *threads;
       printf("\nError joining Write thread: %i\n",err);
       //return 1;
   }
+
+  // plot data with gnuplot
+  //system("gnuplot -p 'plotdata.gp'");
 
 
   return 0;
