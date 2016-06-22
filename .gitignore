@@ -110,3 +110,8 @@
 #.Xil directory
 #########
 *.Xil/*
+
+#########
+#Example Project directories
+#########
+./*_example/*
