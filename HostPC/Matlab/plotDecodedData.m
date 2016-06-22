@@ -1,7 +1,7 @@
-filenameC = '../outputs/single_chirpC.bin';
-filenameIQ = '../outputs/single_chirpIQ.bin';
-%filenameC = '../outputs/adc_chirpC.bin';
-%filenameIQ = '../outputs/adc_chirpIQ.bin';
+%filenameC = '../outputs/single_chirpC.bin';
+%filenameIQ = '../outputs/single_chirpIQ.bin';
+filenameC = '../outputs/adc_chirpC.bin';
+filenameIQ = '../outputs/adc_chirpIQ.bin';
 
 
 fileID_C = fopen(filenameC,'r');
@@ -30,8 +30,11 @@ end
 counter_jumps = [counter_jumps, numel(counter)];
 
 % Plot decoded counter
+front_delay = 203; back_delay = 95; % samples that can be discarded
+
 %chirpmin = 1; chirpmax = 5000; 
-chirpmin = counter_jumps(1); chirpmax = counter_jumps(2);
+%chirpmin = counter_jumps(3); chirpmax = counter_jumps(4);
+chirpmin = counter_jumps(3)+front_delay; chirpmax = counter_jumps(4)-back_delay;
 
 figure; 
 subplot(3,1,1); hold on; 

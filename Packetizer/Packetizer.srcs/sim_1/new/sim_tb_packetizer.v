@@ -110,6 +110,10 @@ wire                                adc_axis_tuser;
       repeat(256) @(posedge axi_tclk_i);
       tx_axis_tready_reg = 1'b1;        
       repeat(2048) @(posedge axi_tclk_i);
+      tx_axis_tready_reg = 1'b0;        
+      repeat(2048) @(posedge axi_tclk_i);
+      tx_axis_tready_reg = 1'b1;        
+      repeat(2048) @(posedge axi_tclk_i);
       $finish;
     end     
  
@@ -133,6 +137,8 @@ end
  initial begin
      adc_axis_tvalid_select = 1'b0; // initial value
      @(posedge axi_tresetn_i); // wait for reset
+     adc_axis_tvalid_select = 1'b0;
+     repeat(300) @(posedge axi_tclk_i);
      adc_axis_tvalid_select = 1'b1;
      repeat(150) @(posedge axi_tclk_i);
      adc_axis_tvalid_select = 1'b0;
@@ -151,7 +157,11 @@ end
      repeat(1) @(posedge axi_tclk_i);
      adc_axis_tvalid_select = 1'b0; 
      repeat(20) @(posedge axi_tclk_i);
-     adc_axis_tvalid_select = 1'b1;        
+     adc_axis_tvalid_select = 1'b1;     
+     repeat(1000) @(posedge axi_tclk_i);
+     adc_axis_tvalid_select = 1'b0; 
+     repeat(2000) @(posedge axi_tclk_i);
+     adc_axis_tvalid_select = 1'b1;     
    end         
    
 initial begin
