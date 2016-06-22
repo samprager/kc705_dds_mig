@@ -115,3 +115,9 @@
 #Example Project directories
 #########
 ./*_example/*
+
+
+#########
+#Temp runs/.jobs/ xml files
+#########
+*.runs/.jobs/*
