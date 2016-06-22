@@ -85,7 +85,7 @@ reg                        tvalid_int;
 reg                        adc_axis_tvalid_reg;
 reg                        adc_axis_tlast_reg;
 reg     [7:0]               adc_axis_tdata_reg;
-//reg                        adc_axis_tuser_reg;
+reg                        adc_axis_tuser_reg;
 
 reg                       adc_axis_tready_int;
 wire                      adc_axis_tready_sig;
@@ -105,12 +105,21 @@ assign axi_treset = !axi_tresetn;
 // Write interface
 always @(posedge axi_tclk)
 begin
+   if (axi_treset) begin
+   adc_axis_tvalid_reg <= 1'b0;
+   adc_axis_tlast_reg <= 1'b0;
+   adc_axis_tdata_reg <= 7'b0;
+   adc_axis_tuser_reg <= 1'b0;
+   
+   tready_reg <= 1'b0;
+   end else begin
    adc_axis_tvalid_reg <= adc_axis_tvalid;
    adc_axis_tlast_reg <= adc_axis_tlast;
    adc_axis_tdata_reg[7:0] <= adc_axis_tdata[7:0];
- //  adc_axis_tuser_reg <= adc_axis_tuser;
+   adc_axis_tuser_reg <= adc_axis_tuser;
   
    tready_reg <= tready;
+   end
 end
 
 assign adc_axis_tready  = adc_axis_tready_int;
@@ -211,18 +220,18 @@ generate
                     VLAN_HEADER[i+8],
                     VLAN_HEADER[i+16],
                     VLAN_HEADER[i+24],
-                    DEST_ADDR[i],
-                    DEST_ADDR[i+8],
-                    DEST_ADDR[i+16],
-                    DEST_ADDR[i+24],
-                    DEST_ADDR[i+32],
-                    DEST_ADDR[i+40],
                     SRC_ADDR[i],
                     SRC_ADDR[i+8],
                     SRC_ADDR[i+16],
                     SRC_ADDR[i+24],
                     SRC_ADDR[i+32],
-                    SRC_ADDR[i+40]
+                    SRC_ADDR[i+40],
+                    DEST_ADDR[i],
+                    DEST_ADDR[i+8],
+                    DEST_ADDR[i+16],
+                    DEST_ADDR[i+24],
+                    DEST_ADDR[i+32],
+                    DEST_ADDR[i+40]
                    })   // Specify LUT Contents
     ) LUT6_inst (
        .O         (lut_data[i]),

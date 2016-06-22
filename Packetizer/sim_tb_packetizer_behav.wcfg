@@ -3,14 +3,14 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="sim_tb_packetizer_behav.wdb" id="1">
+      <db_ref path="sim_tb_packetizer_behav1.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="sim_tb_packetizer" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="71" />
+   <WVObjectSize size="15" />
    <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/axi_tresetn_i" type="logic">
       <obj_property name="ElementShortName">axi_tresetn_i</obj_property>
       <obj_property name="ObjectShortName">axi_tresetn_i</obj_property>
@@ -27,284 +27,241 @@
       <obj_property name="ElementShortName">axi_tresetn</obj_property>
       <obj_property name="ObjectShortName">axi_tresetn</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tdata_reg" type="array">
-      <obj_property name="ElementShortName">adc_axis_tdata_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tdata_reg[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject fp_name="group228" type="group">
+      <obj_property name="label">adc_axis</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tdata" type="array">
+         <obj_property name="ElementShortName">adc_axis_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">adc_axis_tdata[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">adc_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">adc_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">adc_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">adc_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tuser" type="logic">
+         <obj_property name="ElementShortName">adc_axis_tuser</obj_property>
+         <obj_property name="ObjectShortName">adc_axis_tuser</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tready" type="logic">
+         <obj_property name="ElementShortName">adc_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">adc_axis_tready</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tvalid_reg" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tvalid_reg</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tvalid_reg</obj_property>
+   <wvobject fp_name="group227" type="group">
+      <obj_property name="label">tx_axis</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tx_axis_tdata" type="array">
+         <obj_property name="ElementShortName">tx_axis_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_tdata[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tx_axis_tready" type="logic">
+         <obj_property name="ElementShortName">tx_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_tready</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tx_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">tx_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tx_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">tx_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_tlast</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tvalid_select" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tvalid_select</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tvalid_select</obj_property>
+   <wvobject fp_name="group226" type="group">
+      <obj_property name="label">rx_axis</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/rx_axis_tdata" type="array">
+         <obj_property name="ElementShortName">rx_axis_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_tdata[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/rx_axis_tvalid" type="logic">
+         <obj_property name="ElementShortName">rx_axis_tvalid</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/rx_axis_tlast" type="logic">
+         <obj_property name="ElementShortName">rx_axis_tlast</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_tlast</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/rx_axis_tuser" type="logic">
+         <obj_property name="ElementShortName">rx_axis_tuser</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_tuser</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/rx_axis_tready" type="logic">
+         <obj_property name="ElementShortName">rx_axis_tready</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_tready</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tlast_reg" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tlast_reg</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tlast_reg</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tuser_reg" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tuser_reg</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tuser_reg</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tdata" type="array">
-      <obj_property name="ElementShortName">adc_axis_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tdata[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tvalid" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tvalid</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tlast" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tlast</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tlast</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tuser" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tuser</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tuser</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/adc_axis_tready" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tready</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tdata" type="array">
-      <obj_property name="ElementShortName">tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">tdata[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tvalid" type="logic">
-      <obj_property name="ElementShortName">tvalid</obj_property>
-      <obj_property name="ObjectShortName">tvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tlast" type="logic">
-      <obj_property name="ElementShortName">tlast</obj_property>
-      <obj_property name="ObjectShortName">tlast</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tready" type="logic">
-      <obj_property name="ElementShortName">tready</obj_property>
-      <obj_property name="ObjectShortName">tready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/tready_reg" type="logic">
-      <obj_property name="ElementShortName">tready_reg</obj_property>
-      <obj_property name="ObjectShortName">tready_reg</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/AXI_TCLK_PERIOD" type="array">
-      <obj_property name="ElementShortName">AXI_TCLK_PERIOD[31:0]</obj_property>
-      <obj_property name="ObjectShortName">AXI_TCLK_PERIOD[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/RESET_PERIOD" type="array">
-      <obj_property name="ElementShortName">RESET_PERIOD[31:0]</obj_property>
-      <obj_property name="ObjectShortName">RESET_PERIOD[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_tclk" type="logic">
-      <obj_property name="ElementShortName">axi_tclk</obj_property>
-      <obj_property name="ObjectShortName">axi_tclk</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_tresetn" type="logic">
-      <obj_property name="ElementShortName">axi_tresetn</obj_property>
-      <obj_property name="ObjectShortName">axi_tresetn</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/enable_adc_pkt" type="logic">
-      <obj_property name="ElementShortName">enable_adc_pkt</obj_property>
-      <obj_property name="ObjectShortName">enable_adc_pkt</obj_property>
+   <wvobject fp_name="group230" type="group">
+      <obj_property name="label">sim_params</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/AXI_TCLK_PERIOD" type="array">
+         <obj_property name="ElementShortName">AXI_TCLK_PERIOD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">AXI_TCLK_PERIOD[31:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/RESET_PERIOD" type="array">
+         <obj_property name="ElementShortName">RESET_PERIOD[31:0]</obj_property>
+         <obj_property name="ObjectShortName">RESET_PERIOD[31:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/speed" type="array">
       <obj_property name="ElementShortName">speed[1:0]</obj_property>
       <obj_property name="ObjectShortName">speed[1:0]</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tdata" type="array">
-      <obj_property name="ElementShortName">adc_axis_tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tdata[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+   <wvobject fp_name="group229" type="group">
+      <obj_property name="label">in_params</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/DEST_ADDR" type="array">
+         <obj_property name="ElementShortName">DEST_ADDR[47:0]</obj_property>
+         <obj_property name="ObjectShortName">DEST_ADDR[47:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/SRC_ADDR" type="array">
+         <obj_property name="ElementShortName">SRC_ADDR[47:0]</obj_property>
+         <obj_property name="ObjectShortName">SRC_ADDR[47:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/MAX_SIZE" type="array">
+         <obj_property name="ElementShortName">MAX_SIZE[15:0]</obj_property>
+         <obj_property name="ObjectShortName">MAX_SIZE[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/MIN_SIZE" type="array">
+         <obj_property name="ElementShortName">MIN_SIZE[15:0]</obj_property>
+         <obj_property name="ObjectShortName">MIN_SIZE[15:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/ENABLE_VLAN" type="logic">
+         <obj_property name="ElementShortName">ENABLE_VLAN</obj_property>
+         <obj_property name="ObjectShortName">ENABLE_VLAN</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/VLAN_ID" type="array">
+         <obj_property name="ElementShortName">VLAN_ID[11:0]</obj_property>
+         <obj_property name="ObjectShortName">VLAN_ID[11:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/VLAN_PRIORITY" type="array">
+         <obj_property name="ElementShortName">VLAN_PRIORITY[2:0]</obj_property>
+         <obj_property name="ObjectShortName">VLAN_PRIORITY[2:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tvalid" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tvalid</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tvalid</obj_property>
+   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/enable_adc_pkt" type="logic">
+      <obj_property name="ElementShortName">enable_adc_pkt</obj_property>
+      <obj_property name="ObjectShortName">enable_adc_pkt</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tlast" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tlast</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tlast</obj_property>
+   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/frame_error" type="logic">
+      <obj_property name="ElementShortName">frame_error</obj_property>
+      <obj_property name="ObjectShortName">frame_error</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tuser" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tuser</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tuser</obj_property>
+   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/activity_flash" type="logic">
+      <obj_property name="ElementShortName">activity_flash</obj_property>
+      <obj_property name="ObjectShortName">activity_flash</obj_property>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tready" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tready</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tready</obj_property>
+   <wvobject fp_name="group244" type="group">
+      <obj_property name="label">mux_axis</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/mux_select" type="logic">
+         <obj_property name="ElementShortName">mux_select</obj_property>
+         <obj_property name="ObjectShortName">mux_select</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tdata0" type="array">
+         <obj_property name="ElementShortName">tdata0[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tdata0[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tvalid0" type="logic">
+         <obj_property name="ElementShortName">tvalid0</obj_property>
+         <obj_property name="ObjectShortName">tvalid0</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tlast0" type="logic">
+         <obj_property name="ElementShortName">tlast0</obj_property>
+         <obj_property name="ObjectShortName">tlast0</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tready0" type="logic">
+         <obj_property name="ElementShortName">tready0</obj_property>
+         <obj_property name="ObjectShortName">tready0</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tdata1" type="array">
+         <obj_property name="ElementShortName">tdata1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tdata1[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tvalid1" type="logic">
+         <obj_property name="ElementShortName">tvalid1</obj_property>
+         <obj_property name="ObjectShortName">tvalid1</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tlast1" type="logic">
+         <obj_property name="ElementShortName">tlast1</obj_property>
+         <obj_property name="ObjectShortName">tlast1</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tready1" type="logic">
+         <obj_property name="ElementShortName">tready1</obj_property>
+         <obj_property name="ObjectShortName">tready1</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tdata" type="array">
+         <obj_property name="ElementShortName">tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tdata[7:0]</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tvalid" type="logic">
+         <obj_property name="ElementShortName">tvalid</obj_property>
+         <obj_property name="ObjectShortName">tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tlast" type="logic">
+         <obj_property name="ElementShortName">tlast</obj_property>
+         <obj_property name="ObjectShortName">tlast</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_mux_inst1/tready" type="logic">
+         <obj_property name="ElementShortName">tready</obj_property>
+         <obj_property name="ObjectShortName">tready</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/tdata" type="array">
-      <obj_property name="ElementShortName">tdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">tdata[7:0]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/tvalid" type="logic">
-      <obj_property name="ElementShortName">tvalid</obj_property>
-      <obj_property name="ObjectShortName">tvalid</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/tlast" type="logic">
-      <obj_property name="ElementShortName">tlast</obj_property>
-      <obj_property name="ObjectShortName">tlast</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/tready" type="logic">
-      <obj_property name="ElementShortName">tready</obj_property>
-      <obj_property name="ObjectShortName">tready</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/byte_count" type="array">
-      <obj_property name="ElementShortName">byte_count[11:0]</obj_property>
-      <obj_property name="ObjectShortName">byte_count[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/header_count" type="array">
-      <obj_property name="ElementShortName">header_count[3:0]</obj_property>
-      <obj_property name="ObjectShortName">header_count[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/overhead_count" type="array">
-      <obj_property name="ElementShortName">overhead_count[4:0]</obj_property>
-      <obj_property name="ObjectShortName">overhead_count[4:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/pkt_size" type="array">
-      <obj_property name="ElementShortName">pkt_size[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pkt_size[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/next_gen_state" type="array">
-      <obj_property name="ElementShortName">next_gen_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">next_gen_state[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/gen_state" type="array">
-      <obj_property name="ElementShortName">gen_state[2:0]</obj_property>
-      <obj_property name="ObjectShortName">gen_state[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/lut_data" type="array">
-      <obj_property name="ElementShortName">lut_data[7:0]</obj_property>
-      <obj_property name="ObjectShortName">lut_data[7:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/tvalid_int" type="logic">
-      <obj_property name="ElementShortName">tvalid_int</obj_property>
-      <obj_property name="ObjectShortName">tvalid_int</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tvalid_reg" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tvalid_reg</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tvalid_reg</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tlast_reg" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tlast_reg</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tlast_reg</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tdata_reg" type="array">
-      <obj_property name="ElementShortName">adc_axis_tdata_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tdata_reg[7:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tready_int" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tready_int</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tready_int</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/adc_axis_tready_sig" type="logic">
-      <obj_property name="ElementShortName">adc_axis_tready_sig</obj_property>
-      <obj_property name="ObjectShortName">adc_axis_tready_sig</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/basic_rc_counter" type="array">
-      <obj_property name="ElementShortName">basic_rc_counter[7:0]</obj_property>
-      <obj_property name="ObjectShortName">basic_rc_counter[7:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/add_credit" type="logic">
-      <obj_property name="ElementShortName">add_credit</obj_property>
-      <obj_property name="ObjectShortName">add_credit</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/credit_count" type="array">
-      <obj_property name="ElementShortName">credit_count[12:0]</obj_property>
-      <obj_property name="ObjectShortName">credit_count[12:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/align_count" type="array">
-      <obj_property name="ElementShortName">align_count[3:0]</obj_property>
-      <obj_property name="ObjectShortName">align_count[3:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/packet_count" type="array">
-      <obj_property name="ElementShortName">packet_count[15:0]</obj_property>
-      <obj_property name="ObjectShortName">packet_count[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/axi_treset" type="logic">
-      <obj_property name="ElementShortName">axi_treset</obj_property>
-      <obj_property name="ObjectShortName">axi_treset</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/DEST_ADDR" type="array">
-      <obj_property name="ElementShortName">DEST_ADDR[47:0]</obj_property>
-      <obj_property name="ObjectShortName">DEST_ADDR[47:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/SRC_ADDR" type="array">
-      <obj_property name="ElementShortName">SRC_ADDR[47:0]</obj_property>
-      <obj_property name="ObjectShortName">SRC_ADDR[47:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/MAX_SIZE" type="array">
-      <obj_property name="ElementShortName">MAX_SIZE[15:0]</obj_property>
-      <obj_property name="ObjectShortName">MAX_SIZE[15:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/MIN_SIZE" type="array">
-      <obj_property name="ElementShortName">MIN_SIZE[15:0]</obj_property>
-      <obj_property name="ObjectShortName">MIN_SIZE[15:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/ENABLE_VLAN" type="logic">
-      <obj_property name="ElementShortName">ENABLE_VLAN</obj_property>
-      <obj_property name="ObjectShortName">ENABLE_VLAN</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/VLAN_ID" type="array">
-      <obj_property name="ElementShortName">VLAN_ID[11:0]</obj_property>
-      <obj_property name="ObjectShortName">VLAN_ID[11:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/VLAN_PRIORITY" type="array">
-      <obj_property name="ElementShortName">VLAN_PRIORITY[2:0]</obj_property>
-      <obj_property name="ObjectShortName">VLAN_PRIORITY[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/IDLE" type="array">
-      <obj_property name="ElementShortName">IDLE[2:0]</obj_property>
-      <obj_property name="ObjectShortName">IDLE[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/HEADER" type="array">
-      <obj_property name="ElementShortName">HEADER[2:0]</obj_property>
-      <obj_property name="ObjectShortName">HEADER[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/SIZE" type="array">
-      <obj_property name="ElementShortName">SIZE[2:0]</obj_property>
-      <obj_property name="ObjectShortName">SIZE[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/DATA" type="array">
-      <obj_property name="ElementShortName">DATA[2:0]</obj_property>
-      <obj_property name="ObjectShortName">DATA[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/OVERHEAD" type="array">
-      <obj_property name="ElementShortName">OVERHEAD[2:0]</obj_property>
-      <obj_property name="ObjectShortName">OVERHEAD[2:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/PKT_ADJUST" type="array">
-      <obj_property name="ElementShortName">PKT_ADJUST[31:0]</obj_property>
-      <obj_property name="ObjectShortName">PKT_ADJUST[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/VLAN_HEADER" type="array">
-      <obj_property name="ElementShortName">VLAN_HEADER[31:0]</obj_property>
-      <obj_property name="ObjectShortName">VLAN_HEADER[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/HEADER_LENGTH" type="array">
-      <obj_property name="ElementShortName">HEADER_LENGTH[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HEADER_LENGTH[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/BW_1G" type="array">
-      <obj_property name="ElementShortName">BW_1G[31:0]</obj_property>
-      <obj_property name="ObjectShortName">BW_1G[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/BW_100M" type="array">
-      <obj_property name="ElementShortName">BW_100M[31:0]</obj_property>
-      <obj_property name="ObjectShortName">BW_100M[31:0]</obj_property>
-   </wvobject>
-   <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/BW_10M" type="array">
-      <obj_property name="ElementShortName">BW_10M[31:0]</obj_property>
-      <obj_property name="ObjectShortName">BW_10M[31:0]</obj_property>
+   <wvobject fp_name="group256" type="group">
+      <obj_property name="label">addswap_axis</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tdata" type="array">
+         <obj_property name="ElementShortName">rx_axis_fifo_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tdata[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tvalid" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tvalid</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tlast" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tlast</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tlast</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tready" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tready</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tready</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/tx_axis_fifo_tdata" type="array">
+         <obj_property name="ElementShortName">tx_axis_fifo_tdata[7:0]</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_fifo_tdata[7:0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/tx_axis_fifo_tvalid" type="logic">
+         <obj_property name="ElementShortName">tx_axis_fifo_tvalid</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_fifo_tvalid</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/tx_axis_fifo_tlast" type="logic">
+         <obj_property name="ElementShortName">tx_axis_fifo_tlast</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_fifo_tlast</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/tx_axis_fifo_tready" type="logic">
+         <obj_property name="ElementShortName">tx_axis_fifo_tready</obj_property>
+         <obj_property name="ObjectShortName">tx_axis_fifo_tready</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tvalid_reg" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tvalid_reg</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tvalid_reg</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tlast_reg" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tlast_reg</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tlast_reg</obj_property>
+      </wvobject>
+      <wvobject db_ref_id="1" fp_name="/sim_tb_packetizer/u_packetizer_top/address_swap_inst/rx_axis_fifo_tready_int" type="logic">
+         <obj_property name="ElementShortName">rx_axis_fifo_tready_int</obj_property>
+         <obj_property name="ObjectShortName">rx_axis_fifo_tready_int</obj_property>
+      </wvobject>
    </wvobject>
 </wave_config>
