@@ -3,17 +3,17 @@
     <DashboardHolder activeDashboard="ILA">
         <Dashboard columnResizable="1" key="ILA" rowResizable="0" title="ILA">
             <Settings/>
-            <GadgetContainer boxAxis="1" count="2" height="678"
-                layout="JideBoxLayout" vgap="6" width="182">
-                <Gadget height="56" key="Trigger Capture Status" width="182">
+            <GadgetContainer boxAxis="1" count="2" height="654"
+                layout="JideBoxLayout" vgap="6" width="89">
+                <Gadget height="56" key="Trigger Capture Status" width="89">
                     <Ila capture_condition="AND" capture_mode="ALWAYS"
                         data_depth="1024" trigger_condition="AND"
                         trigger_mode="BASIC_ONLY" trigger_position="0"
                         trigout_mode="DISABLED" tsm_file="" window_count="1"/>
                 </Gadget>
-                <Gadget height="164" key="Basic Trigger Setup" width="182">
-                    <Probe name="ethernet_rgmii_wrapper/basic_pat_gen_inst/adc_axis_tready_ila"/>
-                    <Probe name="ethernet_rgmii_wrapper/basic_pat_gen_inst/adc_axis_tvalid_ila"/>
+                <Gadget height="164" key="Basic Trigger Setup" width="89">
+                    <Probe name="ethernet_rgmii_wrapper/basic_pat_gen_inst/tx_axis_tready_int"/>
+                    <Probe name="ethernet_rgmii_wrapper/basic_pat_gen_inst/tx_axis_tvalid_int"/>
                 </Gadget>
                 <Settings/>
             </GadgetContainer>
