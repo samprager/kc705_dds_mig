@@ -353,10 +353,11 @@ begin
    end
    else begin
    //   if (gen_state == SIZE & header_count == 0)
-     if (gen_state == SIZE & align_count == 0)
-         adc_axis_tready_int <= tready;
-      else if (gen_state == DATA & next_gen_state == DATA)
-         adc_axis_tready_int <= tready;
+//     if (gen_state == SIZE & align_count == 0)
+//         adc_axis_tready_int <= tready;
+//      else if (gen_state == DATA & next_gen_state == DATA)
+    if (next_gen_state == DATA & tready)
+         adc_axis_tready_int <= 1;
       else
          adc_axis_tready_int <= 0;
    end
@@ -372,6 +373,8 @@ begin
    //else if (gen_state == DATA & !adc_axis_tvalid_reg)
    else if (gen_state == DATA & !adc_axis_tvalid)
       tvalid_int <= 0;
+   else if (gen_state == SIZE & align_count == 0 & !adc_axis_tvalid)
+      tvalid_int <= 0;     
    else if (gen_state != IDLE & gen_state != OVERHEAD)
       tvalid_int <= 1;
    else if (tready)
@@ -395,7 +398,7 @@ begin
    end
   // else if (tready & adc_axis_tvalid)
   //    tdata <= adc_axis_tdata[7:0];
-    else if (tready_reg & adc_axis_tvalid_reg)
+    else if (tready & adc_axis_tvalid_reg)
       tdata <= adc_axis_tdata[7:0];
 end
 

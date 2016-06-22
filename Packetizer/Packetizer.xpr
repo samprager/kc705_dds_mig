@@ -111,6 +111,7 @@
         <Option Name="XSimWcfgFile" Val="$PPRDIR/sim_tb_packetizer_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/sim_tb_packetizer_behav.wcfg"/>
         <Option Name="XSimWcfgFile" Val="$PPRDIR/sim_tb_packetizer_behav.wcfg"/>
+        <Option Name="XSimWcfgFile" Val="$PPRDIR/sim_tb_packetizer_behav.wcfg"/>
       </Config>
     </FileSet>
   </FileSets>
