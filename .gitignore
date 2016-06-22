@@ -110,3 +110,14 @@
 #.Xil directory
 #########
 *.Xil/*
+
+#########
+#Example Project directories
+#########
+*_example/*
+
+
+#########
+#Temp runs/.jobs/ xml files
+#########
+*.runs/.jobs/*
