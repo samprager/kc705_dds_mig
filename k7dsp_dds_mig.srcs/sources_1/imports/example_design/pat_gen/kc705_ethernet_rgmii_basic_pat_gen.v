@@ -113,6 +113,11 @@ wire                 rx_axis_tvalid_int;
 wire                 rx_axis_tlast_int;
 wire                 rx_axis_tready_int;
 
+wire     [7:0]       tx_axis_tdata_int;
+wire                 tx_axis_tvalid_int;
+wire                 tx_axis_tlast_int;
+wire                 tx_axis_tready_int;
+
 wire     [7:0]       pat_gen_tdata;
 wire                 pat_gen_tvalid;
 wire                 pat_gen_tlast;
@@ -140,10 +145,26 @@ wire                 tx_axis_as_tvalid;
 wire                 tx_axis_as_tlast;
 wire                 tx_axis_as_tready;
 
-   assign tx_axis_tdata = tx_axis_as_tdata;
-   assign tx_axis_tvalid = tx_axis_as_tvalid;
-   assign tx_axis_tlast = tx_axis_as_tlast;
-   assign tx_axis_as_tready = tx_axis_tready;
+wire       [7:0]                    adc_axis_tdata_ila;
+wire                                adc_axis_tvalid_ila;
+wire                                adc_axis_tlast_ila;
+wire                                adc_axis_tuser_ila;
+wire                               adc_axis_tready_ila;
+
+wire     [7:0]       adc_pkt_tdata_ila;
+wire                 adc_pkt_tvalid_ila;
+wire                 adc_pkt_tlast_ila;
+wire                 adc_pkt_tready_ila;
+
+//   assign tx_axis_tdata = tx_axis_as_tdata;
+//   assign tx_axis_tvalid = tx_axis_as_tvalid;
+//   assign tx_axis_tlast = tx_axis_as_tlast;
+//   assign tx_axis_as_tready = tx_axis_tready;
+   assign tx_axis_tdata = tx_axis_tdata_int;
+   assign tx_axis_tvalid = tx_axis_tvalid_int;
+   assign tx_axis_tlast = tx_axis_tlast_int;
+   assign tx_axis_tready_int = tx_axis_tready;
+
    assign pat_gen_tready = pat_gen_tready_int;
 
    assign adc_pkt_tready = adc_pkt_tready_int;
@@ -178,17 +199,43 @@ kc705_ethernet_rgmii_axi_packetizer #(
 
 packetizer_ila packetizer_ila_inst (
     .clk  (axi_tclk),
-    .probe1 (adc_axis_tdata),
-    .probe2          (adc_axis_tvalid),
-    .probe3           (adc_axis_tlast),
-    .probe4           (adc_axis_tuser),
-    .probe5          (adc_axis_tready),
+    .probe0         (adc_axis_tdata_ila),
+    .probe1          (adc_axis_tvalid_ila),
+    .probe2           (adc_axis_tlast_ila),
+    .probe3           (adc_axis_tuser_ila),
+    .probe4          (adc_axis_tready_ila),
 
-   .probe6                     (adc_pkt_tdata),
-   .probe7                    (adc_pkt_tvalid),
-   .probe8                     (adc_pkt_tlast),
-   .probe9                    (adc_pkt_tready)
+   .probe5                     (adc_pkt_tdata_ila),
+   .probe6                    (adc_pkt_tvalid_ila),
+   .probe7                     (adc_pkt_tlast_ila),
+   .probe8                    (adc_pkt_tready_ila),
+   
+    .probe9         (tx_axis_tdata_int),
+     .probe10       (tx_axis_tvalid_int),
+     .probe11        (tx_axis_tlast_int),
+     .probe12       (tx_axis_tready_int),
+     
+       .probe13         (mux1_tdata),
+      .probe14       (mux1_tvalid),
+      .probe15        (mux1_tlast),
+      .probe16       (mux1_tready),
+      
+     .probe17         (rx_axis_tdata),
+     .probe18       (rx_axis_tvalid),
+     .probe19        (rx_axis_tlast),
+     .probe20       (rx_axis_tready)
 );
+
+assign  adc_axis_tdata_ila = adc_axis_tdata;
+assign  adc_axis_tvalid_ila = adc_axis_tvalid;
+assign  adc_axis_tlast_ila = adc_axis_tlast;
+assign  adc_axis_tuser_ila =adc_axis_tuser;
+assign  adc_axis_tready_ila = adc_axis_tready;
+
+assign  adc_pkt_tdata_ila = adc_pkt_tdata;
+assign  adc_pkt_tvalid_ila = adc_pkt_tvalid;
+assign  adc_pkt_tlast_ila = adc_pkt_tlast;
+assign  adc_pkt_tready_ila = adc_pkt_tready;
 
 // basic packet generator - this has parametisable
 // DA and SA fields but the LT and data will be auto-generated
@@ -248,16 +295,20 @@ kc705_ethernet_rgmii_axi_mux axi_mux_inst1(
     .mux_select                (enable_adc_pkt),
 
 
-   .tdata0                    (rx_axis_tdata),
-   .tvalid0                   (rx_axis_tvalid),
-   .tlast0                    (rx_axis_tlast),
-   .tready0                   (rx_axis_tready),
+//   .tdata0                    (rx_axis_tdata),
+//   .tvalid0                   (rx_axis_tvalid),
+//   .tlast0                    (rx_axis_tlast),
+//   .tready0                   (rx_axis_tready),
+    .tdata0                    (tx_axis_as_tdata),
+    .tvalid0                   (tx_axis_as_tvalid),
+    .tlast0                    (tx_axis_as_tlast),
+    .tready0                   (tx_axis_as_tready),
 
 //   .tdata1                    (pat_gen_tdata),
 //   .tvalid1                   (pat_gen_tvalid),
 //   .tlast1                    (pat_gen_tlast),
 //   .tready1                   (pat_gen_tready_int),\
-   .tdata1                    (adc_pkt_tdata),
+   .tdata1                     (adc_pkt_tdata),
     .tvalid1                   (adc_pkt_tvalid),
     .tlast1                    (adc_pkt_tlast),
     .tready1                   (adc_pkt_tready_int),    
@@ -300,10 +351,14 @@ kc705_ethernet_rgmii_axi_pipe axi_pipe_inst (
    .rx_axis_fifo_tlast_in     (mux1_tlast),
    .rx_axis_fifo_tready_in    (mux1_tready),
 
-   .rx_axis_fifo_tdata_out    (rx_axis_tdata_int),
-   .rx_axis_fifo_tvalid_out   (rx_axis_tvalid_int),
-   .rx_axis_fifo_tlast_out    (rx_axis_tlast_int),
-   .rx_axis_fifo_tready_out   (rx_axis_tready_int)
+//   .rx_axis_fifo_tdata_out    (rx_axis_tdata_int),
+//   .rx_axis_fifo_tvalid_out   (rx_axis_tvalid_int),
+//   .rx_axis_fifo_tlast_out    (rx_axis_tlast_int),
+//   .rx_axis_fifo_tready_out   (rx_axis_tready_int)
+   .rx_axis_fifo_tdata_out    (tx_axis_tdata_int),
+   .rx_axis_fifo_tvalid_out   (tx_axis_tvalid_int),
+   .rx_axis_fifo_tlast_out    (tx_axis_tlast_int),
+   .rx_axis_fifo_tready_out   (tx_axis_tready_int)
 
 );
 
@@ -316,10 +371,14 @@ kc705_ethernet_rgmii_address_swap address_swap_inst (
 
    .enable_address_swap       (enable_address_swap),
 
-   .rx_axis_fifo_tdata        (rx_axis_tdata_int),
-   .rx_axis_fifo_tvalid       (rx_axis_tvalid_int),
-   .rx_axis_fifo_tlast        (rx_axis_tlast_int),
-   .rx_axis_fifo_tready       (rx_axis_tready_int),
+//   .rx_axis_fifo_tdata        (rx_axis_tdata_int),
+//   .rx_axis_fifo_tvalid       (rx_axis_tvalid_int),
+//   .rx_axis_fifo_tlast        (rx_axis_tlast_int),
+//   .rx_axis_fifo_tready       (rx_axis_tready_int),
+   .rx_axis_fifo_tdata        (rx_axis_tdata),
+   .rx_axis_fifo_tvalid       (rx_axis_tvalid),
+   .rx_axis_fifo_tlast        (rx_axis_tlast),
+   .rx_axis_fifo_tready       (rx_axis_tready),
 
    .tx_axis_fifo_tdata        (tx_axis_as_tdata),
    .tx_axis_fifo_tvalid       (tx_axis_as_tvalid),

@@ -286,7 +286,7 @@ module kc705_ethernet_rgmii_example_design
    wire                 s_axi_rready;
 
    // set board defaults - only updated when reprogrammed
-   reg                  enable_address_swap = 1;
+   reg                  enable_address_swap = 0;
    reg                  enable_phy_loopback = 0;
 
    // signal tie offs
