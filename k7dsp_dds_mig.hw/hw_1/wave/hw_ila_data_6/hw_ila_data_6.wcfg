@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<wave_config>
+	<wave_state>
+	</wave_state>
+	<db_ref_list>
+		<db_ref path="D:/UndergroundRadar/kc705_dds_mig/k7dsp_dds_mig.hw/hw_1/wave/hw_ila_data_6/hw_ila_data_6.wdb" id="1" type="auto">
+			<top_modules>
+				<top_module name="top">
+				</top_module>
+			</top_modules>
+		</db_ref>
+	</db_ref_list>
+	<WVObjectSize size="9">
+	</WVObjectSize>
+	<wvobject fp_name="adc_pkt_axis_tdata" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tdata[7:0]</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tdata[7:0]</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tvalid" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tvalid</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tvalid</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tready" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tready</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tready</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tlast" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tlast</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tlast</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tuser" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tuser</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tuser</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tstrb" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tstrb</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tstrb</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tkeep" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tkeep</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tkeep</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tid" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tid</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tid</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+	<wvobject fp_name="adc_pkt_axis_tdest" type="logic" db_ref_id="1">
+		<obj_property name="ElementShortName">adc_pkt_axis_tdest</obj_property>
+		<obj_property name="ObjectShortName">adc_pkt_axis_tdest</obj_property>
+		<obj_property name="Radix">HEXRADIX</obj_property>
+	</wvobject>
+</wave_config>
+
